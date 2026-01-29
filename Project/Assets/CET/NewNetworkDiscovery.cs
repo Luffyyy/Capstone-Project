@@ -1,3 +1,4 @@
+using System;
 using System.Net;
 using Mirror;
 using Mirror.Discovery;
@@ -15,8 +16,20 @@ public struct DiscoveryRequest : NetworkMessage
 
 public struct DiscoveryResponse : NetworkMessage
 {
+    // The server that sent this
+    // this is a property so that it is not serialized,  but the
+    // client fills this up after we receive it
+    public IPEndPoint EndPoint { get; set; }
+
+    public Uri uri;
+
+    // Prevent duplicate server appearance when a connection can be made via LAN on multiple NICs
+    public long serverId;
+
     // Add public fields (not properties) for whatever information you want the server
     // to return to clients for them to display or use for establishing a connection.
+
+    public string Name;
 }
 
 public class NewNetworkDiscovery : NetworkDiscoveryBase<DiscoveryRequest, DiscoveryResponse>
@@ -65,7 +78,12 @@ public class NewNetworkDiscovery : NetworkDiscoveryBase<DiscoveryRequest, Discov
     /// <returns>A message containing information about this server</returns>
     protected override DiscoveryResponse ProcessRequest(DiscoveryRequest request, IPEndPoint endpoint) 
     {
-        return new DiscoveryResponse();
+        return new DiscoveryResponse
+        {
+            uri = transport.ServerUri(),
+            serverId = ServerId,
+            Name = MenuManager.Instance.ServerNameStr
+        };
     }
 
     #endregion
@@ -93,7 +111,23 @@ public class NewNetworkDiscovery : NetworkDiscoveryBase<DiscoveryRequest, Discov
     /// </remarks>
     /// <param name="response">Response that came from the server</param>
     /// <param name="endpoint">Address of the server that replied</param>
-    protected override void ProcessResponse(DiscoveryResponse response, IPEndPoint endpoint) { }
+    protected override void ProcessResponse(DiscoveryResponse response, IPEndPoint endpoint)
+    {
+        // we received a message from the remote endpoint
+        response.EndPoint = endpoint;
+
+        // although we got a supposedly valid url, we may not be able to resolve
+        // the provided host
+        // However we know the real ip address of the server because we just
+        // received a packet from it,  so use that as host.
+        UriBuilder realUri = new UriBuilder(response.uri)
+        {
+            Host = response.EndPoint.Address.ToString()
+        };
+        response.uri = realUri.Uri;
+
+        OnServerFound.Invoke(response);
+    }
 
     #endregion
 }
