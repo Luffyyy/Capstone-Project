@@ -30,7 +30,10 @@ public class MenuManager : MonoBehaviour
 
     public void Start()
     {
-        networkDiscovery.OnServerFound.AddListener(OnDiscoveredServer);
+        if (networkDiscovery != null)
+        {
+            networkDiscovery.OnServerFound.AddListener(OnDiscoveredServer);
+        }
     }
 
     public void OpenHostGameDialog()
