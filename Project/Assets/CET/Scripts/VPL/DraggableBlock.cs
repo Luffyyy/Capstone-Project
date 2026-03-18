@@ -1,0 +1,90 @@
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+{
+    private Canvas canvas;
+    private RectTransform rectTransform;
+    private CanvasGroup canvasGroup;
+    public VPLState state;
+
+    private Transform originalParent;
+
+    public bool IsFake = false;
+    public bool IsNew = false;
+
+    void Awake()
+    {
+        rectTransform = GetComponent<RectTransform>();
+        canvasGroup = GetComponent<CanvasGroup>() ?? gameObject.AddComponent<CanvasGroup>();
+        canvas = GetComponentInParent<Canvas>();
+    }
+
+    public void OnBeginDrag(PointerEventData eventData) {
+        if (IsFake)
+        {
+            var instance = Instantiate(this, GameObject.Find("Menu").transform).gameObject;
+            instance.transform.localScale = Vector3.one;
+            var dobj = instance.GetComponent<DraggableBlock>();
+            dobj.IsNew = true;
+            dobj.IsFake = false;
+            instance.GetComponent<RectTransform>().position = eventData.position;
+            eventData.pointerDrag = instance; // Pass the pointer drag event ot the copy
+
+            // Trigger the BeingDrag logic manually
+            ExecuteEvents.Execute(instance, eventData, ExecuteEvents.beginDragHandler);
+        } else
+        {
+            originalParent = transform.parent;
+            
+            // Move to the root canvas so it renders on top of everything
+            transform.SetParent(canvas.transform);
+            
+            // IMPORTANT: Allow raycasts to pass through this block 
+            // so we can "see" the Tray/Blocks underneath it.
+            canvasGroup.blocksRaycasts = false;
+            canvasGroup.alpha = 0.7f;
+        }
+    }
+
+    public void OnDrag(PointerEventData eventData) {
+        // 1. Move the block
+        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+
+        // 2. Check what is under the mouse
+        // eventData.pointerEnter is the object currently under the cursor
+        var obj = eventData.pointerEnter;
+        if (obj != null)
+        {
+            var tray = obj.GetComponent<BlockTray>();
+            if (tray == null)
+            {
+                tray = obj.transform.parent.GetComponent<BlockTray>();
+            }
+            if (tray != null)
+            {
+                // Tell the tray where the mouse is so it can move the ghost
+                tray.UpdateGhostPosition(gameObject, eventData.position);
+            }
+        }
+    }
+
+    public void OnEndDrag(PointerEventData eventData) {
+        canvasGroup.blocksRaycasts = true;
+        canvasGroup.alpha = 1f;
+
+        // If we didn't land in a tray, return to original parent
+        // In case it was a new block, delete it
+        // TODO: Add delete zone
+
+        if (transform.parent == canvas.transform) {
+            if (IsNew)
+            {
+                Destroy(gameObject);
+            } else
+            {
+                transform.SetParent(originalParent);
+            }
+        }
+    }
+}

@@ -1,4 +1,7 @@
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using UnityEngine;
 
 public class VPLState : MonoBehaviour
@@ -6,14 +9,20 @@ public class VPLState : MonoBehaviour
     // Dictionary that holds variables of the VPL
     Dictionary<string, object> Variables;
 
-    public List<BaseBlock> Blocks;
-
-    public GameObject CurrentlySpawning;
+    public List<BaseBlock> Blocks = new();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         
+    }
+
+    void Awake()
+    {
+        foreach (var block in Blocks)
+        {
+            block.state = this;
+        }
     }
 
     public void Execute()
@@ -32,30 +41,5 @@ public class VPLState : MonoBehaviour
     public object GetVariable(string str)
     {
         return Variables[str];
-    }
-
-    public void Test()
-    {
-        print("Hi");
-    }
-
-    /**
-        Spawns a block allowing the player to move it with their mouse until they chose where to place it
-    */
-    public void SpawnBlock(GameObject block)
-    {
-        print("Spawning");
-        CurrentlySpawning = Instantiate(block, GameObject.Find("Menu").transform);
-        CurrentlySpawning.transform.localScale = Vector3.one;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        var pos = Input.mousePosition;
-        if (CurrentlySpawning != null)
-        {
-            CurrentlySpawning.transform.position = pos;
-        }
     }
 }
