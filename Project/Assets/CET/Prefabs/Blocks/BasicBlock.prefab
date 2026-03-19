@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 5241733500222285122}
   - component: {fileID: 8187166388326678330}
   - component: {fileID: 5264274461465733659}
+  - component: {fileID: 4741319359283868753}
   m_Layer: 5
   m_Name: BasicBlock
   m_TagString: Untagged
@@ -228,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d40744bb0258250449bb97b534204324, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BaseBlock
-  state: {fileID: 0}
+  Zone: {fileID: 0}
   Name: 
   Color: {r: 0, g: 0, b: 0, a: 0}
   isStatic: 0
@@ -286,3 +287,17 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &4741319359283868753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8435313865656725047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bdfeee4df91be747b64b47f03028ff4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DraggableBlock
+  IsFake: 0
+  IsNew: 0

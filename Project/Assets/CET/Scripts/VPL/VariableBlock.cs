@@ -14,7 +14,7 @@ public class VariableBlock : BaseBlock
         // TODO: Define variables automatically before running so players can get variables recommended to them
         try
         {
-            state.SetVariable(VarField.text, float.Parse(ValueField.text));
+            Zone.SetVariable(VarField.text, float.Parse(ValueField.text));
         }
         catch (System.Exception)
         {

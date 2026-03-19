@@ -38,11 +38,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4165666317232284349, guid: 5d0b5d61bec96e84cac0ead79f185d93, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 235.53
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4165666317232284349, guid: 5d0b5d61bec96e84cac0ead79f185d93, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 67.734314
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4165666317232284349, guid: 5d0b5d61bec96e84cac0ead79f185d93, type: 3}
       propertyPath: m_LocalScale.x
@@ -186,19 +186,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8435313865656725047, guid: 5d0b5d61bec96e84cac0ead79f185d93, type: 3}
       propertyPath: m_Name
-      value: StartEvent Variant
+      value: StartEvent
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6622480878461598185, guid: 5d0b5d61bec96e84cac0ead79f185d93, type: 3}
+    - {fileID: 3109498410022669839, guid: 5d0b5d61bec96e84cac0ead79f185d93, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8435313865656725047, guid: 5d0b5d61bec96e84cac0ead79f185d93, type: 3}
       insertIndex: 3
       addedObject: {fileID: 3936649784425296997}
-    - targetCorrespondingSourceObject: {fileID: 8435313865656725047, guid: 5d0b5d61bec96e84cac0ead79f185d93, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5409377463242461382}
   m_SourcePrefab: {fileID: 100100000, guid: 5d0b5d61bec96e84cac0ead79f185d93, type: 3}
 --- !u!1 &1077232266734197868 stripped
 GameObject:
@@ -217,23 +215,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f30720cb2ebf0b4d995503429f4f6e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventBlock
-  state: {fileID: 0}
+  Zone: {fileID: 0}
   Name: Start Event
   Color: {r: 1, g: 0.77254903, b: 0, a: 1}
   isStatic: 0
   hasTopPort: 0
   hasBottomPort: 1
---- !u!114 &5409377463242461382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1077232266734197868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bdfeee4df91be747b64b47f03028ff4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DraggableBlock
-  state: {fileID: 0}
-  isDragged: 0

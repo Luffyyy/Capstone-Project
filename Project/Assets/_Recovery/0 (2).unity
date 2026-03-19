@@ -895,10 +895,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4192803531514611210, guid: 951715b65e20b0f4d8ec3d0951bb37bf, type: 3}
-      propertyPath: IsFake
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4768242451814158566, guid: 951715b65e20b0f4d8ec3d0951bb37bf, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -990,6 +986,10 @@ PrefabInstance:
     - target: {fileID: 4768242451814158566, guid: 951715b65e20b0f4d8ec3d0951bb37bf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5409377463242461382, guid: 951715b65e20b0f4d8ec3d0951bb37bf, type: 3}
+      propertyPath: IsFake
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1590,7 +1590,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6633097234571604649, guid: a4f8a09f2a875904ea8fd7279ce12b06, type: 3}
       propertyPath: m_Name
-      value: Execute
+      value: Button
       objectReference: {fileID: 0}
     - target: {fileID: 6695010051995289747, guid: a4f8a09f2a875904ea8fd7279ce12b06, type: 3}
       propertyPath: m_Pivot.x
@@ -1829,10 +1829,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6771482298703361657, guid: 9a61706a574bef548bcf168ccf3976bf, type: 3}
-      propertyPath: IsFake
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7576724546357980191, guid: 9a61706a574bef548bcf168ccf3976bf, type: 3}
       propertyPath: m_Name
       value: ActionBlock
@@ -2069,7 +2065,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 641.8167}
+  m_SizeDelta: {x: 0, y: 627.8531}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1191262914
 MonoBehaviour:
@@ -2783,7 +2779,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1352602594}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.9500307
+  m_Size: 0.92383605
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3170,7 +3166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1914142643}
   m_Layer: 5
-  m_Name: Actions
+  m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3586,14 +3582,6 @@ PrefabInstance:
     - target: {fileID: 7435090799565354252, guid: e8389a84aa1ca2c4aaa0c699a082f182, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8464984277705692711, guid: e8389a84aa1ca2c4aaa0c699a082f182, type: 3}
-      propertyPath: IsNew
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8464984277705692711, guid: e8389a84aa1ca2c4aaa0c699a082f182, type: 3}
-      propertyPath: IsFake
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

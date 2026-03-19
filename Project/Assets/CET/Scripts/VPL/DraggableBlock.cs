@@ -6,12 +6,12 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     private Canvas canvas;
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
-    public VPLState state;
-
     private Transform originalParent;
 
     public bool IsFake = false;
     public bool IsNew = false;
+
+    private BlockTray lastTray;
 
     void Awake()
     {
@@ -65,6 +65,11 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             {
                 // Tell the tray where the mouse is so it can move the ghost
                 tray.UpdateGhostPosition(gameObject, eventData.position);
+                if (tray != lastTray)
+                {
+                    if (lastTray != null) lastTray.DestroyPreview();
+                    lastTray = tray;
+                }
             }
         }
     }
@@ -86,5 +91,11 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
                 transform.SetParent(originalParent);
             }
         }
+
+        if (originalParent.childCount == 0 && originalParent.GetComponent<BlockTray>().IsRoot)
+        {
+            Destroy(originalParent.gameObject);
+        }
+
     }
 }

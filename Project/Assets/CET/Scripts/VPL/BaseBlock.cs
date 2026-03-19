@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class BaseBlock : MonoBehaviour
 {
     [HideInInspector] // Set by VPLState itself
-    public VPLState state;
+    public VPLZone Zone;
 
     public string Name;
     public Color Color;
@@ -14,6 +14,7 @@ public class BaseBlock : MonoBehaviour
 
     protected BaseBlock NextBlock;
 
+    // [HideInInspector]
     public bool isStatic = false;
 
     // Events have no top port, they self initiate, for example.
@@ -32,14 +33,21 @@ public class BaseBlock : MonoBehaviour
         SetColor(Color);
     }
 
-    public void SetName(string name)
+    // Called when the block is freshly spawned
+    public virtual void Activated(VPLZone zone)
+    {
+        Zone = zone;
+        GetComponent<DraggableBlock>().IsNew = false;
+    }
+
+    public virtual void SetName(string name)
     {
         Name = name;
         NameText = transform.Find("Name").GetComponent<TextMeshProUGUI>();
         NameText.SetText(Name);
     }
 
-    public void SetColor(Color color)
+    public virtual void SetColor(Color color)
     {
         Color = color;
         if (Color != null)
