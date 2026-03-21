@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8e12e20754adec94e8052fb076650c44
+guid: 909769cf329b57f41be1991b8c1a6603
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,12 +34,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 0
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CBlockBottom_0
+      name: CBlockTop_0
       rect:
         serializedVersion: 2
         x: 0
@@ -144,15 +144,15 @@ TextureImporter:
         width: 256
         height: 261
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 91, y: 16, z: 16, w: 16}
+      pivot: {x: 0, y: 0}
+      border: {x: 96, y: 16, z: 16, w: 16}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23bcbd4b8831eab47a3d18e7f0284eff
-      internalID: 503231510
+      spriteID: 94327d10b2aaede458cab2f6c68a45d1
+      internalID: 1002406091
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 30c5d8e43d0fe524c85af39fd2ef22b0
+    spriteID: 2218b307a29182e45a87070427a5329a
     internalID: 0
     vertices: []
     indices: 
@@ -171,7 +171,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      CBlockBottom_0: 503231510
+      CBlockTop_0: 1002406091
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

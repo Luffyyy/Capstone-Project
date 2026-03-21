@@ -13,11 +13,15 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     private BlockTray lastTray;
 
+    public bool IsBaseBlock;
+
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>() ?? gameObject.AddComponent<CanvasGroup>();
         canvas = GetComponentInParent<Canvas>();
+
+        IsBaseBlock = GetComponent<BaseBlock>() != null;
     }
 
     public void OnBeginDrag(PointerEventData eventData) {
@@ -54,6 +58,12 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         // 2. Check what is under the mouse
         // eventData.pointerEnter is the object currently under the cursor
         var obj = eventData.pointerEnter;
+
+        if (!IsBaseBlock)
+        {
+            return;
+        }
+
         if (obj != null)
         {
             var tray = obj.GetComponent<BlockTray>();
@@ -92,9 +102,12 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             }
         }
 
-        if (originalParent.childCount == 0 && originalParent.GetComponent<BlockTray>().IsRoot)
+        if (IsBaseBlock)
         {
-            Destroy(originalParent.gameObject);
+            if (originalParent.childCount == 0 && originalParent.GetComponent<BlockTray>().IsRoot)
+            {
+                Destroy(originalParent.gameObject);
+            }
         }
 
     }

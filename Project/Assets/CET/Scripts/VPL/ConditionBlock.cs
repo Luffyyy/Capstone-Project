@@ -1,12 +1,18 @@
 using UnityEngine;
 
-public class ConditionBlock : BaseBlock
+public class ConditionBlock : CBlock
 {
-    public BlockTray IfTray;
     public BlockTray ElseTray;
 
-    public ExpressionBlock Expression;
-    public ExpressionBlock ElseExpression;
+    public ExpressionTray Expression;
+    public ExpressionTray ElseExpression;
+
+    void Awake()
+    {
+        Expression.Parent = this;
+        if (ElseExpression != null)
+            ElseExpression.Parent = this;
+    }
 
     public override void SetName(string name)
     {
@@ -21,7 +27,6 @@ public class ConditionBlock : BaseBlock
     public override void Activated(VPLZone zone)
     {
         base.Activated(zone);
-        IfTray.enabled = true;
         if (ElseTray != null)
         {
             ElseTray.enabled = true;
@@ -30,11 +35,20 @@ public class ConditionBlock : BaseBlock
 
     public override void Execute()
     {
-        if ((bool)Expression.Evaluate())
+        var eval = Expression.Evaluate();
+        if (eval is bool && (bool)eval)
         {
-            IfTray.Execute();
-        } else if (ElseTray != null && ElseExpression != null && (bool)ElseExpression.Evaluate())
+            Tray.Execute();
+        } else if (ElseTray != null)
         {
+            if (ElseExpression != null)
+            {
+                eval = ElseExpression.Evaluate();
+                if (eval is bool && (bool)eval == false)
+                {
+                    return;
+                }
+            } 
             ElseTray.Execute();
         }
     }

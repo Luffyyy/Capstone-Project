@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1820699222776675294, guid: 5d0b5d61bec96e84cac0ead79f185d93, type: 3}
       propertyPath: m_text
-      value: Start Event
+      value: start event
       objectReference: {fileID: 0}
     - target: {fileID: 4165666317232284349, guid: 5d0b5d61bec96e84cac0ead79f185d93, type: 3}
       propertyPath: m_Pivot.x
@@ -38,7 +38,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4165666317232284349, guid: 5d0b5d61bec96e84cac0ead79f185d93, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 225.9
       objectReference: {fileID: 0}
     - target: {fileID: 4165666317232284349, guid: 5d0b5d61bec96e84cac0ead79f185d93, type: 3}
       propertyPath: m_SizeDelta.y
@@ -86,7 +86,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4165666317232284349, guid: 5d0b5d61bec96e84cac0ead79f185d93, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 4165666317232284349, guid: 5d0b5d61bec96e84cac0ead79f185d93, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -144,25 +144,33 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4741319359283868753, guid: 5d0b5d61bec96e84cac0ead79f185d93, type: 3}
+      propertyPath: IsFake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6024577425251768186, guid: 5d0b5d61bec96e84cac0ead79f185d93, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6024577425251768186, guid: 5d0b5d61bec96e84cac0ead79f185d93, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6024577425251768186, guid: 5d0b5d61bec96e84cac0ead79f185d93, type: 3}
       propertyPath: m_SizeDelta.x
+      value: 193.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6024577425251768186, guid: 5d0b5d61bec96e84cac0ead79f185d93, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6024577425251768186, guid: 5d0b5d61bec96e84cac0ead79f185d93, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 112.95
       objectReference: {fileID: 0}
     - target: {fileID: 6024577425251768186, guid: 5d0b5d61bec96e84cac0ead79f185d93, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -36.11
       objectReference: {fileID: 0}
     - target: {fileID: 6622480878461598185, guid: 5d0b5d61bec96e84cac0ead79f185d93, type: 3}
       propertyPath: Name
@@ -216,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventBlock
   Zone: {fileID: 0}
-  Name: Start Event
+  Name: start event
   Color: {r: 1, g: 0.77254903, b: 0, a: 1}
   isStatic: 0
   hasTopPort: 0
