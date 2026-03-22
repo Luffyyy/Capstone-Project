@@ -7,13 +7,6 @@ public class ConditionBlock : CBlock
     public ExpressionTray Expression;
     public ExpressionTray ElseExpression;
 
-    void Awake()
-    {
-        Expression.Parent = this;
-        if (ElseExpression != null)
-            ElseExpression.Parent = this;
-    }
-
     public override void SetName(string name)
     {
         
@@ -27,6 +20,10 @@ public class ConditionBlock : CBlock
     public override void Activated(VPLZone zone)
     {
         base.Activated(zone);
+        Expression.Activated(Zone);
+        if (ElseExpression != null)
+            ElseExpression.Activated(Zone);
+
         if (ElseTray != null)
         {
             ElseTray.enabled = true;
@@ -35,16 +32,14 @@ public class ConditionBlock : CBlock
 
     public override void Execute()
     {
-        var eval = Expression.Evaluate();
-        if (eval is bool && (bool)eval)
+        if (Helpers.VPLIsTrue(Expression.Evaluate()))
         {
             Tray.Execute();
         } else if (ElseTray != null)
         {
             if (ElseExpression != null)
             {
-                eval = ElseExpression.Evaluate();
-                if (eval is bool && (bool)eval == false)
+                if (!Helpers.VPLIsTrue(ElseExpression.Evaluate()))
                 {
                     return;
                 }

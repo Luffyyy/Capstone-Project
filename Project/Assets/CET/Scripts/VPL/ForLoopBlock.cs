@@ -4,11 +4,6 @@ public class ForLoopBlock : CBlock
 {
     public ExpressionTray Expression;
 
-    void Awake()
-    {
-        Expression.Parent = this;
-    }
-
     public override void SetName(string name)
     {
         
@@ -22,6 +17,7 @@ public class ForLoopBlock : CBlock
     public override void Activated(VPLZone zone)
     {
         base.Activated(zone);
+        Expression.Activated(Zone);
     }
 
     /**

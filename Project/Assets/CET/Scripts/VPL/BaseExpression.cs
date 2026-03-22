@@ -5,11 +5,18 @@ using UnityEngine.EventSystems;
 
 public class BaseExpression : MonoBehaviour
 {
+    [HideInInspector]
+    public ExpressionTray Tray;
+    [HideInInspector]
     public VPLZone Zone;
-    public virtual void Activated(VPLZone zone)
+
+    public ValueConverter Converter;
+
+    public virtual void Activated(ExpressionTray tray)
     {
         GetComponent<DraggableBlock>().IsNew = false;
-        Zone = zone;
+        Tray = tray;
+        Zone = tray.Zone;
     }
 
     public virtual object Evaluate()

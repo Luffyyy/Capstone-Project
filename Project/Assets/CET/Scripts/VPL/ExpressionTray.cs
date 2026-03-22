@@ -5,8 +5,17 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Outline))]
 public class ExpressionTray : MonoBehaviour, IDropHandler, IPointerExitHandler, IPointerEnterHandler
 {
-    public BaseBlock Parent;
+    [HideInInspector]
+    public VPLZone Zone;
     public BaseExpression CurrentExpression;
+
+    public bool IsActivated = false;
+
+    public void Activated(VPLZone zone)
+    {
+        Zone = zone;
+        IsActivated = true;
+    }
 
     public object Evaluate()
     {
@@ -15,7 +24,7 @@ public class ExpressionTray : MonoBehaviour, IDropHandler, IPointerExitHandler, 
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (eventData.pointerDrag != null && eventData.pointerDrag.GetComponent<BaseExpression>())
+        if (IsActivated && eventData.pointerDrag != null && eventData.pointerDrag.GetComponent<BaseExpression>())
         {
             GetComponent<Outline>().enabled = true;
         }
@@ -23,7 +32,7 @@ public class ExpressionTray : MonoBehaviour, IDropHandler, IPointerExitHandler, 
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (eventData.pointerDrag != null && eventData.pointerDrag.GetComponent<BaseExpression>())
+        if (IsActivated && eventData.pointerDrag != null && eventData.pointerDrag.GetComponent<BaseExpression>())
         {
             GetComponent<Outline>().enabled = false;
         }
@@ -31,10 +40,14 @@ public class ExpressionTray : MonoBehaviour, IDropHandler, IPointerExitHandler, 
 
     public void OnDrop(PointerEventData eventData)
     {
-        if (eventData.pointerDrag.TryGetComponent<BaseExpression>(out var exp))
+        if (IsActivated && eventData.pointerDrag.TryGetComponent<BaseExpression>(out var exp))
         {
+            if (CurrentExpression != null)
+            {
+                Destroy(CurrentExpression.gameObject); // Only allow a single expression at a time
+            }
             exp.transform.SetParent(transform);
-            exp.Activated(Parent.Zone);
+            exp.Activated(this);
             GetComponent<Outline>().enabled = false;
             CurrentExpression = exp;
         }

@@ -7,11 +7,11 @@ public class VariableExpression : BaseExpression
 {
     public TMP_Dropdown VarField;
 
-    public override void Activated(VPLZone zone)
+    public override void Activated(ExpressionTray tray)
     {
-        base.Activated(zone);
+        base.Activated(tray);
         VarField.ClearOptions();
-        VarField.AddOptions(zone.GetVariableNames());
+        VarField.AddOptions(Zone.GetVariableNames());
     }
 
     public override object Evaluate()
@@ -20,9 +20,7 @@ public class VariableExpression : BaseExpression
         if (name != null)
         {
             return Zone.GetVariable(VarField.options[VarField.value].text);
-        } else
-        {
-            return null;
         }
+        return null;
     }
 }
