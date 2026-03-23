@@ -16,11 +16,6 @@ public class VariableExpression : BaseExpression
 
     public override object Evaluate()
     {
-        var name = VarField.itemText.text;
-        if (name != null)
-        {
-            return Zone.GetVariable(VarField.options[VarField.value].text);
-        }
-        return null;
+        return Zone.GetVariable(VarField.options[VarField.value].text);
     }
 }

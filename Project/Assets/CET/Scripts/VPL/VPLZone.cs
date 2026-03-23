@@ -1,12 +1,21 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class VPLZone : MonoBehaviour, IDropHandler
 {
     private Dictionary<string, bool> VariableDefs = new();
     private Dictionary<string, object> Variables = new();
+
+    public Button ExecuteButton;
+
+    private Coroutine executionRoutine;
 
     public List<string> GetVariableNames()
     {
@@ -31,19 +40,44 @@ public class VPLZone : MonoBehaviour, IDropHandler
     */
     public void Execute()
     {
-        print("Executing all block trays...");
+        if (executionRoutine != null)
+        {
+            print("Interrupting Execution Coroutine...");
+            StopCoroutine(executionRoutine);
+            Cleanup();
+            return;
+        }
+
+        executionRoutine = StartCoroutine(VPLCoroutine());
+    }
+
+    public IEnumerator VPLCoroutine()
+    {
+        var button = ExecuteButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+
+        button.text = "Stop Execution";
+        print("Executing all block trays... ");
         var content = transform.GetChild(0);
         for (int i = 0; i < content.childCount; i++)
         {
             var tr = content.GetChild(i);
-            if (tr.TryGetComponent<BlockTray>(out var block))
-            {
-                block.Execute();
+            if (tr.TryGetComponent<BlockTray>(out var tray)) {
+                yield return tray.Execute();
             }
+            print("Execution complete.");
         }
+        Cleanup();
+    }
 
-        print("Execution complete, cleaning variables...");
+    public void Cleanup()
+    {
+        var button = ExecuteButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+
+        print("Cleaning variables...");
+
         Variables.Clear();
+        button.text = "Execute";
+        executionRoutine = null;
     }
 
     public GameObject Tray;

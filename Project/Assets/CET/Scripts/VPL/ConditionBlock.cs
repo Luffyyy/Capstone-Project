@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ConditionBlock : CBlock
@@ -26,25 +27,25 @@ public class ConditionBlock : CBlock
 
         if (ElseTray != null)
         {
-            ElseTray.enabled = true;
+            ElseTray.Activated(zone);
         }
     }
 
-    public override void Execute()
+    public override IEnumerator Execute()
     {
         if (Helpers.VPLIsTrue(Expression.Evaluate()))
         {
-            Tray.Execute();
+            yield return Tray.Execute();
         } else if (ElseTray != null)
         {
             if (ElseExpression != null)
             {
                 if (!Helpers.VPLIsTrue(ElseExpression.Evaluate()))
                 {
-                    return;
+                    yield return null;
                 }
             } 
-            ElseTray.Execute();
+            yield return ElseTray.Execute();
         }
     }
 }

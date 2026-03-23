@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -7,9 +8,23 @@ public class PrintBlock : BaseBlock
 {
     public TMP_InputField ValueField;
 
+    public override void Awake()
+    {
+        base.Awake();
+        ValueField.interactable = false;
+    }
+
+    public override void Activated(VPLZone zone)
+    {
+        base.Activated(zone);
+        ValueField.interactable = true;
+    }
+
     // Update is called once per frame
-    public override void Execute()
+    public override IEnumerator Execute()
     {
         print(ValueField.text);
+
+        yield return null;
     }
 }

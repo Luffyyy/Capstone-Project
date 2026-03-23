@@ -1,9 +1,10 @@
 using System.Collections;
+using System.Threading;
 using UnityEngine;
 
-public class CBlock : BaseBlock
+public class WhileBlock : CBlock
 {
-    public BlockTray Tray;
+    public ExpressionTray Expression;
 
     public override void SetName(string name)
     {
@@ -18,13 +19,14 @@ public class CBlock : BaseBlock
     public override void Activated(VPLZone zone)
     {
         base.Activated(zone);
-        Tray.Activated(zone);
+        Expression.Activated(zone);
     }
 
     public override IEnumerator Execute()
     {
-        Tray.Execute();
-
-        yield return null;
+        while (Expression != null && Helpers.VPLIsTrue(Expression.Evaluate()))
+        {
+            yield return Tray.Execute();
+        }
     }
 }

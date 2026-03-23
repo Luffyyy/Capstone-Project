@@ -1,15 +1,17 @@
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class ControlBlock : BaseBlock
 {
     public List<BaseBlock> Children;
 
-    public override void Execute()
+    public override IEnumerator Execute()
     {
         foreach (var block in Children)
         {
             block.Execute();
         }
+
+        yield return null;
     }
 }

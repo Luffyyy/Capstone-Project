@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,7 +28,7 @@ public class BaseBlock : MonoBehaviour
     {
     }
 
-    void Awake()
+    public virtual void Awake()
     {
         SetName(Name);
         SetColor(Color);
@@ -63,8 +64,8 @@ public class BaseBlock : MonoBehaviour
     }
     
     // Executes the block
-    public virtual void Execute()
+    public virtual IEnumerator Execute()
     {
-        
+        yield return null;
     }
 }

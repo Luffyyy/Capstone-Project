@@ -1,20 +1,30 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class BlockTray : MonoBehaviour, IDropHandler, IPointerExitHandler
 {
-    public VPLZone zone;
+    public VPLZone Zone;
     private GameObject preview;
     public bool IsRoot = false;
 
-    public void Execute()
+    public List<BaseBlock> blocks = new();
+
+    public void Activated(VPLZone zone)
     {
-        for (int i = 0; i < transform.childCount; i++)
-        {
+        enabled = true;
+        Zone = zone;
+    }
+
+    public IEnumerator Execute()
+    {
+       for (int i = 0; i < transform.childCount; i++)  {
             var tr = transform.GetChild(i);
             if (tr.TryGetComponent<BaseBlock>(out var block))
             {
-                block.Execute();
+                yield return block.Execute();
             }
         }
     }
@@ -88,10 +98,11 @@ public class BlockTray : MonoBehaviour, IDropHandler, IPointerExitHandler
     {
         if (eventData.pointerDrag != null && preview != null)
         {
+            var block = eventData.pointerDrag;
             // Snap the block into the Tray at the ghost's position
-            eventData.pointerDrag.transform.SetParent(transform);
-            eventData.pointerDrag.GetComponent<BaseBlock>().Activated(zone);
-            eventData.pointerDrag.transform.SetSiblingIndex(preview.transform.GetSiblingIndex());
+            block.transform.SetParent(transform);
+            block.GetComponent<BaseBlock>().Activated(Zone);
+            block.transform.SetSiblingIndex(preview.transform.GetSiblingIndex());
             Destroy(preview);
         }
     }

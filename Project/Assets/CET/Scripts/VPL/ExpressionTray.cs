@@ -19,7 +19,13 @@ public class ExpressionTray : MonoBehaviour, IDropHandler, IPointerExitHandler, 
 
     public object Evaluate()
     {
-        return CurrentExpression.Evaluate();
+        if (CurrentExpression != null)
+        {
+            return CurrentExpression.Evaluate();
+        } else
+        {
+            return null;            
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)

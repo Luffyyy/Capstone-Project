@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine.EventSystems;
@@ -12,16 +13,40 @@ public class SetVariableBlock : BaseBlock
 
     public string Type;
 
+    public override void Awake()
+    {
+        VarField.interactable = false;
+        if (ValueField != null)
+        {
+            ValueField.interactable = false;
+        }
+        if (DropdownValueField != null)
+        {
+            DropdownValueField.interactable = false;
+        }
+    }
+
     public override void Activated(VPLZone zone)
     {
+        VarField.interactable = true;
+        if (ValueField != null)
+        {
+            ValueField.interactable = true;
+        }
+        if (DropdownValueField != null)
+        {
+            DropdownValueField.interactable = true;
+        }
+
         if (GetComponent<DraggableBlock>().IsNew)
         {
             VarField.text = zone.getVariableName();
         }
+
         base.Activated(zone);
     }
 
-    public override void Execute()
+    public override IEnumerator Execute()
     {
         // TODO: Define variables automatically before running so players can get variables recommended to them
         try
@@ -44,7 +69,11 @@ public class SetVariableBlock : BaseBlock
         }
         catch (System.Exception e)
         {
+            print(e);
             throw e; //TODO: handle exceptions
         }
+
+        yield return null;
     }
+
 }
