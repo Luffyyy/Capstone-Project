@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddd92f7290f13f24bb1e5ff373f243f2, type: 3}
-  m_Name: SetBoolBlock
-  m_EditorClassIdentifier: Assembly-CSharp::PrefabBlockDefinition
-  Name: set
-  Color: {r: 0, g: 0, b: 0, a: 0}
-  Prefab: SetBoolBlock
+  m_Script: {fileID: 11500000, guid: 88999408244d9334288fd70dd286a84f, type: 3}
+  m_Name: LessThanConverter
+  m_EditorClassIdentifier: Assembly-CSharp::LessThanConverter

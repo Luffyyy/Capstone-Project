@@ -9,12 +9,26 @@ public class ExpressionTray : MonoBehaviour, IDropHandler, IPointerExitHandler, 
     public VPLZone Zone;
     public BaseExpression CurrentExpression;
 
+    public BaseExpression DefaultBlock;
+
     public bool IsActivated = false;
+
+    void Awake()
+    {
+        if (CurrentExpression == null)
+        {
+            CurrentExpression = DefaultBlock;
+        }
+    }
 
     public void Activated(VPLZone zone)
     {
         Zone = zone;
         IsActivated = true;
+        if (CurrentExpression != null)
+        {
+            CurrentExpression.Activated(zone);
+        }
     }
 
     public object Evaluate()

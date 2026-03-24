@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: <
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -306,10 +306,9 @@ MonoBehaviour:
   Zone: {fileID: 0}
   Name: 
   Color: {r: 0, g: 0, b: 0, a: 0}
-  NameText: {fileID: 0}
   isStatic: 0
-  Defintion: {fileID: 0}
-  Converter: {fileID: 0}
+  Defintion: {fileID: 11400000, guid: 015c84408c682dd4a99462c6f7836955, type: 2}
+  Converter: {fileID: 11400000, guid: 3f1a357b4a4fa5e43bd29f40f2161b92, type: 2}
   Exp1: {fileID: 5740311441635268344}
   Exp2: {fileID: 9128808529715260530}
   Operator: {fileID: 6987017419176936627}
@@ -405,6 +404,10 @@ PrefabInstance:
     - target: {fileID: 5673924916689621245, guid: 73c6e08f4a7dc5148983945513127734, type: 3}
       propertyPath: m_Name
       value: Exp1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673924916689621245, guid: 73c6e08f4a7dc5148983945513127734, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

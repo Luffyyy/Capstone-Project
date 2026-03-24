@@ -6,24 +6,24 @@ using UnityEngine;
 // Possibly we'll allow it to be used ingame later
 public class PrintBlock : StackBlock
 {
-    public TMP_InputField ValueField;
+    public ExpressionTray Tray;
+
 
     public override void Awake()
     {
         base.Awake();
-        ValueField.interactable = false;
     }
 
     public override void Activated(VPLZone zone)
     {
         base.Activated(zone);
-        ValueField.interactable = true;
+        Tray.Activated(zone);
     }
 
     // Update is called once per frame
     public override IEnumerator Execute()
     {
-        print(ValueField.text);
+        print(Tray.Evaluate());
 
         yield return null;
     }

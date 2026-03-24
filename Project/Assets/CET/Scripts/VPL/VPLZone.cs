@@ -119,7 +119,7 @@ public class VPLZone : MonoBehaviour, IDropHandler
 
             tray.transform.position = obj.transform.position;
             obj.transform.SetParent(tray.transform);
-            block.IsNew = false;
+            block.GetComponent<BaseBlock>().Activated(this);
         }
     }
 

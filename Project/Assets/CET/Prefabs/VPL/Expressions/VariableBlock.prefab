@@ -1405,6 +1405,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VariableExpression
   Zone: {fileID: 0}
+  Name: 
+  Color: {r: 0, g: 0, b: 0, a: 0}
+  isStatic: 0
+  Defintion: {fileID: 0}
   Converter: {fileID: 0}
   VarField: {fileID: 4217346186745687138}
 --- !u!224 &5768721094145516643 stripped

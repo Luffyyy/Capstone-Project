@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddd92f7290f13f24bb1e5ff373f243f2, type: 3}
-  m_Name: SetStrBlock
-  m_EditorClassIdentifier: Assembly-CSharp::PrefabBlockDefinition
-  Name: set
+  m_Script: {fileID: 11500000, guid: a53daff063e52954f87abb28cbe4a260, type: 3}
+  m_Name: PowOperatorBlock
+  m_EditorClassIdentifier: Assembly-CSharp::OperatorDefinition
+  Name: Multiply
   Color: {r: 0, g: 0, b: 0, a: 0}
-  Prefab: SetStrBlock
+  Converter: {fileID: 11400000, guid: de7a1533624217e4e9573673b215e34e, type: 2}
+  IsUnary: 0
+  Sign: '*'

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a53daff063e52954f87abb28cbe4a260, type: 3}
+  m_Name: GreaterThanOperatorBlock
+  m_EditorClassIdentifier: Assembly-CSharp::OperatorDefinition
+  Name: Greater Than
+  Color: {r: 0, g: 0, b: 0, a: 0}
+  Converter: {fileID: 11400000, guid: b7904eb0fe9985b418c1104a65b8187d, type: 2}
+  IsUnary: 0
+  Sign: '>'

@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddd92f7290f13f24bb1e5ff373f243f2, type: 3}
-  m_Name: SetNumBlock
-  m_EditorClassIdentifier: Assembly-CSharp::PrefabBlockDefinition
-  Name: set
-  Color: {r: 0, g: 0, b: 0, a: 0}
-  Prefab: SetNumBlock
+  m_Script: {fileID: 11500000, guid: 012a6a85d73560b459c604849c5ce469, type: 3}
+  m_Name: MultConverter
+  m_EditorClassIdentifier: Assembly-CSharp::MultConverter
