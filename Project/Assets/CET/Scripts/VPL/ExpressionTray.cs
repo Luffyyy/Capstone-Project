@@ -53,7 +53,7 @@ public class ExpressionTray : MonoBehaviour, IDropHandler, IPointerExitHandler, 
                 Destroy(CurrentExpression.gameObject); // Only allow a single expression at a time
             }
             exp.transform.SetParent(transform);
-            exp.Activated(this);
+            exp.Activated(Zone);
             GetComponent<Outline>().enabled = false;
             CurrentExpression = exp;
         }

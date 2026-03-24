@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class ControlBlock : BaseBlock
+public class ControlBlock : StackBlock
 {
-    public List<BaseBlock> Children;
+    public List<StackBlock> Children;
 
     public override IEnumerator Execute()
     {

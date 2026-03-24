@@ -8,12 +8,14 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     private CanvasGroup canvasGroup;
     private Transform originalParent;
 
+    [HideInInspector]
     public bool IsFake = false;
+    [HideInInspector]
     public bool IsNew = false;
 
     private BlockTray lastTray;
 
-    public bool IsBaseBlock;
+    public bool IsStackBlock;
 
     void Awake()
     {
@@ -21,7 +23,7 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         canvasGroup = GetComponent<CanvasGroup>() ?? gameObject.AddComponent<CanvasGroup>();
         canvas = GetComponentInParent<Canvas>();
 
-        IsBaseBlock = GetComponent<BaseBlock>() != null;
+        IsStackBlock = GetComponent<StackBlock>() != null;
     }
 
     public void OnBeginDrag(PointerEventData eventData) {
@@ -59,7 +61,7 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         // eventData.pointerEnter is the object currently under the cursor
         var obj = eventData.pointerEnter;
 
-        if (!IsBaseBlock)
+        if (!IsStackBlock)
         {
             return;
         }
@@ -102,7 +104,7 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             }
         }
 
-        if (IsBaseBlock)
+        if (IsStackBlock)
         {
             if (originalParent.childCount == 0 && originalParent.GetComponent<BlockTray>().IsRoot)
             {

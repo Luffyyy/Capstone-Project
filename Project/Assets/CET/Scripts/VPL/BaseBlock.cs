@@ -13,25 +13,25 @@ public class BaseBlock : MonoBehaviour
 
     protected TextMeshProUGUI NameText;
 
-    protected BaseBlock NextBlock;
-
-    // [HideInInspector]
+    [HideInInspector]
     public bool isStatic = false;
 
-    // Events have no top port, they self initiate, for example.
-    public bool hasTopPort = true;
-    public bool hasBottomPort = true;
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-    }
+    public BlockDefinition Defintion;
 
     public virtual void Awake()
     {
         SetName(Name);
         SetColor(Color);
+    }
+
+    public virtual void SetDefinition(BlockDefinition def)
+    {
+        Defintion = def;
+        if (def.Name != null)
+        {
+            SetName(def.Name);
+            SetColor(def.Color);
+        }
     }
 
     // Called when the block is freshly spawned
@@ -43,29 +43,23 @@ public class BaseBlock : MonoBehaviour
 
     public virtual void SetName(string name)
     {
-        Name = name;
-        NameText = transform.Find("Name").GetComponent<TextMeshProUGUI>();
-        NameText.SetText(Name);
+        var nameObject = transform.Find("Name");
+        if (nameObject != null)
+        {
+            Name = name;
+            NameText = nameObject.GetComponent<TextMeshProUGUI>();
+            NameText.SetText(Name);
+        }
+    
     }
 
     public virtual void SetColor(Color color)
     {
-        Color = color;
-        if (Color != null)
-        {
-            GetComponent<Image>().color = color;
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
-    // Executes the block
-    public virtual IEnumerator Execute()
-    {
-        yield return null;
+        // Temporarily turned off
+        // Color = color;
+        // if (Color != null)
+        // {
+        //     GetComponent<Image>().color = color;
+        // }
     }
 }

@@ -17,6 +17,29 @@ public class VPLZone : MonoBehaviour, IDropHandler
 
     private Coroutine executionRoutine;
 
+    public VPLStore Store;
+
+    public Transform BlocksContent;
+
+    void Awake()
+    {
+        foreach (var def in Store.Definitions)
+        {
+            var blockPrefab = Store.GetPrefabForDefinition(def);
+            if (blockPrefab != null)
+            {
+                var spawned = Instantiate(blockPrefab);
+                spawned.transform.SetParent(BlocksContent);
+                blockPrefab.GetComponent<DraggableBlock>().IsFake = true;
+                blockPrefab.SetDefinition(def);
+                spawned.transform.localScale = Vector3.one;
+            } else
+            {
+                print($"Couldn't find prefab of {def.Name}: {def.PrefabName}");
+            }
+        }
+    }
+
     public List<string> GetVariableNames()
     {
         return VariableDefs.Keys.ToList();
@@ -86,10 +109,11 @@ public class VPLZone : MonoBehaviour, IDropHandler
         var obj = eventData.pointerDrag;
         if (obj != null && obj.TryGetComponent<DraggableBlock>(out var block))
         {
-            if (!block.IsBaseBlock) return;
+            if (!block.IsStackBlock) return;
 
             var tray = Instantiate(Tray, transform.GetChild(0));
             var trayComp = tray.GetComponent<BlockTray>();
+            trayComp.Activated(this);
             trayComp.IsRoot = true;
             trayComp.enabled = true;
 

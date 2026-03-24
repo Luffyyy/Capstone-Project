@@ -10,7 +10,7 @@ public class BlockTray : MonoBehaviour, IDropHandler, IPointerExitHandler
     private GameObject preview;
     public bool IsRoot = false;
 
-    public List<BaseBlock> blocks = new();
+    public List<StackBlock> blocks = new();
 
     public void Activated(VPLZone zone)
     {
@@ -22,7 +22,7 @@ public class BlockTray : MonoBehaviour, IDropHandler, IPointerExitHandler
     {
        for (int i = 0; i < transform.childCount; i++)  {
             var tr = transform.GetChild(i);
-            if (tr.TryGetComponent<BaseBlock>(out var block))
+            if (tr.TryGetComponent<StackBlock>(out var block))
             {
                 yield return block.Execute();
             }
@@ -35,7 +35,7 @@ public class BlockTray : MonoBehaviour, IDropHandler, IPointerExitHandler
 
         int newIndex = 0;
 
-        if (block.GetComponent<BaseBlock>().hasTopPort)
+        if (block.GetComponent<StackBlock>().hasTopPort)
         {
             if (preview == null) {
                 SpawnGhost(block);
@@ -63,7 +63,7 @@ public class BlockTray : MonoBehaviour, IDropHandler, IPointerExitHandler
             }
         }
         
-        if (newIndex == 0 && !transform.GetChild(0).GetComponent<BaseBlock>().hasTopPort)
+        if (newIndex == 0 && !transform.GetChild(0).GetComponent<StackBlock>().hasTopPort)
         {
             return;
         } else if (preview == null) // Edge case in which an event isn't present in the tray
@@ -80,7 +80,7 @@ public class BlockTray : MonoBehaviour, IDropHandler, IPointerExitHandler
         var group = preview.GetComponent<CanvasGroup>();
         group.alpha = 0.4f;
         group.blocksRaycasts = false;
-        preview.GetComponent<BaseBlock>().isStatic = true;
+        preview.GetComponent<StackBlock>().isStatic = true;
     }
 
     public void DestroyPreview()
@@ -101,7 +101,7 @@ public class BlockTray : MonoBehaviour, IDropHandler, IPointerExitHandler
             var block = eventData.pointerDrag;
             // Snap the block into the Tray at the ghost's position
             block.transform.SetParent(transform);
-            block.GetComponent<BaseBlock>().Activated(Zone);
+            block.GetComponent<StackBlock>().Activated(Zone);
             block.transform.SetSiblingIndex(preview.transform.GetSiblingIndex());
             Destroy(preview);
         }
