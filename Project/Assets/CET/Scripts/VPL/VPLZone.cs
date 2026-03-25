@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -19,7 +17,11 @@ public class VPLZone : MonoBehaviour, IDropHandler
 
     public VPLStore Store;
 
-    public Transform BlocksContent;
+    public Transform BlockListContent;
+
+    public Transform VPLZoneContent;
+
+    public GameObject DeleteZone;
 
     void Awake()
     {
@@ -29,7 +31,7 @@ public class VPLZone : MonoBehaviour, IDropHandler
             if (blockPrefab != null)
             {
                 var spawned = Instantiate(blockPrefab);
-                spawned.transform.SetParent(BlocksContent);
+                spawned.transform.SetParent(BlockListContent);
                 blockPrefab.GetComponent<DraggableBlock>().IsFake = true;
                 blockPrefab.SetDefinition(def);
                 spawned.transform.localScale = Vector3.one;
@@ -111,7 +113,7 @@ public class VPLZone : MonoBehaviour, IDropHandler
         {
             if (!block.IsStackBlock) return;
 
-            var tray = Instantiate(Tray, transform.GetChild(0));
+            var tray = Instantiate(Tray, VPLZoneContent);
             var trayComp = tray.GetComponent<BlockTray>();
             trayComp.Activated(this);
             trayComp.IsRoot = true;

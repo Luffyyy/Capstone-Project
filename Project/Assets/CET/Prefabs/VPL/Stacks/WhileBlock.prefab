@@ -242,7 +242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7650094804313639239, guid: c376271c650667141ba4216e281680fe, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 129.55
+      value: 140.855
       objectReference: {fileID: 0}
     - target: {fileID: 7650094804313639239, guid: c376271c650667141ba4216e281680fe, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -369,6 +369,7 @@ MonoBehaviour:
   Name: 
   Color: {r: 0, g: 0, b: 0, a: 0}
   isStatic: 0
+  Defintion: {fileID: 0}
   hasTopPort: 1
   hasBottomPort: 1
   Tray: {fileID: 6292920190587405743}

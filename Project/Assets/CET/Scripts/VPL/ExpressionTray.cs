@@ -15,9 +15,10 @@ public class ExpressionTray : MonoBehaviour, IDropHandler, IPointerExitHandler, 
 
     void Awake()
     {
-        if (CurrentExpression == null)
+        if (CurrentExpression == null && DefaultBlock != null)
         {
             CurrentExpression = DefaultBlock;
+            CurrentExpression.GetComponent<CanvasGroup>().blocksRaycasts = false;
         }
     }
 
@@ -62,7 +63,7 @@ public class ExpressionTray : MonoBehaviour, IDropHandler, IPointerExitHandler, 
     {
         if (IsActivated && eventData.pointerDrag.TryGetComponent<BaseExpression>(out var exp))
         {
-            if (CurrentExpression != null)
+            if (CurrentExpression != null && CurrentExpression != exp)
             {
                 Destroy(CurrentExpression.gameObject); // Only allow a single expression at a time
             }

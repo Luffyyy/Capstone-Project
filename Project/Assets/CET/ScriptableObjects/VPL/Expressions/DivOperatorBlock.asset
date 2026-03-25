@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OperatorDefinition
   Name: Multiply
   Color: {r: 0, g: 0, b: 0, a: 0}
-  Converter: {fileID: 11400000, guid: de7a1533624217e4e9573673b215e34e, type: 2}
+  Converter: {fileID: 11400000, guid: a732af5d568cbda4e904e7404ca91994, type: 2}
   IsUnary: 0
-  Sign: '*'
+  Sign: /

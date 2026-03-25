@@ -312,8 +312,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c99588c941961445954abecaa43e783, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlockTray
-  zone: {fileID: 0}
+  Zone: {fileID: 0}
   IsRoot: 0
+  blocks: []
 --- !u!225 &8342173894552059992
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -686,9 +687,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bdfeee4df91be747b64b47f03028ff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DraggableBlock
-  IsFake: 1
+  IsFake: 0
   IsNew: 0
-  IsBaseBlock: 0
+  IsStackBlock: 0
 --- !u!225 &2106901933492738983
 CanvasGroup:
   m_ObjectHideFlags: 0

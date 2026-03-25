@@ -24,6 +24,11 @@ public class BaseBlock : MonoBehaviour
         SetColor(Color);
     }
 
+    public virtual void OnDelete()
+    {
+        
+    }
+
     public virtual void SetDefinition(BlockDefinition def)
     {
         Defintion = def;
@@ -39,6 +44,7 @@ public class BaseBlock : MonoBehaviour
     {
         Zone = zone;
         GetComponent<DraggableBlock>().IsNew = false;
+        GetComponent<CanvasGroup>().blocksRaycasts = true;
     }
 
     public virtual void SetName(string name)

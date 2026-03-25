@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a53daff063e52954f87abb28cbe4a260, type: 3}
   m_Name: ModOperatorBlock
   m_EditorClassIdentifier: Assembly-CSharp::OperatorDefinition
-  Name: 
+  Name: Modulos
   Color: {r: 0, g: 0, b: 0, a: 0}
-  Converter: {fileID: 0}
+  Converter: {fileID: 11400000, guid: 637c7764f1092624b9fa9733e28d3196, type: 2}
   IsUnary: 0
-  Sign: 
+  Sign: '%'

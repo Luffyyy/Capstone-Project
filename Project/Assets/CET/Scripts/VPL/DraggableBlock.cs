@@ -17,6 +17,8 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     public bool IsStackBlock;
 
+    public VPLZone Zone => GetComponent<BaseBlock>().Zone;
+
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -50,6 +52,11 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             // so we can "see" the Tray/Blocks underneath it.
             canvasGroup.blocksRaycasts = false;
             canvasGroup.alpha = 0.7f;
+
+            if (!IsNew)
+            {
+                Zone.DeleteZone.SetActive(true); //TODO: animate it
+            }
         }
     }
 
@@ -92,7 +99,6 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
         // If we didn't land in a tray, return to original parent
         // In case it was a new block, delete it
-        // TODO: Add delete zone
 
         if (transform.parent == canvas.transform) {
             if (IsNew)
@@ -112,5 +118,9 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             }
         }
 
+        if (Zone != null)
+        {
+            Zone.DeleteZone.SetActive(false);
+        }
     }
 }

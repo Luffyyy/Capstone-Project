@@ -304,9 +304,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bdfeee4df91be747b64b47f03028ff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DraggableBlock
-  IsFake: 1
+  IsFake: 0
   IsNew: 0
-  IsBaseBlock: 0
+  IsStackBlock: 0
 --- !u!225 &1535757828962704623
 CanvasGroup:
   m_ObjectHideFlags: 0
