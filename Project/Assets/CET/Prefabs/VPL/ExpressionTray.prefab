@@ -96,6 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ExpressionBlock
   Zone: {fileID: 0}
   CurrentExpression: {fileID: 0}
+  DefaultBlock: {fileID: 0}
   IsActivated: 0
 --- !u!114 &237909367955335947
 MonoBehaviour:

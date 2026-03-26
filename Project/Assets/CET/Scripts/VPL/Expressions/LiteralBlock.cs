@@ -15,6 +15,17 @@ public class LiteralBlock : BaseExpression
         DropdownValueField.interactable = true;
     }
 
+    public void SetType(string type)
+    {
+        TypeDropdown.value = type switch
+        {
+            "number" => 0,
+            "string" => 1,
+            "bool" => 2,
+            _ => 0
+        };
+    }
+
     public void OnTypeChanged()
     {
         var type = TypeDropdown.options[TypeDropdown.value].text;

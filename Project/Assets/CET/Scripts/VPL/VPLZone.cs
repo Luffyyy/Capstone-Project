@@ -32,8 +32,8 @@ public class VPLZone : MonoBehaviour, IDropHandler
             {
                 var spawned = Instantiate(blockPrefab);
                 spawned.transform.SetParent(BlockListContent);
-                blockPrefab.GetComponent<DraggableBlock>().IsFake = true;
-                blockPrefab.SetDefinition(def);
+                spawned.GetComponent<DraggableBlock>().IsFake = true;
+                spawned.SetDefinition(def);
                 spawned.transform.localScale = Vector3.one;
             } else
             {
@@ -82,10 +82,9 @@ public class VPLZone : MonoBehaviour, IDropHandler
 
         button.text = "Stop Execution";
         print("Executing all block trays... ");
-        var content = transform.GetChild(0);
-        for (int i = 0; i < content.childCount; i++)
+        for (int i = 0; i < VPLZoneContent.childCount; i++)
         {
-            var tr = content.GetChild(i);
+            var tr = VPLZoneContent.GetChild(i);
             if (tr.TryGetComponent<BlockTray>(out var tray)) {
                 yield return tray.Execute();
             }
