@@ -8,16 +8,24 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     private CanvasGroup canvasGroup;
     private Transform originalParent;
 
+    [HideInInspector]
     public bool IsFake = false;
+    [HideInInspector]
     public bool IsNew = false;
 
     private BlockTray lastTray;
+
+    public bool IsStackBlock;
+
+    public VPLZone Zone => GetComponent<BaseBlock>().Zone;
 
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>() ?? gameObject.AddComponent<CanvasGroup>();
         canvas = GetComponentInParent<Canvas>();
+
+        IsStackBlock = GetComponent<StackBlock>() != null;
     }
 
     public void OnBeginDrag(PointerEventData eventData) {
@@ -44,6 +52,11 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             // so we can "see" the Tray/Blocks underneath it.
             canvasGroup.blocksRaycasts = false;
             canvasGroup.alpha = 0.7f;
+
+            if (!IsNew)
+            {
+                Zone.DeleteZone.SetActive(true); //TODO: animate it
+            }
         }
     }
 
@@ -54,6 +67,12 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         // 2. Check what is under the mouse
         // eventData.pointerEnter is the object currently under the cursor
         var obj = eventData.pointerEnter;
+
+        if (!IsStackBlock)
+        {
+            return;
+        }
+
         if (obj != null)
         {
             var tray = obj.GetComponent<BlockTray>();
@@ -80,7 +99,6 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
         // If we didn't land in a tray, return to original parent
         // In case it was a new block, delete it
-        // TODO: Add delete zone
 
         if (transform.parent == canvas.transform) {
             if (IsNew)
@@ -92,10 +110,17 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             }
         }
 
-        if (originalParent.childCount == 0 && originalParent.GetComponent<BlockTray>().IsRoot)
+        if (IsStackBlock)
         {
-            Destroy(originalParent.gameObject);
+            if (originalParent.childCount == 0 && originalParent.GetComponent<BlockTray>().IsRoot)
+            {
+                Destroy(originalParent.gameObject);
+            }
         }
 
+        if (Zone != null)
+        {
+            Zone.DeleteZone.SetActive(false);
+        }
     }
 }
