@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class StackBlock : BaseBlock
 {
-    protected StackBlock NextBlock;
-
     // Events have no top port, they self initiate, for example.
     public bool hasTopPort = true;
     public bool hasBottomPort = true;

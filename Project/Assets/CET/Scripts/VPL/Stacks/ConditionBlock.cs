@@ -8,16 +8,6 @@ public class ConditionBlock : CBlock
     public ExpressionTray Expression;
     public ExpressionTray ElseExpression;
 
-    public override void SetName(string name)
-    {
-        
-    }
-
-    public override void SetColor(Color color)
-    {
-        
-    }
-
     public override void Activated(VPLZone zone)
     {
         base.Activated(zone);
