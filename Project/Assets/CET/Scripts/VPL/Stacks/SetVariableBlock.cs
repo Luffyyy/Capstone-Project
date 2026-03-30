@@ -10,9 +10,34 @@ public class SetVariableBlock : StackBlock
 
     public ExpressionTray Tray;
 
-    public LiteralBlock LiteralBlock;
+    public override BlockNode SaveNode()
+    {
+        return new()
+        {
+            DefinitionName = Defintion.name,
+            Data = new()
+            {
+                new("VarFieldValue", VarField.text)
+            },
+            ExpressionTrays = new()
+            {
+                Tray.SaveNode()
+            }
+        };
+    }
 
-    public string Type;
+    public override void LoadNode(BlockNode node)
+    {
+        base.LoadNode(node);
+        
+        var varValue = node.Data.Find(item => item.Key == "VarFieldValue");
+        if (varValue.Value is string varStr)
+        {
+            VarField.text = varStr;
+        }
+
+        Tray.LoadNode(node.ExpressionTrays[0]);
+    }
 
     public override void Activated(VPLZone zone)
     {

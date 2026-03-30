@@ -10,7 +10,40 @@ public class BlockTray : MonoBehaviour, IDropHandler, IPointerExitHandler
     private GameObject preview;
     public bool IsRoot = false;
 
-    public List<StackBlock> blocks = new();
+    public List<StackBlock> Blocks => Helpers.GetComponentsInChildren<StackBlock>(transform);
+
+    public BlockTrayNode SaveNode()
+    {
+        List<BlockNode> nodes = new();
+
+        foreach (var block in Blocks)
+        {
+            nodes.Add(block.SaveNode());
+        }
+
+        return new()
+        {
+            Blocks = nodes
+        };
+    }
+
+    public void LoadNode(BlockTrayNode node)
+    {
+        foreach (var blockNode in node.Blocks)
+        {
+            var def = Zone.Store.GetDefinitionByName(blockNode.DefinitionName);
+            var blockPrefab = Zone.Store.GetPrefabForDefinition(def);
+            if (blockPrefab != null)
+            {
+                var spawned = Instantiate(blockPrefab, transform);
+                spawned.Activated(Zone);
+                spawned.LoadNode(blockNode);
+            } else
+            {
+                print($"Couldn't find prefab of {def.Name}: {def.PrefabName}");
+            }
+        }
+    }
 
     public void Activated(VPLZone zone)
     {

@@ -21,6 +21,26 @@ public class OperatorBlock : BaseExpression
         }
     }
 
+    public override BlockNode SaveNode()
+    {
+        return new()
+        {
+            DefinitionName = Defintion.name,
+            ExpressionTrays = new()
+            {
+                Exp1.SaveNode(),
+                Exp2.SaveNode(),
+            }
+        };
+    }
+
+    public override void LoadNode(BlockNode node)
+    {
+        base.LoadNode(node);
+        Exp1.LoadNode(node.ExpressionTrays[0]);
+        Exp2.LoadNode(node.ExpressionTrays[1]);
+    }
+
     public override void SetDefinition(BlockDefinition def)
     {
         base.SetDefinition(def);

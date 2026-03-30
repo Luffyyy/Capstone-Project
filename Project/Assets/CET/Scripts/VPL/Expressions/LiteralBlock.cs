@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using TMPro;
+using UnityEngine;
 
 public class LiteralBlock : BaseExpression
 {
@@ -7,6 +9,41 @@ public class LiteralBlock : BaseExpression
     public TMP_InputField ValueField;
 
     public TMP_Dropdown DropdownValueField;
+
+    public override BlockNode SaveNode()
+    {
+        return new()
+        {
+            DefinitionName = Defintion.name,
+            Data = new()
+            {
+                new("Type", TypeDropdown.value.ToString()),
+                new("InputValue", ValueField.text),
+                new("DropdownValue", DropdownValueField.value.ToString()),
+            }
+        };
+
+    }
+
+    public override void LoadNode(BlockNode node)
+    {
+        base.LoadNode(node);
+        var varValue = node.Data.Find(item => item.Key == "Type");
+        if (int.TryParse(varValue.Value, out var typeInt))
+        {
+            TypeDropdown.value = typeInt;
+        }
+        varValue = node.Data.Find(item => item.Key == "InputValue");
+        if (varValue.Value is string valueStr)
+        {
+            ValueField.text = valueStr;
+        }
+        varValue = node.Data.Find(item => item.Key == "DropdownValue");
+        if (int.TryParse(varValue.Value, out var dropdownInt))
+        {
+            DropdownValueField.value = dropdownInt;
+        }
+    }
 
     public override void Activated(VPLZone zone)
     {

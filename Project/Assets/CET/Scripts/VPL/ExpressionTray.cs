@@ -13,6 +13,36 @@ public class ExpressionTray : MonoBehaviour, IDropHandler, IPointerExitHandler, 
 
     public bool IsActivated = false;
 
+    public ExpressionTrayNode SaveNode()
+    {
+        return new()
+        {
+            CurrentExpression = CurrentExpression != null ? CurrentExpression.SaveNode() : null
+        };
+    }
+
+    public void LoadNode(ExpressionTrayNode node)
+    {
+        var blockNode = node.CurrentExpression;
+        if (blockNode != null)
+        {
+            var def = Zone.Store.GetDefinitionByName(blockNode.DefinitionName);
+            if (def != null)
+            {
+                var blockPrefab = Zone.Store.GetPrefabForDefinition(def);
+                if (blockPrefab is BaseExpression exp)
+                {
+                    var spawned = Instantiate(exp, transform);
+                    SetCurrentExpression(spawned);
+                    spawned.LoadNode(blockNode);
+                } else
+                {
+                    print($"Couldn't find prefab of {def.Name}: {def.PrefabName}");
+                }
+            }
+        }
+    }
+
     void Awake()
     {
         if (CurrentExpression == null && DefaultBlock != null)
@@ -59,18 +89,25 @@ public class ExpressionTray : MonoBehaviour, IDropHandler, IPointerExitHandler, 
         }
     }
 
+    public void SetCurrentExpression(BaseExpression exp)
+    {
+        if (CurrentExpression != null && CurrentExpression != exp)
+        {
+            Destroy(CurrentExpression.gameObject); // Only allow a single expression at a time
+        }
+
+        exp.transform.SetParent(transform);
+        exp.Activated(Zone);
+        GetComponent<Outline>().enabled = false;
+
+        CurrentExpression = exp;
+    }
+
     public void OnDrop(PointerEventData eventData)
     {
         if (IsActivated && eventData.pointerDrag.TryGetComponent<BaseExpression>(out var exp))
         {
-            if (CurrentExpression != null && CurrentExpression != exp)
-            {
-                Destroy(CurrentExpression.gameObject); // Only allow a single expression at a time
-            }
-            exp.transform.SetParent(transform);
-            exp.Activated(Zone);
-            GetComponent<Outline>().enabled = false;
-            CurrentExpression = exp;
+            SetCurrentExpression(exp);
         }
     }
 }

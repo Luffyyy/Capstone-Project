@@ -3,6 +3,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "OperatorDefinition", menuName = "VPL/Blocks/Operator")]
 public class OperatorDefinition : BlockDefinition
 {
+    void OnEnable()
+    {
+        PrefabName = "OperatorBlock";
+    }
     // The converter that handles the operator's functionality
     public ValueConverter Converter;
 
@@ -11,6 +15,4 @@ public class OperatorDefinition : BlockDefinition
 
     // The sign, such as +, NOT, AND, etc
     public string Sign;
-
-    public override string PrefabName => "OperatorBlock";
 }
