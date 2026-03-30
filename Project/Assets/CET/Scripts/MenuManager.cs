@@ -47,7 +47,7 @@ public class MenuManager : MonoBehaviour
         ServerNameStr = ServerName.text;
         discoveredServers.Clear();
         NetworkManager.singleton.StartServer();
-
+        NetworkManager.singleton.ServerChangeScene("Level1");
         networkDiscovery.AdvertiseServer();
 
         gameObject.SetActive(false);
@@ -67,7 +67,7 @@ public class MenuManager : MonoBehaviour
     {
         networkDiscovery.StopDiscovery();
         NetworkManager.singleton.StartClient(info.uri);
-
+        
         gameObject.SetActive(false);
     }
 
