@@ -4,5 +4,9 @@ using UnityEngine;
 public class PrefabBlockDefinition : BlockDefinition
 {
     public string Prefab;
-    public override string PrefabName => Prefab;
+
+    void OnEnable()
+    {
+        PrefabName = Prefab;
+    }
 }

@@ -6,5 +6,6 @@ public class BlockDefinition : ScriptableObject
     public string Name;
     public Color Color;
 
-    public virtual string PrefabName => "";
+    [HideInInspector]
+    public string PrefabName = "";
 }

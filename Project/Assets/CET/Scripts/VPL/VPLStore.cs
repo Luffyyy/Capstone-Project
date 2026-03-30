@@ -9,6 +9,11 @@ public class VPLStore : ScriptableObject
 
     public List<BlockDefinition> Definitions;
 
+    public BlockDefinition GetDefinitionByName(string name)
+    {
+        return Definitions.Find(definition => definition.name == name);
+    }
+
     public BaseBlock GetPrefabForDefinition(BlockDefinition defintion)
     {
         return BlockPrefabs.Find(prefab => prefab.name == defintion.PrefabName);

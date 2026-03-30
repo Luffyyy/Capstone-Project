@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Mirror;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class VPLZone : MonoBehaviour, IDropHandler
+public class VPLZone : NetworkBehaviour, IDropHandler
 {
     private Dictionary<string, bool> VariableDefs = new();
     private Dictionary<string, object> Variables = new();
@@ -23,6 +24,59 @@ public class VPLZone : MonoBehaviour, IDropHandler
 
     public GameObject DeleteZone;
 
+    public List<BlockTray> Trays => Helpers.GetComponentsInChildren<BlockTray>(VPLZoneContent);
+
+    [SyncVar(hook="OnRootChanged")]
+    public BlockNode Root;
+
+    public void SendTreeToServer()
+    {
+        BlockNode root = new();
+
+
+        foreach (var tray in Trays)
+        {
+            root.Trays.Add(tray.SaveNode());
+        }
+
+        CmdSendRoot(root);
+    }
+
+    [Command(requiresAuthority=false)]
+    void CmdSendRoot(BlockNode root)
+    {
+        Root = root;
+    }
+
+    public void LoadFromTree(BlockNode root)
+    {
+        foreach (var tray in Trays)
+        {
+            Destroy(tray.gameObject);
+        }
+
+        foreach (var trayNode in root.Trays)
+        {
+            var tray = CreateTray();
+            tray.LoadNode(trayNode);
+        }
+    }
+
+    private BlockTray CreateTray()
+    {
+        var tray = Instantiate(Tray, VPLZoneContent);
+        var trayComp = tray.GetComponent<BlockTray>();
+        trayComp.Activated(this);
+        trayComp.IsRoot = true;
+        trayComp.enabled = true;
+        return trayComp;
+    }
+
+    void OnRootChanged(BlockNode oldRoot, BlockNode newRoot)
+    {
+        LoadFromTree(Root);
+    }
+
     void Awake()
     {
         foreach (var def in Store.Definitions)
@@ -30,8 +84,7 @@ public class VPLZone : MonoBehaviour, IDropHandler
             var blockPrefab = Store.GetPrefabForDefinition(def);
             if (blockPrefab != null)
             {
-                var spawned = Instantiate(blockPrefab);
-                spawned.transform.SetParent(BlockListContent);
+                var spawned = Instantiate(blockPrefab, BlockListContent);
                 spawned.GetComponent<DraggableBlock>().IsFake = true;
                 spawned.SetDefinition(def);
                 spawned.transform.localScale = Vector3.one;
@@ -76,18 +129,16 @@ public class VPLZone : MonoBehaviour, IDropHandler
         executionRoutine = StartCoroutine(VPLCoroutine());
     }
 
+
     public IEnumerator VPLCoroutine()
     {
         var button = ExecuteButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
 
         button.text = "Stop Execution";
         print("Executing all block trays... ");
-        for (int i = 0; i < VPLZoneContent.childCount; i++)
+        foreach (var tray in Trays)
         {
-            var tr = VPLZoneContent.GetChild(i);
-            if (tr.TryGetComponent<BlockTray>(out var tray)) {
-                yield return tray.Execute();
-            }
+            yield return tray.Execute();
             print("Execution complete.");
         }
         Cleanup();
@@ -112,13 +163,7 @@ public class VPLZone : MonoBehaviour, IDropHandler
         {
             if (!block.IsStackBlock) return;
 
-            var tray = Instantiate(Tray, VPLZoneContent);
-            var trayComp = tray.GetComponent<BlockTray>();
-            trayComp.Activated(this);
-            trayComp.IsRoot = true;
-            trayComp.enabled = true;
-
-            tray.transform.position = obj.transform.position;
+            var tray = CreateTray();
             obj.transform.SetParent(tray.transform);
             block.GetComponent<BaseBlock>().Activated(this);
         }

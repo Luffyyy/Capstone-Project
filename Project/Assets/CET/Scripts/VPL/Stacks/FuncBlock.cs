@@ -13,6 +13,34 @@ public class FuncBlock : StackBlock
 
     public VPLFunction Func;
 
+    public override BlockNode SaveNode()
+    {
+        List<ExpressionTrayNode> expressions = new();
+
+        foreach (var tray in Trays)
+        {
+            expressions.Add(tray.SaveNode());
+        }
+        
+        return new()
+        {
+            DefinitionName = Defintion.name,
+            ExpressionTrays = expressions
+        };
+    }
+
+    public override void LoadNode(BlockNode node)
+    {
+        base.LoadNode(node);
+        
+        for (int i=0; i< Trays.Count; i++)
+        {
+            var tray = Trays[i];
+            tray.Activated(Zone);
+            tray.LoadNode(node.ExpressionTrays[i]);
+        }
+    }
+
     public override void SetDefinition(BlockDefinition def)
     {
         base.SetDefinition(def);

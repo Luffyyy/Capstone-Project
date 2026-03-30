@@ -18,6 +18,19 @@ public class BaseBlock : MonoBehaviour
 
     public BlockDefinition Defintion;
 
+    public virtual BlockNode SaveNode()
+    {
+        return new()
+        {
+            DefinitionName = Defintion.name,
+        };
+    }
+
+    public virtual void LoadNode(BlockNode node)
+    {
+        SetDefinitionByName(node.DefinitionName);
+    }
+
     public virtual void Awake()
     {
         SetName(Name);
@@ -27,6 +40,15 @@ public class BaseBlock : MonoBehaviour
     public virtual void OnDelete()
     {
         
+    }
+
+    public void SetDefinitionByName(string name)
+    {
+        var def = Zone.Store.GetDefinitionByName(name);
+        if (def != null)
+        {
+            SetDefinition(def);
+        }
     }
 
     public virtual void SetDefinition(BlockDefinition def)
