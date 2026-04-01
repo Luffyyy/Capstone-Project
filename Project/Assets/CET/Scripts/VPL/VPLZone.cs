@@ -29,30 +29,41 @@ public class VPLZone : NetworkBehaviour, IDropHandler
     [SyncVar(hook="OnRootChanged")]
     public BlockNode Root;
 
-    public void SendTreeToServer()
+    public void ExecuteOnServer()
+    {
+        SendTreeToServer(true); // Ensure tree is up-to-date on server
+        //TODO: send back to clients whether execution was a success
+    }
+
+    public void SendTreeToServer(bool execute)
     {
         BlockNode root = new();
-
 
         foreach (var tray in Trays)
         {
             root.Trays.Add(tray.SaveNode());
         }
 
-        CmdSendRoot(root);
+        CmdSendRoot(root, execute);
     }
 
     [Command(requiresAuthority=false)]
-    void CmdSendRoot(BlockNode root)
+    void CmdSendRoot(BlockNode root, bool execute)
     {
         Root = root;
+        if (execute)
+        {
+            LoadFromTree(Root);
+            Execute();
+        }
     }
 
     public void LoadFromTree(BlockNode root)
     {
+        print($"Load tree {root.Ident}");
         foreach (var tray in Trays)
         {
-            Destroy(tray.gameObject);
+            DestroyImmediate(tray.gameObject); // Important since we want to avoid a race condition with the coroutine
         }
 
         foreach (var trayNode in root.Trays)
@@ -74,7 +85,10 @@ public class VPLZone : NetworkBehaviour, IDropHandler
 
     void OnRootChanged(BlockNode oldRoot, BlockNode newRoot)
     {
-        LoadFromTree(Root);
+        if (isLocalPlayer && oldRoot != newRoot)
+        {
+            LoadFromTree(Root);
+        }
     }
 
     void Awake()
@@ -120,10 +134,10 @@ public class VPLZone : NetworkBehaviour, IDropHandler
     {
         if (executionRoutine != null)
         {
-            print("Interrupting Execution Coroutine...");
+            print("Interrupting Previous Execution Coroutine...");
             StopCoroutine(executionRoutine);
             Cleanup();
-            return;
+            // return; TODO: possibly implement stopping from client on server
         }
 
         executionRoutine = StartCoroutine(VPLCoroutine());

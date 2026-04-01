@@ -44,4 +44,20 @@ public class BlockNode
     public List<BlockTrayNode> Trays = new();
 
     public List<ExpressionTrayNode> ExpressionTrays = new();
+
+    // override object.Equals
+    public override bool Equals(object obj)
+    {
+        if (obj == null || GetType() != obj.GetType())
+        {
+            return false;
+        }
+        
+        return Ident == (obj as BlockNode).Ident;
+    }
+
+    public override int GetHashCode()
+    {
+        return Ident.GetHashCode();
+    }
 }
