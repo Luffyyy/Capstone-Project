@@ -1,10 +1,17 @@
+using Mirror;
 using UnityEngine;
 
-public class ShowUiOnTerminal : MonoBehaviour
+public class ShowUiOnTerminal : NetworkBehaviour
 {
     private int playerCounter = 0;
     public GameObject promptUI;
     public Transform uiAnchor;
+    
+    public GameObject VPLEditMenuPrefab;
+
+    [SyncVar(hook="OnVPLMenuChanged")]
+    public GameObject OwnedVPLMenu;
+
     void PositionUI()
     {
         print(Camera.main);
@@ -14,7 +21,25 @@ public class ShowUiOnTerminal : MonoBehaviour
     }
     void Start()
     {
-        
+        if (isServer)
+        {
+            var go = Instantiate(VPLEditMenuPrefab, GameObject.Find("VPLMenu").transform);
+            NetworkServer.Spawn(go);
+            OwnedVPLMenu = go;
+        }
+    }
+
+    void OnVPLMenuChanged(GameObject oldVPL, GameObject newVPL) {
+        if (newVPL != null)
+        {
+            MenuManager.Instance.Show();
+            OwnedVPLMenu.transform.SetParent(GameObject.Find("VPLMenu").transform, false);
+        }
+    }
+
+    void OnConnectedToServer()
+    {
+        MenuManager.Instance.Show();
     }
 
     // Update is called once per frame
@@ -58,5 +83,7 @@ public class ShowUiOnTerminal : MonoBehaviour
     public void Interact()
     {
         Debug.Log("Interacted with ATM!");
+        MenuManager.Instance.OpenMenu("VPLMenu");
+        //TODO: Tell VPLMenu which VPLEditMenu we want to open
     }
 }

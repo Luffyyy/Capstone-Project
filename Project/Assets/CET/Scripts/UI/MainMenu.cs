@@ -1,14 +1,15 @@
 using System.Collections.Generic;
 using Mirror;
+using Mirror.Discovery;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MenuManager : MonoBehaviour
+public class MainMenu : MenuBase
 {
-    readonly Dictionary<long, DiscoveryResponse> discoveredServers = new Dictionary<long, DiscoveryResponse>();
+    readonly Dictionary<long, DiscoveryResponse> discoveredServers = new();
 
-    public NewNetworkDiscovery networkDiscovery;
+    private NewNetworkDiscovery networkDiscovery;
 
     public GameObject serverList;
 
@@ -21,7 +22,7 @@ public class MenuManager : MonoBehaviour
 
     [HideInInspector] public string ServerNameStr;
 
-    public static MenuManager Instance;
+    public static MainMenu Instance;
 
     void Awake()
     {
@@ -30,6 +31,7 @@ public class MenuManager : MonoBehaviour
 
     public void Start()
     {
+        networkDiscovery = NetworkManager.singleton.GetComponent<NewNetworkDiscovery>();
         if (networkDiscovery != null)
         {
             networkDiscovery.OnServerFound.AddListener(OnDiscoveredServer);
@@ -46,6 +48,7 @@ public class MenuManager : MonoBehaviour
     {
         ServerNameStr = ServerName.text;
         discoveredServers.Clear();
+
         NetworkManager.singleton.StartServer();
         NetworkManager.singleton.ServerChangeScene("Level1");
         networkDiscovery.AdvertiseServer();
@@ -61,6 +64,17 @@ public class MenuManager : MonoBehaviour
         networkDiscovery.StartDiscovery();
 
         UpdateServerList();
+    }
+
+    public void QuitGame()
+    {
+        //TODO: do this in a dialog
+        Application.Quit();
+    }
+
+    public void OpenSettings()
+    {
+        MenuManager.Instance.OpenMenu("SettingsMenu");
     }
 
     public void Connect(DiscoveryResponse info)

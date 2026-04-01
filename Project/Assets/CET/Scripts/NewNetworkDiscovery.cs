@@ -82,7 +82,7 @@ public class NewNetworkDiscovery : NetworkDiscoveryBase<DiscoveryRequest, Discov
         {
             uri = transport.ServerUri(),
             serverId = ServerId,
-            Name = MenuManager.Instance.ServerNameStr
+            Name = MainMenu.Instance.ServerNameStr
         };
     }
 

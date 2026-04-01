@@ -24,10 +24,13 @@ public class TmpBasicMoves : NetworkBehaviour
 
         Debug.Log("Interact pressed1");
 
-        if (currentInteractable != null)
+        if (currentInteractable is ShowUiOnTerminal t)
         {
             Debug.Log("Interact pressed0");
-            CmdInteract(currentInteractable.gameObject);
+            //TODO: send requet to server to see whether we are allowed to interact. 
+            // For example what if someone else is interacting with the terminal?
+            t.Interact();
+            // CmdInteract(t.gameObject);
         }
     }
     [Command]
