@@ -890,6 +890,10 @@ PrefabInstance:
       propertyPath: UIAnchor
       value: 
       objectReference: {fileID: 650472912}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: VPLEditMenuPrefab
+      value: 
+      objectReference: {fileID: 2151990500796916592, guid: 10ea732ee06cb5846a60cd66991eb9de, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2339,6 +2343,10 @@ PrefabInstance:
       propertyPath: promptUI
       value: 
       objectReference: {fileID: 1706489623}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: VPLEditMenuPrefab
+      value: 
+      objectReference: {fileID: 2151990500796916592, guid: 10ea732ee06cb5846a60cd66991eb9de, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

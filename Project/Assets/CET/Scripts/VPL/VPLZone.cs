@@ -7,7 +7,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class VPLZone : NetworkBehaviour, IDropHandler
+[RequireComponent(typeof(LayoutElement), typeof(CanvasGroup))]
+public class VPLZone : NetworkBehaviour
 {
     private Dictionary<string, bool> VariableDefs = new();
     private Dictionary<string, object> Variables = new();
@@ -26,8 +27,13 @@ public class VPLZone : NetworkBehaviour, IDropHandler
 
     public List<BlockTray> Trays => Helpers.GetComponentsInChildren<BlockTray>(VPLZoneContent);
 
+    [HideInInspector]
     [SyncVar(hook="OnRootChanged")]
     public BlockNode Root;
+
+    public GameObject TrayPrefab;
+
+    public bool IsActive;
 
     public void ExecuteOnServer()
     {
@@ -73,9 +79,9 @@ public class VPLZone : NetworkBehaviour, IDropHandler
         }
     }
 
-    private BlockTray CreateTray()
+    public BlockTray CreateTray()
     {
-        var tray = Instantiate(Tray, VPLZoneContent);
+        var tray = Instantiate(TrayPrefab, VPLZoneContent);
         var trayComp = tray.GetComponent<BlockTray>();
         trayComp.Activated(this);
         trayComp.IsRoot = true;
@@ -169,20 +175,6 @@ public class VPLZone : NetworkBehaviour, IDropHandler
         executionRoutine = null;
     }
 
-    public GameObject Tray;
-    public void OnDrop(PointerEventData eventData)
-    {
-        var obj = eventData.pointerDrag;
-        if (obj != null && obj.TryGetComponent<DraggableBlock>(out var block))
-        {
-            if (!block.IsStackBlock) return;
-
-            var tray = CreateTray();
-            obj.transform.SetParent(tray.transform);
-            block.GetComponent<BaseBlock>().Activated(this);
-        }
-    }
-
     public void SetVariable(string str, object obj)
     {
         Variables[str] = obj;
@@ -197,5 +189,31 @@ public class VPLZone : NetworkBehaviour, IDropHandler
         {
             return null;
         }
+    }
+
+    public void Show()
+    {
+        var cg = GetComponent<CanvasGroup>();
+        cg.alpha = 1;
+        cg.interactable = true;
+        cg.blocksRaycasts = true;
+
+        GetComponent<LayoutElement>().ignoreLayout = false;
+
+        IsActive = true;
+    }
+
+    public void Hide()
+    {
+        var cg = GetComponent<CanvasGroup>();
+        cg.alpha = 0;
+        cg.interactable = false;
+        cg.blocksRaycasts = false;
+
+        // I could disable it, but then it won't receive updates with the network behavior
+        // CanvasGroup makes it transparent but sadly not totally "invisible"
+        GetComponent<LayoutElement>().ignoreLayout = true;
+
+        IsActive = false;
     }
 }

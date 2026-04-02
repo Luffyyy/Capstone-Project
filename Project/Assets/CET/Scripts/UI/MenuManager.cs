@@ -29,9 +29,29 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    // Returns a menu stored in the menu manager
+    public MenuBase GetMenu(string name)
+    {
+        return GetMenu<MenuBase>(name);
+    }
+
+    // Returns a menu stored in the menu manager and allows to quickly upcast it to some type you need
+    public T GetMenu<T>(string name)
+    {
+        
+        var menu = Menus.Find(menu => menu.name == name);
+        if (menu is T tMenu)
+        {
+            return tMenu;
+        } else
+        {
+            return default;
+        }
+    }
+
     public void OpenMenu(string name)
     {
-        MenuBase menu = Menus.Find(menu => menu.name == name);
+        MenuBase menu = GetMenu(name);
         if (menu == null)
         {
             menu = Instantiate(MenuPrefabs.Find(menu => menu.gameObject.name == name), SafeArea);

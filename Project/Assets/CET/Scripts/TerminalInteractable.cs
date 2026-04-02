@@ -3,32 +3,37 @@ using UnityEngine;
 
 public class TerminalInteractable : Interactable
 {
-    public GameObject VPLEditMenuPrefab;
+    public VPLZone VPLEditMenuPrefab;
 
     [HideInInspector]
-    [SyncVar(hook="OnVPLMenuChanged")]
-    public GameObject OwnedVPLMenu;
+    [SyncVar]
+    public VPLZone OwnedVPLZone;
+
+    private VPLMenu VPLMenu;
 
     void Start()
     {
+        VPLMenu = MenuManager.Instance.GetMenu<VPLMenu>("VPLMenu");
         if (isServer)
         {
-            var go = Instantiate(VPLEditMenuPrefab, GameObject.Find("VPLMenu").transform);
-            NetworkServer.Spawn(go);
-            OwnedVPLMenu = go;
+            var go = Instantiate(VPLEditMenuPrefab, VPLMenu.transform);
+            NetworkServer.Spawn(go.gameObject);
+            OwnedVPLZone = go;
         }
     }
 
-    void OnVPLMenuChanged(GameObject oldVPL, GameObject newVPL) {
-        if (newVPL != null)
+    public override void OnStartClient()
+    {
+        VPLMenu = MenuManager.Instance.GetMenu<VPLMenu>("VPLMenu");
+        if (OwnedVPLZone != null)
         {
-            OwnedVPLMenu.transform.SetParent(GameObject.Find("VPLMenu").transform, false);
+            VPLMenu.AddZone(OwnedVPLZone, netId);
         }
     }
 
     public override void Interact()
     {
         MenuManager.Instance.OpenMenu("VPLMenu");
-        //TODO: Tell VPLMenu which VPLEditMenu we want to open
+        VPLMenu.OpenVPLZone(netId);
     }
 }
