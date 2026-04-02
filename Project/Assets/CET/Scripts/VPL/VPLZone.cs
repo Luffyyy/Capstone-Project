@@ -91,7 +91,7 @@ public class VPLZone : NetworkBehaviour
 
     void OnRootChanged(BlockNode oldRoot, BlockNode newRoot)
     {
-        if (isLocalPlayer && oldRoot != newRoot)
+        if (isClient && oldRoot != newRoot)
         {
             LoadFromTree(Root);
         }
