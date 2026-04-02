@@ -24,7 +24,7 @@ public class LevelManager : MonoBehaviour
     {
         
     }
-    public void enableDoor(GameObject door)
+    public void EnableDoor(GameObject door)
     {
         
     }

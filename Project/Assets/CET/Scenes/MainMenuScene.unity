@@ -760,17 +760,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Menu
       objectReference: {fileID: 0}
-    - target: {fileID: 1938580420244672296, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
-      propertyPath: StartMenu
-      value: MainMenu
+    - target: {fileID: 4018219940516796992, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: Menu
       objectReference: {fileID: 0}
-    - target: {fileID: 1938580420244672296, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
-      propertyPath: Menus.Array.size
+    - target: {fileID: 4018219940516796992, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1938580420244672296, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
-      propertyPath: 'Menus.Array.data[0]'
+    - target: {fileID: 4018219940516796992, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 3411245136048531683}
+    - target: {fileID: 4018219940516796992, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnEscape
       objectReference: {fileID: 0}
     - target: {fileID: 4578994752622550241, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
       propertyPath: m_AnchorMax.x
@@ -877,6 +881,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
+--- !u!114 &3411245136048531683 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1938580420244672296, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
+  m_PrefabInstance: {fileID: 3411245136048531682}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3722fdd1cd9eb514a95457b3983980c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuManager
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

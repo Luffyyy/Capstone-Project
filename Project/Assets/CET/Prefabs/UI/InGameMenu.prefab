@@ -183,7 +183,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1938580420244672296, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
       propertyPath: StartMenu
-      value: PlayMenu
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1938580420244672296, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
+      propertyPath: AllowClosing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1938580420244672296, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
       propertyPath: Menus.Array.size
@@ -198,15 +202,27 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1938580420244672296, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
-      propertyPath: 'MenuPrefabs.Array.data[3]'
+      propertyPath: 'MenuPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 7678810237012958258, guid: 7f03048038be45c4382136f1846f0a73, type: 3}
+    - target: {fileID: 1938580420244672296, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
+      propertyPath: 'MenuPrefabs.Array.data[2]'
       value: 
       objectReference: {fileID: 5613719758683607896, guid: 7bb9870f9abcedc4c8cdf9395fe55def, type: 3}
+    - target: {fileID: 1938580420244672296, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
+      propertyPath: 'MenuPrefabs.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2577797587498758228, guid: d885815cb1eff8f4789d52dfc47494ac, type: 3}
     - target: {fileID: 3714115865610406702, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
       propertyPath: m_Alpha
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3714115865610406702, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
       propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3714115865610406702, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
+      propertyPath: m_BlocksRaycasts
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4578994752622550241, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
@@ -315,10 +331,75 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4578994752622550241, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3070076625842624702}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1852795700156059633, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1861101181831687477}
   m_SourcePrefab: {fileID: 100100000, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
 --- !u!224 &1594871853532802015 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4578994752622550241, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
   m_PrefabInstance: {fileID: 3002147194949515070}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3467691624070052047 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1852795700156059633, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
+  m_PrefabInstance: {fileID: 3002147194949515070}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1861101181831687477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3467691624070052047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: 95f02ee7dfd5db942b98fcf9160e71ab, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3697169870867183638}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: CloseCurrentMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 17b96d31-87b7-426b-a9c0-4a878d5aebca
+    m_ActionName: 'Global/Escape[/Keyboard/escape]'
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: f5a3a95c-8d4e-4487-ba45-d536bd0fc093
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &3697169870867183638 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1938580420244672296, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
+  m_PrefabInstance: {fileID: 3002147194949515070}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3467691624070052047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3722fdd1cd9eb514a95457b3983980c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuManager

@@ -1,17 +1,14 @@
 using UnityEngine;
 
 [RequireComponent(typeof(CanvasGroup))]
-public class MenuBase : MonoBehaviour
+public class HUDBase : MonoBehaviour
 {
-    public bool IsActive = false;
-
     public void Show()
     {
         var cg = GetComponent<CanvasGroup>();
         cg.alpha = 1;
         cg.interactable = true;
         cg.blocksRaycasts = true;
-        IsActive = true;
     }
 
     public void Hide()
@@ -20,11 +17,5 @@ public class MenuBase : MonoBehaviour
         cg.alpha = 0;
         cg.interactable = false;
         cg.blocksRaycasts = false;
-        IsActive = false;
-    }
-
-    public void Back()
-    {
-        MenuManager.Instance.CloseCurrentMenu();
     }
 }

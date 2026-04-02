@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CanvasGroup))]
 public class MenuManager : MonoBehaviour
@@ -15,10 +16,14 @@ public class MenuManager : MonoBehaviour
 
     public static MenuManager Instance { get; private set; }
 
+    public bool IsActive;
+
+    public bool AllowClosing = false;
+
     void Awake()
     {
         Instance = this;
-        if (StartMenu != null)
+        if (!string.IsNullOrWhiteSpace(StartMenu))
         {
             OpenMenu(StartMenu);
         }
@@ -26,11 +31,11 @@ public class MenuManager : MonoBehaviour
 
     public void OpenMenu(string name)
     {
-        print(Menus);
         MenuBase menu = Menus.Find(menu => menu.name == name);
         if (menu == null)
         {
             menu = Instantiate(MenuPrefabs.Find(menu => menu.gameObject.name == name), SafeArea);
+            menu.name = name;
             Menus.Add(menu.GetComponent<MenuBase>());
         }
         if (MenuStack.Count > 0)
@@ -39,15 +44,35 @@ public class MenuManager : MonoBehaviour
         }
         MenuStack.Push(menu);
         menu.Show();
+
+        if (!IsActive)
+        {
+            Show();
+        }
+    }
+
+    public void OnEscape(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            CloseCurrentMenu();
+        }
     }
 
     public void CloseCurrentMenu()
     {
-        if (MenuStack.Count <= 1)
+        var count = MenuStack.Count;
+        if (count == 0 || (count <= 1 && !AllowClosing))
             return;
 
         MenuStack.Pop().Hide();
-        MenuStack.Peek().Show();
+        if (count > 1)
+        {
+            MenuStack.Peek().Show();
+        } else // Only possible if ALlowClosing = true
+        {
+            Hide();
+        }
     }
 
     public void Show()
@@ -55,6 +80,14 @@ public class MenuManager : MonoBehaviour
         var cg = GetComponent<CanvasGroup>();
         cg.alpha = 1;
         cg.interactable = true;
+        cg.blocksRaycasts = true;
+
+        IsActive = true;
+
+        if (HUDManager.Instance != null)
+        {
+            HUDManager.Instance.SetActive(false);
+        }
     }
 
     public void Hide()
@@ -62,5 +95,13 @@ public class MenuManager : MonoBehaviour
         var cg = GetComponent<CanvasGroup>();
         cg.alpha = 0;
         cg.interactable = false;
+        cg.blocksRaycasts = false;
+
+        IsActive = false;
+
+        if (HUDManager.Instance != null)
+        {
+            HUDManager.Instance.SetActive(true);
+        }
     }
 }

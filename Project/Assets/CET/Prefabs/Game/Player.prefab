@@ -121,13 +121,13 @@ GameObject:
   m_Component:
   - component: {fileID: 7292812114112200506}
   - component: {fileID: 7032689122180204600}
-  - component: {fileID: 2313612977216309992}
   - component: {fileID: 1012216525154470816}
+  - component: {fileID: -998144736269332596}
   - component: {fileID: 7867345752817371904}
   - component: {fileID: 1717544087422495150}
   - component: {fileID: 8905939548130221042}
   m_Layer: 0
-  m_Name: tempModel (1)
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,8 +166,25 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   speed: 5
-  currentInteractable: {fileID: 0}
---- !u!114 &2313612977216309992
+  CurrentInteractable: {fileID: 0}
+--- !u!114 &1012216525154470816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9066288228985545881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Mirror::Mirror.NetworkIdentity
+  sceneId: 0
+  _assetId: 4196547880
+  serverOnly: 0
+  visibility: 0
+  hasSpawned: 0
+--- !u!114 &-998144736269332596
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -195,7 +212,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7032689122180204600}
-        m_TargetAssemblyTypeName: TmpBasicMoves, Assembly-CSharp
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
@@ -211,7 +228,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7032689122180204600}
-        m_TargetAssemblyTypeName: TmpBasicMoves, Assembly-CSharp
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnInteract
         m_Mode: 0
         m_Arguments:
@@ -229,23 +246,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &1012216525154470816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9066288228985545881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Mirror::Mirror.NetworkIdentity
-  sceneId: 0
-  _assetId: 4196547880
-  serverOnly: 0
-  visibility: 0
-  hasSpawned: 0
 --- !u!54 &7867345752817371904
 Rigidbody:
   m_ObjectHideFlags: 0

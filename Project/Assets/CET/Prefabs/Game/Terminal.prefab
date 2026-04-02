@@ -169,8 +169,8 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  promptUI: {fileID: 0}
-  uiAnchor: {fileID: 6361832684526941806}
+  PromptUI: {fileID: 0}
+  UIAnchor: {fileID: 0}
   VPLEditMenuPrefab: {fileID: 7207097890222072335, guid: 10ea732ee06cb5846a60cd66991eb9de, type: 3}
   OwnedVPLMenu: {fileID: 0}
 --- !u!114 &5955127192372402812
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Mirror::Mirror.NetworkIdentity
   sceneId: 0
-  _assetId: 3833848524
+  _assetId: 2564529697
   serverOnly: 0
   visibility: 0
   hasSpawned: 0

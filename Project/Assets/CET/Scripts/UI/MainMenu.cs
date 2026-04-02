@@ -17,6 +17,7 @@ public class MainMenu : MenuBase
     public Dialog hostGameDialog;
 
     public TMP_InputField ServerName;
+    public Toggle ServerOnly;
 
     public GameObject serverButton;
 
@@ -49,8 +50,14 @@ public class MainMenu : MenuBase
         ServerNameStr = ServerName.text;
         discoveredServers.Clear();
 
-        NetworkManager.singleton.StartServer();
-        NetworkManager.singleton.ServerChangeScene("Level1");
+        if (ServerOnly.isOn)
+        {
+            NetworkManager.singleton.StartServer();
+        } else
+        {
+            NetworkManager.singleton.StartHost();
+        }
+        // NetworkManager.singleton.ServerChangeScene("Level1");
         networkDiscovery.AdvertiseServer();
 
         gameObject.SetActive(false);
