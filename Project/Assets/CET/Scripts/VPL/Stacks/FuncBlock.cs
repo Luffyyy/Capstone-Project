@@ -48,6 +48,7 @@ public class FuncBlock : StackBlock
         if (def != null && def is FuncBlockDefinition fb)
         {
             Func = fb.Function;
+            Func.Zone = Zone;
             foreach (var arg in fb.Function.Args)
             {
                 var name = Instantiate(ArgNameObject, transform);
@@ -67,6 +68,10 @@ public class FuncBlock : StackBlock
     public override void Activated(VPLZone zone)
     {
         base.Activated(zone);
+        if (Func != null)
+        {
+            Func.Zone = zone;
+        }
         foreach (var tray in Trays)
         {
             tray.Activated(zone);

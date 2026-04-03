@@ -6,9 +6,16 @@ public class Interactable : NetworkBehaviour
     private int playerCounter = 0;
     public GameObject PromptUI;
     public Transform UIAnchor;
-
+    [SyncVar] public bool IsOn = true;
+    public GameObject PromptUIPrefab;
+    public void Awake()
+    {
+        PromptUI = Instantiate(PromptUIPrefab, GameObject.Find("Canvas").transform);
+        PromptUI.transform.SetSiblingIndex(0);
+    }
     protected void PositionUI()
     {
+        
         Vector3 screenPos = Camera.main.WorldToScreenPoint(UIAnchor.position);
         PromptUI.transform.position = screenPos;
     }
@@ -16,8 +23,9 @@ public class Interactable : NetworkBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
-        
-        var player = other.GetComponent<PlayerController>();
+        if (IsOn)
+        {
+            var player = other.GetComponent<PlayerController>();
         if (player != null)
         {
             player.CurrentInteractable = this;
@@ -26,6 +34,7 @@ public class Interactable : NetworkBehaviour
         playerCounter++;
         PositionUI();
         PromptUI.SetActive(true);
+        }
     }
 
     private void OnTriggerExit(Collider other)

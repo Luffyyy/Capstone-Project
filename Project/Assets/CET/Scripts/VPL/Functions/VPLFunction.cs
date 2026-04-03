@@ -10,6 +10,7 @@ public class VPLArg
 
 public class VPLFunction : ScriptableObject
 {
+    public VPLZone Zone;
     // The arguments of this function and their type
     public virtual List<VPLArg> Args => new();
 

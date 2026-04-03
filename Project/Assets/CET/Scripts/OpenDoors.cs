@@ -12,7 +12,6 @@ public class OpenDoors : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {   
-            Debug.Log("TRIGGER WORKED with: " + other.name);
             animator.SetBool("isOpen", true);
         }
     }

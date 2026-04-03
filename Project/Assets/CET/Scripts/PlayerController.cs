@@ -9,7 +9,7 @@ public class PlayerController : NetworkBehaviour
     public float speed;
     private Vector2 move;
     public Interactable CurrentInteractable;
-
+    Rigidbody rb;
     public void OnMove(InputAction.CallbackContext context)
     {
         if (!isLocalPlayer || MenuManager.Instance.IsActive) return;
@@ -37,7 +37,10 @@ public class PlayerController : NetworkBehaviour
             i.Interact();
         }
     }   
-
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
     void Update()
     {
         if (isLocalPlayer)
@@ -49,9 +52,10 @@ public class PlayerController : NetworkBehaviour
     private void MovePlayer()
     {
         Vector3 movement = new(move.x,0f,move.y);
-        transform.Translate(speed * Time.deltaTime * movement, Space.World);
+        rb.MovePosition(rb.position + movement * speed * Time.deltaTime);
+        //transform.Translate(speed * Time.deltaTime * movement, Space.World);
         if(movement != Vector3.zero)
-        {
+        {  
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), Time.deltaTime * 15f);
         }
     }

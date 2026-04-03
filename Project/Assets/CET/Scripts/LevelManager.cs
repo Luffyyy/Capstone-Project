@@ -1,9 +1,10 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] private Transform player1Spawn;
     [SerializeField] private Transform player2Spawn;
+    public List<GameObject> Objects = new();
     public Transform GetPlayer1Spawn()
     {
         return player1Spawn;

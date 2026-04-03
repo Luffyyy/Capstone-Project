@@ -35,6 +35,7 @@ public class VPLZone : NetworkBehaviour
 
     public bool IsActive;
 
+    public TerminalInteractable ConnectedTo;
     public void ExecuteOnServer()
     {
         SendTreeToServer(true); // Ensure tree is up-to-date on server

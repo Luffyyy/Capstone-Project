@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ public class TerminalInteractable : Interactable
     [HideInInspector]
     [SyncVar]
     public VPLZone OwnedVPLZone;
-
+    public List<GameObject> ConnectedObjects = new();
     private VPLMenu VPLMenu;
 
     void Start()
@@ -17,6 +18,7 @@ public class TerminalInteractable : Interactable
         if (isServer)
         {
             var go = Instantiate(VPLEditMenuPrefab, VPLMenu.transform);
+            go.ConnectedTo = this;
             NetworkServer.Spawn(go.gameObject);
             OwnedVPLZone = go;
         }
