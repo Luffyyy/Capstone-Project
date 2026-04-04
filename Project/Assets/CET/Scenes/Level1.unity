@@ -1000,6 +1000,34 @@ PrefabInstance:
       propertyPath: sceneId
       value: 2047449091
       objectReference: {fileID: 0}
+    - target: {fileID: 8516375799179286382, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: m_Size.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516375799179286382, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: m_Size.y
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516375799179286382, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: m_Size.z
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: type
+      value: Terminal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: ConnectedObjects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: 'ConnectedObjects.Array.data[0]'
+      value: 
+      objectReference: {fileID: 9196640526982062249}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: 'ConnectedObjects.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1225370505}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1474,6 +1502,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 627000586}
     m_Modifications:
     - target: {fileID: 3638371344210637105, guid: 369eff56d5361e74e9bbd7ead66429b8, type: 3}
+      propertyPath: type
+      value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 3638371344210637105, guid: 369eff56d5361e74e9bbd7ead66429b8, type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 627000597}
@@ -1544,13 +1576,38 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6618622673115152636, guid: 369eff56d5361e74e9bbd7ead66429b8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1225370506}
   m_SourcePrefab: {fileID: 100100000, guid: 369eff56d5361e74e9bbd7ead66429b8, type: 3}
 --- !u!4 &1225370504 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7063951173283187156, guid: 369eff56d5361e74e9bbd7ead66429b8, type: 3}
   m_PrefabInstance: {fileID: 1225370503}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1225370505 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6618622673115152636, guid: 369eff56d5361e74e9bbd7ead66429b8, type: 3}
+  m_PrefabInstance: {fileID: 1225370503}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1225370506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225370505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Mirror::Mirror.NetworkIdentity
+  sceneId: 3361008717
+  _assetId: 2048193887
+  serverOnly: 0
+  visibility: 0
+  hasSpawned: 0
 --- !u!1 &1254755588
 GameObject:
   m_ObjectHideFlags: 0
@@ -2610,9 +2667,25 @@ PrefabInstance:
       propertyPath: sceneId
       value: 3341737778
       objectReference: {fileID: 0}
+    - target: {fileID: 8516375799179286382, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: m_Size.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516375799179286382, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: m_Size.y
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516375799179286382, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: m_Size.z
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: IsOn
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: type
+      value: Terminal
       objectReference: {fileID: 0}
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: promptUI
@@ -3071,6 +3144,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 4176057733249393850}
     m_Modifications:
     - target: {fileID: 3638371344210637105, guid: 369eff56d5361e74e9bbd7ead66429b8, type: 3}
+      propertyPath: type
+      value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 3638371344210637105, guid: 369eff56d5361e74e9bbd7ead66429b8, type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 1471683861}
@@ -3141,13 +3218,38 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6618622673115152636, guid: 369eff56d5361e74e9bbd7ead66429b8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9196640526982062250}
   m_SourcePrefab: {fileID: 100100000, guid: 369eff56d5361e74e9bbd7ead66429b8, type: 3}
 --- !u!4 &9196640526982062248 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7063951173283187156, guid: 369eff56d5361e74e9bbd7ead66429b8, type: 3}
   m_PrefabInstance: {fileID: 9196640526982062247}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &9196640526982062249 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6618622673115152636, guid: 369eff56d5361e74e9bbd7ead66429b8, type: 3}
+  m_PrefabInstance: {fileID: 9196640526982062247}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9196640526982062250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9196640526982062249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Mirror::Mirror.NetworkIdentity
+  sceneId: 119666503
+  _assetId: 2048193887
+  serverOnly: 0
+  visibility: 0
+  hasSpawned: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

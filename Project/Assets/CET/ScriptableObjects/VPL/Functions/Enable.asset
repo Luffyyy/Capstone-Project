@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a47c385942d1b24f8052f766d0ddb5d, type: 3}
-  m_Name: EnableTerminal
+  m_Name: Enable
   m_EditorClassIdentifier: Assembly-CSharp::EnableTerminal
   Zone: {fileID: 0}

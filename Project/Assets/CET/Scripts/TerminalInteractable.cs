@@ -14,6 +14,7 @@ public class TerminalInteractable : Interactable
 
     void Start()
     {
+        Type = "Terminal";
         VPLMenu = MenuManager.Instance.GetMenu<VPLMenu>("VPLMenu");
         if (isServer)
         {

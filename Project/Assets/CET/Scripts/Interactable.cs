@@ -1,12 +1,12 @@
+using System.ComponentModel.Design;
 using Mirror;
 using UnityEngine;
 
-public class Interactable : NetworkBehaviour
+public class Interactable : Activatable
 {
     private int playerCounter = 0;
     public GameObject PromptUI;
     public Transform UIAnchor;
-    [SyncVar] public bool IsOn = true;
     public GameObject PromptUIPrefab;
     public void Awake()
     {
@@ -26,14 +26,14 @@ public class Interactable : NetworkBehaviour
         if (IsOn)
         {
             var player = other.GetComponent<PlayerController>();
-        if (player != null)
-        {
-            player.CurrentInteractable = this;
-        }
+            if (player != null)
+            {
+                player.CurrentInteractable = this;
+            }
 
-        playerCounter++;
-        PositionUI();
-        PromptUI.SetActive(true);
+            playerCounter++;
+            PositionUI();
+            PromptUI.SetActive(true);
         }
     }
 
