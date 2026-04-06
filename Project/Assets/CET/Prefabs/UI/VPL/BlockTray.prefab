@@ -62,10 +62,10 @@ MonoBehaviour:
   m_Spacing: -3.5
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 1
+  m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
 --- !u!114 &1502527484679736824
 MonoBehaviour:
@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c99588c941961445954abecaa43e783, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  Zone: {fileID: 0}
   IsRoot: 0
 --- !u!225 &1503594149238091399
 CanvasGroup:

@@ -107,6 +107,8 @@ public class MenuManager : MonoBehaviour
         if (HUDManager.Instance != null)
         {
             HUDManager.Instance.SetActive(false);
+            GetComponent<PlayerInput>().enabled = true;
+            gameObject.SetActive(true);
         }
     }
 
@@ -122,6 +124,8 @@ public class MenuManager : MonoBehaviour
         if (HUDManager.Instance != null)
         {
             HUDManager.Instance.SetActive(true);
+            GetComponent<PlayerInput>().enabled = false;
+            gameObject.SetActive(false);
         }
     }
 }

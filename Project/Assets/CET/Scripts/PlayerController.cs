@@ -4,21 +4,41 @@ using Mirror;
 using NUnit.Framework;
 using UnityEngine.EventSystems;
 
+[RequireComponent(typeof(PlayerInput))]
 public class PlayerController : NetworkBehaviour
 {
     public float speed;
     private Vector2 move;
     public Interactable CurrentInteractable;
     Rigidbody rb;
+
+    public bool IsInputEnabled = true;
+
+    public void SetInputEnabled(bool enabled)
+    {
+        IsInputEnabled = enabled;
+        GetComponent<PlayerInput>().enabled = enabled;
+        move = Vector2.zero; // Stop player
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         if (!isLocalPlayer || MenuManager.Instance.IsActive) return;
         move = context.ReadValue<Vector2>();
     }
-    
+
+    public override void OnStartClient()
+    {
+        if (isLocalPlayer)
+        {
+            var op = GetComponent<PlayerInput>().currentActionMap.FindAction("OpenPauseMenu");
+            op.performed += HUDManager.Instance.OpenPauseMenu;
+        }
+    }
+
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (!isLocalPlayer || !context.performed || MenuManager.Instance.IsActive) return;
+        if (!isLocalPlayer || !context.performed || MenuManager.Instance.IsActive || !IsInputEnabled) return;
 
         if (CurrentInteractable is Interactable i)
         {
@@ -43,7 +63,7 @@ public class PlayerController : NetworkBehaviour
     }
     void Update()
     {
-        if (isLocalPlayer)
+        if (isLocalPlayer && IsInputEnabled)
         {
             MovePlayer();
         }

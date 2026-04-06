@@ -32,7 +32,7 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         if (IsFake)
         {
             var instance = Instantiate(this, GameObject.Find("Menu").transform).gameObject;
-            instance.transform.localScale = Vector3.one;
+            instance.transform.localScale = Vector3.one * 1.25f;
             var dobj = instance.GetComponent<DraggableBlock>();
             dobj.IsNew = true;
             dobj.IsFake = false;

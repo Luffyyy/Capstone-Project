@@ -159,7 +159,6 @@ GameObject:
   - component: {fileID: 160710251}
   - component: {fileID: 160710249}
   - component: {fileID: 160710253}
-  - component: {fileID: 160710254}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -255,52 +254,6 @@ MonoBehaviour:
   HUDs: []
   SafeArea: {fileID: 1472724279}
   IsActive: 1
---- !u!114 &160710254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160710247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
-  m_Actions: {fileID: -944628639613478452, guid: 95f02ee7dfd5db942b98fcf9160e71ab, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 160710253}
-        m_TargetAssemblyTypeName: HUDManager, Assembly-CSharp
-        m_MethodName: OpenPauseMenu
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 17b96d31-87b7-426b-a9c0-4a878d5aebca
-    m_ActionName: 'Global/Escape[/Keyboard/escape]'
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Menu
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!1 &176434563 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 942270828390247379, guid: 996f4854a09dff0478d7d85255a06ae7, type: 3}
@@ -2963,57 +2916,9 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1594871853532802015, guid: 760ed5074e04db440bd45842e4229f35, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1594871853532802015, guid: 760ed5074e04db440bd45842e4229f35, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1861101181831687477, guid: 760ed5074e04db440bd45842e4229f35, type: 3}
-      propertyPath: m_DefaultActionMap
-      value: Menu
-      objectReference: {fileID: 0}
-    - target: {fileID: 1861101181831687477, guid: 760ed5074e04db440bd45842e4229f35, type: 3}
-      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1861101181831687477, guid: 760ed5074e04db440bd45842e4229f35, type: 3}
-      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 5974644428078832797}
-    - target: {fileID: 1861101181831687477, guid: 760ed5074e04db440bd45842e4229f35, type: 3}
-      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1861101181831687477, guid: 760ed5074e04db440bd45842e4229f35, type: 3}
-      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnEscape
-      objectReference: {fileID: 0}
     - target: {fileID: 3467691624070052047, guid: 760ed5074e04db440bd45842e4229f35, type: 3}
       propertyPath: m_Name
       value: Menu
-      objectReference: {fileID: 0}
-    - target: {fileID: 3485130531566903730, guid: 760ed5074e04db440bd45842e4229f35, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3485130531566903730, guid: 760ed5074e04db440bd45842e4229f35, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3485130531566903730, guid: 760ed5074e04db440bd45842e4229f35, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3485130531566903730, guid: 760ed5074e04db440bd45842e4229f35, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3485130531566903730, guid: 760ed5074e04db440bd45842e4229f35, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5958147884651570973, guid: 760ed5074e04db440bd45842e4229f35, type: 3}
       propertyPath: m_Pivot.x
@@ -3124,17 +3029,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 760ed5074e04db440bd45842e4229f35, type: 3}
---- !u!114 &5974644428078832797 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3697169870867183638, guid: 760ed5074e04db440bd45842e4229f35, type: 3}
-  m_PrefabInstance: {fileID: 5974644428078832796}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3722fdd1cd9eb514a95457b3983980c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MenuManager
 --- !u!1001 &9196640526982062247
 PrefabInstance:
   m_ObjectHideFlags: 0

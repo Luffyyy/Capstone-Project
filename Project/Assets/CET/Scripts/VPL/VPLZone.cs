@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Gilzoide.FlexUi;
 using Mirror;
 using TMPro;
 using UnityEngine;
@@ -199,7 +200,7 @@ public class VPLZone : NetworkBehaviour
         cg.interactable = true;
         cg.blocksRaycasts = true;
 
-        GetComponent<LayoutElement>().ignoreLayout = false;
+        GetComponent<FlexLayout>().enabled = true;
 
         IsActive = true;
     }
@@ -213,7 +214,7 @@ public class VPLZone : NetworkBehaviour
 
         // I could disable it, but then it won't receive updates with the network behavior
         // CanvasGroup makes it transparent but sadly not totally "invisible"
-        GetComponent<LayoutElement>().ignoreLayout = true;
+        GetComponent<FlexLayout>().enabled = false;
 
         IsActive = false;
     }

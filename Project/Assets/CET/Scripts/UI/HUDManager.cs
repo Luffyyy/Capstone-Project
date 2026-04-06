@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -64,6 +66,22 @@ public class HUDManager : MonoBehaviour
     public void SetActive(bool active)
     {
         IsActive = active;
-        GetComponent<PlayerInput>().enabled = active;
+
+        StartCoroutine(nameof(SetPlayerInputActiveNextFrame));
+
+        foreach (var hud in HUDs)
+        {
+            hud.gameObject.SetActive(active);
+        }
+    }
+
+    // This is done in the next frame because unity's input system does not like to be disabled in the middle of a keypress
+    IEnumerator SetPlayerInputActiveNextFrame() {
+        yield return null; // Wait for next frame
+        var localPlayer = NetworkClient.localPlayer;
+        if (localPlayer != null)
+        {
+            localPlayer.GetComponent<PlayerController>().SetInputEnabled(IsActive);
+        }
     }
 }

@@ -1183,8 +1183,6 @@ MonoBehaviour:
   hasBottomPort: 1
   VarField: {fileID: 401025981620074429}
   Tray: {fileID: 4131153561749143297}
-  LiteralBlock: {fileID: 0}
-  Type: number
 --- !u!224 &5353327904581062468 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4165666317232284349, guid: 5d0b5d61bec96e84cac0ead79f185d93, type: 3}

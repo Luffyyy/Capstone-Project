@@ -109,7 +109,7 @@ public class BlockTray : MonoBehaviour, IDropHandler, IPointerExitHandler
 
     public void SpawnGhost(GameObject block)
     {
-        preview = Instantiate(block, transform);
+        preview = Instantiate(block, transform, true);
         var group = preview.GetComponent<CanvasGroup>();
         group.alpha = 0.4f;
         group.blocksRaycasts = false;

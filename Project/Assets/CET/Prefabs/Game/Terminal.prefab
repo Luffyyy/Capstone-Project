@@ -172,9 +172,10 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  IsOn: 0
+  Type: 
   PromptUI: {fileID: 0}
   UIAnchor: {fileID: 6361832684526941806}
-  IsOn: 0
   PromptUIPrefab: {fileID: 7231119583142017857, guid: 6d16d420d0bdcb746b936ae5ff88ab80, type: 3}
   VPLEditMenuPrefab: {fileID: 2151990500796916592, guid: 10ea732ee06cb5846a60cd66991eb9de, type: 3}
   OwnedVPLZone: {fileID: 0}
