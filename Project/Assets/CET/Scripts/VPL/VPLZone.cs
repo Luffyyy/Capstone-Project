@@ -5,6 +5,7 @@ using Gilzoide.FlexUi;
 using Mirror;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -36,6 +37,8 @@ public class VPLZone : NetworkBehaviour
 
     public bool IsActive;
 
+    public UnityEvent<string, string> OnVariableNameChanged;
+
     public TerminalInteractable ConnectedTo;
     public void ExecuteOnServer()
     {
@@ -46,6 +49,14 @@ public class VPLZone : NetworkBehaviour
     public void SendTreeToServer(bool execute)
     {
         BlockNode root = new();
+
+        foreach (var kv in VariableDefs)
+        {
+            if (kv.Value)
+            {
+                root.VariableDefs.Add(kv.Key);
+            }
+        }
 
         foreach (var tray in Trays)
         {
@@ -69,6 +80,14 @@ public class VPLZone : NetworkBehaviour
     public void LoadFromTree(BlockNode root)
     {
         print($"Load tree {root.Ident}");
+
+        VariableDefs = new();
+
+        foreach (var key in root.VariableDefs)
+        {
+            VariableDefs[key] = true;
+        }
+
         foreach (var tray in Trays)
         {
             DestroyImmediate(tray.gameObject); // Important since we want to avoid a race condition with the coroutine
@@ -119,20 +138,39 @@ public class VPLZone : NetworkBehaviour
 
     public List<string> GetVariableNames()
     {
-        return VariableDefs.Keys.ToList();
+        List<string> names = new();
+        foreach (var kv in VariableDefs)
+        {
+            if (kv.Value)
+            {
+                names.Add(kv.Key);
+            }
+        }
+        return names;
     }
 
-    public string getVariableName()
+    public string GetVariableName()
     {
         int i = 0;
-        while (VariableDefs.ContainsKey("myvar"+i)) { //TODO: do this better
+        while (VariableDefs.ContainsKey("myvar"+i)) {
             i++;
         }
 
         string res = "myvar"+i;
-        VariableDefs[res] = true;
+        SetVariableName(null, res);
 
         return "myvar"+i;
+    }
+
+    public void SetVariableName(string oldName, string newName)
+    {
+        if (oldName != null)
+        {
+            VariableDefs[oldName] = false;
+        }
+        VariableDefs[newName] = true;
+
+        OnVariableNameChanged.Invoke(oldName, newName);
     }
 
     /**

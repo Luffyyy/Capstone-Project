@@ -13,15 +13,15 @@ public enum BlockType
 
 [Serializable]
 public struct KeyValue {
+    public string Key;
+
+    public string Value;
+
     public KeyValue(string key, string value)
     {
         Key = key;
         Value = value;
     }
-
-    public string Key;
-
-    public string Value;
 }
 
 [Serializable]
@@ -44,6 +44,8 @@ public class BlockNode
     public List<BlockTrayNode> Trays = new();
 
     public List<ExpressionTrayNode> ExpressionTrays = new();
+
+    public List<string> VariableDefs = new();
 
     // override object.Equals
     public override bool Equals(object obj)

@@ -10,6 +10,8 @@ public class SetVariableBlock : StackBlock
 
     public ExpressionTray Tray;
 
+    private string LastVariableName;
+
     public override BlockNode SaveNode()
     {
         return new()
@@ -24,6 +26,12 @@ public class SetVariableBlock : StackBlock
                 Tray.SaveNode()
             }
         };
+    }
+
+    public void OnVarChanged()
+    {
+        Zone.SetVariableName(LastVariableName, VarField.text);
+        LastVariableName = VarField.text;
     }
 
     public override void LoadNode(BlockNode node)
@@ -45,7 +53,8 @@ public class SetVariableBlock : StackBlock
 
         if (GetComponent<DraggableBlock>().IsNew)
         {
-            VarField.text = zone.getVariableName();
+            VarField.text = zone.GetVariableName();
+            LastVariableName = VarField.text;
         }
 
         if (Tray != null)

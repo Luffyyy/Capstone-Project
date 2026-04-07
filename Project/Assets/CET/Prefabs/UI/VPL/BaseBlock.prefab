@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 597a884024ff35943a427957ece7dee1, type: 2}
+  m_sharedMaterial: {fileID: 7977230980851701292, guid: 597a884024ff35943a427957ece7dee1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -248,6 +248,7 @@ MonoBehaviour:
   Name: 
   Color: {r: 0, g: 0, b: 0, a: 0}
   isStatic: 0
+  Defintion: {fileID: 0}
   hasTopPort: 1
   hasBottomPort: 1
 --- !u!114 &5241733500222285122
@@ -316,3 +317,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DraggableBlock
   IsFake: 0
   IsNew: 0
+  IsStackBlock: 0
