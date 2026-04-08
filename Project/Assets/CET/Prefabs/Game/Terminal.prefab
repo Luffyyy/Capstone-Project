@@ -98,19 +98,23 @@ PrefabInstance:
     - target: {fileID: -2328718926369942005, guid: 9cc8035407a50fb4a8b2a8ec9554579b, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 40f31602fa4b93b40adc25a598e77b15, type: 2}
+      objectReference: {fileID: 2100000, guid: 1703f17d24cc7f248a672eb62860feff, type: 2}
     - target: {fileID: 233140633277333115, guid: 9cc8035407a50fb4a8b2a8ec9554579b, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 78b2f4ac48c7a814cbfee0799c0a0fe5, type: 2}
+      objectReference: {fileID: 2100000, guid: 1703f17d24cc7f248a672eb62860feff, type: 2}
     - target: {fileID: 919132149155446097, guid: 9cc8035407a50fb4a8b2a8ec9554579b, type: 3}
       propertyPath: m_Name
       value: Terminal
       objectReference: {fileID: 0}
+    - target: {fileID: 1151000408433849269, guid: 9cc8035407a50fb4a8b2a8ec9554579b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1703f17d24cc7f248a672eb62860feff, type: 2}
     - target: {fileID: 4024643732500062971, guid: 9cc8035407a50fb4a8b2a8ec9554579b, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 40f31602fa4b93b40adc25a598e77b15, type: 2}
+      objectReference: {fileID: 2100000, guid: 1703f17d24cc7f248a672eb62860feff, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

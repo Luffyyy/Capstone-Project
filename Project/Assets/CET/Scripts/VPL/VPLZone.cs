@@ -192,9 +192,8 @@ public class VPLZone : NetworkBehaviour
 
     public IEnumerator VPLCoroutine()
     {
-        var button = ExecuteButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-
-        button.text = "Stop Execution";
+        // var button = ExecuteButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        // button.text = "Stop Execution"; //TODO
         print("Executing all block trays... ");
         foreach (var tray in Trays)
         {

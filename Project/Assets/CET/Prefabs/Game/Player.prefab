@@ -168,6 +168,7 @@ MonoBehaviour:
   syncInterval: 0
   speed: 5
   CurrentInteractable: {fileID: 0}
+  IsInputEnabled: 1
 --- !u!114 &1012216525154470816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,6 +243,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e2bcb2c6-ebf2-49a0-8a9c-0d928134da79
     m_ActionName: 'Player/Interact[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a7550c4c-0d04-4e9b-8bbb-106e27260216
+    m_ActionName: 'Player/OpenPauseMenu[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2498cc30-6c35-46ae-8b0e-d019642ca55c
+    m_ActionName: 'UI/EscapeMenu[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
