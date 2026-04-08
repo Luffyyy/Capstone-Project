@@ -271,6 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 809619e2fb2da0841a76468d53b6fccb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VPLMenu
+  IsActive: 0
 --- !u!1001 &6115885797129931078
 PrefabInstance:
   m_ObjectHideFlags: 0
