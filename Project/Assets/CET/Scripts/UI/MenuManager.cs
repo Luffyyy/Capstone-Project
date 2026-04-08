@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -107,8 +108,7 @@ public class MenuManager : MonoBehaviour
         if (HUDManager.Instance != null)
         {
             HUDManager.Instance.SetActive(false);
-            GetComponent<PlayerInput>().enabled = true;
-            gameObject.SetActive(true);
+            StartCoroutine(nameof(SetPlayerInputActiveNextFrame));
         }
     }
 
@@ -124,8 +124,13 @@ public class MenuManager : MonoBehaviour
         if (HUDManager.Instance != null)
         {
             HUDManager.Instance.SetActive(true);
-            GetComponent<PlayerInput>().enabled = false;
-            gameObject.SetActive(false);
+            StartCoroutine(nameof(SetPlayerInputActiveNextFrame));
         }
+    }
+
+    IEnumerator SetPlayerInputActiveNextFrame()
+    {
+        yield return null; // Wait for next frame
+        GetComponent<PlayerInput>().enabled = IsActive;
     }
 }

@@ -62,26 +62,26 @@ public class HUDManager : MonoBehaviour
         }
     }
 
-
     public void SetActive(bool active)
     {
         IsActive = active;
 
-        StartCoroutine(nameof(SetPlayerInputActiveNextFrame));
-
-        foreach (var hud in HUDs)
-        {
-            hud.gameObject.SetActive(active);
-        }
+        StartCoroutine(nameof(HandleSetActiveNextFrame));
     }
 
     // This is done in the next frame because unity's input system does not like to be disabled in the middle of a keypress
-    IEnumerator SetPlayerInputActiveNextFrame() {
+    // Why is it like this? Genuine question
+    IEnumerator HandleSetActiveNextFrame() {
         yield return null; // Wait for next frame
         var localPlayer = NetworkClient.localPlayer;
         if (localPlayer != null)
         {
             localPlayer.GetComponent<PlayerController>().SetInputEnabled(IsActive);
+        }
+
+        foreach (var hud in HUDs)
+        {
+            hud.gameObject.SetActive(IsActive);
         }
     }
 }
