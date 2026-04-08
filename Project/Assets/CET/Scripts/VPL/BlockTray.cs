@@ -36,6 +36,7 @@ public class BlockTray : MonoBehaviour, IDropHandler, IPointerExitHandler
             if (blockPrefab != null)
             {
                 var spawned = Instantiate(blockPrefab, transform);
+                spawned.transform.localScale *= 1.25f;
                 spawned.Activated(Zone);
                 spawned.LoadNode(blockNode);
             } else
