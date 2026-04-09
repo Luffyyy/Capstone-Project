@@ -4,7 +4,8 @@ using System;
 using System.Collections.Generic;
 public class Activatable : NetworkBehaviour
 {
-    [SyncVar] public bool IsOn = false;
+    [SyncVar(hook = nameof(CallEmission))] public bool IsOn;
+    public Renderer EmissionRenderer;
     public string Type;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,8 +18,37 @@ public class Activatable : NetworkBehaviour
     {
         
     }
+    private void CallEmission(bool oldValue, bool newValue)
+    {
+        SetEmission(newValue);
+    }
+    [Server]
     public void SetIsOn(bool value)
     {
         IsOn = value;
+        SetEmission(IsOn);
+    }
+
+    public void SetEmission(bool value)
+    {
+        print("hello1");
+        if (EmissionRenderer != null){
+            print("hello2");
+            Material mat = EmissionRenderer.material;
+            if(mat != null)
+            {
+                print("hello3");
+                if (value)
+                {
+                    print("hello4");
+                    mat.EnableKeyword("_EMISSION");
+                }
+                else
+                {
+                    print("hello5");
+                    mat.DisableKeyword("_EMISSION");
+                }
+            }
+        }
     }
 }

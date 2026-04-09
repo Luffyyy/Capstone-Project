@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Mirror;
+using NUnit.Framework;
 using UnityEngine;
 
 public class TerminalInteractable : Interactable
@@ -9,11 +10,11 @@ public class TerminalInteractable : Interactable
     [HideInInspector]
     [SyncVar]
     public VPLZone OwnedVPLZone;
-    public List<GameObject> ConnectedObjects = new();
     private VPLMenu VPLMenu;
-
+    public List<GameObject> ConnectedObjects = new();
     void Start()
     {
+        SetEmission(IsOn);
         Type = "Terminal";
         VPLMenu = MenuManager.Instance.GetMenu<VPLMenu>("VPLMenu");
         if (isServer)

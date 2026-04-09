@@ -56,5 +56,6 @@ public class Interactable : Activatable
     }
     public virtual void Interact()
     {
+        
     }
 }

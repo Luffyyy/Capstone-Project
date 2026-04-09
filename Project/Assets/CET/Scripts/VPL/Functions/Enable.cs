@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -7,7 +8,7 @@ public class Enable : VPLFunction
 {
     public override List<VPLArg> Args => new()
     {
-        new() { Name = "", Type = "string" }
+        new() { Name = "", Type = "string"}
     };
     public override void Execute(params object[] input)
     {
@@ -19,7 +20,7 @@ public class Enable : VPLFunction
             {
                 if(interactable.Type == input[0].ToString())
                 {
-                    interactable.IsOn = true;
+                    interactable.SetIsOn(true);
                 }
             }
         }

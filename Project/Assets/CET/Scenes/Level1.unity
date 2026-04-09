@@ -1934,9 +1934,21 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: IsOn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: type
       value: Terminal
       objectReference: {fileID: 0}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: renderer
+      value: 
+      objectReference: {fileID: 650472914}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: EmissionRenderer
+      value: 
+      objectReference: {fileID: 650472914}
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: ConnectedObjects.Array.size
       value: 2
@@ -1963,6 +1975,16 @@ Transform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4662608936399932304, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
   m_PrefabInstance: {fileID: 650472911}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &650472914 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1430800766294991050, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+  m_PrefabInstance: {fileID: 650472911}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &681323492 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3134049714397048227, guid: 69e2c9d3d6f7dd24f8c0da36314b9340, type: 3}
+  m_PrefabInstance: {fileID: 627000585}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &703884846
 GameObject:
@@ -2701,6 +2723,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 627000597}
+    - target: {fileID: 3638371344210637105, guid: 369eff56d5361e74e9bbd7ead66429b8, type: 3}
+      propertyPath: EmissionRenderer
+      value: 
+      objectReference: {fileID: 681323492}
     - target: {fileID: 6319861113052985913, guid: 369eff56d5361e74e9bbd7ead66429b8, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -4276,6 +4302,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: renderer
+      value: 
+      objectReference: {fileID: 1570646624159032859}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: EmissionRenderer
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: ConnectedObjects.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -4291,6 +4325,11 @@ PrefabInstance:
 --- !u!4 &1570646624159032858 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5476160213958414634, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+  m_PrefabInstance: {fileID: 1570646624159032857}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1570646624159032859 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1430800766294991050, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
   m_PrefabInstance: {fileID: 1570646624159032857}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2714772794799979654
@@ -4648,6 +4687,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1005651}
   m_SourcePrefab: {fileID: 100100000, guid: 69e2c9d3d6f7dd24f8c0da36314b9340, type: 3}
+--- !u!23 &5516130278770966835 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3134049714397048227, guid: 69e2c9d3d6f7dd24f8c0da36314b9340, type: 3}
+  m_PrefabInstance: {fileID: 5516130278770966834}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5974644428078832796
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4926,6 +4970,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1471683861}
+    - target: {fileID: 3638371344210637105, guid: 369eff56d5361e74e9bbd7ead66429b8, type: 3}
+      propertyPath: EmissionRenderer
+      value: 
+      objectReference: {fileID: 5516130278770966835}
     - target: {fileID: 6319861113052985913, guid: 369eff56d5361e74e9bbd7ead66429b8, type: 3}
       propertyPath: m_Enabled
       value: 0

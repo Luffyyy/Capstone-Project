@@ -5,6 +5,7 @@ public class OpenDoors : Activatable
     public Animator animator;
     void Start()
     {
+        SetEmission(IsOn);
         Type = "Door";
     }
     void Update()
