@@ -1,11 +1,10 @@
 using UnityEngine;
 using Mirror;
+using Mirror.Discovery;
 
 public class NewNetworkManager : NetworkManager
 {
     LevelManager levelManager;
-    private Vector3 player1pos;
-    private Vector3 player2pos;
     public override void OnServerSceneChanged(string sceneName)
     {
         levelManager = FindObjectOfType<LevelManager>();
@@ -24,24 +23,19 @@ public class NewNetworkManager : NetworkManager
             return;
         }
 
-        player1pos = p1.position;
-        player2pos = p2.position;
+        RegisterStartPosition(p1);
+        RegisterStartPosition(p2);
     }
 
     public override void OnServerAddPlayer(NetworkConnectionToClient conn)
     {
-        Vector3 spawnPos;
         GameObject player;
-        if (numPlayers == 0)
-        {
-            spawnPos = player1pos;
-        }
-        else
-        {
-            spawnPos = player2pos;
-        }
 
-        player = Instantiate(playerPrefab, spawnPos, Quaternion.identity);
+        player = Instantiate(playerPrefab, startPositions[numPlayers].position, startPositions[numPlayers].rotation);
+        player.name = $"{playerPrefab.name} [connId={conn.connectionId}]";
+
+        player.GetComponent<PlayerCustomizer>().SetColorIndex((numPlayers + Random.Range(0, 10)) % 10);
+        player.GetComponent<PlayerCustomizer>().SetEmotionIndex((numPlayers + Random.Range(0, 10)) % 10);
         NetworkServer.AddPlayerForConnection(conn, player);
     }
 }

@@ -3,28 +3,46 @@ using UnityEngine.InputSystem;
 using Mirror;
 using NUnit.Framework;
 using UnityEngine.EventSystems;
+using System;
 
 [RequireComponent(typeof(PlayerInput))]
+[RequireComponent(typeof(CharacterController))]
 public class PlayerController : NetworkBehaviour
 {
     public float speed;
     private Vector2 move;
+    private Vector2 smoothedMove;
+
+    private float side;
+    private float smoothedSide;
+
     public Interactable CurrentInteractable;
-    Rigidbody rb;
 
     public bool IsInputEnabled = true;
+
+    private CharacterController charControl;
+    private Rigidbody rb;
+    private Animator animator;
 
     public void SetInputEnabled(bool enabled)
     {
         IsInputEnabled = enabled;
         GetComponent<PlayerInput>().enabled = enabled;
         move = Vector2.zero; // Stop player
+        side = 0;
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
         if (!isLocalPlayer || MenuManager.Instance.IsActive) return;
         move = context.ReadValue<Vector2>();
+        if (move != Vector2.zero)
+        {
+            side = Mathf.Sign(Vector3.Cross(transform.forward, new Vector3(move.x, 0, move.y)).y);
+        } else
+        {
+            side = 0;
+        }
     }
 
     public override void OnStartClient()
@@ -33,6 +51,9 @@ public class PlayerController : NetworkBehaviour
         {
             var op = GetComponent<PlayerInput>().currentActionMap.FindAction("OpenPauseMenu");
             op.performed += HUDManager.Instance.OpenPauseMenu;
+        } else
+        {
+            charControl.enabled = false;
         }
     }
 
@@ -57,26 +78,39 @@ public class PlayerController : NetworkBehaviour
             i.Interact();
         }
     }   
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        charControl = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
+
+        // Reset movement just in case
+        animator.SetFloat("Speed", 0);
+        animator.SetFloat("Side", 0);
+
     }
     void Update()
     {
-        if (isLocalPlayer && IsInputEnabled)
+        if (isLocalPlayer)
         {
+            smoothedMove = Vector2.Lerp(smoothedMove, move * speed, Time.deltaTime * 5);
+            smoothedSide = Mathf.Lerp(smoothedSide, side, Time.deltaTime * 5f);
             MovePlayer();
         }
     }
 
     private void MovePlayer()
     {
-        Vector3 movement = new(move.x,0f,move.y);
-        rb.MovePosition(rb.position + movement * speed * Time.deltaTime);
-        //transform.Translate(speed * Time.deltaTime * movement, Space.World);
+        Vector3 movement = new(smoothedMove.x, 0, smoothedMove.y);
+
+        var mag = Vector3.SqrMagnitude(movement);
+        charControl.SimpleMove(movement);
+        animator.SetFloat("Speed", mag);
+        animator.SetFloat("Side", smoothedSide);
+
         if(movement != Vector3.zero)
         {  
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), Time.deltaTime * 15f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), Time.deltaTime * 5f);
         }
     }
 }
