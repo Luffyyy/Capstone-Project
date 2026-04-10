@@ -29,7 +29,14 @@ public struct DiscoveryResponse : NetworkMessage
     // Add public fields (not properties) for whatever information you want the server
     // to return to clients for them to display or use for establishing a connection.
 
+    // A frinedly name for the server
     public string Name;
+
+    // How many players playing the server
+    public int NumPlayers;
+
+    // When the server was made
+    public DateTime CreationDate;
 }
 
 public class NewNetworkDiscovery : NetworkDiscoveryBase<DiscoveryRequest, DiscoveryResponse>
@@ -47,6 +54,8 @@ public class NewNetworkDiscovery : NetworkDiscoveryBase<DiscoveryRequest, Discov
     {
         base.Start();
     }
+
+    public string ServerName;
 
     #endregion
 
@@ -82,7 +91,9 @@ public class NewNetworkDiscovery : NetworkDiscoveryBase<DiscoveryRequest, Discov
         {
             uri = transport.ServerUri(),
             serverId = ServerId,
-            Name = MainMenu.Instance.ServerNameStr
+            Name = ServerName,
+            CreationDate = DateTime.Now,
+            NumPlayers = NetworkManager.singleton.numPlayers
         };
     }
 

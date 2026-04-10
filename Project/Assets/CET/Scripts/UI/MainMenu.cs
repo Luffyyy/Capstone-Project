@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using Mirror;
 using Mirror.Discovery;
 using TMPro;
@@ -37,6 +39,22 @@ public class MainMenu : MenuBase
         {
             networkDiscovery.OnServerFound.AddListener(OnDiscoveredServer);
         }
+        
+        InvokeRepeating(nameof(ClearFoundServers), 0, 3);
+    }
+
+    // Clears discovered servers to ensure we don't show servers that aren't active anymore
+    public void ClearFoundServers()
+    {
+        foreach (var pair in discoveredServers.ToList())
+        {
+            if (DateTime.Now - pair.Value.CreationDate > TimeSpan.FromSeconds(10)) // Delete if no updates for 10 seconds
+            {
+                discoveredServers.Remove(pair.Key);
+            }
+        }
+        UpdateServerList();
+        
     }
 
     public void OpenHostGameDialog()
@@ -57,7 +75,7 @@ public class MainMenu : MenuBase
         {
             NetworkManager.singleton.StartHost();
         }
-        // NetworkManager.singleton.ServerChangeScene("Level1");
+        networkDiscovery.ServerName = ServerNameStr;
         networkDiscovery.AdvertiseServer();
 
         gameObject.SetActive(false);
@@ -102,7 +120,7 @@ public class MainMenu : MenuBase
         foreach (var pair in discoveredServers)
         {
             var btn = Instantiate(serverButton, serverList.transform);
-            btn.GetComponentInChildren<TextMeshProUGUI>().SetText(pair.Value.Name + " (0 Players)");
+            btn.GetComponentInChildren<TextMeshProUGUI>().SetText( $"{pair.Value.Name} ({pair.Value.NumPlayers} Players)");
             btn.GetComponent<Button>().onClick.AddListener(() => Connect(pair.Value)); // Connect on clicking the button
         }
     }
