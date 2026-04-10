@@ -31,21 +31,16 @@ public class Activatable : NetworkBehaviour
 
     public void SetEmission(bool value)
     {
-        print("hello1");
         if (EmissionRenderer != null){
-            print("hello2");
             Material mat = EmissionRenderer.material;
             if(mat != null)
             {
-                print("hello3");
                 if (value)
                 {
-                    print("hello4");
                     mat.EnableKeyword("_EMISSION");
                 }
                 else
                 {
-                    print("hello5");
                     mat.DisableKeyword("_EMISSION");
                 }
             }
