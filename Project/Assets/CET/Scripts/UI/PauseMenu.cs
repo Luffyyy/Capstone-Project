@@ -1,3 +1,4 @@
+using Mirror;
 using UnityEngine;
 
 public class PauseMenu : MenuBase
@@ -14,15 +15,19 @@ public class PauseMenu : MenuBase
 
     public void QuitToMenu()
     {
-        if (ConnectionManager.Instance.IsDedicatedServer)
+        if (NetworkServer.active)
         {
-            Mirror.NetworkManager.singleton.StopServer();
-        } else if (ConnectionManager.Instance.isClientOnly)
-        {
-            Mirror.NetworkManager.singleton.StopClient();
+            if (NetworkClient.active)
+            {
+                NetworkManager.singleton.StopHost();
+            }
+            {
+                NetworkManager.singleton.StopServer();
+            }
         } else
         {
-            Mirror.NetworkManager.singleton.StopHost();
+            NetworkManager.singleton.StopClient();
         }
+
     }
 }

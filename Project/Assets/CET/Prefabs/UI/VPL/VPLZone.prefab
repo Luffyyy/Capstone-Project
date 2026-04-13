@@ -1584,8 +1584,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 614375734029986244}
   m_HandleRect: {fileID: 2506113540832313035}
   m_Direction: 0
-  m_Value: -0.00000021873103
-  m_Size: 0.6563699
+  m_Value: 0
+  m_Size: 0.69505
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2197,7 +2197,6 @@ GameObject:
   - component: {fileID: 2692653432609896343}
   - component: {fileID: 1999285904666713490}
   - component: {fileID: 7131860944229983690}
-  - component: {fileID: 4336503862796271689}
   - component: {fileID: 2151990500796916592}
   - component: {fileID: 3603870350614486100}
   - component: {fileID: 7414194384497767117}
@@ -2249,23 +2248,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &4336503862796271689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7207097890222072335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Mirror::Mirror.NetworkIdentity
-  sceneId: 0
-  _assetId: 488304049
-  serverOnly: 0
-  visibility: 0
-  hasSpawned: 0
 --- !u!114 &2151990500796916592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2278,9 +2260,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7fad5a62105d16488069c0d853b361b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VPLZone
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
   ExecuteButton: {fileID: 6516836743806267516}
   Store: {fileID: 11400000, guid: ed275d2402790bd4d8bc6197fa2b187e, type: 2}
   BlockListContent: {fileID: 3283849145667406765}
@@ -2688,7 +2667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 425291875798646909, guid: a4f8a09f2a875904ea8fd7279ce12b06, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -44.805
+      value: -46.165
       objectReference: {fileID: 0}
     - target: {fileID: 2366087139920821944, guid: a4f8a09f2a875904ea8fd7279ce12b06, type: 3}
       propertyPath: m_text

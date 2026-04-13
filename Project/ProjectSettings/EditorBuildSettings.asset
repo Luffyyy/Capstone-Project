@@ -9,8 +9,15 @@ EditorBuildSettings:
     path: Assets/CET/Scenes/MainMenuScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
+    path: Assets/CET/Scenes/OnlineScene.unity
+    guid: 0c776036ce6ed634ab3a8ad49bdee7bb
+  - enabled: 1
     path: Assets/CET/Scenes/Level1.unity
     guid: 2ef66a3d1d38b4440b350523c744900f
+  - enabled: 1
+    path: Assets/CET/Scenes/Level2.unity
+    guid: ad1c5e7dec78255419959670176d24b6
+  - enabled: 1
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

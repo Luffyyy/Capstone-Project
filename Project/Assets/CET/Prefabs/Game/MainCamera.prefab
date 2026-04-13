@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 8521794844595220583}
   - component: {fileID: 4066907027539868473}
   - component: {fileID: 781781309982994817}
+  - component: {fileID: 7448784549631829164}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: MainCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,3 +156,17 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 71ea1415115a2694dbc69370f52b556b, type: 2}
+--- !u!114 &7448784549631829164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2605097116262769355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d8dd71f26e52d44a953688a622224c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraTransition
+  Speed: 10
+  target: {fileID: 0}

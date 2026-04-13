@@ -10,7 +10,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(LayoutElement), typeof(CanvasGroup))]
-public class VPLZone : NetworkBehaviour
+public class VPLZone : MonoBehaviour
 {
     private Dictionary<string, bool> VariableDefs = new();
     private Dictionary<string, object> Variables = new();
@@ -30,7 +30,6 @@ public class VPLZone : NetworkBehaviour
     public List<BlockTray> Trays => Helpers.GetComponentsInChildren<BlockTray>(VPLZoneContent);
 
     [HideInInspector]
-    [SyncVar(hook="OnRootChanged")]
     public BlockNode Root;
 
     public GameObject TrayPrefab;
@@ -40,13 +39,14 @@ public class VPLZone : NetworkBehaviour
     public UnityEvent<string, string> OnVariableNameChanged;
 
     public TerminalInteractable ConnectedTo;
+
     public void ExecuteOnServer()
     {
-        SendTreeToServer(true); // Ensure tree is up-to-date on server
+        ConnectedTo.CmdSendRoot(BuildTree(), true);
         //TODO: send back to clients whether execution was a success
     }
 
-    public void SendTreeToServer(bool execute)
+    public BlockNode BuildTree()
     {
         BlockNode root = new();
 
@@ -63,22 +63,12 @@ public class VPLZone : NetworkBehaviour
             root.Trays.Add(tray.SaveNode());
         }
 
-        CmdSendRoot(root, execute);
+        return root;
     }
 
-    [Command(requiresAuthority=false)]
-    void CmdSendRoot(BlockNode root, bool execute)
+    public void LoadFromTree(BlockNode root, bool execute=false)
     {
         Root = root;
-        if (execute)
-        {
-            LoadFromTree(Root);
-            Execute();
-        }
-    }
-
-    public void LoadFromTree(BlockNode root)
-    {
         print($"Load tree {root.Ident}");
 
         VariableDefs = new();
@@ -98,6 +88,11 @@ public class VPLZone : NetworkBehaviour
             var tray = CreateTray();
             tray.LoadNode(trayNode);
         }
+
+        if (execute)
+        {
+            Execute();
+        }
     }
 
     public BlockTray CreateTray()
@@ -108,14 +103,6 @@ public class VPLZone : NetworkBehaviour
         trayComp.IsRoot = true;
         trayComp.enabled = true;
         return trayComp;
-    }
-
-    void OnRootChanged(BlockNode oldRoot, BlockNode newRoot)
-    {
-        if (isClient && oldRoot != newRoot)
-        {
-            LoadFromTree(Root);
-        }
     }
 
     void Awake()

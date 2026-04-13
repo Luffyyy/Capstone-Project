@@ -177,6 +177,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   IsOn: 0
+  EmissionRenderer: {fileID: 0}
   Type: 
   PromptUI: {fileID: 0}
   UIAnchor: {fileID: 6361832684526941806}
@@ -184,6 +185,14 @@ MonoBehaviour:
   VPLEditMenuPrefab: {fileID: 2151990500796916592, guid: 10ea732ee06cb5846a60cd66991eb9de, type: 3}
   OwnedVPLZone: {fileID: 0}
   ConnectedObjects: []
+  Root:
+    Ident: 965a82f5-973c-482f-a570-bddc89c61393
+    DefinitionName: 
+    Data: []
+    Type: 0
+    Trays: []
+    ExpressionTrays: []
+    VariableDefs: []
 --- !u!114 &5955127192372402812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,7 +208,7 @@ MonoBehaviour:
   sceneId: 0
   _assetId: 2564529697
   serverOnly: 0
-  visibility: 0
+  visibility: 2
   hasSpawned: 0
 --- !u!65 &4191672788038687876
 BoxCollider:

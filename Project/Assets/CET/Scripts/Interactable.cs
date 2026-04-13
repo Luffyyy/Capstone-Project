@@ -8,7 +8,7 @@ public class Interactable : Activatable
     public GameObject PromptUI;
     public Transform UIAnchor;
     public GameObject PromptUIPrefab;
-    public void Awake()
+    protected virtual void Awake()
     {
         PromptUI = Instantiate(PromptUIPrefab, GameObject.Find("Canvas").transform);
         PromptUI.transform.SetSiblingIndex(0);

@@ -1,20 +1,20 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class VPLMenu : MenuBase
 {
-    public Dictionary<uint, VPLZone> Zones = new();
+    public Dictionary<int, VPLZone> Zones = new();
 
     private VPLZone LastOpenZone;
 
-    public void AddZone(VPLZone zone, uint id)
+    public void AddZone(VPLZone zone, int id)
     {
         Zones[id] = zone;
-        zone.transform.SetParent(transform, false);
         zone.Hide();
     }
 
-    public void OpenVPLZone(uint id)
+    public void OpenVPLZone(int id)
     {
         if (LastOpenZone != null)
         {

@@ -2,42 +2,52 @@ using System.Collections.Generic;
 using Mirror;
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TerminalInteractable : Interactable
 {
     public VPLZone VPLEditMenuPrefab;
 
     [HideInInspector]
-    [SyncVar]
     public VPLZone OwnedVPLZone;
     private VPLMenu VPLMenu;
     public List<GameObject> ConnectedObjects = new();
-    void Start()
+
+    [HideInInspector, SyncVar(hook=nameof(OnRootChanged))]
+    public BlockNode Root;
+
+    protected override void Awake()
     {
+        base.Awake();
         SetEmission(IsOn);
         Type = "Terminal";
         VPLMenu = MenuManager.Instance.GetMenu<VPLMenu>("VPLMenu");
-        if (isServer)
+        var go = Instantiate(VPLEditMenuPrefab, VPLMenu.transform);
+
+        go.ConnectedTo = this;
+        OwnedVPLZone = go;
+
+        VPLMenu.AddZone(go, GetInstanceID());
+    }
+
+    void OnRootChanged(BlockNode oldRoot, BlockNode newRoot)
+    {
+        if (isClient && oldRoot != newRoot)
         {
-            var go = Instantiate(VPLEditMenuPrefab, VPLMenu.transform);
-            go.ConnectedTo = this;
-            NetworkServer.Spawn(go.gameObject);
-            OwnedVPLZone = go;
+            OwnedVPLZone.LoadFromTree(Root);
         }
     }
 
-    public override void OnStartClient()
+    [Command(requiresAuthority=false)]
+    public void CmdSendRoot(BlockNode root, bool execute)
     {
-        VPLMenu = MenuManager.Instance.GetMenu<VPLMenu>("VPLMenu");
-        if (OwnedVPLZone != null)
-        {
-            VPLMenu.AddZone(OwnedVPLZone, netId);
-        }
+        Root = root;
+        OwnedVPLZone.LoadFromTree(root, execute);
     }
 
     public override void Interact()
     {
         MenuManager.Instance.OpenMenu("VPLMenu");
-        VPLMenu.OpenVPLZone(netId);
+        VPLMenu.OpenVPLZone(GetInstanceID());
     }
 }

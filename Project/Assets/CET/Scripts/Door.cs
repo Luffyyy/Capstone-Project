@@ -1,17 +1,22 @@
+using System.Collections;
+using Mirror;
 using UnityEngine;
 
 public class OpenDoors : Activatable
 {
     public Animator animator;
+    
     void Start()
     {
         SetEmission(IsOn);
         Type = "Door";
     }
-    void Update()
+
+    public override void OnStartClient()
     {
-        
+        base.OnStartClient();
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if(IsOn){

@@ -21,14 +21,15 @@ public class HUDManager : MonoBehaviour
     void Start()
     {
         Instance = this;
+        SetCurrentHUD();
     }
 
-    public void SetCurrentHUD(bool IsDedicatedServer, bool isClient)
+    public void SetCurrentHUD()
     {
         // Set background on/off depending on whether we are on a dedicated server screen
-        if (IsDedicatedServer)
+        if (NetworkManager.singleton.mode == NetworkManagerMode.ServerOnly)
         {
-            if (isClient)
+            if (NetworkClient.active)
             {
                 OpenHUD("PlayerHUD");
                 GetComponent<Image>().enabled = true; //Show the background only on clients. TODO: maybe have it optional?

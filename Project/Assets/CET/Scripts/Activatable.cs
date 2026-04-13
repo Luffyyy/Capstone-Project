@@ -23,7 +23,7 @@ public class Activatable : NetworkBehaviour
         SetEmission(newValue);
     }
     [Server]
-    public void SetIsOn(bool value)
+    public virtual void SetIsOn(bool value)
     {
         IsOn = value;
         SetEmission(IsOn);
