@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 8a697b2cfd45e234f867f3a7e660325d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 336952
+  packageName: Fast Play Mode
+  packageVersion: 1.0.1
+  assetPath: Assets/Plugins/PahutyakV/FastPlayMode/Scripts/Editor/FastPlayMode.cs
+  uploadId: 860918
