@@ -15,12 +15,10 @@ public class TerminalInteractable : Interactable
 
     [HideInInspector, SyncVar(hook=nameof(OnRootChanged))]
     public BlockNode Root;
-
     protected override void Awake()
     {
         base.Awake();
         SetEmission(IsOn);
-        Type = "Terminal";
         VPLMenu = MenuManager.Instance.GetMenu<VPLMenu>("VPLMenu");
         var go = Instantiate(VPLEditMenuPrefab, VPLMenu.transform);
 

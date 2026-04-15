@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Enable", menuName = "VPL/Functions/Enable")]
-public class Enable : VPLFunction
+[CreateAssetMenu(fileName = "Unlock", menuName = "VPL/Functions/Unlock")]
+public class Unlock : VPLFunction
 {
     public override List<VPLArg> Args => new()
     {
-        new() { Name = "", Type = "string"}
+        new() { Name = "Port", Type = "number"},
+        new() { Name = "Password", Type = "string"}
     };
     public override void Execute(params object[] input)
     {
@@ -18,7 +19,7 @@ public class Enable : VPLFunction
             var interactable = obj.GetComponent<Activatable>();
             if (interactable != null)
             {
-                if(interactable.Type == input[0].ToString())
+                if((interactable.Password == input[1].ToString()) && (interactable.Port == int.Parse(input[0].ToString())))
                 {
                     interactable.SetIsOn(true);
                 }

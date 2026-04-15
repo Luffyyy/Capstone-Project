@@ -5,11 +5,9 @@ using UnityEngine;
 public class OpenDoors : Activatable
 {
     public Animator animator;
-    
     void Start()
     {
         SetEmission(IsOn);
-        Type = "Door";
     }
 
     public override void OnStartClient()
@@ -24,7 +22,7 @@ public class OpenDoors : Activatable
             {   
                 animator.SetBool("isOpen", true);
             }
-        }//ג
+        }
     }
     private void OnTriggerExit(Collider other)
     {

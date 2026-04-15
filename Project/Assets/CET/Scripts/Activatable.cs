@@ -6,7 +6,8 @@ public class Activatable : NetworkBehaviour
 {
     [SyncVar(hook = nameof(CallEmission))] public bool IsOn;
     public Renderer EmissionRenderer;
-    public string Type;
+    public string Password;
+    public int Port;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
