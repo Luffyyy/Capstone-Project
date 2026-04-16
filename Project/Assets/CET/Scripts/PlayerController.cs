@@ -23,6 +23,7 @@ public class PlayerController : NetworkBehaviour
     private CharacterController charControl;
     private Rigidbody rb;
     private Animator animator;
+    public bool CanMove = true;
 
     public void SetInputEnabled(bool enabled)
     {
@@ -91,6 +92,7 @@ public class PlayerController : NetworkBehaviour
     }
     void Update()
     {
+        if(!CanMove) return;
         if (isLocalPlayer)
         {
             smoothedMove = Vector2.Lerp(smoothedMove, move * speed, Time.deltaTime * 5);

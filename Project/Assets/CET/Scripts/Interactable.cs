@@ -8,6 +8,7 @@ public class Interactable : Activatable
     public GameObject PromptUI;
     public Transform UIAnchor;
     public GameObject PromptUIPrefab;
+    public PlayerController CurrentPlayer;
     protected virtual void Awake()
     {
         PromptUI = Instantiate(PromptUIPrefab, GameObject.Find("Canvas").transform);
@@ -29,6 +30,7 @@ public class Interactable : Activatable
             if (player != null)
             {
                 player.CurrentInteractable = this;
+                CurrentPlayer = player;
             }
 
             playerCounter++;
@@ -46,7 +48,10 @@ public class Interactable : Activatable
         {
             player.CurrentInteractable = null;
         }
-
+        if (player == CurrentPlayer)
+        {
+            CurrentPlayer = null;
+        }
         playerCounter--;
 
         if (playerCounter == 0)
