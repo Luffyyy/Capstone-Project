@@ -27,8 +27,8 @@ RectTransform:
   m_GameObject: {fileID: 4819253170505958578}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4048143294336508114}
   m_Father: {fileID: 7756071271464438389}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 4048143294336508114}
   - component: {fileID: 9165096471297953204}
   - component: {fileID: 6393829768870269369}
-  - component: {fileID: 516116718353464087}
+  - component: {fileID: 359565865999232550}
   m_Layer: 5
   m_Name: Circle
   m_TagString: Untagged
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.7490196, g: 0.7490196, b: 0.7490196, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 250, y: 250, z: 250, w: 250}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &516116718353464087
+--- !u!114 &359565865999232550
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,10 +161,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6894535743209157182}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9d677f1681015749b15c436eec6d880, type: 3}
+  m_Script: {fileID: 11500000, guid: 494d86a64d485504a8fdcb93411aec5c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.OnScreen.OnScreenStick
-  m_MovementRange: 85
+  m_EditorClassIdentifier: Assembly-CSharp::OnScreenStickSnap
+  m_MovementRange: 90
   m_DynamicOriginRange: 100
   m_ControlPath: <Gamepad>/leftStick
   m_Behaviour: 0
@@ -173,7 +173,7 @@ MonoBehaviour:
     m_Name: Pointer Down
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 2a655b1b-771b-44e7-8209-2de0038182c4
+    m_Id: 34ca3666-48ee-4cd6-b964-5f5f08199311
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -182,7 +182,7 @@ MonoBehaviour:
     m_Name: Pointer Move
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: eb445755-0e99-4bba-8a59-fb195aed579c
+    m_Id: 5f7100a4-7f8a-43d9-a1d4-309e86beb46f
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -349,6 +349,18 @@ PrefabInstance:
       value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 3981335706634971872, guid: f0bc1529862e5b442b44abc980f8e54f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981335706634971872, guid: f0bc1529862e5b442b44abc980f8e54f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981335706634971872, guid: f0bc1529862e5b442b44abc980f8e54f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981335706634971872, guid: f0bc1529862e5b442b44abc980f8e54f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -395,6 +407,10 @@ PrefabInstance:
     - target: {fileID: 3981335706634971872, guid: f0bc1529862e5b442b44abc980f8e54f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981335706634971872, guid: f0bc1529862e5b442b44abc980f8e54f, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4937051356256175149, guid: f0bc1529862e5b442b44abc980f8e54f, type: 3}
       propertyPath: m_Type
