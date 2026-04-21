@@ -898,7 +898,8 @@ MonoBehaviour:
   playerPrefab: {fileID: 3481397179089319522, guid: 06c684061242e3548920b0da2676c0f8, type: 3}
   autoCreatePlayer: 0
   playerSpawnMethod: 0
-  spawnPrefabs: []
+  spawnPrefabs:
+  - {fileID: 0}
   exceptionsDisconnect: 1
   snapshotSettings:
     bufferTimeMultiplier: 2
@@ -918,6 +919,7 @@ MonoBehaviour:
   fadeInOut: {fileID: 2003792647}
   SceneCameras: []
   additiveScenes:
+  - Assets/CET/Scenes/Level3.unity
   - Assets/CET/Scenes/Level1.unity
   - Assets/CET/Scenes/Level2.unity
 --- !u!114 &1924761632
