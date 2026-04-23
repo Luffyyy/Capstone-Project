@@ -1,0 +1,11 @@
+Model Information:
+* title:	Display Boards (Low Poly)
+* source:	https://sketchfab.com/3d-models/display-boards-low-poly-abe1543293b84b74a3e349e094ed1a4d
+* author:	game_travel (https://sketchfab.com/game_travel)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Display Boards (Low Poly)" (https://sketchfab.com/3d-models/display-boards-low-poly-abe1543293b84b74a3e349e094ed1a4d) by game_travel (https://sketchfab.com/game_travel) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
