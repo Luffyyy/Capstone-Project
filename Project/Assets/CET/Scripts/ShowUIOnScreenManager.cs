@@ -1,20 +1,25 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class ShowUIOnScreenManager : MonoBehaviour
 {
     public static ShowUIOnScreenManager Instance { get; private set; }
     public TextMeshProUGUI TextUI;
-    public RawImage backgroundImage;
+    public UnityEngine.UI.Image ImageToShow;
     public RectTransform uiRect;
-    public RectTransform buttonRect; 
+    public RectTransform buttonRect;
+    public UnityEngine.UI.Image ButtonImage;
+    public UnityEngine.UI.Image PanelBackground;
+    
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Instance = this;
+        //RectTransform rectTransform = TextUI.rectTransform;
         HideUI();
     }
 
@@ -24,7 +29,7 @@ public class ShowUIOnScreenManager : MonoBehaviour
         
     }
 
-    public void ShowUI(Texture texture, Vector3 rotation, Vector2 size, Vector2 buttonPosition, string textUI)
+    public void ShowUI(Sprite spriteToShow, Vector3 rotation, Vector2 size, Vector2 buttonPosition, Color ButtonColor, string textUI, Vector2 textPosition, TMP_FontAsset TextFontAsset, float FontSize)
     {
         if (HUDManager.Instance != null)
         {
@@ -33,10 +38,13 @@ public class ShowUIOnScreenManager : MonoBehaviour
         if (textUI != null)
         {
             TextUI.text = textUI;
+            TextUI.rectTransform.anchoredPosition = textPosition;
+            TextUI.font = TextFontAsset;
+            TextUI.fontSize = FontSize;
         }
-        if (backgroundImage != null && texture != null)
+        if (ImageToShow != null && spriteToShow != null)
         {
-            backgroundImage.texture = texture;
+            ImageToShow.sprite = spriteToShow;
         }
         if (uiRect != null)
         {
@@ -47,7 +55,10 @@ public class ShowUIOnScreenManager : MonoBehaviour
         {
             buttonRect.anchoredPosition = buttonPosition;
         }
-
+        if (ButtonImage != null)
+        {
+            ButtonImage.color = ButtonColor;
+        }
         gameObject.SetActive(true);
     }
 
