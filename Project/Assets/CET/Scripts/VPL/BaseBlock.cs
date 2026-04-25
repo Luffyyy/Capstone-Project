@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class BaseBlock : MonoBehaviour
 {
+    public const float BLOCK_SCALE = 1.25f;
+
     [HideInInspector] // Set by VPLState itself
     public VPLZone Zone;
 
@@ -17,6 +19,13 @@ public class BaseBlock : MonoBehaviour
     public bool isStatic = false;
 
     public BlockDefinition Defintion;
+
+
+    // Events have no top port, they self initiate, for example.
+    public bool hasTopPort = true;
+    public bool hasBottomPort = true;
+
+    public bool IsExpression = false;
 
     public virtual BlockNode SaveNode()
     {
@@ -89,5 +98,16 @@ public class BaseBlock : MonoBehaviour
         // {
         //     GetComponent<Image>().color = color;
         // }
+    }
+
+    public virtual object Evaluate()
+    {
+        return null;
+    }
+
+    // Executes the block
+    public virtual IEnumerator Execute()
+    {
+        yield return null;
     }
 }

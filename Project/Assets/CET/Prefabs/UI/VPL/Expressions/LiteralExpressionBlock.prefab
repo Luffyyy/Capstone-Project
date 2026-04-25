@@ -38,7 +38,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 303821746475458290, guid: 8d50f2aab409660439ba8c7f7088759e, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 30
+      value: 30.89
       objectReference: {fileID: 0}
     - target: {fileID: 303821746475458290, guid: 8d50f2aab409660439ba8c7f7088759e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -70,11 +70,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 303821746475458290, guid: 8d50f2aab409660439ba8c7f7088759e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 163.8948
+      value: 112.1483
       objectReference: {fileID: 0}
     - target: {fileID: 303821746475458290, guid: 8d50f2aab409660439ba8c7f7088759e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -21
+      value: -21.445
       objectReference: {fileID: 0}
     - target: {fileID: 303821746475458290, guid: 8d50f2aab409660439ba8c7f7088759e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -134,12 +134,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 199186637191527072, guid: d3c38dcfb30e6f0439bbaf15018e3402, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -30.000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 199186637191527072, guid: d3c38dcfb30e6f0439bbaf15018e3402, type: 3}
       propertyPath: m_SizeDelta.y
       value: -0.00014114
       objectReference: {fileID: 0}
     - target: {fileID: 199186637191527072, guid: d3c38dcfb30e6f0439bbaf15018e3402, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -8.000004
+      value: -6.999999
       objectReference: {fileID: 0}
     - target: {fileID: 199186637191527072, guid: d3c38dcfb30e6f0439bbaf15018e3402, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -155,11 +159,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2072764837572687191, guid: d3c38dcfb30e6f0439bbaf15018e3402, type: 3}
       propertyPath: m_Options.m_Options.Array.data[0].m_Text
-      value: number
+      value: num
       objectReference: {fileID: 0}
     - target: {fileID: 2072764837572687191, guid: d3c38dcfb30e6f0439bbaf15018e3402, type: 3}
       propertyPath: m_Options.m_Options.Array.data[1].m_Text
-      value: string
+      value: str
       objectReference: {fileID: 0}
     - target: {fileID: 2072764837572687191, guid: d3c38dcfb30e6f0439bbaf15018e3402, type: 3}
       propertyPath: m_Options.m_Options.Array.data[2].m_Text
@@ -215,7 +219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3530185276072268506, guid: d3c38dcfb30e6f0439bbaf15018e3402, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 120.8948
+      value: 69.1483
       objectReference: {fileID: 0}
     - target: {fileID: 3530185276072268506, guid: d3c38dcfb30e6f0439bbaf15018e3402, type: 3}
       propertyPath: m_SizeDelta.y
@@ -269,13 +273,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4367229132749705779, guid: d3c38dcfb30e6f0439bbaf15018e3402, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -10
+      objectReference: {fileID: 0}
     - target: {fileID: 4428800005484980929, guid: d3c38dcfb30e6f0439bbaf15018e3402, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7294290627652870402, guid: d3c38dcfb30e6f0439bbaf15018e3402, type: 3}
       propertyPath: m_text
-      value: number
+      value: num
       objectReference: {fileID: 0}
     - target: {fileID: 7294290627652870402, guid: d3c38dcfb30e6f0439bbaf15018e3402, type: 3}
       propertyPath: m_fontSize
@@ -681,11 +689,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4075291388851618032, guid: e65a01da194fc33409b27d5e9202edee, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 206.8948
+      value: 155.1483
       objectReference: {fileID: 0}
     - target: {fileID: 4075291388851618032, guid: e65a01da194fc33409b27d5e9202edee, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -21
+      value: -21.445
       objectReference: {fileID: 0}
     - target: {fileID: 5673924916689621245, guid: e65a01da194fc33409b27d5e9202edee, type: 3}
       propertyPath: m_Name
@@ -730,7 +738,9 @@ MonoBehaviour:
   Color: {r: 0, g: 0, b: 0, a: 0}
   isStatic: 0
   Defintion: {fileID: 11400000, guid: 04de4b19097d1b240a7a7b8a396f351e, type: 2}
-  Converter: {fileID: 0}
+  hasTopPort: 1
+  hasBottomPort: 1
+  IsExpression: 1
   TypeDropdown: {fileID: 463702512295600910}
   ValueField: {fileID: 2513033457197929064}
   DropdownValueField: {fileID: 4662637446293322767}

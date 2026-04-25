@@ -9,18 +9,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1594871853532802015}
     m_Modifications:
     - target: {fileID: 591811656977220053, guid: 7bb9870f9abcedc4c8cdf9395fe55def, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 591811656977220053, guid: 7bb9870f9abcedc4c8cdf9395fe55def, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 591811656977220053, guid: 7bb9870f9abcedc4c8cdf9395fe55def, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 591811656977220053, guid: 7bb9870f9abcedc4c8cdf9395fe55def, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
@@ -104,30 +92,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3842591921816741459, guid: 7bb9870f9abcedc4c8cdf9395fe55def, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3842591921816741459, guid: 7bb9870f9abcedc4c8cdf9395fe55def, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3842591921816741459, guid: 7bb9870f9abcedc4c8cdf9395fe55def, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3842591921816741459, guid: 7bb9870f9abcedc4c8cdf9395fe55def, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3842591921816741459, guid: 7bb9870f9abcedc4c8cdf9395fe55def, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3842591921816741459, guid: 7bb9870f9abcedc4c8cdf9395fe55def, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5852723551070570811, guid: 7bb9870f9abcedc4c8cdf9395fe55def, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -150,138 +114,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5852723551070570811, guid: 7bb9870f9abcedc4c8cdf9395fe55def, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -44.805
+      value: -48.26
       objectReference: {fileID: 0}
     - target: {fileID: 6402626367414768781, guid: 7bb9870f9abcedc4c8cdf9395fe55def, type: 3}
       propertyPath: m_Name
       value: VPLMenu
       objectReference: {fileID: 0}
-    - target: {fileID: 6731471228737595921, guid: 7bb9870f9abcedc4c8cdf9395fe55def, type: 3}
-      propertyPath: m_Alpha
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6731471228737595921, guid: 7bb9870f9abcedc4c8cdf9395fe55def, type: 3}
-      propertyPath: m_Interactable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6731471228737595921, guid: 7bb9870f9abcedc4c8cdf9395fe55def, type: 3}
-      propertyPath: m_BlocksRaycasts
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1266187424109996794, guid: 7bb9870f9abcedc4c8cdf9395fe55def, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6402626367414768781, guid: 7bb9870f9abcedc4c8cdf9395fe55def, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6068660287735883619}
-    - targetCorrespondingSourceObject: {fileID: 1401011993119309773, guid: 7bb9870f9abcedc4c8cdf9395fe55def, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4650918697829818909}
-    - targetCorrespondingSourceObject: {fileID: 1401011993119309773, guid: 7bb9870f9abcedc4c8cdf9395fe55def, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7656331162653396468}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bb9870f9abcedc4c8cdf9395fe55def, type: 3}
---- !u!1 &1621137272218187820 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1401011993119309773, guid: 7bb9870f9abcedc4c8cdf9395fe55def, type: 3}
-  m_PrefabInstance: {fileID: 364240983283845089}
-  m_PrefabAsset: {fileID: 0}
---- !u!222 &4650918697829818909
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1621137272218187820}
-  m_CullTransparentMesh: 1
---- !u!114 &7656331162653396468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1621137272218187820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6319135f360054461a2bdca5e2713b22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Gilzoide.FlexUi::Gilzoide.FlexUi.FlexLayout
-  _configuration: {fileID: 0}
-  _positionType: 1
-  _positionLeft:
-    Value: NaN
-    Unit: 0
-  _positionTop:
-    Value: NaN
-    Unit: 0
-  _positionRight:
-    Value: NaN
-    Unit: 0
-  _positionBottom:
-    Value: NaN
-    Unit: 0
-  _direction: 0
-  _flexDirection: 2
-  _flexWrap: 1
-  _flexBasis:
-    Value: NaN
-    Unit: 3
-  _flexGrow: 0
-  _flexShrink: 1
-  _justifyContent: 0
-  _alignItems: 1
-  _alignSelf: 0
-  _alignContent: 0
-  _width:
-    Value: 100
-    Unit: 2
-  _height:
-    Value: 100
-    Unit: 1
-  _minWidth:
-    Value: NaN
-    Unit: 0
-  _minHeight:
-    Value: NaN
-    Unit: 0
-  _maxWidth:
-    Value: NaN
-    Unit: 0
-  _maxHeight:
-    Value: NaN
-    Unit: 0
-  _aspectRatio:
-    Value: NaN
-    Unit: 0
-  _marginLeft:
-    Value: 0
-    Unit: 1
-  _marginTop:
-    Value: 0
-    Unit: 1
-  _marginRight:
-    Value: 0
-    Unit: 1
-  _marginBottom:
-    Value: 0
-    Unit: 1
-  _paddingLeft:
-    Value: 0
-    Unit: 1
-  _paddingTop:
-    Value: 0
-    Unit: 1
-  _paddingRight:
-    Value: 0
-    Unit: 1
-  _paddingBottom:
-    Value: 0
-    Unit: 1
-  _gapColumn: 0
-  _gapRow: 0
-  _foldoutState: 00000001000000
 --- !u!224 &3070076625842624702 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3428665736435965791, guid: 7bb9870f9abcedc4c8cdf9395fe55def, type: 3}
@@ -292,103 +135,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5613719758683607896, guid: 7bb9870f9abcedc4c8cdf9395fe55def, type: 3}
   m_PrefabInstance: {fileID: 364240983283845089}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6761233435358614380}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 809619e2fb2da0841a76468d53b6fccb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VPLMenu
---- !u!1 &6761233435358614380 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6402626367414768781, guid: 7bb9870f9abcedc4c8cdf9395fe55def, type: 3}
-  m_PrefabInstance: {fileID: 364240983283845089}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6068660287735883619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6761233435358614380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6319135f360054461a2bdca5e2713b22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Gilzoide.FlexUi::Gilzoide.FlexUi.FlexLayout
-  _configuration: {fileID: 0}
-  _positionType: 1
-  _positionLeft:
-    Value: NaN
-    Unit: 0
-  _positionTop:
-    Value: NaN
-    Unit: 0
-  _positionRight:
-    Value: NaN
-    Unit: 0
-  _positionBottom:
-    Value: NaN
-    Unit: 0
-  _direction: 0
-  _flexDirection: 0
-  _flexWrap: 0
-  _flexBasis:
-    Value: NaN
-    Unit: 3
-  _flexGrow: 0
-  _flexShrink: 1
-  _justifyContent: 0
-  _alignItems: 1
-  _alignSelf: 0
-  _alignContent: 0
-  _width:
-    Value: NaN
-    Unit: 3
-  _height:
-    Value: NaN
-    Unit: 3
-  _minWidth:
-    Value: NaN
-    Unit: 0
-  _minHeight:
-    Value: NaN
-    Unit: 0
-  _maxWidth:
-    Value: NaN
-    Unit: 0
-  _maxHeight:
-    Value: NaN
-    Unit: 0
-  _aspectRatio:
-    Value: NaN
-    Unit: 0
-  _marginLeft:
-    Value: 0
-    Unit: 1
-  _marginTop:
-    Value: 0
-    Unit: 1
-  _marginRight:
-    Value: 0
-    Unit: 1
-  _marginBottom:
-    Value: 0
-    Unit: 1
-  _paddingLeft:
-    Value: 0
-    Unit: 1
-  _paddingTop:
-    Value: 0
-    Unit: 1
-  _paddingRight:
-    Value: 0
-    Unit: 1
-  _paddingBottom:
-    Value: 0
-    Unit: 1
-  _gapColumn: 0
-  _gapRow: 16
-  _foldoutState: 0001010000010100
 --- !u!1001 &3002147194949515070
 PrefabInstance:
   m_ObjectHideFlags: 0

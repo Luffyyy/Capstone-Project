@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class OperatorBlock : BaseExpression
+public class OperatorBlock : BaseBlock
 {
     public ExpressionTray Exp1;
     public ExpressionTray Exp2;
 
     public TextMeshProUGUI Operator;
+
+    public ValueConverter Converter;
 
     public bool IsUnary = false;
 
@@ -19,6 +21,17 @@ public class OperatorBlock : BaseExpression
         {
             Exp1.gameObject.SetActive(false);
         }
+    }
+
+    public override void SetName(string name)
+    {
+        
+    }
+
+    public override void Awake()
+    {
+        base.Awake();
+        IsExpression = true;
     }
 
     public override BlockNode SaveNode()

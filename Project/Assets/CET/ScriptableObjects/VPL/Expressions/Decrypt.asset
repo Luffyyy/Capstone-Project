@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb63b6c2e09a0a842a2dbaa117446a7b, type: 3}
-  m_Name: TurnOnBlock
-  m_EditorClassIdentifier: Assembly-CSharp::FuncBlockDefinition
-  Name: turn on
+  m_Script: {fileID: 11500000, guid: 2296e50c4e8b4f54d922d9539f467c82, type: 3}
+  m_Name: Decrypt
+  m_EditorClassIdentifier: Assembly-CSharp::FuncExpressionBlockDefinition
+  Name: Decrypt
   Category: 0
   Color: {r: 0, g: 0, b: 0, a: 0}
-  PrefabName: FuncBlock
-  Function: {fileID: 11400000, guid: 1f78648204ffa294b9797f3ce2b71c06, type: 2}
+  PrefabName: FuncExpressionBlock
+  Function: {fileID: 11400000, guid: 8edb40c4247a14746ab8c86c338d814a, type: 2}

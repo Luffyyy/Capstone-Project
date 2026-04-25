@@ -10,7 +10,7 @@ public class BlockTray : MonoBehaviour, IDropHandler, IPointerExitHandler
     private GameObject preview;
     public bool IsRoot = false;
 
-    public List<StackBlock> Blocks => Helpers.GetComponentsInChildren<StackBlock>(transform);
+    public List<BaseBlock> Blocks => Helpers.GetComponentsInChildren<BaseBlock>(transform);
 
     public BlockTrayNode SaveNode()
     {
@@ -36,7 +36,6 @@ public class BlockTray : MonoBehaviour, IDropHandler, IPointerExitHandler
             if (blockPrefab != null)
             {
                 var spawned = Instantiate(blockPrefab, transform);
-                spawned.transform.localScale *= 1.25f;
                 spawned.Activated(Zone);
                 spawned.LoadNode(blockNode);
             } else
@@ -56,7 +55,7 @@ public class BlockTray : MonoBehaviour, IDropHandler, IPointerExitHandler
     {
        for (int i = 0; i < transform.childCount; i++)  {
             var tr = transform.GetChild(i);
-            if (tr.TryGetComponent<StackBlock>(out var block))
+            if (tr.TryGetComponent<BaseBlock>(out var block) && !block.IsExpression)
             {
                 yield return block.Execute();
             }
@@ -69,7 +68,7 @@ public class BlockTray : MonoBehaviour, IDropHandler, IPointerExitHandler
 
         int newIndex = 0;
 
-        if (block.GetComponent<StackBlock>().hasTopPort)
+        if (block.GetComponent<BaseBlock>().hasTopPort)
         {
             if (preview == null) {
                 SpawnGhost(block);
@@ -97,7 +96,7 @@ public class BlockTray : MonoBehaviour, IDropHandler, IPointerExitHandler
             }
         }
         
-        if (newIndex == 0 && !transform.GetChild(0).GetComponent<StackBlock>().hasTopPort)
+        if (newIndex == 0 && !transform.GetChild(0).GetComponent<BaseBlock>().hasTopPort)
         {
             return;
         } else if (preview == null) // Edge case in which an event isn't present in the tray
@@ -114,7 +113,7 @@ public class BlockTray : MonoBehaviour, IDropHandler, IPointerExitHandler
         var group = preview.GetComponent<CanvasGroup>();
         group.alpha = 0.4f;
         group.blocksRaycasts = false;
-        preview.GetComponent<StackBlock>().isStatic = true;
+        preview.GetComponent<BaseBlock>().isStatic = true;
     }
 
     public void DestroyPreview()
@@ -135,7 +134,7 @@ public class BlockTray : MonoBehaviour, IDropHandler, IPointerExitHandler
             var block = eventData.pointerDrag;
             // Snap the block into the Tray at the ghost's position
             block.transform.SetParent(transform);
-            block.GetComponent<StackBlock>().Activated(Zone);
+            block.GetComponent<BaseBlock>().Activated(Zone);
             block.transform.SetSiblingIndex(preview.transform.GetSiblingIndex());
             Destroy(preview);
         }

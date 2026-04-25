@@ -25,14 +25,13 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         canvasGroup = GetComponent<CanvasGroup>() ?? gameObject.AddComponent<CanvasGroup>();
         canvas = GetComponentInParent<Canvas>();
 
-        IsStackBlock = GetComponent<StackBlock>() != null;
+        IsStackBlock = !GetComponent<BaseBlock>().IsExpression;
     }
 
     public void OnBeginDrag(PointerEventData eventData) {
         if (IsFake)
         {
             var instance = Instantiate(this, GameObject.Find("Menu").transform).gameObject;
-            instance.transform.localScale = Vector3.one * 1.25f;
             var dobj = instance.GetComponent<DraggableBlock>();
             dobj.IsNew = true;
             dobj.IsFake = false;

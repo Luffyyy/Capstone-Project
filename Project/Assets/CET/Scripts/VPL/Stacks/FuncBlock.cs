@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class FuncBlock : StackBlock
+public class FuncBlock : BaseBlock
 {
     public List<ExpressionTray> Trays;
 
@@ -52,13 +52,16 @@ public class FuncBlock : StackBlock
             foreach (var arg in fb.Function.Args)
             {
                 var name = Instantiate(ArgNameObject, transform);
-                name.GetComponent<TextMeshProUGUI>().SetText(arg.Name);
+                var text = name.GetComponent<TextMeshProUGUI>();
+                text.SetText(arg.Name);
+                text.fontSize = IsExpression ? 28 : 36;
 
                 var tray = Instantiate(ExpressionTrayObject, transform);
                 var trayComp = tray.GetComponent<ExpressionTray>();
                 var exp = Instantiate(LiteralBlockObject, tray.transform).GetComponent<LiteralBlock>();
                 exp.SetType(arg.Type);
                 trayComp.DefaultBlock = exp;
+                exp.gameObject.SetActive(false);
                 trayComp.CurrentExpression = exp;
                 Trays.Add(trayComp);
             }
@@ -78,7 +81,6 @@ public class FuncBlock : StackBlock
         }
     }
 
-    // Update is called once per frame
     public override IEnumerator Execute()
     {
         var args = new object[Trays.Count];
@@ -86,8 +88,20 @@ public class FuncBlock : StackBlock
         {
             args[i] = Trays[i].Evaluate();
         }
+
         Func.Execute(args);
 
         yield return null;
+    }
+
+    // Special case: it can also be an expression in some cases
+    public override object Evaluate()
+    {
+        var args = new object[Trays.Count];
+        for (int i=0; i < Trays.Count; i++)
+        {
+            args[i] = Trays[i].Evaluate();
+        }
+        return Func.ExecuteWithReturn(args);
     }
 }

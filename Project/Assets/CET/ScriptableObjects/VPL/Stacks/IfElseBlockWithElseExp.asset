@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: IfElseBlockWithElseExp
   m_EditorClassIdentifier: Assembly-CSharp::PrefabBlockDefinition
   Name: if
+  Category: 1
   Color: {r: 0, g: 0, b: 0, a: 0}
   PrefabName: IfElseBlockWithElseExp
   Prefab: IfElseBlockWithElseExp

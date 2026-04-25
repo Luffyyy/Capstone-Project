@@ -25,6 +25,17 @@ public class LiteralBlock : BaseExpression
 
     }
 
+    public override void Awake()
+    {
+        base.Awake();
+        IsExpression = true;
+    }
+
+    public override void SetName(string name)
+    {
+        
+    }
+
     public override void LoadNode(BlockNode node)
     {
         base.LoadNode(node);
@@ -56,8 +67,8 @@ public class LiteralBlock : BaseExpression
     {
         TypeDropdown.value = type switch
         {
-            "number" => 0,
-            "string" => 1,
+            "num" => 0,
+            "str" => 1,
             "bool" => 2,
             _ => 0
         };
@@ -73,22 +84,21 @@ public class LiteralBlock : BaseExpression
         {
             ValueField.gameObject.SetActive(false);
             DropdownValueField.gameObject.SetActive(true);
-        } else if (type == "number")
+        } else if (type == "num")
         {
             ValueField.contentType = TMP_InputField.ContentType.DecimalNumber;
-        } else if (type == "string")
+        } else if (type == "str")
         {
             ValueField.contentType = TMP_InputField.ContentType.Standard;
         }
     }
 
-    // Update is called once per frame
     public override object Evaluate()
     {
         var type = TypeDropdown.options[TypeDropdown.value].text;
         return type switch {
-            "string" => ValueField.text,
-            "number" => float.Parse(ValueField.text),
+            "str" => ValueField.text,
+            "num" => float.Parse(ValueField.text),
             "bool" => DropdownValueField.value == 1,
             _ => throw new System.Exception("Invalid type defined for VariableBlock: " + type)
         };

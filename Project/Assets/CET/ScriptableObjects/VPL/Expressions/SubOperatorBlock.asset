@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: SubOperatorBlock
   m_EditorClassIdentifier: Assembly-CSharp::OperatorDefinition
   Name: Subtraction
+  Category: 3
   Color: {r: 0, g: 0, b: 0, a: 0}
+  PrefabName: OperatorBlock
   Converter: {fileID: 11400000, guid: ab18bd3aab115e44d86de75328a6d314, type: 2}
   IsUnary: 0
   Sign: '-'

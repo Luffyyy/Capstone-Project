@@ -9,6 +9,22 @@ public class VPLStore : ScriptableObject
 
     public List<BlockDefinition> Definitions;
 
+    public Dictionary<BlockCateogory, List<BlockDefinition>> GetCategorizedDefinitions()
+    {
+        Dictionary<BlockCateogory, List<BlockDefinition>> dict = new();
+        foreach (var def in Definitions)
+        {
+            if (!dict.ContainsKey(def.Category))
+            {
+                dict[def.Category] = new();
+            }
+
+            dict[def.Category].Add(def);
+        }
+
+        return dict;
+    }
+
     public BlockDefinition GetDefinitionByName(string name)
     {
         return Definitions.Find(definition => definition.name == name);

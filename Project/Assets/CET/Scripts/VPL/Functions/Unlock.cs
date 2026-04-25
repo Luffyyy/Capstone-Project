@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -8,8 +9,8 @@ public class Unlock : VPLFunction
 {
     public override List<VPLArg> Args => new()
     {
-        new() { Name = "Port", Type = "number"},
-        new() { Name = "Password", Type = "string"}
+        new() { Name = "port", Type = "num"},
+        new() { Name = "pass", Type = "str"}
     };
     public override void Execute(params object[] input)
     {

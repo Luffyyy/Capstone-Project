@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class CBlock : StackBlock
+public class CBlock : BaseBlock
 {
     public BlockTray Tray;
 

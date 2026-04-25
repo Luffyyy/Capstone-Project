@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: PowOperatorBlock
   m_EditorClassIdentifier: Assembly-CSharp::OperatorDefinition
   Name: Power
+  Category: 3
   Color: {r: 0, g: 0, b: 0, a: 0}
+  PrefabName: OperatorBlock
   Converter: {fileID: 11400000, guid: 31016c0ab6e877e439b3198e2cdcd4d4, type: 2}
   IsUnary: 0
   Sign: POW

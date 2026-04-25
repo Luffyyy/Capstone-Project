@@ -162,7 +162,6 @@ GameObject:
   - component: {fileID: 4165666317232284349}
   - component: {fileID: 1485561116688975236}
   - component: {fileID: 4519201262917670331}
-  - component: {fileID: 6622480878461598185}
   - component: {fileID: 5241733500222285122}
   - component: {fileID: 8187166388326678330}
   - component: {fileID: 5264274461465733659}
@@ -232,25 +231,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6622480878461598185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8435313865656725047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d40744bb0258250449bb97b534204324, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BaseBlock
-  Zone: {fileID: 0}
-  Name: 
-  Color: {r: 0, g: 0, b: 0, a: 0}
-  isStatic: 0
-  Defintion: {fileID: 0}
-  hasTopPort: 1
-  hasBottomPort: 1
 --- !u!114 &5241733500222285122
 MonoBehaviour:
   m_ObjectHideFlags: 0

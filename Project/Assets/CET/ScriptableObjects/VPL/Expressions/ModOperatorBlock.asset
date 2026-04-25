@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: ModOperatorBlock
   m_EditorClassIdentifier: Assembly-CSharp::OperatorDefinition
   Name: Modulos
+  Category: 3
   Color: {r: 0, g: 0, b: 0, a: 0}
+  PrefabName: OperatorBlock
   Converter: {fileID: 11400000, guid: 637c7764f1092624b9fa9733e28d3196, type: 2}
   IsUnary: 0
   Sign: '%'

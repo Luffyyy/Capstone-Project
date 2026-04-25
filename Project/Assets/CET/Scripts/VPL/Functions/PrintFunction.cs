@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,10 +7,10 @@ public class PrintFunction : VPLFunction
 {
     public override List<VPLArg> Args => new()
     {
-        new() { Name = "msg", Type = "string" }
+        new() { Name = "msg", Type = "str" }
     };
     public override void Execute(params object[] input)
     {
-        Debug.Log(input[0]);
+        Zone.PrintToConsole(input[0].ToString());
     }
 }

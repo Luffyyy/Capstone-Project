@@ -135,6 +135,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4191672788038687876}
   m_SourcePrefab: {fileID: 100100000, guid: 9cc8035407a50fb4a8b2a8ec9554579b, type: 3}
+--- !u!23 &1430800766294991050 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -2328718926369942005, guid: 9cc8035407a50fb4a8b2a8ec9554579b, type: 3}
+  m_PrefabInstance: {fileID: 5509454640491738817}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4662608936399932304 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9cc8035407a50fb4a8b2a8ec9554579b, type: 3}
@@ -177,11 +182,13 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   IsOn: 0
-  EmissionRenderer: {fileID: 0}
-  Type: 
+  EmissionRenderer: {fileID: 1430800766294991050}
+  Password: 
+  Port: 0
   PromptUI: {fileID: 0}
   UIAnchor: {fileID: 6361832684526941806}
   PromptUIPrefab: {fileID: 7231119583142017857, guid: 6d16d420d0bdcb746b936ae5ff88ab80, type: 3}
+  CurrentPlayer: {fileID: 0}
   VPLEditMenuPrefab: {fileID: 2151990500796916592, guid: 10ea732ee06cb5846a60cd66991eb9de, type: 3}
   OwnedVPLZone: {fileID: 0}
   ConnectedObjects: []

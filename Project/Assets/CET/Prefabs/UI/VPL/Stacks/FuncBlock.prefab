@@ -94,15 +94,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4519201262917670331, guid: 5d0b5d61bec96e84cac0ead79f185d93, type: 3}
       propertyPath: m_Color.b
-      value: 0.14509805
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4519201262917670331, guid: 5d0b5d61bec96e84cac0ead79f185d93, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.5803922
       objectReference: {fileID: 0}
     - target: {fileID: 4519201262917670331, guid: 5d0b5d61bec96e84cac0ead79f185d93, type: 3}
       propertyPath: m_Color.r
-      value: 0.75686276
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6024577425251768186, guid: 5d0b5d61bec96e84cac0ead79f185d93, type: 3}
       propertyPath: m_AnchorMax.y
@@ -165,6 +165,7 @@ MonoBehaviour:
   Defintion: {fileID: 0}
   hasTopPort: 1
   hasBottomPort: 1
+  IsExpression: 0
   Trays: []
   ArgNameObject: {fileID: 4279167930151628826, guid: 624ec68ebe8cbea49809f28c853f2cc5, type: 3}
   ExpressionTrayObject: {fileID: 5673924916689621245, guid: 73c6e08f4a7dc5148983945513127734, type: 3}

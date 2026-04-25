@@ -45,7 +45,7 @@ public class BlockNode
 
     public List<ExpressionTrayNode> ExpressionTrays = new();
 
-    public List<string> VariableDefs = new();
+    public List<KeyValue> VariableDefs = new();
 
     // override object.Equals
     public override bool Equals(object obj)

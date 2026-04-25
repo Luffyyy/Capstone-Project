@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: AndOperatorBlock
   m_EditorClassIdentifier: Assembly-CSharp::OperatorDefinition
   Name: AND
+  Category: 3
   Color: {r: 0, g: 0, b: 0, a: 0}
+  PrefabName: OperatorBlock
   Converter: {fileID: 11400000, guid: 741b869302624b64c9edb8468dab913e, type: 2}
   IsUnary: 0
   Sign: AND

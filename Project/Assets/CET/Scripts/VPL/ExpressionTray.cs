@@ -7,9 +7,9 @@ public class ExpressionTray : MonoBehaviour, IDropHandler, IPointerExitHandler, 
 {
     [HideInInspector]
     public VPLZone Zone;
-    public BaseExpression CurrentExpression;
+    public BaseBlock CurrentExpression;
 
-    public BaseExpression DefaultBlock;
+    public BaseBlock DefaultBlock;
 
     public bool IsActivated = false;
 
@@ -30,9 +30,9 @@ public class ExpressionTray : MonoBehaviour, IDropHandler, IPointerExitHandler, 
             if (def != null)
             {
                 var blockPrefab = Zone.Store.GetPrefabForDefinition(def);
-                if (blockPrefab is BaseExpression exp)
+                if (blockPrefab is BaseBlock block && block.IsExpression)
                 {
-                    var spawned = Instantiate(exp, transform);
+                    var spawned = Instantiate(block, transform);
                     SetCurrentExpression(spawned);
                     spawned.LoadNode(blockNode);
                 } else
@@ -58,6 +58,7 @@ public class ExpressionTray : MonoBehaviour, IDropHandler, IPointerExitHandler, 
         IsActivated = true;
         if (CurrentExpression != null)
         {
+            CurrentExpression.gameObject.SetActive(true);
             CurrentExpression.Activated(zone);
         }
     }
@@ -75,7 +76,7 @@ public class ExpressionTray : MonoBehaviour, IDropHandler, IPointerExitHandler, 
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (IsActivated && eventData.pointerDrag != null && eventData.pointerDrag.GetComponent<BaseExpression>())
+        if (IsActivated && eventData.pointerDrag != null && eventData.pointerDrag.TryGetComponent<BaseBlock>(out var block) && block.IsExpression)
         {
             GetComponent<Outline>().enabled = true;
         }
@@ -83,13 +84,13 @@ public class ExpressionTray : MonoBehaviour, IDropHandler, IPointerExitHandler, 
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (IsActivated && eventData.pointerDrag != null && eventData.pointerDrag.GetComponent<BaseExpression>())
+        if (IsActivated && eventData.pointerDrag != null && eventData.pointerDrag.TryGetComponent<BaseBlock>(out var block) && block.IsExpression)
         {
             GetComponent<Outline>().enabled = false;
         }
     }
 
-    public void SetCurrentExpression(BaseExpression exp)
+    public void SetCurrentExpression(BaseBlock exp)
     {
         if (CurrentExpression != null && CurrentExpression != exp)
         {
@@ -105,9 +106,9 @@ public class ExpressionTray : MonoBehaviour, IDropHandler, IPointerExitHandler, 
 
     public void OnDrop(PointerEventData eventData)
     {
-        if (IsActivated && eventData.pointerDrag.TryGetComponent<BaseExpression>(out var exp))
+        if (IsActivated && eventData.pointerDrag.TryGetComponent<BaseBlock>(out var block) && block.IsExpression)
         {
-            SetCurrentExpression(exp);
+            SetCurrentExpression(block);
         }
     }
 }

@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: NegOperatorBlock
   m_EditorClassIdentifier: Assembly-CSharp::OperatorDefinition
   Name: Negation
+  Category: 3
   Color: {r: 0, g: 0, b: 0, a: 0}
+  PrefabName: OperatorBlock
   Converter: {fileID: 11400000, guid: 53d33862127329b4ca939bebca83d18a, type: 2}
   IsUnary: 1
   Sign: '-'

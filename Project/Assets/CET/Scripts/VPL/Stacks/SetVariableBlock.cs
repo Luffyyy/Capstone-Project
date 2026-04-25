@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class SetVariableBlock : StackBlock
+public class SetVariableBlock : BaseBlock
 {
     public TMP_InputField VarField;
 

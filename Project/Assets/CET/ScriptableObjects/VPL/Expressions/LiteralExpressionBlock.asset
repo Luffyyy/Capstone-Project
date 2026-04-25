@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: LiteralExpressionBlock
   m_EditorClassIdentifier: Assembly-CSharp::PrefabBlockDefinition
   Name: Literal
+  Category: 2
   Color: {r: 0, g: 0, b: 0, a: 0}
+  PrefabName: LiteralExpressionBlock
   Prefab: LiteralExpressionBlock

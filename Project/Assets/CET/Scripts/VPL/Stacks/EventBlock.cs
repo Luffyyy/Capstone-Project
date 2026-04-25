@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EventBlock : StackBlock
+public class EventBlock : BaseBlock
 {
     public EventBlock(): base()
     {

@@ -19,6 +19,17 @@ public class VariableBlock : BaseExpression
         };
     }
 
+    public override void Awake()
+    {
+        base.Awake();
+        IsExpression = true;
+    }
+
+    public override void SetName(string name)
+    {
+        
+    }
+
     public override void LoadNode(BlockNode node)
     {
         base.LoadNode(node);

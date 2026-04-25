@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: MultOperatorBlock
   m_EditorClassIdentifier: Assembly-CSharp::OperatorDefinition
   Name: Multiply
+  Category: 3
   Color: {r: 0, g: 0, b: 0, a: 0}
+  PrefabName: OperatorBlock
   Converter: {fileID: 11400000, guid: de7a1533624217e4e9573673b215e34e, type: 2}
   IsUnary: 0
   Sign: '*'

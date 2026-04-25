@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: LessThanOperatorBlock
   m_EditorClassIdentifier: Assembly-CSharp::OperatorDefinition
   Name: Less Than
+  Category: 3
   Color: {r: 0, g: 0, b: 0, a: 0}
+  PrefabName: OperatorBlock
   Converter: {fileID: 11400000, guid: 3f1a357b4a4fa5e43bd29f40f2161b92, type: 2}
   IsUnary: 0
   Sign: <

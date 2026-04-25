@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +41,24 @@ public class VPLZone : MonoBehaviour
 
     public TerminalInteractable ConnectedTo;
 
+    public GameObject CategoryText;
+
+    public TextMeshProUGUI ConsoleText;
+    public ScrollRect ConsoleScroll;
+
+    public void PrintToConsole(string msg)
+    {
+        ConsoleText.text += $"[{DateTime.Now:T}]: {msg}\n";
+        StartCoroutine(nameof(ScrollConsoleToBottom));
+    }
+
+    IEnumerator ScrollConsoleToBottom()
+    {
+        yield return new WaitForSeconds(0.01f);
+        Canvas.ForceUpdateCanvases(); 
+        ConsoleScroll.verticalNormalizedPosition = 0;
+    }
+
     public void ExecuteOnServer()
     {
         ConnectedTo.CmdSendRoot(BuildTree(), true);
@@ -52,9 +71,12 @@ public class VPLZone : MonoBehaviour
 
         foreach (var kv in VariableDefs)
         {
-            if (kv.Value)
+            if (kv.Value > 0)
             {
-                root.VariableDefs.Add(kv.Key);
+                root.VariableDefs.Add(new() {
+                    Key = kv.Key,
+                    Value = kv.Value.ToString()
+                });
             }
         }
 
@@ -73,9 +95,9 @@ public class VPLZone : MonoBehaviour
 
         VariableDefs = new();
 
-        foreach (var key in root.VariableDefs)
+        foreach (var pair in root.VariableDefs)
         {
-            VariableDefs[key] = true;
+            VariableDefs[pair.Key] = int.Parse(pair.Value);
         }
 
         foreach (var tray in Trays)
@@ -107,18 +129,25 @@ public class VPLZone : MonoBehaviour
 
     void Awake()
     {
-        foreach (var def in Store.Definitions)
+        var dict = Store.GetCategorizedDefinitions();
+
+        foreach (var catDefs in dict)
         {
-            var blockPrefab = Store.GetPrefabForDefinition(def);
-            if (blockPrefab != null)
+            var catText = Instantiate(CategoryText, BlockListContent);
+            catText.GetComponent<TextMeshProUGUI>().SetText(catDefs.Key.ToString());
+                
+            foreach (var def in catDefs.Value)
             {
-                var spawned = Instantiate(blockPrefab, BlockListContent);
-                spawned.GetComponent<DraggableBlock>().IsFake = true;
-                spawned.SetDefinition(def);
-                spawned.transform.localScale = Vector3.one;
-            } else
-            {
-                print($"Couldn't find prefab of {def.Name}: {def.PrefabName}");
+                var blockPrefab = Store.GetPrefabForDefinition(def);
+                if (blockPrefab != null)
+                {
+                    var spawned = Instantiate(blockPrefab, BlockListContent);
+                    spawned.GetComponent<DraggableBlock>().IsFake = true;
+                    spawned.SetDefinition(def);
+                } else
+                {
+                    print($"Couldn't find prefab of {def.Name}: {def.PrefabName}");
+                }
             }
         }
     }
@@ -154,7 +183,7 @@ public class VPLZone : MonoBehaviour
         if (oldName != null)
         {
             VariableDefs[oldName] = false;
-        }
+            }
         VariableDefs[newName] = true;
 
         OnVariableNameChanged.Invoke(oldName, newName);

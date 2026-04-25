@@ -5,10 +5,11 @@ using UnityEngine.EventSystems;
 
 public class BaseExpression : BaseBlock
 {
-    public ValueConverter Converter;
-
-    public virtual object Evaluate()
+    public override void Awake()
     {
-        return null;
+        base.Awake();
+        hasTopPort = false;
+        hasBottomPort = false;
+        IsExpression = true;
     }
 }

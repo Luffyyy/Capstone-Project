@@ -1,6 +1,6 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "TurnOn", menuName = "VPL/Functions/TurnOn")]
@@ -8,7 +8,7 @@ public class TurnOn : VPLFunction
 {
     public override List<VPLArg> Args => new()
     {
-        new() { Name = "Port", Type = "number"}
+        new() { Name = "port", Type = "num"}
     };
     public override void Execute(params object[] input)
     {

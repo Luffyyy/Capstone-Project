@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: NotOperatorBlock
   m_EditorClassIdentifier: Assembly-CSharp::OperatorDefinition
   Name: NOT
+  Category: 3
   Color: {r: 0, g: 0, b: 0, a: 0}
+  PrefabName: OperatorBlock
   Converter: {fileID: 11400000, guid: 85046ab7c8fe4904babfe8de0f6557f0, type: 2}
   IsUnary: 1
   Sign: NOT

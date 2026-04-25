@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: AddOperatorBlock
   m_EditorClassIdentifier: Assembly-CSharp::OperatorDefinition
   Name: Addition
+  Category: 3
   Color: {r: 0, g: 0, b: 0, a: 0}
+  PrefabName: OperatorBlock
   Converter: {fileID: 11400000, guid: 98e3efb8654dd51479224190cd050254, type: 2}
   IsUnary: 0
   Sign: +
