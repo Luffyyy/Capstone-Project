@@ -30,7 +30,6 @@ public class Player : NetworkBehaviour
         SetColorIndex(newVal);
     }
 
-    // Update is called once per frame
     void OnSetEmotionIndex(int oldVal, int newVal)
     {
         SetEmotionIndex(newVal);

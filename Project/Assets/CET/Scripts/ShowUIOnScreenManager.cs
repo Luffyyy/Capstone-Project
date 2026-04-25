@@ -23,12 +23,6 @@ public class ShowUIOnScreenManager : MonoBehaviour
         HideUI();
     }
 
-    // Update is called once per frame
-    void Update()
-    {       
-        
-    }
-
     public void ShowUI(Sprite spriteToShow, Vector3 rotation, Vector2 size, Vector2 buttonPosition, Color ButtonColor, string textUI, Vector2 textPosition, TMP_FontAsset TextFontAsset, float FontSize)
     {
         if (HUDManager.Instance != null)

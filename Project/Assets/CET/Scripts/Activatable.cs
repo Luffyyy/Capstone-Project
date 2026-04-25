@@ -8,17 +8,7 @@ public class Activatable : NetworkBehaviour
     public Renderer EmissionRenderer;
     public string Password;
     public int Port;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void CallEmission(bool oldValue, bool newValue)
     {
         SetEmission(newValue);
