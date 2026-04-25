@@ -30,6 +30,7 @@ public class SetVariableBlock : BaseBlock
 
     public void OnVarChanged()
     {
+        if (Zone == null) return;
         Zone.SetVariableName(LastVariableName, VarField.text);
         LastVariableName = VarField.text;
     }
@@ -72,4 +73,11 @@ public class SetVariableBlock : BaseBlock
         yield return null;
     }
 
+    void OnDestroy()
+    {
+        if (Zone != null)
+        {
+            Zone.SetVariableName(LastVariableName, null);
+        }
+    }
 }

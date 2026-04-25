@@ -13,7 +13,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(LayoutElement), typeof(CanvasGroup))]
 public class VPLZone : MonoBehaviour
 {
-    private Dictionary<string, bool> VariableDefs = new();
+    private Dictionary<string, int> VariableDefs = new();
     private Dictionary<string, object> Variables = new();
 
     public Button ExecuteButton;
@@ -157,7 +157,7 @@ public class VPLZone : MonoBehaviour
         List<string> names = new();
         foreach (var kv in VariableDefs)
         {
-            if (kv.Value)
+            if (kv.Value > 0)
             {
                 names.Add(kv.Key);
             }
@@ -168,24 +168,40 @@ public class VPLZone : MonoBehaviour
     public string GetVariableName()
     {
         int i = 0;
-        while (VariableDefs.ContainsKey("myvar"+i)) {
+        while (VariableDefs.TryGetValue("v"+i, out int num) && num > 0) {
             i++;
         }
 
-        string res = "myvar"+i;
+        string res = "v"+i;
         SetVariableName(null, res);
 
-        return "myvar"+i;
+        return "v"+i;
     }
 
-    public void SetVariableName(string oldName, string newName)
+    public void SetVariableName(string oldName, string newName=null)
     {
+
         if (oldName != null)
         {
-            VariableDefs[oldName] = false;
+            if (VariableDefs.ContainsKey(oldName))
+            {
+                VariableDefs[oldName]--;
             }
-        VariableDefs[newName] = true;
-
+        }
+        if (newName != null)
+        {
+            if (!VariableDefs.ContainsKey(newName))
+            {
+                VariableDefs[newName] = 0;
+            }
+            VariableDefs[newName]++;
+        }
+        string p = "";
+        foreach (var item in VariableDefs)
+        {
+            p += $"{item.Key} = {item.Value}\n";
+        }
+        print(p);
         OnVariableNameChanged.Invoke(oldName, newName);
     }
 
@@ -233,7 +249,10 @@ public class VPLZone : MonoBehaviour
     public void SetVariable(string str, object obj)
     {
         Variables[str] = obj;
-        VariableDefs[str] = true;
+        if (!VariableDefs.ContainsKey(str))
+        {
+            VariableDefs[str] = 1;
+        }
     }
 
     public object GetVariable(string str)

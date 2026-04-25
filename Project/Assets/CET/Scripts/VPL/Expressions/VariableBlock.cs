@@ -50,11 +50,12 @@ public class VariableBlock : BaseExpression
 
     private void OnVariableNameChanged(string oldName, string newName)
     {
-        var opt = VarField.options[VarField.value];
         string lookingFor = null;
 
-        if (opt != null)
+        if (VarField.value < VarField.options.Count)
         {
+            var opt = VarField.options[VarField.value];
+
             var varName = opt.text;
             lookingFor = varName;
 
