@@ -27,7 +27,7 @@ public class HUDManager : MonoBehaviour
     public void SetCurrentHUD()
     {
         // Set background on/off depending on whether we are on a dedicated server screen
-        if (NetworkManager.singleton.mode == NetworkManagerMode.ServerOnly)
+        if (GameState.Instance.IsDedicatedServer)
         {
             if (NetworkClient.active)
             {
