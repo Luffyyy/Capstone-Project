@@ -10,6 +10,8 @@ public class MenuManager : MonoBehaviour
     public List<MenuBase> Menus = new();
 
     public Stack<MenuBase> MenuStack = new();
+
+    public Stack<Dialog> DialogStack = new();
     
     public Transform SafeArea;
 
@@ -82,6 +84,12 @@ public class MenuManager : MonoBehaviour
 
     public void CloseCurrentMenu()
     {
+        if (DialogStack.Count > 0)
+        {
+            DialogStack.Peek().Hide();
+            return;
+        }
+    
         var count = MenuStack.Count;
         if (count == 0 || (count <= 1 && !AllowClosing))
             return;
