@@ -15,6 +15,16 @@ public class TerminalInteractable : Interactable
 
     [HideInInspector, SyncVar(hook=nameof(OnRootChanged))]
     public BlockNode Root;
+
+    [ClientRpc]
+    public void SendConsoleMessageToPeers(List<string> log)
+    {
+        if (isServer) return;
+
+        OwnedVPLZone.ConsoleLog = log;
+        OwnedVPLZone.UpdateConsole();
+    }
+
     protected override void Awake()
     {
         base.Awake();

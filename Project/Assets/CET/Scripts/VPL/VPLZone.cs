@@ -43,20 +43,38 @@ public class VPLZone : MonoBehaviour
 
     public GameObject CategoryText;
 
+    public List<string> ConsoleLog = new();
     public TextMeshProUGUI ConsoleText;
     public ScrollRect ConsoleScroll;
 
     public void PrintToConsole(string msg)
     {
-        ConsoleText.text += $"[{DateTime.Now:T}]: {msg}\n";
-        StartCoroutine(nameof(ScrollConsoleToBottom));
+        ConsoleLog.Add($"[{DateTime.Now:T}]: {msg}");
+        if (ConsoleLog.Count > 50)
+        {
+            ConsoleLog.RemoveAt(0);
+        }
+        UpdateConsole();
+    }
+    
+    public void UpdateConsole()
+    {
+        StartCoroutine(AsyncUpdateConsole());
     }
 
-    IEnumerator ScrollConsoleToBottom()
+    IEnumerator AsyncUpdateConsole()
     {
-        yield return new WaitForSeconds(0.01f);
+        ConsoleText.text = string.Join("\n", ConsoleLog);
+
+        yield return new WaitForSeconds(0.1f);
         Canvas.ForceUpdateCanvases(); 
         ConsoleScroll.verticalNormalizedPosition = 0;
+
+        if (ConnectedTo.isServer)
+        {
+            yield return new WaitForSeconds(0.5f); // Wait a bit before sending to others
+            ConnectedTo.SendConsoleMessageToPeers(ConsoleLog);
+        }
     }
 
     public void ExecuteOnServer()
