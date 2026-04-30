@@ -28,7 +28,6 @@ public class TerminalInteractable : Interactable
     protected override void Awake()
     {
         base.Awake();
-        SetEmission(IsOn);
         VPLMenu = MenuManager.Instance.GetMenu<VPLMenu>("VPLMenu");
         var go = Instantiate(VPLEditMenuPrefab, VPLMenu.transform);
 

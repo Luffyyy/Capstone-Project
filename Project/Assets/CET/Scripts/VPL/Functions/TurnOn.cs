@@ -22,6 +22,7 @@ public class TurnOn : VPLFunction
                 if(interactable.Port == int.Parse(input[0].ToString()))
                 {
                     interactable.SetIsOn(true);
+                    Debug.Log("Turned on " + obj.name);
                 }
                 
             }

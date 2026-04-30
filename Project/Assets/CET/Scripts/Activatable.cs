@@ -6,9 +6,15 @@ public class Activatable : NetworkBehaviour
 {
     [SyncVar(hook = nameof(CallEmission))] public bool IsOn;
     public Renderer EmissionRenderer;
+    public Light targetLight;
     public string Password;
     public int Port;
 
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
+        SetEmission(IsOn);
+    }
     private void CallEmission(bool oldValue, bool newValue)
     {
         SetEmission(newValue);
@@ -22,7 +28,8 @@ public class Activatable : NetworkBehaviour
 
     public void SetEmission(bool value)
     {
-        if (EmissionRenderer != null){
+        if (EmissionRenderer != null)
+        {
             Material mat = EmissionRenderer.material;
             if(mat != null)
             {
@@ -36,5 +43,11 @@ public class Activatable : NetworkBehaviour
                 }
             }
         }
+        if (targetLight != null)
+        {
+                Debug.Log("Setting light to " + value);
+                targetLight.enabled = value;
+        }
+        
     }
 }
