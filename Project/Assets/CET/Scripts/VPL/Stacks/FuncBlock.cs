@@ -11,7 +11,7 @@ public class FuncBlock : BaseBlock
     public GameObject ExpressionTrayObject;
     public GameObject LiteralBlockObject;
 
-    public VPLFunction Func;
+    public FuncBlockDefinition FunctionDef => Defintion as FuncBlockDefinition;
 
     public override BlockNode SaveNode()
     {
@@ -47,9 +47,8 @@ public class FuncBlock : BaseBlock
 
         if (def != null && def is FuncBlockDefinition fb)
         {
-            Func = fb.Function;
-            Func.Zone = Zone;
-            foreach (var arg in fb.Function.Args)
+            fb.Zone = Zone;
+            foreach (var arg in fb.Args)
             {
                 var name = Instantiate(ArgNameObject, transform);
                 var text = name.GetComponent<TextMeshProUGUI>();
@@ -71,10 +70,12 @@ public class FuncBlock : BaseBlock
     public override void Activated(VPLZone zone)
     {
         base.Activated(zone);
-        if (Func != null)
+
+        if (FunctionDef != null)
         {
-            Func.Zone = zone;
+            FunctionDef.Zone = zone;
         }
+
         foreach (var tray in Trays)
         {
             tray.Activated(zone);
@@ -89,7 +90,13 @@ public class FuncBlock : BaseBlock
             args[i] = Trays[i].Evaluate();
         }
 
-        Func.Execute(args);
+        if ((Defintion as FuncBlockDefinition).IsAsync)
+        {
+            yield return FunctionDef.ExecuteAsync(args);
+        } else
+        {
+            FunctionDef.Execute(args);
+        }
 
         yield return null;
     }
@@ -102,6 +109,6 @@ public class FuncBlock : BaseBlock
         {
             args[i] = Trays[i].Evaluate();
         }
-        return Func.ExecuteWithReturn(args);
+        return FunctionDef.ExecuteWithReturn(args);
     }
 }

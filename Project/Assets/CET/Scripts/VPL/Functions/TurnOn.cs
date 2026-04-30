@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "TurnOn", menuName = "VPL/Functions/TurnOn")]
-public class TurnOn : VPLFunction
+public class TurnOn : FuncBlockDefinition
 {
     public override List<VPLArg> Args => new()
     {

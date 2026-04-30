@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Unlock", menuName = "VPL/Functions/Unlock")]
-public class Unlock : VPLFunction
+public class Unlock : FuncBlockDefinition
 {
     public override List<VPLArg> Args => new()
     {
@@ -21,7 +21,7 @@ public class Unlock : VPLFunction
             if (interactable != null)
             {
                 if((interactable.Password == input[1].ToString()) && (interactable.Port == int.Parse(input[0].ToString())))
-                {
+            {
                     interactable.SetIsOn(true);
                 }
             }
