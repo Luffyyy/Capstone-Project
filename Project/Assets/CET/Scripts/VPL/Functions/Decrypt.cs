@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Decrypt", menuName = "VPL/Functions/Decrypt")]
-public class DecryptFunction : VPLFunction
+public class DecryptFunction : FuncBlockDefinition
 {
     public override List<VPLArg> Args => new()
     {

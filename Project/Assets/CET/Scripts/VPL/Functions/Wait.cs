@@ -1,11 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Wait", menuName = "VPL/Functions/Wait")]
-public class WaitFunction : VPLFunction
+public class WaitFunction : FuncBlockDefinition
 {
     public override List<VPLArg> Args => new()
     {

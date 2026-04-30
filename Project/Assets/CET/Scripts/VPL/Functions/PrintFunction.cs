@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PrintFunction", menuName = "VPL/Functions/Print")]
-public class PrintFunction : VPLFunction
+public class PrintFunction : FuncBlockDefinition
 {
     public override List<VPLArg> Args => new()
     {

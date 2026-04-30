@@ -12,3 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5de10c3711e45c84d848e8c4a1dd9644, type: 3}
   m_Name: PrintFunction
   m_EditorClassIdentifier: Assembly-CSharp::PrintFunction
+  Name: print
+  Category: 0
+  Color: {r: 0, g: 0, b: 0, a: 0}
+  PrefabName: FuncBlock
+  IsAsync: 0
+  Zone: {fileID: 0}
