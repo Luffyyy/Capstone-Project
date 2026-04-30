@@ -2,12 +2,24 @@ using System.Collections;
 using Mirror;
 using UnityEngine;
 
-public class OpenDoors : Activatable
+public class Door : Activatable
 {
     public Animator animator;
+    
+    public bool IsOpenTriggered = true;
+
     void Start()
     {
         SetEmission(IsOn);
+    }
+
+    public override void SetIsOn(bool value)
+    {
+        base.SetIsOn(value);
+        if (!IsOpenTriggered) // This means the door is open the moment we turn on the object
+        {
+            animator.SetBool("isOpen", value);
+        }
     }
 
     public override void OnStartClient()
@@ -17,7 +29,7 @@ public class OpenDoors : Activatable
 
     private void OnTriggerEnter(Collider other)
     {
-        if(IsOn){
+        if (IsOn && IsOpenTriggered) {
             if (other.CompareTag("Player"))
             {   
                 animator.SetBool("isOpen", true);
@@ -26,7 +38,7 @@ public class OpenDoors : Activatable
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && IsOpenTriggered)
         {
             animator.SetBool("isOpen", false);
         }
