@@ -45,7 +45,6 @@ public class Activatable : NetworkBehaviour
         }
         if (targetLight != null)
         {
-                Debug.Log("Setting light to " + value);
                 targetLight.enabled = value;
         }
         

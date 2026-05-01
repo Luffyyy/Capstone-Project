@@ -10,7 +10,7 @@ public class Door : Activatable
 
     void Start()
     {
-        SetEmission(IsOn);
+        SetIsOn(IsOn);
     }
 
     public override void SetIsOn(bool value)
