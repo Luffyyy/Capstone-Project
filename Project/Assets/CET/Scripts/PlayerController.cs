@@ -113,7 +113,6 @@ public class PlayerController : NetworkBehaviour
             float dist = 1.5f;
             if (Physics.Raycast(transform.position + Vector3.up, dir, out RaycastHit hit, dist))
             {
-                print(hit.collider);
                 if (hit.collider.TryGetComponent<Interactable>(out var inter))
                 {
                     CurrentInteractable = inter;
