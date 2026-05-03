@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 1579770163964449479}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.05166, y: 0.64912, z: 0.65273}
-  m_LocalScale: {x: 0.10727934, y: 1.2864078, z: 0.4776096}
+  m_LocalPosition: {x: 0.03893, y: 0.64912, z: 0.65273}
+  m_LocalScale: {x: 0.13273995, y: 1.2864078, z: 0.4776096}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8159972194885274960}
@@ -139,8 +139,8 @@ Transform:
   m_GameObject: {fileID: 3144334241888198879}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.05166, y: 0.64912, z: -0.68076}
-  m_LocalScale: {x: 0.10727934, y: 1.2864078, z: 0.38026083}
+  m_LocalPosition: {x: 0.03893, y: 0.64912, z: -0.68076}
+  m_LocalScale: {x: 0.13273995, y: 1.2864078, z: 0.38026083}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8159972194885274960}
@@ -323,7 +323,8 @@ MonoBehaviour:
   syncInterval: 0
   IsOn: 0
   EmissionRenderer: {fileID: 3134049714397048227}
-  Type: Door
+  Password: 
+  Port: 0
   animator: {fileID: 7581319198862047476}
 --- !u!114 &4550701213148746518
 MonoBehaviour:
@@ -370,8 +371,8 @@ Transform:
   m_GameObject: {fileID: 8385215003382675318}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.05166, y: 0.98297, z: -0.03836}
-  m_LocalScale: {x: 0.10727934, y: 0.61870277, z: 0.9045559}
+  m_LocalPosition: {x: 0.03893, y: 0.98297, z: -0.03836}
+  m_LocalScale: {x: 0.13273995, y: 0.61870277, z: 0.9045559}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8159972194885274960}

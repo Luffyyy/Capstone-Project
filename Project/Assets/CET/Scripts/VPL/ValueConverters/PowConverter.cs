@@ -8,7 +8,7 @@ public class PowConverter : ValueConverter
     {
         if (input[0] is float lfloat && input[1] is float rfloat)
         {
-            return Math.Pow(lfloat, rfloat);
+            return (float)Math.Pow(lfloat, rfloat);
         }
 
         throw new Exception("Power is only defined for numbers!");

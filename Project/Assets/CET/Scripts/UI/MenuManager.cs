@@ -26,10 +26,33 @@ public class MenuManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+
+        foreach (var menu in Menus)
+        {
+            menu.Hide();
+        }
+
         if (!string.IsNullOrWhiteSpace(StartMenu))
         {
             OpenMenu(StartMenu);
         }
+
+        if (IsActive)
+        {
+            Show();
+        } else
+        {
+            Hide();
+        }
+    }
+
+    public MenuBase AddMenu(string name)
+    {
+        var menu = Instantiate(MenuPrefabs.Find(menu => menu.gameObject.name == name), SafeArea);
+        menu.Hide();
+        menu.name = name;
+        Menus.Add(menu.GetComponent<MenuBase>());
+        return menu;
     }
 
     // Returns a menu stored in the menu manager
@@ -52,14 +75,13 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    public void OpenMenu(string name)
+
+    public MenuBase OpenMenu(string name)
     {
         MenuBase menu = GetMenu(name);
         if (menu == null)
         {
-            menu = Instantiate(MenuPrefabs.Find(menu => menu.gameObject.name == name), SafeArea);
-            menu.name = name;
-            Menus.Add(menu.GetComponent<MenuBase>());
+            menu = AddMenu(name);
         }
         if (MenuStack.Count > 0)
         {
@@ -72,6 +94,7 @@ public class MenuManager : MonoBehaviour
         {
             Show();
         }
+        return menu;
     }
 
     public void OnEscape(InputAction.CallbackContext context)

@@ -109,7 +109,6 @@ public class VPLZone : MonoBehaviour
     public void LoadFromTree(BlockNode root, bool execute=false)
     {
         Root = root;
-        print($"Load tree {root.Ident}");
 
         VariableDefs = new();
 
@@ -230,7 +229,6 @@ public class VPLZone : MonoBehaviour
     {
         if (executionRoutine != null)
         {
-            print("Interrupting Previous Execution Coroutine...");
             StopCoroutine(executionRoutine);
             Cleanup();
             // return; TODO: possibly implement stopping from client on server
@@ -244,11 +242,11 @@ public class VPLZone : MonoBehaviour
     {
         // var button = ExecuteButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         // button.text = "Stop Execution"; //TODO
-        print("Executing all block trays... ");
+        PrintToConsole("Executing... ");
         foreach (var tray in Trays)
         {
             yield return tray.Execute();
-            print("Execution complete.");
+            PrintToConsole("Execution complete.");
         }
         Cleanup();
     }
@@ -256,8 +254,6 @@ public class VPLZone : MonoBehaviour
     public void Cleanup()
     {
         var button = ExecuteButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-
-        print("Cleaning variables...");
 
         Variables.Clear();
         button.text = "Execute";

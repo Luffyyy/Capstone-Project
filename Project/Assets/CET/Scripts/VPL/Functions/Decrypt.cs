@@ -19,6 +19,8 @@ public class DecryptFunction : FuncBlockDefinition
 
         c -= 'a';
 
-        return ((char)((c+6) % 26 + 'a')).ToString();
+        Debug.Log((c-6) % 26);
+
+        return ((char)((c-6) % 26 + 'a')).ToString();
     }
 }

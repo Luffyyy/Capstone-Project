@@ -15,15 +15,15 @@ public class Unlock : FuncBlockDefinition
     public override void Execute(params object[] input)
     {
         var co = Zone.ConnectedTo.ConnectedObjects;
+        var port = int.Parse(input[0].ToString());
+
         foreach (var obj in co)
         {
-            var interactable = obj.GetComponent<Activatable>();
-            if (interactable != null)
+            var entity = obj.GetComponent<Entity>();
+            if (entity.Port == port)
             {
-                if((interactable.Password == input[1].ToString()) && (interactable.Port == int.Parse(input[0].ToString())))
-            {
-                    interactable.SetIsOn(true);
-                }
+                var plock = obj.GetComponent<PasswordLock>();
+                plock.EnterPassword(input[1].ToString());
             }
         }
     }

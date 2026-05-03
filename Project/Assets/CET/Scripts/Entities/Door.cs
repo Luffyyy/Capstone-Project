@@ -13,12 +13,12 @@ public class Door : Activatable
         SetIsOn(IsOn);
     }
 
-    public override void SetIsOn(bool value)
+    protected override void OnIsOnChanged(bool oldValue, bool newValue)
     {
-        base.SetIsOn(value);
+        base.OnIsOnChanged(oldValue, newValue);
         if (!IsOpenTriggered) // This means the door is open the moment we turn on the object
         {
-            animator.SetBool("isOpen", value);
+            animator.SetBool("isOpen", newValue);
         }
     }
 

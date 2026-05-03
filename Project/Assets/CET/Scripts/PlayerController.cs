@@ -4,6 +4,7 @@ using Mirror;
 using NUnit.Framework;
 using UnityEngine.EventSystems;
 using System;
+using TMPro;
 
 [RequireComponent(typeof(PlayerInput))]
 [RequireComponent(typeof(CharacterController))]
@@ -16,6 +17,7 @@ public class PlayerController : NetworkBehaviour
     private float side;
     private float smoothedSide;
 
+    [SyncVar]
     public Interactable CurrentInteractable;
 
     public bool IsInputEnabled = true;
@@ -24,6 +26,9 @@ public class PlayerController : NetworkBehaviour
     private Rigidbody rb;
     private Animator animator;
     public bool CanMove = true;
+
+    public GameObject InteractionText;
+    public GameObject InteractionTextPrefab;
 
     public void SetInputEnabled(bool enabled)
     {
@@ -85,6 +90,9 @@ public class PlayerController : NetworkBehaviour
         charControl = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
 
+        InteractionText = Instantiate(InteractionTextPrefab, GameObject.Find("Canvas").transform);
+        InteractionText.transform.SetSiblingIndex(0);
+
         // Reset movement just in case
         animator.SetFloat("Speed", 0);
         animator.SetFloat("Side", 0);
@@ -98,6 +106,41 @@ public class PlayerController : NetworkBehaviour
             smoothedMove = Vector2.Lerp(smoothedMove, move * speed, Time.deltaTime * 5);
             smoothedSide = Mathf.Lerp(smoothedSide, side, Time.deltaTime * 5f);
             MovePlayer();
+        }
+        if (isServer)
+        {
+            var dir = transform.forward;
+            float dist = 1.5f;
+            if (Physics.Raycast(transform.position + Vector3.up, dir, out RaycastHit hit, dist))
+            {
+                print(hit.collider);
+                if (hit.collider.TryGetComponent<Interactable>(out var inter))
+                {
+                    CurrentInteractable = inter;
+                }
+            } else
+            {
+                CurrentInteractable = null;
+            }
+        }
+
+        if (CurrentInteractable != null)
+        {
+            var pos = CurrentInteractable.UIAnchor ? CurrentInteractable.UIAnchor.position : CurrentInteractable.transform.position;
+            Vector3 screenPos = Camera.main.WorldToScreenPoint(pos);
+            InteractionText.transform.localScale = Vector3.one / (Vector3.Distance(Camera.main.transform.position, pos)/10);
+            InteractionText.transform.position = screenPos;
+            InteractionText.SetActive(true);
+            if (string.IsNullOrEmpty(CurrentInteractable.InteractionText))
+            {
+                InteractionText.GetComponent<TextMeshProUGUI>().text = "Interact";
+            } else
+            {
+                InteractionText.GetComponent<TextMeshProUGUI>().text = CurrentInteractable.InteractionText;
+            }
+        } else
+        {
+            InteractionText.SetActive(false);
         }
     }
 

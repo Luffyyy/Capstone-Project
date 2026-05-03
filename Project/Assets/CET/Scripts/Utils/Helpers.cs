@@ -40,4 +40,36 @@ public class Helpers
             _ => true // Default for objects is true
         };
     }
+
+    // Mirror doesn't support synching 2D arrays therefore this function flattens it into a 1D array
+    // We then unflatten it using the function Unflatten2DArray by giving it rows and cols
+    public static T[] Flatten2DArray<T>(T[,] arr)
+    {
+        int rows = arr.GetLength(0);
+        int cols = arr.GetLength(1);
+
+        T[] newArr = new T[rows*cols];
+
+        for(int i=0; i<rows; i++)
+        {
+            for(int j=0; j<cols; j++)
+            {
+                newArr[i*rows + j] = arr[i,j];
+            }        
+        }
+
+        return newArr;
+    }
+
+    public static T[,] Unflatten2DArray<T>(T[] arr, int rows, int cols)
+    {
+        T[,] newArr = new T[rows, cols];
+
+        for(int i=0; i<arr.Length; i++)
+        {
+            newArr[i/rows, i % cols] = arr[i];
+        }
+
+        return newArr;
+    }
 }

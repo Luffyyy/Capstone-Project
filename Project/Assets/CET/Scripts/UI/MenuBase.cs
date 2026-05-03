@@ -5,7 +5,7 @@ public class MenuBase : MonoBehaviour
 {
     public bool IsActive = false;
 
-    public void Show()
+    public virtual void Show()
     {
         var cg = GetComponent<CanvasGroup>();
         cg.alpha = 1;
@@ -14,7 +14,7 @@ public class MenuBase : MonoBehaviour
         IsActive = true;
     }
 
-    public void Hide()
+    public virtual void Hide()
     {
         var cg = GetComponent<CanvasGroup>();
         cg.alpha = 0;
