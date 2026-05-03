@@ -149,4 +149,3 @@ MonoBehaviour:
   ArgNameObject: {fileID: 4279167930151628826, guid: 624ec68ebe8cbea49809f28c853f2cc5, type: 3}
   ExpressionTrayObject: {fileID: 5673924916689621245, guid: 73c6e08f4a7dc5148983945513127734, type: 3}
   LiteralBlockObject: {fileID: 3963497626848637510, guid: d7c46333ee2cdf748ad71770150b8c45, type: 3}
-  Func: {fileID: 0}
