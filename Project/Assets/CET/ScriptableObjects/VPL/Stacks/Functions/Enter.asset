@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338d0db6099faa743afb9d07a645ad5f, type: 3}
   m_Name: Enter
   m_EditorClassIdentifier: Assembly-CSharp::EnterFunction
-  Name: Enter
+  Name: enter
   Category: 0
   Color: {r: 0, g: 0, b: 0, a: 0}
   DefaultBlock: 0
