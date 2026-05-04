@@ -11,6 +11,8 @@ public class StartPosition : MonoBehaviour
 
     void RegisterStartPosition()
     {
-        NetworkManager.RegisterStartPosition(transform);
+        if (GameState.Instance.isServer) {
+            NetworkManager.RegisterStartPosition(transform);
+        }
     }
 }
