@@ -17,7 +17,11 @@ public class BlockDefinition : ScriptableObject
     public BlockCateogory Category;
 
     public Color Color;
+    
+    public bool DefaultBlock = true;
+
 
     [HideInInspector]
     public string PrefabName = "";
+
 }

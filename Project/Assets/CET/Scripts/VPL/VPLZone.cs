@@ -30,6 +30,8 @@ public class VPLZone : MonoBehaviour
 
     public List<BlockTray> Trays => Helpers.GetComponentsInChildren<BlockTray>(VPLZoneContent);
 
+    [HideInInspector] public List<BlockDefinition> DefinedBlocks;
+
     [HideInInspector]
     public BlockNode Root;
 
@@ -144,26 +146,30 @@ public class VPLZone : MonoBehaviour
         return trayComp;
     }
 
-    void Awake()
+    public void AddBlocksToMenu()
     {
         var dict = Store.GetCategorizedDefinitions();
+        var pairs = dict.ToList().OrderBy((a) => a.Key);
 
-        foreach (var catDefs in dict)
+        foreach (var catDefs in pairs)
         {
             var catText = Instantiate(CategoryText, BlockListContent);
             catText.GetComponent<TextMeshProUGUI>().SetText(catDefs.Key.ToString());
                 
             foreach (var def in catDefs.Value)
             {
-                var blockPrefab = Store.GetPrefabForDefinition(def);
-                if (blockPrefab != null)
+                if (def.DefaultBlock || DefinedBlocks.Contains(def))
                 {
-                    var spawned = Instantiate(blockPrefab, BlockListContent);
-                    spawned.GetComponent<DraggableBlock>().IsFake = true;
-                    spawned.SetDefinition(def);
-                } else
-                {
-                    print($"Couldn't find prefab of {def.Name}: {def.PrefabName}");
+                    var blockPrefab = Store.GetPrefabForDefinition(def);
+                    if (blockPrefab != null)
+                    {
+                        var spawned = Instantiate(blockPrefab, BlockListContent);
+                        spawned.GetComponent<DraggableBlock>().IsFake = true;
+                        spawned.SetDefinition(def);
+                    } else
+                    {
+                        print($"Couldn't find prefab of {def.Name}: {def.PrefabName}");
+                    }
                 }
             }
         }

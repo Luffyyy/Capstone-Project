@@ -16,6 +16,8 @@ public class TerminalInteractable : Interactable
     [HideInInspector, SyncVar(hook=nameof(OnRootChanged))]
     public BlockNode Root;
 
+    public List<BlockDefinition> DefinedBlocks;
+
     [ClientRpc]
     public void SendConsoleMessageToPeers(List<string> log)
     {
@@ -34,6 +36,8 @@ public class TerminalInteractable : Interactable
 
         go.ConnectedTo = this;
         OwnedVPLZone = go;
+        go.DefinedBlocks = DefinedBlocks;
+        go.AddBlocksToMenu();
 
         VPLMenu.AddZone(go, GetInstanceID());
     }
