@@ -104,6 +104,12 @@ public class ExpressionTray : MonoBehaviour, IDropHandler, IPointerExitHandler, 
         CurrentExpression = exp;
     }
 
+    public void RemoveCurrentExpression()
+    {
+        CurrentExpression = null;
+        GetComponent<Outline>().enabled = false;
+    }
+
     public void OnDrop(PointerEventData eventData)
     {
         if (IsActivated && eventData.pointerDrag.TryGetComponent<BaseBlock>(out var block) && block.IsExpression)

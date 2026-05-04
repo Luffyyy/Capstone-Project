@@ -42,7 +42,10 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             ExecuteEvents.Execute(instance, eventData, ExecuteEvents.beginDragHandler);
         } else
         {
-            originalParent = transform.parent;
+            if (!IsNew)
+            {
+                originalParent = transform.parent;
+            }
             
             // Move to the root canvas so it renders on top of everything
             transform.SetParent(canvas.transform);
@@ -109,11 +112,23 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             }
         }
 
-        if (IsStackBlock)
+        if (lastTray != null)
         {
-            if (originalParent.childCount == 0 && originalParent.GetComponent<BlockTray>().IsRoot)
+            lastTray.DestroyPreview();
+            lastTray = null;
+        }
+
+        if (originalParent != null && originalParent != transform.parent)
+        {
+            if (IsStackBlock)
             {
-                Destroy(originalParent.gameObject);
+                if (originalParent.childCount == 0 && originalParent.GetComponent<BlockTray>().IsRoot)
+                {
+                    Destroy(originalParent.gameObject);
+                }
+            } else
+            {
+                originalParent.GetComponent<ExpressionTray>().RemoveCurrentExpression();
             }
         }
 
