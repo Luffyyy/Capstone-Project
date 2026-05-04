@@ -33,7 +33,6 @@ public class Activatable : Entity
         SetEmission(newValue);
     }
 
-    [Server]
     public virtual void SetIsOn(bool value)
     {
         IsOn = value;
