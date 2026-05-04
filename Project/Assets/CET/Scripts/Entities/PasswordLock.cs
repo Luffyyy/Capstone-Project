@@ -1,19 +1,14 @@
+using Mirror;
 using UnityEngine;
 
 public class PasswordLock : BaseLock
 {
     public string Password;
 
-    private bool isLocked = false;
-
     public void EnterPassword(string password)
     {
-        isLocked = Password != password;
+        isUnlocked = Password == password;
 
-        LockStateChanged.Invoke(isLocked);
-    }
-    public override bool IsLocked()
-    {
-        return isLocked;
+        LockStateChanged.Invoke(isUnlocked);
     }
 }

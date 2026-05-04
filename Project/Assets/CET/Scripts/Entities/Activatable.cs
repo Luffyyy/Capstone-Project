@@ -18,11 +18,11 @@ public class Activatable : Entity
     {
         // Add a listner to the lock and turns the entity on if no longer locked
         if (TryGetComponent<BaseLock>(out var l)) {
-            l.LockStateChanged.AddListener((locked) =>
+            l.LockStateChanged.AddListener((unlocked) =>
             {
-               if (!locked)
+                if (unlocked)
                 {
-                    SetIsOn(!locked);
+                    SetIsOn(unlocked);
                 }
             });
         }
