@@ -1,4 +1,5 @@
 using System.Collections;
+using Mirror;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -7,7 +8,7 @@ public class PasswordDisplay : Entity
 {
     public string Password;
 
-    [HideInInspector]
+    [HideInInspector, SyncVar(hook=nameof(OnEnteredPasswordChanged))]
     public string EnteredPassword = "";
 
     public TextMeshProUGUI EnteredPasswordText;
@@ -24,6 +25,11 @@ public class PasswordDisplay : Entity
     public void Reset()
     {
         StartCoroutine(nameof(ResetAfterAnimation));
+    }
+
+    public void OnEnteredPasswordChanged(string oldVal, string newVal)
+    {
+        UpdateText();
     }
 
     private IEnumerator ResetAfterAnimation()
