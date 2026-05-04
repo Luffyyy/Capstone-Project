@@ -184,6 +184,7 @@ MonoBehaviour:
   Port: 0
   IsOn: 0
   EmissionRenderer: {fileID: 1430800766294991050}
+  targetLight: {fileID: 0}
   CurrentPlayer: {fileID: 0}
   UIAnchor: {fileID: 6361832684526941806}
   InteractionText: Open Terminal
@@ -198,6 +199,7 @@ MonoBehaviour:
     Trays: []
     ExpressionTrays: []
     VariableDefs: []
+  DefinedBlocks: []
 --- !u!114 &5955127192372402812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,7 +215,7 @@ MonoBehaviour:
   sceneId: 0
   _assetId: 2564529697
   serverOnly: 0
-  visibility: 2
+  visibility: 0
   hasSpawned: 0
 --- !u!65 &4191672788038687876
 BoxCollider:

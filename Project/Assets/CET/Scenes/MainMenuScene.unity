@@ -919,9 +919,9 @@ MonoBehaviour:
   fadeInOut: {fileID: 2003792647}
   SceneCameras: []
   additiveScenes:
-  - Assets/CET/Scenes/Level3.unity
   - Assets/CET/Scenes/Level1.unity
   - Assets/CET/Scenes/Level2.unity
+  - Assets/CET/Scenes/Level3.unity
 --- !u!114 &1924761632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1045,6 +1045,10 @@ PrefabInstance:
     - target: {fileID: 1852795700156059633, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
       propertyPath: m_Name
       value: Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 1938580420244672296, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
+      propertyPath: IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4018219940516796992, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
       propertyPath: m_DefaultActionMap

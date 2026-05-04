@@ -321,11 +321,12 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  Port: 0
   IsOn: 0
   EmissionRenderer: {fileID: 3134049714397048227}
-  Password: 
-  Port: 0
+  targetLight: {fileID: 0}
   animator: {fileID: 7581319198862047476}
+  IsOpenTriggered: 1
 --- !u!114 &4550701213148746518
 MonoBehaviour:
   m_ObjectHideFlags: 0
