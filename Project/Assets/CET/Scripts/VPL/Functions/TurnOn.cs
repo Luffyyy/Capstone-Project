@@ -18,7 +18,6 @@ public class TurnOn : FuncBlockDefinition
             var interactable = obj.GetComponent<Activatable>();
             if (interactable != null)
             {
-                
                 if(interactable.Port == int.Parse(input[0].ToString()))
                 {
                     interactable.SetIsOn(true);

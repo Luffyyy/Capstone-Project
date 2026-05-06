@@ -46,7 +46,8 @@ public class InteractionMenu : MenuBase
         if (textUI != null)
         {
             TextUI.text = textUI;
-            TextUI.rectTransform.anchoredPosition = textPosition;
+            TextUI.rectTransform.offsetMin = new Vector2(textPosition.x, 0);
+            TextUI.rectTransform.offsetMax = new Vector2(0, textPosition.y);
             if (textFontAsset != null)
             {
                 TextUI.font = textFontAsset;

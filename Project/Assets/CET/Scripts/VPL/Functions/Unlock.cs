@@ -20,7 +20,7 @@ public class Unlock : FuncBlockDefinition
         foreach (var obj in co)
         {
             var entity = obj.GetComponent<Entity>();
-            if (entity.Port == port)
+            if (entity != null && entity.Port == port )
             {
                 var plock = obj.GetComponent<PasswordLock>();
                 plock.EnterPassword(input[1].ToString());
