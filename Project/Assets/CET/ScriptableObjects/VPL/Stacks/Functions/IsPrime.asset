@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb63b6c2e09a0a842a2dbaa117446a7b, type: 3}
+  m_Script: {fileID: 11500000, guid: ac58a9d6efdec3e4598aeaa59eff6ed9, type: 3}
   m_Name: IsPrime
-  m_EditorClassIdentifier: Assembly-CSharp::FuncBlockDefinition
+  m_EditorClassIdentifier: Assembly-CSharp::IsPrime
   Name: IsPrime
   Category: 0
   Color: {r: 0, g: 0, b: 0, a: 0}
-  DefaultBlock: 1
-  PrefabName: FuncBlock
+  DefaultBlock: 0
+  PrefabName: FuncExpressionBlock
   IsAsync: 0
   Zone: {fileID: 0}
