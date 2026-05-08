@@ -5407,6 +5407,10 @@ PrefabInstance:
       propertyPath: sceneId
       value: 3433392
       objectReference: {fileID: 0}
+    - target: {fileID: 4007073875796134274, guid: 97b54987d625682489578bda2ae77d12, type: 3}
+      propertyPath: m_Size.z
+      value: 0.29
+      objectReference: {fileID: 0}
     - target: {fileID: 6942393596057035294, guid: 97b54987d625682489578bda2ae77d12, type: 3}
       propertyPath: m_Name
       value: ReadPaper1
