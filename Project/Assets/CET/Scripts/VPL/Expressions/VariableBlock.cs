@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class VariableBlock : BaseExpression
 {
-    public TMP_Dropdown VarField;
+    public BaseVar Var;
 
     public override BlockNode SaveNode()
     {
@@ -14,7 +14,7 @@ public class VariableBlock : BaseExpression
             DefinitionName = Defintion.name,
             Data = new()
             {
-                new("VarFieldValue", VarField.value.ToString())
+                new("VarFieldValue", Var.Name)
             }
         };
     }
@@ -34,56 +34,20 @@ public class VariableBlock : BaseExpression
     {
         base.LoadNode(node);
         var varValue = node.Data.Find(item => item.Key == "VarFieldValue");
-        if (int.TryParse(varValue.Value, out var varInt))
+        if (varValue.Value is string varStr)
         {
-            VarField.value = varInt;
+            Var.SetName(varStr);
         }
     }
 
     public override void Activated(VPLZone zone)
     {
         base.Activated(zone);
-        VarField.ClearOptions();
-        VarField.AddOptions(Zone.GetVariableNames());
-        zone.OnVariableNameChanged.AddListener(OnVariableNameChanged);
-    }
-
-    private void OnVariableNameChanged(string oldName, string newName)
-    {
-        string lookingFor = null;
-
-        if (VarField.value < VarField.options.Count)
-        {
-            var opt = VarField.options[VarField.value];
-
-            var varName = opt.text;
-            lookingFor = varName;
-
-            if (varName == oldName) // Our var name was changed
-            {
-                lookingFor = newName;
-            } // else our var name was not changed, look for it
-        }
-
-        VarField.ClearOptions();
-        VarField.AddOptions(Zone.GetVariableNames());
-
-        if (lookingFor != null)
-        {
-            VarField.value = VarField.options.FindIndex(varName => varName.text == lookingFor);
-        }
-    }
-
-    void OnDestroy()
-    {
-        if (Zone != null)
-        {
-            Zone.OnVariableNameChanged.RemoveListener(OnVariableNameChanged);
-        }
+        Var.Activated(zone);
     }
 
     public override object Evaluate()
     {
-        return Zone.GetVariable(VarField.options[VarField.value].text);
+        return Var.Evaluate();
     }
 }
