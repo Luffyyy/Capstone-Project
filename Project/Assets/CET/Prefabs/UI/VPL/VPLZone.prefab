@@ -330,7 +330,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 32
+  m_Spacing: 16
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
@@ -880,7 +880,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 16, y: -16}
-  m_SizeDelta: {x: 1302.7142, y: 0}
+  m_SizeDelta: {x: 1314.1428, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &4405508790599456682
 CanvasRenderer:
@@ -1842,7 +1842,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 4598261654969638245}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9999999
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2853,6 +2853,7 @@ MonoBehaviour:
   BlockListContent: {fileID: 3283849145667406765}
   VPLZoneContent: {fileID: 4703498274235197276}
   DeleteZone: {fileID: 3602573252696507703}
+  DefinedBlocks: []
   Root:
     Ident: 2d889f99-6807-4a35-9c7a-bd06f53cfa4c
     DefinitionName: 
@@ -2866,8 +2867,12 @@ MonoBehaviour:
   OnVariableNameChanged:
     m_PersistentCalls:
       m_Calls: []
+  OnVariableDefinitionChanged:
+    m_PersistentCalls:
+      m_Calls: []
   ConnectedTo: {fileID: 0}
   CategoryText: {fileID: 4279167930151628826, guid: 44cdb8c955903fe4e892c33ea3a00e78, type: 3}
+  ConsoleLog: []
   ConsoleText: {fileID: 1328237552093976484}
   ConsoleScroll: {fileID: 30832646489427933}
 --- !u!114 &3603870350614486100
@@ -3447,7 +3452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 425291875798646909, guid: a4f8a09f2a875904ea8fd7279ce12b06, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 450.2857
+      value: 454.85712
       objectReference: {fileID: 0}
     - target: {fileID: 425291875798646909, guid: a4f8a09f2a875904ea8fd7279ce12b06, type: 3}
       propertyPath: m_SizeDelta.y
@@ -3455,7 +3460,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 425291875798646909, guid: a4f8a09f2a875904ea8fd7279ce12b06, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 241.14285
+      value: 243.42856
       objectReference: {fileID: 0}
     - target: {fileID: 425291875798646909, guid: a4f8a09f2a875904ea8fd7279ce12b06, type: 3}
       propertyPath: m_AnchoredPosition.y

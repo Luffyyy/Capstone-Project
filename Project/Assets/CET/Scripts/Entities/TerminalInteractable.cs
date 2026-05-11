@@ -33,6 +33,7 @@ public class TerminalInteractable : Interactable
         SetEmission(IsOn);
         VPLMenu = MenuManager.Instance.GetMenu<VPLMenu>("VPLMenu");
         var go = Instantiate(VPLEditMenuPrefab, VPLMenu.transform);
+        go.transform.SetSiblingIndex(1);
 
         go.ConnectedTo = this;
         OwnedVPLZone = go;

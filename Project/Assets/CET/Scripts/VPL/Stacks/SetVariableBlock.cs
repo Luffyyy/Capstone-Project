@@ -6,57 +6,36 @@ using UnityEngine.UI;
 
 public class SetVariableBlock : BaseBlock
 {
-    public TMP_InputField VarField;
-
     public ExpressionTray Tray;
 
-    private string LastVariableName;
+    public BaseVar Var;
 
     public override BlockNode SaveNode()
     {
-        return new()
+        var node = new BlockNode()
         {
             DefinitionName = Defintion.name,
-            Data = new()
-            {
-                new("VarFieldValue", VarField.text)
-            },
             ExpressionTrays = new()
             {
                 Tray.SaveNode()
             }
         };
-    }
 
-    public void OnVarChanged()
-    {
-        if (Zone == null) return;
-        Zone.SetVariableName(LastVariableName, VarField.text);
-        LastVariableName = VarField.text;
+        Var.Save(node.Data);
+
+        return node;
     }
 
     public override void LoadNode(BlockNode node)
     {
         base.LoadNode(node);
-        
-        var varValue = node.Data.Find(item => item.Key == "VarFieldValue");
-        if (varValue.Value is string varStr)
-        {
-            VarField.text = varStr;
-        }
-
+        Var.Load(node.Data);
         Tray.LoadNode(node.ExpressionTrays[0]);
     }
 
     public override void Activated(VPLZone zone)
     {
-        VarField.interactable = true;
-
-        if (GetComponent<DraggableBlock>().IsNew)
-        {
-            VarField.text = zone.GetVariableName();
-            LastVariableName = VarField.text;
-        }
+        Var.Activated(zone, GetComponent<DraggableBlock>().IsNew);
 
         if (Tray != null)
         {
@@ -68,16 +47,8 @@ public class SetVariableBlock : BaseBlock
 
     public override IEnumerator Execute()
     {
-        Zone.SetVariable(VarField.text, Tray.Evaluate());
+        Var.SetValue(Tray.Evaluate());
 
         yield return null;
-    }
-
-    void OnDestroy()
-    {
-        if (Zone != null)
-        {
-            Zone.SetVariableName(LastVariableName, null);
-        }
     }
 }

@@ -1,7 +1,15 @@
+using TMPro;
 using UnityEngine;
 
 public class Dialog : MonoBehaviour
 {
+    public TextMeshProUGUI Title;
+
+    public void SetTitle(string title)
+    {
+        Title.text = title;
+    }
+
     public void Show()
     {
         MenuManager.Instance.DialogStack.Push(this);

@@ -41,6 +41,8 @@ public class VPLZone : MonoBehaviour
 
     public UnityEvent<string, string> OnVariableNameChanged;
 
+    public UnityEvent<string, bool> OnVariableDefinitionChanged;
+
     public TerminalInteractable ConnectedTo;
 
     public GameObject CategoryText;
@@ -195,36 +197,64 @@ public class VPLZone : MonoBehaviour
             i++;
         }
 
-        string res = "v"+i;
-        SetVariableName(null, res);
-
         return "v"+i;
+    }
+
+    public string GetAndDefineVariableName()
+    {
+        string res = GetVariableName();
+        DefineVariable(res);
+
+        return res;
+    }
+    
+    public void UndefineVariable(string name, bool silent=false)
+    {
+        if (VariableDefs.ContainsKey(name))
+        {
+            VariableDefs[name] = Math.Max(0, VariableDefs[name]-1);
+        }
+        // print("Undefine var " + name + $" ({VariableDefs[name]})");
+
+        if (!silent)
+        {
+            OnVariableDefinitionChanged.Invoke(name, false);
+        }
+    }
+
+    public void DefineVariable(string name, bool silent=false)
+    {
+        if (!VariableDefs.ContainsKey(name))
+        {
+            VariableDefs[name] = 0;
+        }
+        VariableDefs[name]++;
+
+        // print("Define var " + name+ $" ({VariableDefs[name]})");
+
+        if (!silent)
+        {
+            OnVariableDefinitionChanged.Invoke(name, true);
+        }    
     }
 
     public void SetVariableName(string oldName, string newName=null)
     {
+        int count = 0;
 
-        if (oldName != null)
+        if (VariableDefs.ContainsKey(oldName))
         {
-            if (VariableDefs.ContainsKey(oldName))
-            {
-                VariableDefs[oldName]--;
-            }
+            count = VariableDefs[oldName];
+            VariableDefs[oldName] = 0;
         }
-        if (newName != null)
+        if (!VariableDefs.ContainsKey(newName))
         {
-            if (!VariableDefs.ContainsKey(newName))
-            {
-                VariableDefs[newName] = 0;
-            }
-            VariableDefs[newName]++;
+            VariableDefs[newName] = 0;
         }
-        string p = "";
-        foreach (var item in VariableDefs)
-        {
-            p += $"{item.Key} = {item.Value}\n";
-        }
-        print(p);
+
+        VariableDefs[newName] += count;
+
+        // print("Set var name " + newName+ $" ({VariableDefs[newName]})");
         OnVariableNameChanged.Invoke(oldName, newName);
     }
 

@@ -9,14 +9,14 @@ public class VariableBlock : BaseExpression
 
     public override BlockNode SaveNode()
     {
-        return new()
+        var node = new BlockNode()
         {
-            DefinitionName = Defintion.name,
-            Data = new()
-            {
-                new("VarFieldValue", Var.Name)
-            }
+            DefinitionName = Defintion.name
         };
+
+        Var.Save(node.Data);
+
+        return node;
     }
 
     public override void Awake()
@@ -33,11 +33,7 @@ public class VariableBlock : BaseExpression
     public override void LoadNode(BlockNode node)
     {
         base.LoadNode(node);
-        var varValue = node.Data.Find(item => item.Key == "VarFieldValue");
-        if (varValue.Value is string varStr)
-        {
-            Var.SetName(varStr);
-        }
+        Var.Load(node.Data);
     }
 
     public override void Activated(VPLZone zone)
@@ -48,6 +44,6 @@ public class VariableBlock : BaseExpression
 
     public override object Evaluate()
     {
-        return Var.Evaluate();
+        return Var.GetValue();
     }
 }
