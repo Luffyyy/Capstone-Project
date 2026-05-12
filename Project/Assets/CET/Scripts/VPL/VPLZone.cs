@@ -190,14 +190,25 @@ public class VPLZone : MonoBehaviour
         return names;
     }
 
+    private string GenerateVarName(int i)
+    {
+        int c =  'i';
+        c -= 'a';
+        c += i;
+        c %= 26;
+        c += 'a';
+
+        return ((char)c).ToString()+(i<26 ? "" : (i/26));
+    }
+
     public string GetVariableName()
     {
         int i = 0;
-        while (VariableDefs.TryGetValue("v"+i, out int num) && num > 0) {
+        while (VariableDefs.TryGetValue(GenerateVarName(i), out int num) && num > 0) {
             i++;
         }
 
-        return "v"+i;
+        return GenerateVarName(i);
     }
 
     public string GetAndDefineVariableName()
