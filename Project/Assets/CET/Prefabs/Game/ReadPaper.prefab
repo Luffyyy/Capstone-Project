@@ -41,7 +41,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -6689036041284674117, guid: f16a1ac955cfe7d42b381da711b84426, type: 3}
       propertyPath: m_Name
-      value: Interactable Paper
+      value: ReadPaper
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: f16a1ac955cfe7d42b381da711b84426, type: 3}
       propertyPath: m_LocalScale.x
