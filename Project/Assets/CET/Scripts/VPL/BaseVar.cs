@@ -22,8 +22,6 @@ public class BaseVar : MonoBehaviour
 
     public bool IsExpression = false;
 
-    public bool Test = false;
-
     public void Save(List<KeyValue> Data)
     {
         Data.Add(new KeyValue("VarName", Name));
@@ -42,7 +40,6 @@ public class BaseVar : MonoBehaviour
     {
         if (VarField.options.FindIndex(var => var.text == name) == -1) // New name, add it
         {
-            Test = true;
             Zone.UndefineVariable(LastVariableName, true);
             LastVariableName = name;
             Zone.DefineVariable(name);

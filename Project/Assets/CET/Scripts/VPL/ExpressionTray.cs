@@ -43,15 +43,6 @@ public class ExpressionTray : MonoBehaviour, IDropHandler, IPointerExitHandler, 
         }
     }
 
-    void Awake()
-    {
-        if (CurrentExpression == null && DefaultBlock != null)
-        {
-            CurrentExpression = DefaultBlock;
-            CurrentExpression.GetComponent<CanvasGroup>().blocksRaycasts = false;
-        }
-    }
-
     public void Activated(VPLZone zone)
     {
         Zone = zone;
@@ -61,6 +52,11 @@ public class ExpressionTray : MonoBehaviour, IDropHandler, IPointerExitHandler, 
             CurrentExpression.gameObject.SetActive(true);
             CurrentExpression.Activated(zone);
         }
+        if (DefaultBlock != null)
+        {
+            DefaultBlock.Activated(zone);
+        }
+        CheckIfToPlaceDefaultExpression();
     }
 
     public object Evaluate()
@@ -90,11 +86,27 @@ public class ExpressionTray : MonoBehaviour, IDropHandler, IPointerExitHandler, 
         }
     }
 
+    private void CheckIfToPlaceDefaultExpression()
+    {
+        if (CurrentExpression == null && DefaultBlock != null)
+        {
+            CurrentExpression = DefaultBlock;
+            CurrentExpression.GetComponent<DraggableBlock>().enabled = false; // Don't allow dragging it out
+            CurrentExpression.gameObject.SetActive(true);
+        }
+    }
+
     public void SetCurrentExpression(BaseBlock exp)
     {
         if (CurrentExpression != null && CurrentExpression != exp)
         {
-            Destroy(CurrentExpression.gameObject); // Only allow a single expression at a time
+            if (CurrentExpression == DefaultBlock)
+            {
+                CurrentExpression.gameObject.SetActive(false);
+            } else
+            {
+                Destroy(CurrentExpression.gameObject); // Only allow a single expression at a time
+            }
         }
 
         exp.transform.SetParent(transform);
@@ -102,12 +114,14 @@ public class ExpressionTray : MonoBehaviour, IDropHandler, IPointerExitHandler, 
         GetComponent<Outline>().enabled = false;
 
         CurrentExpression = exp;
+        CheckIfToPlaceDefaultExpression();
     }
 
     public void RemoveCurrentExpression()
     {
         CurrentExpression = null;
         GetComponent<Outline>().enabled = false;
+        CheckIfToPlaceDefaultExpression();
     }
 
     public void OnDrop(PointerEventData eventData)

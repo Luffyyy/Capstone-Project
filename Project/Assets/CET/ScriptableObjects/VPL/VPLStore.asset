@@ -24,7 +24,9 @@ MonoBehaviour:
   - {fileID: 7065368143946910718, guid: d7c46333ee2cdf748ad71770150b8c45, type: 3}
   - {fileID: 110354947077095212, guid: e8389a84aa1ca2c4aaa0c699a082f182, type: 3}
   - {fileID: 4537653828530228951, guid: ac6f85927a4a80242aa7b497559e238e, type: 3}
+  - {fileID: 6570432791437460750, guid: af726d476b5cf45499cdf58d84f58ce8, type: 3}
   Definitions:
+  - {fileID: 11400000, guid: e20d5cdd1e3ab204280fe6dd6370bf3f, type: 2}
   - {fileID: 11400000, guid: 670ee279f6576824b82e8c96c1e5fc5e, type: 2}
   - {fileID: 11400000, guid: ded4a2dadb578304fa2e87bcf8a74b20, type: 2}
   - {fileID: 11400000, guid: 58932788e6623aa47828d27eb5c1d90f, type: 2}
