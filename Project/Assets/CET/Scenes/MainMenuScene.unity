@@ -919,9 +919,9 @@ MonoBehaviour:
   fadeInOut: {fileID: 2003792647}
   SceneCameras: []
   additiveScenes:
-  - Assets/CET/Scenes/Level3.unity
   - Assets/CET/Scenes/Level1.unity
   - Assets/CET/Scenes/Level2.unity
+  - Assets/CET/Scenes/Level3.unity
 --- !u!114 &1924761632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -931,9 +931,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1924761625}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b979f26c95d34324ba005bfacfa9c4fc, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ea5ce64157920148b13c9d8c97f2ca7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Mirror.Components::Mirror.SceneInterestManagement
+  m_EditorClassIdentifier: Assembly-CSharp::NewSceneInterestManagement
 --- !u!1 &2003792642
 GameObject:
   m_ObjectHideFlags: 0
