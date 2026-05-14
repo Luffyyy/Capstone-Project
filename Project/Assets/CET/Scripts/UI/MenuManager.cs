@@ -138,7 +138,6 @@ public class MenuManager : MonoBehaviour
 
         if (HUDManager.Instance != null)
         {
-            HUDManager.Instance.SetActive(false);
             StartCoroutine(nameof(SetPlayerInputActiveNextFrame));
         }
     }
@@ -154,7 +153,6 @@ public class MenuManager : MonoBehaviour
 
         if (HUDManager.Instance != null)
         {
-            HUDManager.Instance.SetActive(true);
             StartCoroutine(nameof(SetPlayerInputActiveNextFrame));
         }
     }
@@ -163,5 +161,6 @@ public class MenuManager : MonoBehaviour
     {
         yield return null; // Wait for next frame
         GetComponent<PlayerInput>().enabled = IsActive;
+        HUDManager.Instance.SetActive(!IsActive);
     }
 }

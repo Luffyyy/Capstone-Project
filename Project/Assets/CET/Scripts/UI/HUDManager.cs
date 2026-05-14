@@ -21,7 +21,6 @@ public class HUDManager : MonoBehaviour
     void Start()
     {
         Instance = this;
-        SetCurrentHUD();
     }
 
     public void SetCurrentHUD()
