@@ -35,7 +35,9 @@ public class Activatable : Entity
 
     public virtual void SetIsOn(bool value)
     {
+        var oldVal = IsOn;
         IsOn = value;
+        OnIsOnChanged(oldVal, IsOn);
     }
 
     public void SetEmission(bool value)
