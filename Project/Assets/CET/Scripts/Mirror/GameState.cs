@@ -21,6 +21,11 @@ public class GameState : NetworkBehaviour
 
     public override void OnStartServer()
     {
+        print("On start server");
+        print("On start server");
+        print("On start server");
+        print("On start server");
+        print("On start server");
         IsDedicatedServer = !isClient;
     }
 }
