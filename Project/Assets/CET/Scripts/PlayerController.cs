@@ -20,7 +20,7 @@ public class PlayerController : NetworkBehaviour
     [SyncVar]
     public Interactable CurrentInteractable;
 
-    public bool IsInputEnabled = true;
+    public bool IsInputEnabled = false;
 
     private CharacterController charControl;
     private Rigidbody rb;
@@ -55,6 +55,8 @@ public class PlayerController : NetworkBehaviour
     {
         if (isLocalPlayer)
         {
+            SetInputEnabled(true);
+
             var op = GetComponent<PlayerInput>().currentActionMap.FindAction("OpenPauseMenu");
             op.performed += HUDManager.Instance.OpenPauseMenu;
         } else
