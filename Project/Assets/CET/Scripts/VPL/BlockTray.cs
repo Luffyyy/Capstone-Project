@@ -10,7 +10,17 @@ public class BlockTray : MonoBehaviour, IDropHandler, IPointerExitHandler
     private GameObject preview;
     public bool IsRoot = false;
 
-    public List<BaseBlock> Blocks => Helpers.GetComponentsInChildren<BaseBlock>(transform);
+    public List<BaseBlock> Blocks => Helpers.GetComponentsInChildren<BaseBlock>(ContentTransform);
+
+    public Transform ContentTransform;
+
+    public void Awake()
+    {
+        if (ContentTransform == null)
+        {
+            ContentTransform = transform;
+        }
+    }
 
     public BlockTrayNode SaveNode()
     {
@@ -35,7 +45,7 @@ public class BlockTray : MonoBehaviour, IDropHandler, IPointerExitHandler
             var blockPrefab = Zone.Store.GetPrefabForDefinition(def);
             if (blockPrefab != null)
             {
-                var spawned = Instantiate(blockPrefab, transform);
+                var spawned = Instantiate(blockPrefab, ContentTransform);
                 spawned.Activated(Zone);
                 spawned.LoadNode(blockNode);
             } else
@@ -53,8 +63,8 @@ public class BlockTray : MonoBehaviour, IDropHandler, IPointerExitHandler
 
     public IEnumerator Execute()
     {
-       for (int i = 0; i < transform.childCount; i++)  {
-            var tr = transform.GetChild(i);
+       for (int i = 0; i < ContentTransform.childCount; i++)  {
+            var tr = ContentTransform.GetChild(i);
             if (tr.TryGetComponent<BaseBlock>(out var block) && !block.IsExpression)
             {
                 yield return block.Execute();
@@ -74,10 +84,10 @@ public class BlockTray : MonoBehaviour, IDropHandler, IPointerExitHandler
                 SpawnGhost(block);
             }
 
-            for (int i = transform.childCount-1; i >= 0; i--)
+            for (int i = ContentTransform.childCount-1; i >= 0; i--)
             {
                 // Skip the ghost itself in the calculation
-                var obj = transform.GetChild(i);
+                var obj = ContentTransform.GetChild(i);
                 if (obj.gameObject == preview) continue;
 
                 if (pointerPosition.y < obj.position.y)
@@ -96,7 +106,7 @@ public class BlockTray : MonoBehaviour, IDropHandler, IPointerExitHandler
             }
         }
         
-        if (newIndex == 0 && !transform.GetChild(0).GetComponent<BaseBlock>().hasTopPort)
+        if (newIndex == 0 && !ContentTransform.GetChild(0).GetComponent<BaseBlock>().hasTopPort)
         {
             return;
         } else if (preview == null) // Edge case in which an event isn't present in the tray
@@ -109,7 +119,7 @@ public class BlockTray : MonoBehaviour, IDropHandler, IPointerExitHandler
 
     public void SpawnGhost(GameObject block)
     {
-        preview = Instantiate(block, transform, true);
+        preview = Instantiate(block, ContentTransform);
         var group = preview.GetComponent<CanvasGroup>();
         group.alpha = 0.4f;
         group.blocksRaycasts = false;
@@ -133,7 +143,7 @@ public class BlockTray : MonoBehaviour, IDropHandler, IPointerExitHandler
         {
             var block = eventData.pointerDrag;
             // Snap the block into the Tray at the ghost's position
-            block.transform.SetParent(transform);
+            block.transform.SetParent(ContentTransform, false);
             block.GetComponent<BaseBlock>().Activated(Zone);
             block.transform.SetSiblingIndex(preview.transform.GetSiblingIndex());
             Destroy(preview);

@@ -29,6 +29,14 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     }
 
     public void OnBeginDrag(PointerEventData eventData) {
+        if (Input.touchCount > 1)
+        {
+            originalParent = transform.parent;
+            eventData.pointerDrag = null;
+            OnEndDrag(null);
+            return;
+        } // Avoid dragging while zooming
+
         if (IsFake)
         {
             var instance = Instantiate(this, GameObject.Find("Menu").transform).gameObject;
@@ -49,6 +57,7 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             
             // Move to the root canvas so it renders on top of everything
             transform.SetParent(canvas.transform);
+            transform.localScale = Vector2.one;
             
             // IMPORTANT: Allow raycasts to pass through this block 
             // so we can "see" the Tray/Blocks underneath it.
@@ -63,6 +72,13 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     }
 
     public void OnDrag(PointerEventData eventData) {
+        if (Input.touchCount > 1)
+        {
+            eventData.pointerDrag = null;
+            OnEndDrag(null);
+            return;
+        }; // Avoid dragging while zooming
+
         // 1. Move the block
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
 
@@ -77,11 +93,13 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
         if (obj != null)
         {
-            var tray = obj.GetComponent<BlockTray>();
-            if (tray == null)
+            if (!obj.TryGetComponent<BlockTray>(out var tray) && !obj.transform.parent.TryGetComponent(out tray))
             {
-                tray = obj.transform.parent.GetComponent<BlockTray>();
+                // If all fails, Try main tray
+                if (RectTransformUtility.RectangleContainsScreenPoint(Zone.MainTray.transform as RectTransform, Input.mousePosition))
+                    tray = Zone.MainTray;
             }
+
             if (tray != null)
             {
                 // Tell the tray where the mouse is so it can move the ghost
@@ -108,7 +126,7 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
                 Destroy(gameObject);
             } else
             {
-                transform.SetParent(originalParent);
+                transform.SetParent(originalParent, false);
             }
         }
 
@@ -122,10 +140,11 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         {
             if (IsStackBlock)
             {
-                if (originalParent.childCount == 0 && originalParent.GetComponent<BlockTray>().IsRoot)
-                {
-                    Destroy(originalParent.gameObject);
-                }
+                // It used to support multiple trays, but I decided to turn it off to make the game simpler
+                // if (originalParent.childCount == 0 && originalParent.GetComponent<BlockTray>().IsRoot)
+                // {
+                //     Destroy(originalParent.gameObject);
+                // }
             } else
             {
                 originalParent.GetComponent<ExpressionTray>().RemoveCurrentExpression();

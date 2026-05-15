@@ -28,7 +28,9 @@ public class VPLZone : MonoBehaviour
 
     public GameObject DeleteZone;
 
-    public List<BlockTray> Trays => Helpers.GetComponentsInChildren<BlockTray>(VPLZoneContent);
+    // public List<BlockTray> Trays => Helpers.GetComponentsInChildren<BlockTray>(VPLZoneContent);
+
+    public BlockTray MainTray;
 
     [HideInInspector] public List<BlockDefinition> DefinedBlocks;
 
@@ -102,10 +104,12 @@ public class VPLZone : MonoBehaviour
             }
         }
 
-        foreach (var tray in Trays)
-        {
-            root.Trays.Add(tray.SaveNode());
-        }
+        // foreach (var tray in Trays)
+        // {
+        //     root.Trays.Add(tray.SaveNode());
+        // }
+
+        root.Trays.Add(MainTray.SaveNode());
 
         return root;
     }
@@ -121,16 +125,23 @@ public class VPLZone : MonoBehaviour
             VariableDefs[pair.Key] = int.Parse(pair.Value);
         }
 
-        foreach (var tray in Trays)
+        // foreach (var tray in Trays)
+        // {
+        //     DestroyImmediate(tray.gameObject); // Important since we want to avoid a race condition with the coroutine
+        // }
+
+        foreach (var block in MainTray.Blocks)
         {
-            DestroyImmediate(tray.gameObject); // Important since we want to avoid a race condition with the coroutine
+            DestroyImmediate(block.gameObject); // Important since we want to avoid a race condition with the coroutine
         }
 
-        foreach (var trayNode in root.Trays)
-        {
-            var tray = CreateTray();
-            tray.LoadNode(trayNode);
-        }
+        // foreach (var trayNode in root.Trays)
+        // {
+        //     var tray = CreateTray();
+        //     tray.LoadNode(trayNode);
+        // }
+
+        MainTray.LoadNode(root.Trays[0]);
 
         if (execute)
         {
@@ -168,6 +179,7 @@ public class VPLZone : MonoBehaviour
                         var spawned = Instantiate(blockPrefab, BlockListContent);
                         spawned.GetComponent<DraggableBlock>().IsFake = true;
                         spawned.SetDefinition(def);
+                        spawned.Zone = this;
                     } else
                     {
                         print($"Couldn't find prefab of {def.Name}: {def.PrefabName}");
@@ -290,11 +302,12 @@ public class VPLZone : MonoBehaviour
         // var button = ExecuteButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         // button.text = "Stop Execution"; //TODO
         PrintToConsole("Executing... ");
-        foreach (var tray in Trays)
-        {
-            yield return tray.Execute();
-            PrintToConsole("Execution complete.");
-        }
+        // foreach (var tray in Trays)
+        // {
+        //     yield return tray.Execute();
+        // }
+        yield return MainTray.Execute();
+        PrintToConsole("Execution complete.");
         Cleanup();
     }
 
