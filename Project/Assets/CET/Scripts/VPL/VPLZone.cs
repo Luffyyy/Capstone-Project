@@ -193,10 +193,6 @@ public class VPLZone : MonoBehaviour
     public List<string> GetVariableNames()
     {
         List<string> names = new();
-        foreach (var k in ReadOnlyVariables.Keys)
-        {
-            names.Add(k);
-        }
 
         foreach (var kv in VariableDefs)
         {
@@ -205,6 +201,12 @@ public class VPLZone : MonoBehaviour
                 names.Add(kv.Key);
             }
         }
+
+        foreach (var k in ReadOnlyVariables.Keys)
+        {
+            names.Add(k);
+        }
+
         return names;
     }
 
