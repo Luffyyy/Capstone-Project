@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Mirror;
 using NUnit.Framework;
 using UnityEngine;
@@ -7,6 +8,9 @@ using UnityEngine.SceneManagement;
 public class TerminalInteractable : Interactable
 {
     public VPLZone VPLEditMenuPrefab;
+
+    public string PredefinedListVariableName;
+    public List<float> PredefinedListVariableValue;
 
     [HideInInspector]
     public VPLZone OwnedVPLZone;
@@ -41,6 +45,13 @@ public class TerminalInteractable : Interactable
         go.AddBlocksToMenu();
 
         VPLMenu.AddZone(go, GetInstanceID());
+
+        List<object> lst = new();
+        foreach (var obj in PredefinedListVariableValue)
+        {
+            lst.Add(obj);
+        }
+        OwnedVPLZone.ReadOnlyVariables[PredefinedListVariableName] = lst;
     }
 
     void OnRootChanged(BlockNode oldRoot, BlockNode newRoot)
