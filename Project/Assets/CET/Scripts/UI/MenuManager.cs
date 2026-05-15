@@ -99,7 +99,7 @@ public class MenuManager : MonoBehaviour
 
     public void OnEscape(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && !TouchScreenKeyboard.visible) // Avoid closing the menu if keyboard is up...
         {
             CloseCurrentMenu();
         }
