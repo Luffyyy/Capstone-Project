@@ -45,11 +45,21 @@ public class ForEachBlock : CBlock
 
     public override IEnumerator Execute()
     {
-        var lst = (List<object>)Expression.Evaluate();
-        foreach (var x in lst)
+        object obj = Expression.Evaluate();
+        if (obj is List<object> lst)
         {
-            Var.SetValue(x);
-            yield return Tray.Execute();
+            foreach (var x in lst)
+            {
+                Var.SetValue(x);
+                yield return Tray.Execute();
+            }
+        } else if (obj is object[] arr)
+        {
+            foreach (var x in arr)
+            {
+                Var.SetValue(x);
+                yield return Tray.Execute();
+            }
         }
     }
 }
