@@ -13,6 +13,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(LayoutElement), typeof(CanvasGroup))]
 public class VPLZone : MonoBehaviour
 {
+    public Dictionary<string, object> ReadOnlyVariables = new();
     private Dictionary<string, int> VariableDefs = new();
     private Dictionary<string, object> Variables = new();
 
@@ -192,6 +193,11 @@ public class VPLZone : MonoBehaviour
     public List<string> GetVariableNames()
     {
         List<string> names = new();
+        foreach (var k in ReadOnlyVariables.Keys)
+        {
+            names.Add(k);
+        }
+
         foreach (var kv in VariableDefs)
         {
             if (kv.Value > 0)
@@ -233,6 +239,8 @@ public class VPLZone : MonoBehaviour
     
     public void UndefineVariable(string name, bool silent=false)
     {
+        if (ReadOnlyVariables.ContainsKey(name)) return;
+
         if (VariableDefs.ContainsKey(name))
         {
             VariableDefs[name] = Math.Max(0, VariableDefs[name]-1);
@@ -247,6 +255,8 @@ public class VPLZone : MonoBehaviour
 
     public void DefineVariable(string name, bool silent=false)
     {
+        if (ReadOnlyVariables.ContainsKey(name)) return;
+
         if (!VariableDefs.ContainsKey(name))
         {
             VariableDefs[name] = 0;
@@ -263,6 +273,8 @@ public class VPLZone : MonoBehaviour
 
     public void SetVariableName(string oldName, string newName=null)
     {
+        if (ReadOnlyVariables.ContainsKey(name)) return;
+
         int count = 0;
 
         if (VariableDefs.ContainsKey(oldName))
@@ -322,8 +334,12 @@ public class VPLZone : MonoBehaviour
 
     public void SetVariable(string str, object obj)
     {
+        if (ReadOnlyVariables.ContainsKey(str)) {
+            return;
+        }
+
         Variables[str] = obj;
-        if (!VariableDefs.ContainsKey(str))
+        if (!VariableDefs.ContainsKey(str) && !ReadOnlyVariables.ContainsKey(str))
         {
             VariableDefs[str] = 1;
         }
@@ -331,10 +347,12 @@ public class VPLZone : MonoBehaviour
 
     public object GetVariable(string str)
     {
-        if (Variables.ContainsKey(str)) {
+        if (ReadOnlyVariables.ContainsKey(str)) {
+            return ReadOnlyVariables[str];
+        }
+        else if (Variables.ContainsKey(str)) {
             return Variables[str];
-        } else
-        {
+        } else {
             return null;
         }
     }
