@@ -6,16 +6,22 @@ public class Keypad : Entity
 
     public Renderer EmissionRenderer;
 
+    public AudioSource AudioSource;
+
     public Texture ActiveEmissionTexture;
     public Texture InactiveEmissionTexture;
 
     void Awake()
     {
-        Lock.LockStateChanged.AddListener(state => SetEmission(state));
+        Lock.LockStateChanged.AddListener(state => SetState(state));
     }
 
-    public void SetEmission(bool value)
+    public void SetState(bool value)
     {
+        if (AudioSource != null && value)
+        {
+            AudioSource.Play();
+        }
         if (EmissionRenderer != null){
             EmissionRenderer.material.SetTexture("_EmissionMap", value ? ActiveEmissionTexture : InactiveEmissionTexture);
         }

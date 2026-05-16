@@ -30,6 +30,8 @@ public class PlayerController : NetworkBehaviour
     public GameObject InteractionText;
     public GameObject InteractionTextPrefab;
 
+    private AudioSource audioSource;
+
     public void SetInputEnabled(bool enabled)
     {
         IsInputEnabled = enabled;
@@ -91,6 +93,8 @@ public class PlayerController : NetworkBehaviour
         rb = GetComponent<Rigidbody>();
         charControl = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+        audioSource.enabled = false;
 
         InteractionText = Instantiate(InteractionTextPrefab, GameObject.Find("Canvas").transform);
         InteractionText.transform.SetSiblingIndex(0);
@@ -153,6 +157,8 @@ public class PlayerController : NetworkBehaviour
         charControl.SimpleMove(movement);
         animator.SetFloat("Speed", mag);
         animator.SetFloat("Side", smoothedSide);
+
+        audioSource.enabled = movement.magnitude > 1f;
 
         if(movement != Vector3.zero)
         {  

@@ -8,6 +8,8 @@ public class Activatable : Entity
     public Renderer EmissionRenderer;
     public Light targetLight;
 
+    public AudioSource AudioSource;
+
     public override void OnStartClient()
     {
         base.OnStartClient();
@@ -31,6 +33,10 @@ public class Activatable : Entity
     protected virtual void OnIsOnChanged(bool oldValue, bool newValue)
     {
         SetEmission(newValue);
+        if (oldValue == false && newValue && AudioSource != null)
+        {
+            AudioSource.Play();
+        }
     }
 
     public virtual void SetIsOn(bool value)
