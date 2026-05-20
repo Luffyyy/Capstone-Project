@@ -10,7 +10,9 @@ public class TerminalInteractable : Interactable
     public VPLZone VPLEditMenuPrefab;
 
     public string PredefinedListVariableName;
+    public string PredefinedVariableName;
     public List<float> PredefinedListVariableValue;
+    public float PredefinedVariableValue;
 
     [HideInInspector]
     public VPLZone OwnedVPLZone;
@@ -52,6 +54,7 @@ public class TerminalInteractable : Interactable
             lst.Add(obj);
         }
         OwnedVPLZone.ReadOnlyVariables[PredefinedListVariableName] = lst;
+        OwnedVPLZone.ReadOnlyVariables[PredefinedVariableName] = PredefinedVariableValue;
     }
 
     void OnRootChanged(BlockNode oldRoot, BlockNode newRoot)

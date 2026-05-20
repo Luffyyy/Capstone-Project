@@ -82,6 +82,7 @@ Assets/CET/Scripts/
  PlayerController.cs
  RevealObj.cs
  UI/
+  ButtonUISound.cs
   Dialog.cs
   ForceUpdateChildWidth.cs
   HUDBase.cs
@@ -96,7 +97,9 @@ Assets/CET/Scripts/
   SettingsMenu.cs
   VPLMenu.cs
   ZoomInPanel.cs
- Utils/Helpers.cs
+ Utils/
+  Helpers.cs
+  PlaySoundOnAnimationEvent.cs
  VPL/
   BaseBlock.cs
   BaseExpression.cs
@@ -133,6 +136,7 @@ Assets/CET/Scripts/
    ConditionBlock.cs
    EventBlock.cs
    ForBlock.cs
+   ForEachBlock.cs
    FuncBlock.cs
    SetVariableBlock.cs
    WhileBlock.cs
