@@ -66,7 +66,7 @@ public class ZoomInPanel : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     void Update()
     {
-        print($"IsTouching={IsTouching}, CanZoom = {CanZoom()}");
+        //print($"IsTouching={IsTouching}, CanZoom = {CanZoom()}");
         // Check if there are two touches on the device
         if (IsTouching && CanZoom())
         {

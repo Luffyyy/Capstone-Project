@@ -1,0 +1,11 @@
+Model Information:
+* title:	Sci-fi style server
+* source:	https://sketchfab.com/3d-models/sci-fi-style-server-6c5f6eaf316144deb66b55840e469b8d
+* author:	Sousinho (https://sketchfab.com/sousinho)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Sci-fi style server" (https://sketchfab.com/3d-models/sci-fi-style-server-6c5f6eaf316144deb66b55840e469b8d) by Sousinho (https://sketchfab.com/sousinho) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

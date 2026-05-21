@@ -140,6 +140,7 @@ MonoBehaviour:
   IsOn: 1
   EmissionRenderer: {fileID: 0}
   targetLight: {fileID: 0}
+  AudioSource: {fileID: 0}
   CurrentPlayer: {fileID: 0}
   UIAnchor: {fileID: 0}
   InteractionText: '?'
@@ -163,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Mirror::Mirror.NetworkIdentity
   sceneId: 0
-  _assetId: 2548551484
+  _assetId: 929509121
   serverOnly: 0
   visibility: 0
   hasSpawned: 0
