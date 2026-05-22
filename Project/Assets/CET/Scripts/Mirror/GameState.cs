@@ -24,5 +24,10 @@ public class GameState : NetworkBehaviour
     {
         IsDedicatedServer = !isClient;
     }
+
+    public bool InLobby()
+    {
+        var currLevel = NewNetworkManager.singleton.CurrentLevel ?? "";
+        return currLevel.EndsWith("LobbyScene.unity");
     }
 }

@@ -35,6 +35,18 @@ public class Player : NetworkBehaviour
         SetEmotionIndex(newVal);
     }
 
+    [Command]
+    public void CmdSetColorIndex(int colorIndex)
+    {
+        SetColorIndex(colorIndex);
+    }
+
+    [Command]
+    public void CmdSetEmotionIndex(int emotionIndex)
+    {
+        SetEmotionIndex(emotionIndex);
+    }
+
     public void SetColorIndex(int colorIndex)
     {
         ColorIndex = colorIndex;

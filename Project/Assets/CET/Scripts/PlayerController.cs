@@ -25,7 +25,7 @@ public class PlayerController : NetworkBehaviour
     private CharacterController charControl;
     private Rigidbody rb;
     private Animator animator;
-    public bool CanMove = true;
+    public bool CanMove = false;
 
     public GameObject InteractionText;
     public GameObject InteractionTextPrefab;
@@ -42,7 +42,7 @@ public class PlayerController : NetworkBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (!isLocalPlayer || MenuManager.Instance.IsActive) return;
+        if (!isLocalPlayer || !CanMove || MenuManager.Instance.IsActive) return;
         move = context.ReadValue<Vector2>();
         if (move != Vector2.zero)
         {
@@ -59,11 +59,11 @@ public class PlayerController : NetworkBehaviour
         {
             SetInputEnabled(true);
 
+            CanMove = !GameState.Instance.InLobby();
+
             var op = GetComponent<PlayerInput>().currentActionMap.FindAction("OpenPauseMenu");
             op.performed += HUDManager.Instance.OpenPauseMenu;
-        } else
-        {
-            charControl.enabled = false;
+            charControl.enabled = true;
         }
     }
 
@@ -106,8 +106,7 @@ public class PlayerController : NetworkBehaviour
     }
     void Update()
     {
-        if(!CanMove) return;
-        if (isLocalPlayer)
+        if (isLocalPlayer && charControl.enabled)
         {
             smoothedMove = Vector2.Lerp(smoothedMove, move * speed, Time.deltaTime * 5);
             smoothedSide = Mathf.Lerp(smoothedSide, side, Time.deltaTime * 5f);

@@ -77,9 +77,13 @@ public class NewNetworkManager : NetworkManager
         // Instantiate player as child of start position - this will place it in the additive scene
         // This also lets player object "inherit" pos and rot from start position transform
         var index = oldPlayer != null ? oldPlayer.PlayerIndex : GetPlayerIndex();
-        GameObject player = Instantiate(playerPrefab, GetStartPosition(index));
+        var startTransform = GetStartPosition(index);
+        GameObject player = Instantiate(playerPrefab, startTransform.position, startTransform.rotation, new InstantiateParameters()
+        {
+            scene = startTransform.gameObject.scene
+        });
         // now set parent null to get it out from under the Start Position object
-        player.transform.SetParent(null);
+        // player.transform.SetParent(null, true);
         player.name = $"{playerPrefab.name} [connId={conn.connectionId}]";
 
         var playerComp = player.GetComponent<Player>();
@@ -88,12 +92,27 @@ public class NewNetworkManager : NetworkManager
         player.GetComponent<Player>().SetColorIndex(oldPlayer != null ? oldPlayer.ColorIndex : (numPlayers + Random.Range(0, 10)) % 10);
         player.GetComponent<Player>().SetEmotionIndex(oldPlayer != null ? oldPlayer.EmotionIndex : (numPlayers + Random.Range(0, 10)) % 10);
 
+        if (GameState.Instance.InLobby())
+        {
+            LobbyManager.Instance.ReadyStates[index] = ReadyState.Unready;
+        }
+
         return player;
     }
 
     public override void OnStopClient()
     {
         base.OnStopClient();
+    }
+
+    // Triggered when a player disconnects from the server
+    public override void OnServerDisconnect(NetworkConnectionToClient conn)
+    {
+        if (GameState.Instance.InLobby())
+        {
+            LobbyManager.Instance.ReadyStates[conn.identity.GetComponent<Player>().PlayerIndex] = ReadyState.Offline;
+        }
+        base.OnServerDisconnect(conn);
     }
 
     #region Scene Management
@@ -173,7 +192,10 @@ public class NewNetworkManager : NetworkManager
         if (mode != NetworkManagerMode.Host)
         {
             var cam = GetSceneCamera(CurrentLevel);
-            GameObject.Find("MainCamera").transform.SetPositionAndRotation(cam.transform.position, cam.transform.rotation);
+            if (cam != null)
+            {
+                GameObject.Find("MainCamera").transform.SetPositionAndRotation(cam.transform.position, cam.transform.rotation);
+            }
         }
 
         subscenesLoaded = true;

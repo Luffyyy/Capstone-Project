@@ -64,6 +64,66 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 991282220165279513, guid: 62772455923da3042a7413d25df0abb2, type: 3}
+      propertyPath: predefinedColors.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 991282220165279513, guid: 62772455923da3042a7413d25df0abb2, type: 3}
+      propertyPath: predefinedColors.Array.data[0].g
+      value: 0.42198277
+      objectReference: {fileID: 0}
+    - target: {fileID: 991282220165279513, guid: 62772455923da3042a7413d25df0abb2, type: 3}
+      propertyPath: predefinedColors.Array.data[1].g
+      value: 0.081506744
+      objectReference: {fileID: 0}
+    - target: {fileID: 991282220165279513, guid: 62772455923da3042a7413d25df0abb2, type: 3}
+      propertyPath: predefinedColors.Array.data[2].b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 991282220165279513, guid: 62772455923da3042a7413d25df0abb2, type: 3}
+      propertyPath: predefinedColors.Array.data[2].g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 991282220165279513, guid: 62772455923da3042a7413d25df0abb2, type: 3}
+      propertyPath: predefinedColors.Array.data[2].r
+      value: 0.27564752
+      objectReference: {fileID: 0}
+    - target: {fileID: 991282220165279513, guid: 62772455923da3042a7413d25df0abb2, type: 3}
+      propertyPath: predefinedColors.Array.data[3].b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 991282220165279513, guid: 62772455923da3042a7413d25df0abb2, type: 3}
+      propertyPath: predefinedColors.Array.data[3].g
+      value: 0.57236767
+      objectReference: {fileID: 0}
+    - target: {fileID: 991282220165279513, guid: 62772455923da3042a7413d25df0abb2, type: 3}
+      propertyPath: predefinedColors.Array.data[3].r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 991282220165279513, guid: 62772455923da3042a7413d25df0abb2, type: 3}
+      propertyPath: predefinedColors.Array.data[4].b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 991282220165279513, guid: 62772455923da3042a7413d25df0abb2, type: 3}
+      propertyPath: predefinedColors.Array.data[4].g
+      value: 0.514151
+      objectReference: {fileID: 0}
+    - target: {fileID: 991282220165279513, guid: 62772455923da3042a7413d25df0abb2, type: 3}
+      propertyPath: predefinedColors.Array.data[4].r
+      value: 0.99479944
+      objectReference: {fileID: 0}
+    - target: {fileID: 991282220165279513, guid: 62772455923da3042a7413d25df0abb2, type: 3}
+      propertyPath: predefinedColors.Array.data[5].b
+      value: 0.69803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 991282220165279513, guid: 62772455923da3042a7413d25df0abb2, type: 3}
+      propertyPath: predefinedColors.Array.data[5].g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 991282220165279513, guid: 62772455923da3042a7413d25df0abb2, type: 3}
+      propertyPath: predefinedColors.Array.data[5].r
+      value: 0.4056935
+      objectReference: {fileID: 0}
     - target: {fileID: 994635944479405666, guid: 62772455923da3042a7413d25df0abb2, type: 3}
       propertyPath: m_Name
       value: RoboPlayer
@@ -82,7 +142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1919803687000389073, guid: 62772455923da3042a7413d25df0abb2, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1919803687000389073, guid: 62772455923da3042a7413d25df0abb2, type: 3}
       propertyPath: m_Center.y
