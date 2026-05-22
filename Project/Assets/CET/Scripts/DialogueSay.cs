@@ -23,11 +23,9 @@ public class DialogueSay : MonoBehaviour
     {
         if (SayOnce && said) return;
 
-
         said = true;
         foreach (var line in Lines)
         {
-            print(line);
             DialogueUI.Instance.Say(line);
         }
     }
