@@ -74,6 +74,7 @@ public class TerminalInteractable : Interactable
 
     public override void Interact()
     {
+        base.Interact();
         MenuManager.Instance.OpenMenu("VPLMenu");
         VPLMenu.OpenVPLZone(GetInstanceID());
     }

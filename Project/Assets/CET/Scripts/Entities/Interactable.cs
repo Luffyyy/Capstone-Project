@@ -1,6 +1,7 @@
 using System.ComponentModel.Design;
 using Mirror;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Interactable : Activatable
 {
@@ -10,8 +11,10 @@ public class Interactable : Activatable
 
     public string InteractionText;
 
+    public UnityEvent OnInteractEvent;
+
     public virtual void Interact()
     {
-        
+        OnInteractEvent.Invoke();
     }
 }

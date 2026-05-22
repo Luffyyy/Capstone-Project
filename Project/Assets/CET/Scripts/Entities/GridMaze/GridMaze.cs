@@ -59,6 +59,7 @@ public class GridMaze : Interactable
 
     public override void Interact()
     {
+        base.Interact();
         MenuManager.Instance.OpenMenu("MazeMenu");
     }
 

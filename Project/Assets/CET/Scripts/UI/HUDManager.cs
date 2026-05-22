@@ -21,25 +21,16 @@ public class HUDManager : MonoBehaviour
     void Start()
     {
         Instance = this;
+
+        NewNetworkManager.OnChangeLevel.AddListener(level => SetCurrentHUD());
     }
 
     public void SetCurrentHUD()
     {
-        // Set background on/off depending on whether we are on a dedicated server screen
-        if (GameState.Instance.IsDedicatedServer)
-        {
-            if (NetworkClient.active)
-            {
-                OpenHUD("PlayerHUD");
-                GetComponent<Image>().enabled = true; //Show the background only on clients. TODO: maybe have it optional?
-            } else
-            {
-                OpenHUD("ServerHUD");
-            }
-        } else
-        {
-            OpenHUD("PlayerHUD");
-        }
+        OpenHUD("GlobalHUD");
+        OpenHUD("PlayerHUD");
+        //Show the background only on clients. TODO: maybe have it optional?
+        GetComponent<Image>().enabled = GameState.Instance.IsDedicatedServer && NetworkClient.active;
     }
 
     public void OpenHUD(string name)
@@ -51,6 +42,16 @@ public class HUDManager : MonoBehaviour
             hud = Instantiate(HUDPrefabs.Find(menu => menu.gameObject.name == name), SafeArea);
             hud.name = name;
             HUDs.Add(hud.GetComponent<HUDBase>());
+        }
+        hud.Show();
+    }
+
+    public void CloseHUD(string name)
+    {
+        HUDBase hud = HUDs.Find(hud => hud.name == name);
+        if (hud != null)
+        {
+            hud.Hide();
         }
     }
 
@@ -81,7 +82,14 @@ public class HUDManager : MonoBehaviour
 
         foreach (var hud in HUDs)
         {
-            hud.gameObject.SetActive(IsActive);
+            if (IsActive)
+            {
+                hud.Show();
+            } else
+            {
+                hud.Hide();
+            }
+            // hud.gameObject.SetActive(IsActive);
         }
     }
 }

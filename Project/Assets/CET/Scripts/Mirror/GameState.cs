@@ -17,12 +17,12 @@ public class GameState : NetworkBehaviour
 
     public override void OnStartClient()
     {
-        HUDManager.Instance.SetCurrentHUD();
+        // HUDManager.Instance.SetCurrentHUD();
     }
 
     public override void OnStartServer()
     {
         IsDedicatedServer = !isClient;
-        HUDManager.Instance.SetCurrentHUD();
+    }
     }
 }

@@ -15,6 +15,7 @@ public class ShowInteractionMenu : Interactable
 
     public override void Interact()
     {
+        base.Interact();
         if (InteractionMenu.Instance != null)
         {
             InteractionMenu.Instance.Show(SpriteToShow, TextToShow, TextPosition, FontSize, TextColor, FontAsset, DisplayOnPaper);
