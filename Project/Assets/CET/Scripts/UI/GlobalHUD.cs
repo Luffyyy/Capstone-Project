@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class ServerHUD : HUDBase
+public class GlobalHUD : HUDBase
 {
     void Awake()
     {

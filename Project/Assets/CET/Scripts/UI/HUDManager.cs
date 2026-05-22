@@ -23,13 +23,12 @@ public class HUDManager : MonoBehaviour
         Instance = this;
 
         NewNetworkManager.OnChangeLevel.AddListener(level => SetCurrentHUD());
+        OpenHUD("GlobalHUD");
     }
 
     public void SetCurrentHUD()
     {
-        OpenHUD("GlobalHUD");
-
-        if (!GameState.Instance.InLobby())
+        if (!GameState.Instance.isServerOnly && !GameState.Instance.InLobby())
         {
             OpenHUD("PlayerHUD");
             //Show the background only on clients. TODO: maybe have it optional?
@@ -58,7 +57,8 @@ public class HUDManager : MonoBehaviour
         HUDBase hud = HUDs.Find(hud => hud.name == name);
         if (hud != null)
         {
-            hud.Hide();
+            HUDs.Remove(hud);
+            Destroy(hud.gameObject);
         }
     }
 
