@@ -4319,7 +4319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3468588586755273832, guid: 20fd7027ce4dcd34fb6bdba2b862c9b1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3
+      value: -3.2
       objectReference: {fileID: 0}
     - target: {fileID: 3468588586755273832, guid: 20fd7027ce4dcd34fb6bdba2b862c9b1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4963,6 +4963,58 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1943373132}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &1971362104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1971362106}
+  - component: {fileID: 1971362105}
+  m_Layer: 0
+  m_Name: DialogueStart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1971362105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971362104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d99fe39e179c8bf41957090ee22e429d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  Lines:
+  - Test test, is this working?
+  - Alright guys you two are test subjects #226
+  - You are stuck in a room, you need to find a way out.
+  - "The room has a few hints scattered around. \r\nSee that terminal on the left?
+    Try interacting with it."
+  SayOnAwake: 1
+  SayOnce: 1
+--- !u!4 &1971362106
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971362104}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1989873712
 GameObject:
   m_ObjectHideFlags: 0
@@ -5280,10 +5332,41 @@ PrefabInstance:
       propertyPath: 'ConnectedObjects.Array.data[0]'
       value: 
       objectReference: {fileID: 650472913}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: OnInteractEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: OnInteractEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: OnInteractEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1570646624159032861}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: OnInteractEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: OnInteractEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Say
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: OnInteractEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DialogueSay, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: OnInteractEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4662608936399932304, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1570646624159032861}
   m_SourcePrefab: {fileID: 100100000, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
 --- !u!4 &1570646624159032858 stripped
 Transform:
@@ -5295,6 +5378,32 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 1430800766294991050, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
   m_PrefabInstance: {fileID: 1570646624159032857}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1570646624159032860 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4662608936399932304, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+  m_PrefabInstance: {fileID: 1570646624159032857}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1570646624159032861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570646624159032860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d99fe39e179c8bf41957090ee22e429d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSay
+  Lines:
+  - "Sometimes devices in a room are connected to each other, \nsometimes they require
+    a special port for communication and sometimes they do not. "
+  - 'This specific terminal is connected to the right terminal with a specific port.
+    Maybe find a clue for it?
+
+    Try to turn it on for your buddy.'
+  SayOnAwake: 0
+  SayOnce: 1
 --- !u!1 &3166102346035797948
 GameObject:
   m_ObjectHideFlags: 0
@@ -5382,7 +5491,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3468588586755273832, guid: 20fd7027ce4dcd34fb6bdba2b862c9b1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3
+      value: -3.2
       objectReference: {fileID: 0}
     - target: {fileID: 3468588586755273832, guid: 20fd7027ce4dcd34fb6bdba2b862c9b1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5529,3 +5638,4 @@ SceneRoots:
   - {fileID: 63366479}
   - {fileID: 1989873714}
   - {fileID: 68421117}
+  - {fileID: 1971362106}
