@@ -14,13 +14,13 @@ public class LobbyScreen : HUDBase
     public TextMeshProUGUI[] ReadyPlayerTexts;
     public TMP_Dropdown PlayerColor;
     public TMP_Dropdown PlayerEmotion;
-
+    public TMP_InputField UsernameField;
     public GameObject PlayerMenu;
     void Start()
     {
         var networkDiscovery = NetworkManager.singleton.GetComponent<NewNetworkDiscovery>();
         ServerName.text = networkDiscovery.ServerName;
-
+        PlayerUsername.LocalUsername = "player";
         PlayerMenu.SetActive(false); //Gets activated by LobbyManager
     }
 
@@ -85,9 +85,13 @@ public class LobbyScreen : HUDBase
     public void OnReadyButtonPressed()
     {
         IsReady = !IsReady;
-
         ReadyText.text = IsReady ? "Ready" : "Not Ready";
-
+        UsernameField.interactable = !IsReady;
         LobbyManager.Instance.SetReady(IsReady);
+    }
+    public void LiveNameUpdate()
+    {
+        Debug.Log($"Updating local username to {UsernameField.text}");
+        PlayerUsername.LocalUsername = string.IsNullOrWhiteSpace(UsernameField.text) ? "Player" : UsernameField.text;
     }
 }
