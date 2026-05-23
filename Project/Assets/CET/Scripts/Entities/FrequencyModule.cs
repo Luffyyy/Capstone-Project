@@ -1,6 +1,8 @@
 using UnityEngine;
 using TMPro;
 using Mirror;
+using System.Collections;
+using System;
 
 public class FrequencyModule : Interactable
 {
@@ -21,7 +23,6 @@ public class FrequencyModule : Interactable
     public void SetFrequency(float newFrequency)
     {
         Frequency = newFrequency;
-        FrequencyText.text = $"{Frequency}<size=80%>Hz</size>";
     }
     public override void Interact()
     {
@@ -31,11 +32,7 @@ public class FrequencyModule : Interactable
     {
         if (AudioSource != null && !AudioSource.isPlaying)
         {
-            AudioSource.PlayOneShot
-            (
-                AudioSource.clip,
-                6f
-            );
+            AudioSource.PlayOneShot(AudioSource.clip,6f);
         }
     }
 }

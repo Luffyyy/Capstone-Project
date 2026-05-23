@@ -25,6 +25,6 @@ public class Swap : FuncBlockDefinition
         CalibrationManager.Instance.SwitchAudio(LeftFreq, rightAudio);
         CalibrationManager.Instance.SwitchAudio(RightFreq, tmpAudio);
         CalibrationManager.Instance.UpdateVisuals();
-        CalibrationManager.Instance.IsSorted();
+        CalibrationManager.Instance.IsSorted(LeftFreq, RightFreq);
     }
 }

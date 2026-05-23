@@ -1,0 +1,11 @@
+Model Information:
+* title:	Cubes
+* source:	https://sketchfab.com/3d-models/cubes-f32246136db747638ee5a12e7e526e32
+* author:	klaviercat (https://sketchfab.com/klaviercat)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Cubes" (https://sketchfab.com/3d-models/cubes-f32246136db747638ee5a12e7e526e32) by klaviercat (https://sketchfab.com/klaviercat) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
