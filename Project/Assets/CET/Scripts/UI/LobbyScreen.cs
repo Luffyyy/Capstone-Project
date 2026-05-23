@@ -91,7 +91,6 @@ public class LobbyScreen : HUDBase
     }
     public void LiveNameUpdate()
     {
-        Debug.Log($"Updating local username to {UsernameField.text}");
         PlayerUsername.LocalUsername = string.IsNullOrWhiteSpace(UsernameField.text) ? "Player" : UsernameField.text;
     }
 }
