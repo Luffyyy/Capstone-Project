@@ -62,7 +62,7 @@ public class CalibrationManager : MonoBehaviour
             {
                 for (int i = 0; i < Modules.Length; i++)
                 {
-                    Modules[i].Interact();
+                    Modules[i].CmdInteract();
                     yield return new WaitForSeconds(0.5f);
                 }
                 j++;
@@ -70,9 +70,9 @@ public class CalibrationManager : MonoBehaviour
     }
     private IEnumerator PlaySwappedNote(int left, int right)
     {
-        Modules[left].Interact();
+        Modules[left].CmdInteract();
         yield return new WaitForSeconds(0.5f);
-        Modules[right].Interact();
+        Modules[right].CmdInteract();
         yield return new WaitForSeconds(0.5f);
     }
     public void SwitchAudio(int i, AudioClip newAudio)

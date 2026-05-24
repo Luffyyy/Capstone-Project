@@ -2,6 +2,7 @@ using UnityEngine;
 using Mirror;
 using System;
 using System.Collections.Generic;
+using UnityEngine.Events;
 public class Activatable : Entity
 {
     [SyncVar(hook = nameof(OnIsOnChanged))] public bool IsOn;
@@ -9,6 +10,8 @@ public class Activatable : Entity
     public Light targetLight;
 
     public AudioSource AudioSource;
+
+    public UnityEvent<bool> OnTurnOnEvent;
 
     public override void OnStartClient()
     {
@@ -39,10 +42,14 @@ public class Activatable : Entity
         }
     }
 
-    public virtual void SetIsOn(bool value)
+    public virtual void SetIsOn(bool value, bool silent=false)
     {
         var oldVal = IsOn;
         IsOn = value;
+        if (IsOn)
+        {
+            OnTurnOnEvent.Invoke(IsOn);
+        }
         OnIsOnChanged(oldVal, IsOn);
     }
 

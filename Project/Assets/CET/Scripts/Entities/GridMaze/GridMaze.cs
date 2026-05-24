@@ -57,9 +57,10 @@ public class GridMaze : Interactable
         OnDataChanged();
     }
 
-    public override void Interact()
+    [TargetRpc]
+    public override void TargetInteract(NetworkConnectionToClient target)
     {
-        base.Interact();
+        base.TargetInteract(target);
         MenuManager.Instance.OpenMenu("MazeMenu");
     }
 

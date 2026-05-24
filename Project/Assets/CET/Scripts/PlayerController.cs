@@ -73,21 +73,10 @@ public class PlayerController : NetworkBehaviour
 
         if (CurrentInteractable is Interactable i)
         {
-            //TODO: send requet to server to see whether we are allowed to interact. 
-            // For example what if someone else is interacting with the terminal?
-            i.Interact();
-            // CmdInteract(t.gameObject);
+            i.CmdInteract();
         }
     }
-
-    [Command]
-    void CmdInteract(GameObject target)
-    {
-        if (target.TryGetComponent<Interactable>(out var i))
-        {
-            i.Interact();
-        }
-    }   
+ 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();

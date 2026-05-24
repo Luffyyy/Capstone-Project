@@ -13,8 +13,17 @@ public class Interactable : Activatable
 
     public UnityEvent OnInteractEvent;
 
-    public virtual void Interact()
+    // Server countpart of Interact, used to run things on the server
+    [Command(requiresAuthority=false)]
+    public virtual void CmdInteract(NetworkConnectionToClient sender=null)
     {
         OnInteractEvent.Invoke();
+        TargetInteract(sender);
+    }
+
+    [TargetRpc]
+    public virtual void TargetInteract(NetworkConnectionToClient target)
+    {
+        
     }
 }

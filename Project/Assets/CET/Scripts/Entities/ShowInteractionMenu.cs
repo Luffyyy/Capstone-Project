@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Mirror;
 
 public class ShowInteractionMenu : Interactable
 {
@@ -13,9 +14,10 @@ public class ShowInteractionMenu : Interactable
     public Color TextColor = Color.black;
     public GameObject DisplayOnPaper;
 
-    public override void Interact()
+    [TargetRpc]
+    public override void TargetInteract(NetworkConnectionToClient target)
     {
-        base.Interact();
+        base.TargetInteract(target);
         if (InteractionMenu.Instance != null)
         {
             InteractionMenu.Instance.Show(SpriteToShow, TextToShow, TextPosition, FontSize, TextColor, FontAsset, DisplayOnPaper);

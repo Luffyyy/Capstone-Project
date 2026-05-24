@@ -18,7 +18,7 @@ public class DialogueUI : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        waitForSeconds = new WaitForSeconds(0.01f);
+        waitForSeconds = new WaitForSeconds(0.001f);
     }
 
     public IEnumerator SayAnimation()
@@ -30,7 +30,7 @@ public class DialogueUI : MonoBehaviour
             for (int i=0; i<line.Length; i++)
             {
                 TextUI.maxVisibleCharacters++;
-                yield return waitForSeconds;
+                yield return null;
             }
             yield return new WaitForSeconds(0.1f * line.Length);
         }

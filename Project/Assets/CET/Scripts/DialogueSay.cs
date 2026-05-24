@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 
 public class DialogueSay : MonoBehaviour
@@ -10,7 +11,7 @@ public class DialogueSay : MonoBehaviour
     public bool SayOnce = true;
 
     private bool said = false;
-
+    
     void Start()
     {
         if (SayOnAwake)
@@ -21,7 +22,8 @@ public class DialogueSay : MonoBehaviour
 
     public void Say()
     {
-        if (SayOnce && said) return;
+        // Lines are sent from server to clients
+        if (!enabled || !NetworkServer.active || (SayOnce && said)) return;
 
         said = true;
         foreach (var line in Lines)

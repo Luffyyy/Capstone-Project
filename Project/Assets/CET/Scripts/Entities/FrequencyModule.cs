@@ -24,8 +24,11 @@ public class FrequencyModule : Interactable
     {
         Frequency = newFrequency;
     }
-    public override void Interact()
+
+    [TargetRpc]
+    public override void TargetInteract(NetworkConnectionToClient target)
     {
+        base.TargetInteract(target);
         SoundPlayed = !SoundPlayed;
     }
     private void OnSoundPlayed(bool oldValue, bool newValue)
