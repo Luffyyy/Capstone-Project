@@ -23,7 +23,6 @@ public class LobbyManager : NetworkBehaviour
     void Awake()
     {
         Instance = this;
-        ReadyStates.OnSet += OnReadyPlayersChanged;
     }
 
     public override void OnStartServer()
@@ -35,15 +34,17 @@ public class LobbyManager : NetworkBehaviour
     {
         Screen.PlayerMenu.SetActive(true);
         Screen.LobbySetup();
+
+        ReadyStates.OnSet += OnReadyPlayersChanged;
     }
 
     void OnReadyPlayersChanged(int i, ReadyState oldValue)
     {
-        Screen.SetServerStatus();
+        Screen.SetReadyStates();
     }
 
     [Command(requiresAuthority=false)]
-    public void SetReady(bool state, NetworkConnectionToClient sender=null)
+    public void CmdSetReady(bool state, NetworkConnectionToClient sender=null)
     {
         if (sender != null)
         {

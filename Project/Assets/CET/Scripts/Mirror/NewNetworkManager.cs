@@ -89,9 +89,9 @@ public class NewNetworkManager : NetworkManager
         var playerComp = player.GetComponent<Player>();
         playerComp.PlayerIndex = index;
 
-        player.GetComponent<Player>().SetColorIndex(oldPlayer != null ? oldPlayer.ColorIndex : (numPlayers + Random.Range(0, 10)) % 10);
-        player.GetComponent<Player>().SetEmotionIndex(oldPlayer != null ? oldPlayer.EmotionIndex : (numPlayers + Random.Range(0, 10)) % 10);
-
+        playerComp.SetColorIndex(oldPlayer != null ? oldPlayer.ColorIndex : (numPlayers + Random.Range(0, 10)) % 10);
+        playerComp.SetEmotionIndex(oldPlayer != null ? oldPlayer.EmotionIndex : (numPlayers + Random.Range(0, 10)) % 10);
+        playerComp.Username = oldPlayer != null ? oldPlayer.Username : "p"+(index+1);
         if (GameState.Instance.InLobby())
         {
             LobbyManager.Instance.ReadyStates[index] = ReadyState.Unready;

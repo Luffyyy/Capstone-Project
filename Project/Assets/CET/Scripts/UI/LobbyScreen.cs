@@ -20,7 +20,6 @@ public class LobbyScreen : HUDBase
     {
         var networkDiscovery = NetworkManager.singleton.GetComponent<NewNetworkDiscovery>();
         ServerName.text = networkDiscovery.ServerName;
-        PlayerUsername.LocalUsername = "player";
         PlayerMenu.SetActive(false); //Gets activated by LobbyManager
     }
 
@@ -32,6 +31,7 @@ public class LobbyScreen : HUDBase
         {
             PlayerColor.value = player.ColorIndex;
             PlayerEmotion.value = player.EmotionIndex;
+            UsernameField.text = player.Username;
         }
 
         SetReadyStates();
@@ -87,10 +87,14 @@ public class LobbyScreen : HUDBase
         IsReady = !IsReady;
         ReadyText.text = IsReady ? "Ready" : "Not Ready";
         UsernameField.interactable = !IsReady;
-        LobbyManager.Instance.SetReady(IsReady);
+        PlayerColor.interactable = !IsReady;
+        PlayerEmotion.interactable = !IsReady;
+        LobbyManager.Instance.CmdSetReady(IsReady);
     }
-    public void LiveNameUpdate()
+    public void OnUsernameChanged()
     {
-        PlayerUsername.LocalUsername = string.IsNullOrWhiteSpace(UsernameField.text) ? "Player" : UsernameField.text;
+        var player = NetworkClient.localPlayer.GetComponent<Player>();
+        var username = string.IsNullOrWhiteSpace(UsernameField.text) ? "p"+(player.PlayerIndex+1) : UsernameField.text;
+        player.CmdSetUsername(username);
     }
 }
