@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Mirror;
-using NUnit.Framework;
-using UnityEngine.EventSystems;
 using System;
 using TMPro;
 
@@ -23,7 +21,6 @@ public class PlayerController : NetworkBehaviour
     public bool IsInputEnabled = false;
 
     private CharacterController charControl;
-    private Rigidbody rb;
     private Animator animator;
     public bool CanMove = false;
 
@@ -79,7 +76,6 @@ public class PlayerController : NetworkBehaviour
  
     void Awake()
     {
-        rb = GetComponent<Rigidbody>();
         charControl = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
@@ -103,15 +99,22 @@ public class PlayerController : NetworkBehaviour
         }
         if (isServer)
         {
-            var dir = transform.forward;
-            float dist = 1.5f;
-            if (Physics.Raycast(transform.position + Vector3.up, dir, out RaycastHit hit, dist))
+            float radius = 1.25f;
+            var origin = transform.position + Vector3.up;
+
+            // Catch everything inside the starting sphere radius
+            Collider[] colliders = Physics.OverlapSphere(origin, radius);
+            bool found = false;
+            foreach (var col in colliders)
             {
-                if (hit.collider.TryGetComponent<Interactable>(out var inter) && inter.IsOn)
+                if (col.TryGetComponent<Interactable>(out var inter) && inter.IsOn)
                 {
+                    found = true;
                     CurrentInteractable = inter;
+                    break; // Grab the first one we find
                 }
-            } else
+            }
+            if (!found)
             {
                 CurrentInteractable = null;
             }
