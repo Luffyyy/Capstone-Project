@@ -13,12 +13,13 @@ public class TurnOn : FuncBlockDefinition
     public override void Execute(params object[] input)
     {
         var co = Zone.ConnectedTo.ConnectedObjects;
+        int port = int.Parse(input[0].ToString());
         foreach (var obj in co)
         {
             var interactable = obj.GetComponent<Activatable>();
             if (interactable != null)
             {
-                if(interactable.Port == int.Parse(input[0].ToString()))
+                if(interactable.Port == port)
                 {
                     interactable.SetIsOn(true);
                 }
