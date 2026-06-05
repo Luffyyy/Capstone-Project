@@ -14,6 +14,7 @@ public class MazeCellData
 
 public class GridMaze : Interactable
 {
+    public int Seed;
     public int Size = 4;
     [HideInInspector, SyncVar(hook=nameof(OnFlatDataReceived))]
     public MazeCellData[] FlatData;
@@ -135,6 +136,8 @@ public class GridMaze : Interactable
         Data[Size-1, Size-1].IsWall = false;
         Data[curr.x, curr.y].Visited = true;
         pathStack.Push(curr);
+
+        Random.InitState(Seed);
 
         while (pathStack.Count > 0)
         {
