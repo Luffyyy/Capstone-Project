@@ -7,12 +7,13 @@ public class DualPasswordLock : BaseLock
 
     void Start()
     {
-        Lock1.LockStateChanged.AddListener(locked => LockStateChanged.Invoke(IsUnlocked()));
-        Lock2.LockStateChanged.AddListener(locked => LockStateChanged.Invoke(IsUnlocked()));
+        Lock1.LockStateChanged.AddListener(unlocked => LocksChanged());
+        Lock2.LockStateChanged.AddListener(locked => LocksChanged());
     }
 
-    public override bool IsUnlocked()
+    private void LocksChanged()
     {
-        return Lock1.IsUnlocked() && Lock2.IsUnlocked();
+        isUnlocked = Lock1.IsUnlocked() && Lock2.IsUnlocked();
+        LockStateChanged.Invoke(isUnlocked);
     }
 }

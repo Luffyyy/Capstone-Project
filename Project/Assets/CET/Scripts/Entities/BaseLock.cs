@@ -11,6 +11,7 @@ public abstract class BaseLock : NetworkBehaviour
 
     public void OnIsUnlockedChanged(bool oldVal, bool newVal)
     {
+        if (!isClientOnly) return; //This should only run on pure clients
         LockStateChanged.Invoke(newVal);
     }
 
