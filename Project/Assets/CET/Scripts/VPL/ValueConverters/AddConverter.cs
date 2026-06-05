@@ -9,18 +9,24 @@ public class AddConverter : ValueConverter
         object lvalue = input[0];
         object rvalue = input[1];
 
-        if (lvalue is float lfloat)
+        if (lvalue is double ldouble)
         {
-            if (rvalue is float rfloat)
+            if (rvalue is double rdouble)
             {
-                return lfloat + rfloat;
+                return ldouble + rdouble;
             } else if (rvalue is string rstr)
             {
-                return lfloat.ToString("G15") + rstr; // Note: this returns a string
+                return ldouble.ToString("G15") + rstr; // Note: this returns a string
             }
         } else if (lvalue is string lstr)
         {
-            return lstr + rvalue;
+            if (rvalue is double rdouble)
+            {
+                return lstr + rdouble.ToString("G15"); // Note: this returns a string
+            } else
+            {
+                return lstr + rvalue;
+            }
         }
 
         throw new Exception("Addition is only defined for numbers and strings!");

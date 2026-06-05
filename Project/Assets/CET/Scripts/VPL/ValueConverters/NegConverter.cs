@@ -6,9 +6,9 @@ public class NegConverter : ValueConverter
 {
     public override object Convert(params object[] input)
     {
-        if (input[0] is float lfloat)
+        if (input[0] is double ldouble)
         {
-            return -lfloat;
+            return -ldouble;
         }
 
         throw new Exception("Negation is only defined for numbers!");

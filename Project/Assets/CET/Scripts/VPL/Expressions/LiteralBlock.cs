@@ -98,7 +98,7 @@ public class LiteralBlock : BaseExpression
         var type = TypeDropdown.options[TypeDropdown.value].text;
         return type switch {
             "str" => ValueField.text,
-            "num" => float.Parse(ValueField.text),
+            "num" => double.Parse(ValueField.text),
             "bool" => DropdownValueField.value == 1,
             _ => throw new System.Exception("Invalid type defined for VariableBlock: " + type)
         };
