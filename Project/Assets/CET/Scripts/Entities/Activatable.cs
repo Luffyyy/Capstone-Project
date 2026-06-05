@@ -10,6 +10,8 @@ public class Activatable : Entity
     public Light targetLight;
 
     public AudioSource AudioSource;
+    public AudioSource LevelFinished;
+    public GlobalHUD LevelFinishedUI;
 
     public UnityEvent<bool> OnTurnOnEvent;
 
@@ -39,6 +41,19 @@ public class Activatable : Entity
         if (oldValue == false && newValue && AudioSource != null)
         {
             AudioSource.Play();
+        }
+        if (!isServer)
+        {
+            return;
+        }
+        if(LevelFinished != null && LevelFinishedUI != null)
+        {
+            if (!oldValue && newValue)
+            {
+                Debug.Log($"OnIsOnChanged: {oldValue} -> {newValue}");
+                LevelFinishedUI.OpenLevelFinishedUI();
+                LevelFinished.Play();
+            }
         }
     }
 

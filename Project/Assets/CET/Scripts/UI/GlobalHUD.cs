@@ -21,4 +21,8 @@ public class GlobalHUD : HUDBase
             MenuManager.Instance.OpenMenu("PauseMenu");
         }
     }
+    public void OpenLevelFinishedUI()
+    {
+          MenuManager.Instance.OpenMenu("LevelFinished");
+    }
 }

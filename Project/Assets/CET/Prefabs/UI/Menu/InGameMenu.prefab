@@ -99,6 +99,7 @@ MonoBehaviour:
   IsActive: 0
   TextUI: {fileID: 6452744859947306875}
   Paper: {fileID: 696213587548538745}
+  DisplayOnPaper: {fileID: 0}
 --- !u!225 &1776777423632740736
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -508,7 +509,7 @@ PrefabInstance:
       objectReference: {fileID: 7721066893743474001}
     - target: {fileID: 1938580420244672296, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
       propertyPath: MenuPrefabs.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1938580420244672296, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
       propertyPath: 'MenuPrefabs.Array.data[0]'
@@ -526,6 +527,10 @@ PrefabInstance:
       propertyPath: 'MenuPrefabs.Array.data[4]'
       value: 
       objectReference: {fileID: 3675847725102394187, guid: 225b6d03376768b4db58b793dcf1af2b, type: 3}
+    - target: {fileID: 1938580420244672296, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
+      propertyPath: 'MenuPrefabs.Array.data[5]'
+      value: 
+      objectReference: {fileID: 3321813265174468710, guid: 0d71fc91dd00e19488031d715dfb468a, type: 3}
     - target: {fileID: 2704809706530224066, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
       propertyPath: m_Color.a
       value: 0.7490196
