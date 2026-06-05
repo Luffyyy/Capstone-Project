@@ -57,7 +57,7 @@ public class Activatable : Entity
         }
     }
 
-    public virtual void SetIsOn(bool value, bool silent=false)
+    public virtual void SetIsOn(bool value)
     {
         var oldVal = IsOn;
         IsOn = value;

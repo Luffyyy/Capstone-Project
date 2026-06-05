@@ -167,13 +167,18 @@ public class VPLZone : MonoBehaviour
 
         foreach (var catDefs in pairs)
         {
+            if (catDefs.Value.Count == 0) continue;
+
             var catText = Instantiate(CategoryText, BlockListContent);
             catText.GetComponent<TextMeshProUGUI>().SetText(catDefs.Key.ToString());
-                
+            
+            bool hasOneBlock = false;
             foreach (var def in catDefs.Value)
             {
                 if (def.DefaultBlock || DefinedBlocks.Contains(def))
                 {
+                    hasOneBlock = true;
+
                     var blockPrefab = Store.GetPrefabForDefinition(def);
                     if (blockPrefab != null)
                     {
@@ -186,6 +191,11 @@ public class VPLZone : MonoBehaviour
                         print($"Couldn't find prefab of {def.Name}: {def.PrefabName}");
                     }
                 }
+            }
+
+            if (!hasOneBlock)
+            {
+                Destroy(catText);
             }
         }
     }

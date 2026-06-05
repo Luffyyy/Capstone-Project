@@ -8,7 +8,7 @@ public class WaitFunction : FuncBlockDefinition
 {
     public override List<VPLArg> Args => new()
     {
-        new() { Name = "Seconds", Type = "num"},
+        new() { Name = "seconds", Type = "num"},
     };
 
     public override IEnumerator ExecuteAsync(params object[] input)
