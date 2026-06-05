@@ -598,7 +598,8 @@ MonoBehaviour:
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls: []
-  Size: 7
+  Seed: 2027
+  Size: 9
   Player: {x: 0, y: 0}
   OnReachedGoal:
     m_PersistentCalls:
@@ -705,7 +706,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: DefinedBlocks.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: PredefinedListVariableName
@@ -719,6 +720,18 @@ PrefabInstance:
       propertyPath: 'DefinedBlocks.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: 4eafcbb7c5bf4e747b281722519a2999, type: 2}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: 'DefinedBlocks.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 0a02862f617c07540834140c907b5335, type: 2}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: 'DefinedBlocks.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 711f3dd2657c3a1409637f8cffcadeb5, type: 2}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: 'DefinedBlocks.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 0a00630c26200e14390b00b10cd1408c, type: 2}
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: 'ConnectedObjects.Array.data[0]'
       value: 
@@ -1068,7 +1081,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: DefinedBlocks.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: ConnectedObjects.Array.size
@@ -1078,6 +1091,18 @@ PrefabInstance:
       propertyPath: 'DefinedBlocks.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: 4eafcbb7c5bf4e747b281722519a2999, type: 2}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: 'DefinedBlocks.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 711f3dd2657c3a1409637f8cffcadeb5, type: 2}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: 'DefinedBlocks.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 0a02862f617c07540834140c907b5335, type: 2}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: 'DefinedBlocks.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 0a00630c26200e14390b00b10cd1408c, type: 2}
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: 'ConnectedObjects.Array.data[0]'
       value: 
@@ -1515,7 +1540,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8321347741866649493, guid: 458738d7934690d4b96a6aad684a676e, type: 3}
       propertyPath: Password
-      value: 268435456cake
+      value: cake268435456
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2476,7 +2501,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 0.5, z: 0.35}
+  m_Size: {x: 0.4, y: 0.2, z: 0.23}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1005685950
 MonoBehaviour:
@@ -2525,18 +2550,35 @@ MonoBehaviour:
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls: []
-  TextToShow: "Two brothers, one born in 1999, and the other in 2004.\n\nThey both
-    shared a favorite food.\n\t\nTheir father bought two safes, \nThe younger chose
-    to deposit 128 coins in the left safe.\nThe other deposited 255 coins in the
-    other.\n\nThe older brother formed his password by taking his favorite food and
-    encrypting each letter \nthen he added his birth year multiplied by the amount
-    of coins he deposited.\n\nThe younger brother formed the password by first raising
-    the coin count by the last digit of his birth year \nand then he added his favorite
-    food."
+  TextToShow: 'Two brothers, one born in 1999, and the other in 2004.
+
+
+
+    They
+    both shared a favorite food.
+
+
+
+    Their father bought two safes,
+
+
+
+    The
+    older brother chose the right safe and set his password to be:
+
+    <b>encryptChars(favoriteFood)
+    + birthYear * 255.</b>
+
+
+
+    The younger brother chose the left safe and set
+    his password to be:
+
+    <b>favoriteFood + pow(128, lastDigitOfBirthYear).</b>'
   SpriteToShow: {fileID: 0}
-  TextPosition: {x: 0, y: 0}
+  TextPosition: {x: -4, y: 0}
   FontAsset: {fileID: 0}
-  FontSize: 36
+  FontSize: 30
   TextColor: {r: 0, g: 0, b: 0, a: 1}
   DisplayOnPaper: {fileID: 0}
 --- !u!1001 &1106885804
@@ -5613,8 +5655,16 @@ PrefabInstance:
       value: 3433392
       objectReference: {fileID: 0}
     - target: {fileID: 4007073875796134274, guid: 97b54987d625682489578bda2ae77d12, type: 3}
+      propertyPath: m_Size.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007073875796134274, guid: 97b54987d625682489578bda2ae77d12, type: 3}
+      propertyPath: m_Size.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007073875796134274, guid: 97b54987d625682489578bda2ae77d12, type: 3}
       propertyPath: m_Size.z
-      value: 0.29
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6942393596057035294, guid: 97b54987d625682489578bda2ae77d12, type: 3}
       propertyPath: m_Name
