@@ -109,7 +109,7 @@ public class ExpressionTray : MonoBehaviour, IDropHandler, IPointerExitHandler, 
             }
         }
 
-        exp.transform.SetParent(transform);
+        exp.transform.SetParent(transform, false);
         exp.Activated(Zone);
         GetComponent<Outline>().enabled = false;
 

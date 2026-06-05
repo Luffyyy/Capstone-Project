@@ -61,7 +61,7 @@ public class FuncBlock : BaseBlock
                 exp.SetType(arg.Type);
                 trayComp.DefaultBlock = exp;
                 exp.gameObject.SetActive(false);
-                trayComp.CurrentExpression = exp;
+                trayComp.RemoveCurrentExpression();
                 Trays.Add(trayComp);
             }
         }
