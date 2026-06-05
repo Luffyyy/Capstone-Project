@@ -107,6 +107,7 @@ public class PlayerController : NetworkBehaviour
             bool found = false;
             foreach (var col in colliders)
             {
+                if (col.tag == "BlockInteraction") break;
                 if (col.TryGetComponent<Interactable>(out var inter) && inter.IsOn)
                 {
                     found = true;

@@ -549,6 +549,9 @@ MonoBehaviour:
   EmissionRenderer: {fileID: 0}
   targetLight: {fileID: 0}
   AudioSource: {fileID: 0}
+  OnTurnOnEvent:
+    m_PersistentCalls:
+      m_Calls: []
   animator: {fileID: 2322677419287226223}
   IsOpenTriggered: 0
 --- !u!114 &7366339572665149863
@@ -914,8 +917,8 @@ GameObject:
   - component: {fileID: 2647053728566699043}
   - component: {fileID: 5913440793766673017}
   m_Layer: 0
-  m_Name: Wall (15)
-  m_TagString: Untagged
+  m_Name: Door
+  m_TagString: BlockInteraction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
