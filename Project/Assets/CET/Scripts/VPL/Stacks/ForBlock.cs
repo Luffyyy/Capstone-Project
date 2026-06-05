@@ -53,24 +53,24 @@ public class ForBlock : CBlock
         base.Activated(zone);
     }
 
-    private float FromEval()
+    private double FromEval()
     {
-        return float.Parse(FromExpr.Evaluate().ToString());
+        return double.Parse(FromExpr.Evaluate().ToString());
     }
 
-    private float ToEval()
+    private double ToEval()
     {
-        return float.Parse(ToExp.Evaluate().ToString());
+        return double.Parse(ToExp.Evaluate().ToString());
     }
 
-    private float ByEval()
+    private double ByEval()
     {
-        return float.Parse(ByExp.Evaluate().ToString());
+        return double.Parse(ByExp.Evaluate().ToString());
     }
 
-    private float VarValue()
+    private double VarValue()
     {
-        return (float)Var.GetValue();
+        return (double)Var.GetValue();
     }
 
     public override IEnumerator Execute()
@@ -84,8 +84,8 @@ public class ForBlock : CBlock
         
         // Automatically detect intention of the player
         // If the "from" is greater than the "to" then we assume they want to go in reverse
-        float fromEval = FromEval();
-        float byEval = Math.Abs(ByEval());
+        double fromEval = FromEval();
+        double byEval = Math.Abs(ByEval());
         bool reversed = fromEval > ToEval();
         if (reversed)
         {
