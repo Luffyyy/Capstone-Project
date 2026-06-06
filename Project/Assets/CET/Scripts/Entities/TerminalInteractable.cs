@@ -24,6 +24,11 @@ public class TerminalInteractable : Interactable
 
     public List<BlockDefinition> DefinedBlocks;
 
+    [Multiline]
+    public string BlocksJson;
+
+    public bool DevTerminal = false;
+
     [ClientRpc]
     public void SendConsoleMessageToPeers(List<string> log)
     {
@@ -44,7 +49,6 @@ public class TerminalInteractable : Interactable
         go.ConnectedTo = this;
         OwnedVPLZone = go;
         go.DefinedBlocks = DefinedBlocks;
-        go.AddBlocksToMenu();
 
         VPLMenu.AddZone(go, GetInstanceID());
 
@@ -53,8 +57,26 @@ public class TerminalInteractable : Interactable
         {
             lst.Add(obj);
         }
-        OwnedVPLZone.ReadOnlyVariables[PredefinedListVariableName] = lst;
-        OwnedVPLZone.ReadOnlyVariables[PredefinedVariableName] = PredefinedVariableValue;
+
+        if (!string.IsNullOrEmpty(PredefinedListVariableName))
+        {
+            OwnedVPLZone.ReadOnlyVariables[PredefinedListVariableName] = lst;
+        }
+        if (!string.IsNullOrEmpty(PredefinedVariableName)) {
+            OwnedVPLZone.ReadOnlyVariables[PredefinedVariableName] = PredefinedVariableValue;
+        }
+
+        go.Activated(BlocksJson);
+    }
+
+    public void OnVPLMessageReceived(string message)
+    {
+        VPLMessagesReceived.Add(message);
+    }
+
+    public void ClearMessagesRecevied()
+    {
+        VPLMessagesReceived.Clear();
     }
 
     void OnRootChanged(BlockNode oldRoot, BlockNode newRoot)

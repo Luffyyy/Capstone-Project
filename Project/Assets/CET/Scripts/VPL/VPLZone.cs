@@ -5,6 +5,7 @@ using System.Linq;
 using Gilzoide.FlexUi;
 using Mirror;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -18,6 +19,7 @@ public class VPLZone : MonoBehaviour
     private Dictionary<string, object> Variables = new();
 
     public Button ExecuteButton;
+    public GameObject CopyJsonButton;
 
     private Coroutine executionRoutine;
 
@@ -53,6 +55,29 @@ public class VPLZone : MonoBehaviour
     public List<string> ConsoleLog = new();
     public TextMeshProUGUI ConsoleText;
     public ScrollRect ConsoleScroll;
+
+    public void Activated(string json=null)
+    {
+        if (!string.IsNullOrEmpty(json))
+        {
+            var tree = JsonUtility.FromJson<BlockNode>(json);
+            LoadFromTree(tree);
+            // Prevent editing these blocks since they are important!
+            var allDraggableBlocks = MainTray.GetComponentsInChildren<DraggableBlock>();
+            foreach (var drag in allDraggableBlocks)
+            {
+                drag.enabled = false;
+            }
+            
+        }
+
+        if (ConnectedTo.DevTerminal)
+        {
+            CopyJsonButton.SetActive(true);
+        }
+
+        AddBlocksToMenu();
+    }
 
     public void PrintToConsole(string msg)
     {
@@ -115,6 +140,12 @@ public class VPLZone : MonoBehaviour
         return root;
     }
 
+    public void CopyJson()
+    {
+        var tree = BuildTree();
+        GUIUtility.systemCopyBuffer = JsonUtility.ToJson(tree);
+    }
+
     public void LoadFromTree(BlockNode root, bool execute=false)
     {
         Root = root;
@@ -175,7 +206,7 @@ public class VPLZone : MonoBehaviour
             bool hasOneBlock = false;
             foreach (var def in catDefs.Value)
             {
-                if (def.DefaultBlock || DefinedBlocks.Contains(def))
+                if (def.DefaultBlock || DefinedBlocks.Contains(def) || ConnectedTo.DevTerminal)
                 {
                     hasOneBlock = true;
 
