@@ -27,6 +27,10 @@ public class TerminalInteractable : Interactable
     [Multiline]
     public string BlocksJson;
 
+    public List<object> VPLMessagesReceived = new();
+
+    public bool CanReceiveMessages = false;
+
     public bool DevTerminal = false;
 
     [ClientRpc]
@@ -64,6 +68,11 @@ public class TerminalInteractable : Interactable
         }
         if (!string.IsNullOrEmpty(PredefinedVariableName)) {
             OwnedVPLZone.ReadOnlyVariables[PredefinedVariableName] = PredefinedVariableValue;
+        }
+
+        if (CanReceiveMessages)
+        {
+            OwnedVPLZone.ReadOnlyVariables["MessagesReceived"] = VPLMessagesReceived;
         }
 
         go.Activated(BlocksJson);

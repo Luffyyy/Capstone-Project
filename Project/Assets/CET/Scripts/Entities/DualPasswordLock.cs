@@ -8,7 +8,7 @@ public class DualPasswordLock : BaseLock
     void Start()
     {
         Lock1.LockStateChanged.AddListener(unlocked => LocksChanged());
-        Lock2.LockStateChanged.AddListener(locked => LocksChanged());
+        Lock2.LockStateChanged.AddListener(unlocked => LocksChanged());
     }
 
     private void LocksChanged()
