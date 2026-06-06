@@ -6,9 +6,9 @@ public class SubConverter : ValueConverter
 {
     public override object Convert(params object[] input)
     {
-        if (input[0] is double ldouble && input[1] is double rdouble)
+        if (input[0] is float lfloat && input[1] is float rfloat)
         {
-            return ldouble + rdouble;
+            return lfloat + rfloat;
         }
 
         throw new Exception("Subtraction is only defined for numbers!");

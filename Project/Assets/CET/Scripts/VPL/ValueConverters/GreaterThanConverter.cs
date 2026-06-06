@@ -6,9 +6,9 @@ public class GreaterThanConverter : ValueConverter
 {
     public override object Convert(params object[] input)
     {
-        if (input[0] is double ldobule && input[1] is double rdouble)
+        if (input[0] is float lfloat && input[1] is float rfloat)
         {
-            return ldobule > rdouble;
+            return lfloat > rfloat;
         }
 
         throw new Exception("Greater Than is only defined for numbers!");
