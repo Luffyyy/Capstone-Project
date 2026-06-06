@@ -20,7 +20,13 @@ public class AddConverter : ValueConverter
             }
         } else if (lvalue is string lstr)
         {
-            return lstr + rvalue;
+            if (lvalue is float rfloat)
+            {
+                return lstr + rfloat.ToString("G15"); // Note: this returns a string
+            } else
+            {
+                return lstr + rvalue;
+            }
         }
 
         throw new Exception("Addition is only defined for numbers and strings!");
