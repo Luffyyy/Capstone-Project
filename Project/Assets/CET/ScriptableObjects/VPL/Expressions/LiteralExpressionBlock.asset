@@ -15,5 +15,6 @@ MonoBehaviour:
   Name: Literal
   Category: 2
   Color: {r: 0, g: 0, b: 0, a: 0}
+  DefaultBlock: 1
   PrefabName: LiteralExpressionBlock
   Prefab: LiteralExpressionBlock

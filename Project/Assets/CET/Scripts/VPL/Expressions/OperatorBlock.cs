@@ -64,11 +64,11 @@ public class OperatorBlock : BaseBlock
             Operator.SetText(op.Sign);
             IsUnary = op.IsUnary;
             Exp1.gameObject.SetActive(!IsUnary);
-            if (Exp1.CurrentExpression != null && Exp1.CurrentExpression.TryGetComponent<LiteralBlock>(out var leftLiteral))
+            if (Exp1.DefaultBlock != null && Exp1.DefaultBlock.TryGetComponent<LiteralBlock>(out var leftLiteral))
             {
                 leftLiteral.SetType(op.Converter.LeftType);
             }
-            if (Exp2.CurrentExpression != null && Exp2.CurrentExpression.TryGetComponent<LiteralBlock>(out var rightLiteral))
+            if (Exp2.DefaultBlock != null && Exp2.DefaultBlock.TryGetComponent<LiteralBlock>(out var rightLiteral))
             {
                 rightLiteral.SetType(op.Converter.RightType);
             }

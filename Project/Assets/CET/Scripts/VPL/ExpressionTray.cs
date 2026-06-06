@@ -41,6 +41,8 @@ public class ExpressionTray : MonoBehaviour, IDropHandler, IPointerExitHandler, 
                 }
             }
         }
+
+        CheckIfToPlaceDefaultExpression();
     }
 
     public void Activated(VPLZone zone)
@@ -92,7 +94,7 @@ public class ExpressionTray : MonoBehaviour, IDropHandler, IPointerExitHandler, 
         {
             CurrentExpression = DefaultBlock;
             CurrentExpression.GetComponent<DraggableBlock>().enabled = false; // Don't allow dragging it out
-            CurrentExpression.gameObject.SetActive(true);
+            CurrentExpression.gameObject.SetActive(IsActivated);
         }
     }
 

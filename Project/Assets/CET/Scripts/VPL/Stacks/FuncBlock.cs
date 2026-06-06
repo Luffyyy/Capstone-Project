@@ -60,7 +60,6 @@ public class FuncBlock : BaseBlock
                 var exp = Instantiate(LiteralBlockObject, tray.transform).GetComponent<LiteralBlock>();
                 exp.SetType(arg.Type);
                 trayComp.DefaultBlock = exp;
-                exp.gameObject.SetActive(false);
                 trayComp.RemoveCurrentExpression();
                 Trays.Add(trayComp);
             }
