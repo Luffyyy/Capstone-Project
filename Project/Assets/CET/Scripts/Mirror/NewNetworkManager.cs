@@ -35,11 +35,13 @@ public class NewNetworkManager : NetworkManager
     {
         if (numPlayers > 0)
         {
-            var con = NetworkServer.connections[0];
-            if (con?.identity != null)
+            foreach (var conn in NetworkServer.connections.Values)
             {
-                var index = con.identity.GetComponent<Player>().PlayerIndex;
-                return (index+1)%2;
+                if (conn?.identity != null)
+                {
+                    var index = conn.identity.GetComponent<Player>().PlayerIndex;
+                    return (index+1)%2;
+                }
             }
         }
 
