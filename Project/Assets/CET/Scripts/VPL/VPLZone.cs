@@ -435,7 +435,6 @@ public class VPLZone : MonoBehaviour
 #if UNITY_EDITOR
     void Update()
     {
-        print("...");
         if (!IsActive) return;
 
         if (Input.GetKey(KeyCode.LeftControl))

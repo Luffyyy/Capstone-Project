@@ -354,6 +354,7 @@ MonoBehaviour:
   HUDPrefabs:
   - {fileID: 5664726124450763489, guid: a1dd2dbf206d40e42b04f827a836b637, type: 3}
   - {fileID: 7546296683988475907, guid: 47d6b6375b04a33438060f4671bbfb57, type: 3}
+  - {fileID: 3427102191222345250, guid: 214882a955f54a14fb3bb7232c0bee39, type: 3}
   HUDs: []
   SafeArea: {fileID: 1472724279}
   IsActive: 1

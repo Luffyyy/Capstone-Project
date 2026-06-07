@@ -8,11 +8,7 @@ public class Activatable : Entity
     [SyncVar(hook = nameof(OnIsOnChanged))] public bool IsOn;
     public Renderer EmissionRenderer;
     public Light targetLight;
-
     public AudioSource AudioSource;
-    public AudioSource LevelFinished;
-    public GlobalHUD LevelFinishedUI;
-
     public UnityEvent<bool> OnTurnOnEvent;
 
     public override void OnStartClient()
@@ -42,19 +38,7 @@ public class Activatable : Entity
         {
             AudioSource.Play();
         }
-        if (!isServer)
-        {
-            return;
-        }
-        if(LevelFinished != null && LevelFinishedUI != null)
-        {
-            if (!oldValue && newValue)
-            {
-                Debug.Log($"OnIsOnChanged: {oldValue} -> {newValue}");
-                LevelFinishedUI.OpenLevelFinishedUI();
-                LevelFinished.Play();
-            }
-        }
+        
     }
 
     public virtual void SetIsOn(bool value)

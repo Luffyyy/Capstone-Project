@@ -1047,8 +1047,8 @@ MonoBehaviour:
   fadeInOut: {fileID: 2003792647}
   SceneCameras: []
   additiveScenes:
-  - Assets/CET/Scenes/LobbyScene.unity
   - Assets/CET/Scenes/Level1.unity
+  - Assets/CET/Scenes/LobbyScene.unity
   - Assets/CET/Scenes/Level2.unity
   - Assets/CET/Scenes/Level3.unity
   - Assets/CET/Scenes/Level4.unity

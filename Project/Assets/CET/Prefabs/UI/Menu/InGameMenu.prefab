@@ -509,7 +509,7 @@ PrefabInstance:
       objectReference: {fileID: 7721066893743474001}
     - target: {fileID: 1938580420244672296, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
       propertyPath: MenuPrefabs.Array.size
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1938580420244672296, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
       propertyPath: 'MenuPrefabs.Array.data[0]'
@@ -530,7 +530,7 @@ PrefabInstance:
     - target: {fileID: 1938580420244672296, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
       propertyPath: 'MenuPrefabs.Array.data[5]'
       value: 
-      objectReference: {fileID: 3321813265174468710, guid: 0d71fc91dd00e19488031d715dfb468a, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 2704809706530224066, guid: 847571f69b1ec4444a18cfba1b4b8635, type: 3}
       propertyPath: m_Color.a
       value: 0.7490196
