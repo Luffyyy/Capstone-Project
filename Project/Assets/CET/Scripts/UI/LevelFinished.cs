@@ -15,6 +15,7 @@ public class LevelFinished : MonoBehaviour
         gameObject.SetActive(true);
         StopAllCoroutines();
         StartCoroutine(ShowAnimation());
+        MenuManager.Instance.CloseCurrentMenu(); // So players see it
     }
     private IEnumerator ShowAnimation()
     {
