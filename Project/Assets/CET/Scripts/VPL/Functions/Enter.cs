@@ -15,12 +15,17 @@ public class EnterFunction : FuncBlockDefinition
     public override IEnumerator ExecuteAsync(params object[] input)
     {
         var co = Zone.ConnectedTo.ConnectedObjects;
-        char c = ((string)input[0])[0];
+        string inputStr = input[0].ToString();
 
-        foreach (var obj in co)
+        if (inputStr.Length == 1)
         {
-            var display = obj.GetComponent<PasswordDisplay>();
-            display.Enter(c);
+            char c = input[0].ToString()[0];
+
+            foreach (var obj in co)
+            {
+                var display = obj.GetComponent<PasswordDisplay>();
+                display.Enter(c);
+            }
         }
 
         yield return new WaitForSeconds(0.25f);
