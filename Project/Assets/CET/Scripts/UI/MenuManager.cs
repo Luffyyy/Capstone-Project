@@ -25,6 +25,9 @@ public class MenuManager : MonoBehaviour
 
     void Awake()
     {
+        // Fixes 30 fps lock
+        Application.targetFrameRate = (int)Screen.currentResolution.refreshRateRatio.value;
+
         Instance = this;
 
         foreach (var menu in Menus)

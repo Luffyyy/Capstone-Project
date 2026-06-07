@@ -255,6 +255,9 @@ public class NewNetworkManager : NetworkManager
 
     IEnumerator LoadAdditive(string sceneName)
     {
+        // Fixes 30 fps lock
+        Application.targetFrameRate = (int)Screen.currentResolution.refreshRateRatio.value;
+
         isInTransition = true;
 
         // This will return immediately if already faded in

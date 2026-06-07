@@ -27,5 +27,8 @@ EditorBuildSettings:
     path: Assets/CET/Scenes/LobbyScene.unity
     guid: 6e045fda8e2f7614dbb438b3b66fb0d7
   m_configObjects:
+    com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 10607ada46e12154bbc87bdff28d9292, type: 2}
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 5a9501f4394641140ab59dad68d40674, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: b2b9b3a2103fcf14e86ee31bb9b17f95, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
