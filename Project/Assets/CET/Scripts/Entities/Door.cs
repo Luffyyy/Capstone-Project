@@ -11,6 +11,7 @@ public class Door : Activatable
 
     protected override void Awake()
     {
+        base.Awake();
         SetIsOn(IsOn);
     }
 
