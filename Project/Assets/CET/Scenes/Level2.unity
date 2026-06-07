@@ -589,6 +589,7 @@ MonoBehaviour:
   targetLight: {fileID: 0}
   AudioSource: {fileID: 0}
   LevelFinished: {fileID: 0}
+  LevelFinishedUI: {fileID: 0}
   OnTurnOnEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -2131,6 +2132,7 @@ MonoBehaviour:
   targetLight: {fileID: 0}
   AudioSource: {fileID: 0}
   LevelFinished: {fileID: 0}
+  LevelFinishedUI: {fileID: 0}
   OnTurnOnEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -2541,6 +2543,7 @@ MonoBehaviour:
   targetLight: {fileID: 0}
   AudioSource: {fileID: 0}
   LevelFinished: {fileID: 0}
+  LevelFinishedUI: {fileID: 0}
   OnTurnOnEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -3057,7 +3060,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 64b4c47a64652794a8932e58ebae8140, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -3627,6 +3630,7 @@ MonoBehaviour:
   targetLight: {fileID: 0}
   AudioSource: {fileID: 0}
   LevelFinished: {fileID: 0}
+  LevelFinishedUI: {fileID: 0}
   OnTurnOnEvent:
     m_PersistentCalls:
       m_Calls: []
