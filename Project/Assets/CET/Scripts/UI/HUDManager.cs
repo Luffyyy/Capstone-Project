@@ -34,16 +34,19 @@ public class HUDManager : MonoBehaviour
             CloseHUD("ServerHUD");
             return;
         }
-        if (GameState.Instance.isServerOnly)
-        {
-            OpenHUD("ServerHUD");
-            CloseHUD("PlayerHUD");
-        }
-        else
+
+        if (!GameState.Instance.isServerOnly)
         {
             OpenHUD("PlayerHUD");
             //Show the background only on clients. TODO: maybe have it optional?
             GetComponent<Image>().enabled = GameState.Instance.IsDedicatedServer && NetworkClient.active;
+        }
+
+        // Either host mode or server itself
+        if (!GameState.Instance.IsDedicatedServer || GameState.Instance.isServerOnly)
+        {
+            OpenHUD("ServerHUD");
+            CloseHUD("PlayerHUD");
         }
     }
 
