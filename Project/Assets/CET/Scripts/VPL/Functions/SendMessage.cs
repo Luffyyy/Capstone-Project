@@ -29,7 +29,7 @@ public class SendMessageFunction : FuncBlockDefinition
                 if (terminal.Port == port)
                 {
                     terminal.OnVPLMessageReceived(msg);
-                    yield return new WaitForSeconds(0.2f);
+                    yield return null;
                 }
             }
             break;
