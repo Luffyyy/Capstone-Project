@@ -5338,9 +5338,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5479941345474367204}
     m_Modifications:
+    - target: {fileID: 4501077893981261145, guid: 2488c89b49597c141a6b181f8eb2ce16, type: 3}
+      propertyPath: m_Size.x
+      value: 10.712178
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501077893981261145, guid: 2488c89b49597c141a6b181f8eb2ce16, type: 3}
+      propertyPath: m_Size.z
+      value: 5.659405
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501077893981261145, guid: 2488c89b49597c141a6b181f8eb2ce16, type: 3}
+      propertyPath: m_Center.x
+      value: -3.8560896
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501077893981261145, guid: 2488c89b49597c141a6b181f8eb2ce16, type: 3}
+      propertyPath: m_Center.z
+      value: 6.088402
+      objectReference: {fileID: 0}
     - target: {fileID: 5285678101166017869, guid: 2488c89b49597c141a6b181f8eb2ce16, type: 3}
       propertyPath: m_Name
       value: NextLevelPortal
+      objectReference: {fileID: 0}
+    - target: {fileID: 5365271194467385003, guid: 2488c89b49597c141a6b181f8eb2ce16, type: 3}
+      propertyPath: destinationScene
+      value: Assets/CET/Scenes/Level2.unity
       objectReference: {fileID: 0}
     - target: {fileID: 7486813528684726958, guid: 2488c89b49597c141a6b181f8eb2ce16, type: 3}
       propertyPath: sceneId
@@ -5356,7 +5376,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8454504590752159075, guid: 2488c89b49597c141a6b181f8eb2ce16, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.37
+      value: -8.76
       objectReference: {fileID: 0}
     - target: {fileID: 8454504590752159075, guid: 2488c89b49597c141a6b181f8eb2ce16, type: 3}
       propertyPath: m_LocalRotation.w

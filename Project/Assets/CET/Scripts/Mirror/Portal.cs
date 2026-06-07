@@ -7,6 +7,8 @@ public class Portal : NetworkBehaviour
     [Scene, Tooltip("Which scene to send player from here")]
     public string destinationScene;
 
+    public bool endOfGame = false;
+
     int numPlayers;
 
     void OnTriggerEnter(Collider other)
@@ -16,7 +18,19 @@ public class Portal : NetworkBehaviour
 
         if (++numPlayers == 2)
         {
-            NewNetworkManager.singleton.ChangeLevel(destinationScene);
+            if (endOfGame)
+            {
+                if (NetworkClient.active)
+                {
+                    NetworkManager.singleton.StopHost();
+                }
+                {
+                    NetworkManager.singleton.StopServer();
+                }
+            } else
+            {
+                NewNetworkManager.singleton.ChangeLevel(destinationScene);
+            }
         }
     }
 

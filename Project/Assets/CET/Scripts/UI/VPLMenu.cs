@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine;
 
 public class VPLMenu : MenuBase
 {
@@ -14,6 +15,18 @@ public class VPLMenu : MenuBase
     private bool renameVariableIsDefining;
 
     private BaseVar editingVar;
+
+    public VPLZone VPLEditMenuPrefab;
+
+    void Start()
+    {
+#if UNITY_EDITOR
+        var go = Instantiate(VPLEditMenuPrefab, transform);
+        go.EditorMode = true;
+        go.Activated();
+        AddZone(go, 123456);
+#endif
+    }
 
     public void AddZone(VPLZone zone, int id)
     {
@@ -61,4 +74,14 @@ public class VPLMenu : MenuBase
         }
         RenameVariableDialog.Show();
     }
+#if UNITY_EDITOR
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            MenuManager.Instance.OpenMenu("VPLMenu");
+            OpenVPLZone(123456);
+        }
+    }
+#endif
 }

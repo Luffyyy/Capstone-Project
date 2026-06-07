@@ -19,7 +19,6 @@ public class VPLZone : MonoBehaviour
     private Dictionary<string, object> Variables = new();
 
     public Button ExecuteButton;
-    public GameObject CopyJsonButton;
 
     private Coroutine executionRoutine;
 
@@ -56,24 +55,13 @@ public class VPLZone : MonoBehaviour
     public TextMeshProUGUI ConsoleText;
     public ScrollRect ConsoleScroll;
 
+    public bool EditorMode;
+
     public void Activated(string json=null)
     {
         if (!string.IsNullOrEmpty(json))
         {
-            var tree = JsonUtility.FromJson<BlockNode>(json);
-            LoadFromTree(tree);
-            // Prevent editing these blocks since they are important!
-            var allDraggableBlocks = MainTray.GetComponentsInChildren<DraggableBlock>();
-            foreach (var drag in allDraggableBlocks)
-            {
-                drag.enabled = false;
-            }
-            
-        }
-
-        if (ConnectedTo.DevTerminal)
-        {
-            CopyJsonButton.SetActive(true);
+            PasteJson(json);
         }
 
         AddBlocksToMenu();
@@ -102,7 +90,7 @@ public class VPLZone : MonoBehaviour
         Canvas.ForceUpdateCanvases(); 
         ConsoleScroll.verticalNormalizedPosition = 0;
 
-        if (ConnectedTo.isServer)
+        if (ConnectedTo != null && ConnectedTo.isServer)
         {
             yield return new WaitForSeconds(0.5f); // Wait a bit before sending to others
             ConnectedTo.SendConsoleMessageToPeers(ConsoleLog);
@@ -111,7 +99,10 @@ public class VPLZone : MonoBehaviour
 
     public void ExecuteOnServer()
     {
-        ConnectedTo.CmdSendRoot(BuildTree(), true);
+        if (ConnectedTo != null)
+        {
+            ConnectedTo.CmdSendRoot(BuildTree(), true);
+        }
         //TODO: send back to clients whether execution was a success
     }
 
@@ -138,6 +129,21 @@ public class VPLZone : MonoBehaviour
         root.Trays.Add(MainTray.SaveNode());
 
         return root;
+    }
+
+    public void PasteJson(string json, bool hardCoded=true)
+    {
+        var tree = JsonUtility.FromJson<BlockNode>(json);
+        LoadFromTree(tree);
+        // Prevent editing these blocks since they are important!
+        var allDraggableBlocks = MainTray.GetComponentsInChildren<DraggableBlock>();
+        if (hardCoded)
+        {
+            foreach (var drag in allDraggableBlocks)
+            {
+                drag.enabled = false;
+            }
+        }
     }
 
     public void CopyJson()
@@ -206,7 +212,7 @@ public class VPLZone : MonoBehaviour
             bool hasOneBlock = false;
             foreach (var def in catDefs.Value)
             {
-                if (def.DefaultBlock || DefinedBlocks.Contains(def) || ConnectedTo.DevTerminal)
+                if (def.DefaultBlock || DefinedBlocks.Contains(def) || EditorMode)
                 {
                     hasOneBlock = true;
 
@@ -425,4 +431,23 @@ public class VPLZone : MonoBehaviour
 
         IsActive = false;
     }
+
+#if UNITY_EDITOR
+    void Update()
+    {
+        print("...");
+        if (!IsActive) return;
+
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                CopyJson();
+            } else if (Input.GetKeyDown(KeyCode.V))
+            {
+                PasteJson(GUIUtility.systemCopyBuffer, false);
+            }
+        }
+    }
+#endif
 }

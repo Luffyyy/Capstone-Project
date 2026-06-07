@@ -17,6 +17,10 @@ public class PasswordDisplay : Entity
 
     private Animator animator;
 
+    public string PlaceHolder = "_";
+
+    public bool Reverse;
+
     void Awake()
     {
         animator = EnteredPasswordText.GetComponent<Animator>();
@@ -43,11 +47,17 @@ public class PasswordDisplay : Entity
 
     public void Enter(char c)
     {
-        if (EnteredPassword.Length >= 4) Reset();
+        if (EnteredPassword.Length >= Password.Length) Reset();
 
-        EnteredPassword += c;
+        if (Reverse)
+        {
+            EnteredPassword = c + EnteredPassword;
+        } else
+        {
+            EnteredPassword += c;
+        }
 
-        if (EnteredPassword.Length == 4)
+        if (EnteredPassword.Length == Password.Length)
         {
             if (EnteredPassword == Password)
             {
@@ -64,9 +74,9 @@ public class PasswordDisplay : Entity
     public void UpdateText()
     {
         string s = "";
-        for(int i=0; i<4; i++)
+        for(int i=0; i<Password.Length; i++)
         {
-            s += EnteredPassword.Length > i ? EnteredPassword[i] + " " : "_ ";
+            s += EnteredPassword.Length > i ? EnteredPassword[i] : PlaceHolder;
         }
 
         EnteredPasswordText.text = s;
