@@ -31,8 +31,6 @@ public class TerminalInteractable : Interactable
 
     public bool CanReceiveMessages = false;
 
-    public bool DevTerminal = false;
-
     [ClientRpc]
     public void SendConsoleMessageToPeers(List<string> log)
     {
