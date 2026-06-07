@@ -15,5 +15,6 @@ MonoBehaviour:
   Name: if
   Category: 1
   Color: {r: 0, g: 0, b: 0, a: 0}
+  DefaultBlock: 0
   PrefabName: IfElseBlock
   Prefab: IfElseBlock
