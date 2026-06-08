@@ -93,7 +93,6 @@ public class MainMenu : MenuBase
 
     public void QuitGame()
     {
-        //TODO: do this in a dialog
         Application.Quit();
     }
 

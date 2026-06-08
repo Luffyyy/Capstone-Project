@@ -404,16 +404,10 @@ PrefabInstance:
       addedObject: {fileID: 3648198891778227192}
     - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: 2ab9b8f6a82008c45b8a3761aef6c3f3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 527540326070581454}
-    - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: 2ab9b8f6a82008c45b8a3761aef6c3f3, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 7055525767719108181}
     - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: 2ab9b8f6a82008c45b8a3761aef6c3f3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5106752535756944194}
-    - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: 2ab9b8f6a82008c45b8a3761aef6c3f3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6372694342053342223}
     - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: 2ab9b8f6a82008c45b8a3761aef6c3f3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8840149632841953529}
@@ -443,9 +437,15 @@ MonoBehaviour:
   EmissionRenderer: {fileID: 0}
   targetLight: {fileID: 0}
   AudioSource: {fileID: 0}
+  OnTurnOnEvent:
+    m_PersistentCalls:
+      m_Calls: []
   CurrentPlayer: {fileID: 0}
   UIAnchor: {fileID: 440594865711706804}
   InteractionText: Play Frequency
+  OnInteractEvent:
+    m_PersistentCalls:
+      m_Calls: []
   SoundPlayed: 0
   FrequencyText: {fileID: 987626250349379194}
   Frequency: 0
@@ -468,29 +468,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.7606382, y: 1.390382, z: 3.065968}
-  m_Center: {x: 0.36168063, y: -0.70839715, z: 1.5284556}
---- !u!65 &527540326070581454
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4259224807802077819}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.4413309, y: 1.390382, z: 3.065968}
-  m_Center: {x: 0.70203394, y: -0.70839715, z: 1.5284556}
+  m_Size: {x: 1.52, y: 1.390382, z: 3.065968}
+  m_Center: {x: 0, y: -0.70839715, z: 1.5284556}
 --- !u!82 &7055525767719108181
 AudioSource:
   m_ObjectHideFlags: 0
@@ -605,27 +584,6 @@ MonoBehaviour:
   serverOnly: 0
   visibility: 0
   hasSpawned: 0
---- !u!65 &6372694342053342223
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4259224807802077819}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.4464049, y: 1.390382, z: 3.065968}
-  m_Center: {x: 0.7045645, y: -0.70839715, z: 1.5284556}
 --- !u!82 &8840149632841953529
 AudioSource:
   m_ObjectHideFlags: 0
