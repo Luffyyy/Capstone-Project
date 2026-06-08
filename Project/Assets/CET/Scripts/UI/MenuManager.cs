@@ -34,6 +34,7 @@ public class MenuManager : MonoBehaviour
     {
         var dialog = Dialogs.Find(dialog => dialog.gameObject.name == name);
         dialog.Show();
+        Show();
     }
 
     void Awake()
