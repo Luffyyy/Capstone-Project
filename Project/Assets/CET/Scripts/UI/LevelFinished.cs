@@ -1,35 +1,34 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class LevelFinished : MonoBehaviour
 {
     public RectTransform panel;
     public AudioSource audioSource;
+
+    public TextMeshProUGUI EscapedPlayers;
+
+    private Animator anim;
+
     private void Awake()
     {
         gameObject.SetActive(false);
+        anim = GetComponent<Animator>();
     }
     public void Show()
     {
         gameObject.SetActive(true);
-        StopAllCoroutines();
-        StartCoroutine(ShowAnimation());
+        
+        audioSource.Play();
+        anim.Play("FinishedLevel");
+
         MenuManager.Instance.CloseCurrentMenu(); // So players see it
     }
-    private IEnumerator ShowAnimation()
+
+    public void UpdateEscapedPlayers(int num)
     {
-        audioSource.Play();
-        panel.localScale = Vector3.zero;
-        float duration = 0.3f;
-        float t = 0;
-        while (t < duration)
-        {
-            t += Time.deltaTime;
-            panel.localScale = Vector3.Lerp(Vector3.zero,Vector3.one,t / duration);
-            yield return null;
-        }
-        panel.localScale = Vector3.one;
-        yield return new WaitForSeconds(5f);
-        gameObject.SetActive(false);
+        EscapedPlayers.text = num + "/2 Players Escaped";
     }
 }

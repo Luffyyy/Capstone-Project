@@ -6,10 +6,11 @@ public class Portal : NetworkBehaviour
 {
     [Scene, Tooltip("Which scene to send player from here")]
     public string destinationScene;
-    public Dialog Dialog;
-    public bool endOfGame = false;
     public static Portal Instance;
 
+    public Transform TeleportPoint;
+
+    [SyncVar(hook=nameof(OnNumPlayersUpdated))]
     int numPlayers;
     void  Awake()
     {
@@ -18,19 +19,26 @@ public class Portal : NetworkBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        // ignore CharacterController colliders
-        if (!isServer || !other.CompareTag("Player") || other is not CapsuleCollider) return;
+        if (!other.CompareTag("Player") || other is not CapsuleCollider) return;
 
-        if (++numPlayers == 2)
-        {
-            if (endOfGame)
+        if (isClient) {
+            other.GetComponent<PlayerController>().SetInputEnabled(false);
+            if (TeleportPoint != null)
             {
-                Debug.Log("End of game reached, showing dialog");
-                MenuManager.Instance.ShowDialog("LastDialog");
-            } else
-            {
-                NewNetworkManager.singleton.ChangeLevel(destinationScene);
+                //TODO: fix this sometimes not working
+                other.transform.position = TeleportPoint.position;
             }
+        }
+
+        if (!isServer) {
+            return;
+        }
+
+        ServerHUD.Instance.levelFinished.UpdateEscapedPlayers(++numPlayers);
+
+        if (numPlayers == 2)
+        {
+            NewNetworkManager.singleton.ChangeLevel(destinationScene);
         }
     }
 
@@ -38,22 +46,11 @@ public class Portal : NetworkBehaviour
     {
         if (!isServer || !other.CompareTag("Player")) return;
 
-        numPlayers--;
+        ServerHUD.Instance.levelFinished.UpdateEscapedPlayers(--numPlayers);
     }
-    public void LastDialog()
+
+    public void OnNumPlayersUpdated(int oldVal, int newVal)
     {
-        if (NetworkServer.active)
-        {
-            if (NetworkClient.active)
-            {
-                NetworkManager.singleton.StopHost();
-            }
-            {
-                NetworkManager.singleton.StopServer();
-            }
-        } else
-        {
-            NetworkManager.singleton.StopClient();
-        }
+        ServerHUD.Instance.levelFinished.UpdateEscapedPlayers(newVal);
     }
 }

@@ -36,10 +36,6 @@ public class Dialog : MonoBehaviour
     {
         MenuManager.Instance.DialogStack.Pop();
         animator.SetBool("IsShowing", false);
-        if(Portal.Instance.endOfGame)
-        {
-            Portal.Instance.LastDialog();
-        }
     }
 
     public void FinishHiding()
