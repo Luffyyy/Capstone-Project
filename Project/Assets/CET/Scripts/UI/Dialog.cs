@@ -26,6 +26,7 @@ public class Dialog : MonoBehaviour
 
     public void Show()
     {
+        Debug.Log("Showing dialog: " + gameObject.name);
         gameObject.SetActive(true);
         animator.SetBool("IsShowing", true);
         MenuManager.Instance.DialogStack.Push(this);
@@ -35,6 +36,10 @@ public class Dialog : MonoBehaviour
     {
         MenuManager.Instance.DialogStack.Pop();
         animator.SetBool("IsShowing", false);
+        if(Portal.Instance.endOfGame)
+        {
+            Portal.Instance.LastDialog();
+        }
     }
 
     public void FinishHiding()

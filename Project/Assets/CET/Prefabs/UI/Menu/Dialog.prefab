@@ -453,6 +453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   Title: {fileID: 4323833720993926484}
   animator: {fileID: 3175733581571011883}
+  DialogWindow: {fileID: 0}
 --- !u!114 &7308352475941535839
 MonoBehaviour:
   m_ObjectHideFlags: 0

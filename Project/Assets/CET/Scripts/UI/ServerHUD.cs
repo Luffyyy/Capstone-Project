@@ -10,7 +10,6 @@ public class ServerHUD : HUDBase
     }
     public void PlayFinishedLevelHud()
     {
-        Debug.Log("Playing server HUD");
         levelFinished.Show();
     }
 }

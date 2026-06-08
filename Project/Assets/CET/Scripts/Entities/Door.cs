@@ -22,14 +22,9 @@ public class Door : Activatable
         {
             animator.SetBool("isOpen", newValue);
         }
-        Debug.Log("Door state changed: " + newValue);
-        Debug.Log("IsLastDoor: " + IsLastDoor);
-        Debug.Log("IsOn: " + IsOn);
         if (IsLastDoor && newValue)
         {
-            Debug.Log("Last door opened, showing level finished menu");
             ServerHUD.Instance.PlayFinishedLevelHud();
-            Debug.Log(ServerHUD.Instance);
         }
     }
 

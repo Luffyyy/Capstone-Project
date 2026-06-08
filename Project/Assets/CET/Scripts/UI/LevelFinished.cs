@@ -11,7 +11,6 @@ public class LevelFinished : MonoBehaviour
     }
     public void Show()
     {
-        Debug.Log("LevelFinished menu opened");
         gameObject.SetActive(true);
         StopAllCoroutines();
         StartCoroutine(ShowAnimation());
@@ -19,7 +18,6 @@ public class LevelFinished : MonoBehaviour
     }
     private IEnumerator ShowAnimation()
     {
-        Debug.Log("Playing level finished animation");
         audioSource.Play();
         panel.localScale = Vector3.zero;
         float duration = 0.3f;
