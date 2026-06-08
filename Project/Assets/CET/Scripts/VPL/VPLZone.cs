@@ -413,8 +413,6 @@ public class VPLZone : MonoBehaviour
         cg.interactable = true;
         cg.blocksRaycasts = true;
 
-        GetComponent<FlexLayout>().enabled = true;
-
         IsActive = true;
     }
 
@@ -424,10 +422,6 @@ public class VPLZone : MonoBehaviour
         cg.alpha = 0;
         cg.interactable = false;
         cg.blocksRaycasts = false;
-
-        // I could disable it, but then it won't receive updates with the network behavior
-        // CanvasGroup makes it transparent but sadly not totally "invisible"
-        GetComponent<FlexLayout>().enabled = false;
 
         IsActive = false;
     }
