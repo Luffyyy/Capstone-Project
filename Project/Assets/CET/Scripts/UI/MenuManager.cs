@@ -9,6 +9,8 @@ public class MenuManager : MonoBehaviour
     public List<MenuBase> MenuPrefabs;
     public List<MenuBase> Menus = new();
 
+    public List<Dialog> Dialogs = new();
+
     public Stack<MenuBase> MenuStack = new();
 
     public Stack<Dialog> DialogStack = new();
@@ -22,6 +24,17 @@ public class MenuManager : MonoBehaviour
     public bool IsActive;
 
     public bool AllowClosing = false;
+
+    public void AddDialog(Dialog dialog)
+    {
+        Dialogs.Add(dialog);
+    }
+
+    public void ShowDialog(string name)
+    {
+        var dialog = Dialogs.Find(dialog => dialog.gameObject.name == name);
+        dialog.Show();
+    }
 
     void Awake()
     {

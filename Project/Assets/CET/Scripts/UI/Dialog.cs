@@ -14,6 +14,11 @@ public class Dialog : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    void Start()
+    {
+        MenuManager.Instance.AddDialog(this);
+    }
+
     public void SetTitle(string title)
     {
         Title.text = title;
