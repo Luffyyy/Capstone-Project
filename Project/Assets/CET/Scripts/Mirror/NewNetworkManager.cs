@@ -16,6 +16,8 @@ So we load all levels in a chapter (or when needed one-by-one) and unload when l
 */
 public class NewNetworkManager : NetworkManager
 {
+    // Sent by server before despawning players/unloading scenes so clients can hide the transition.
+    public struct BeginLevelTransitionMessage : NetworkMessage { }
     public static new NewNetworkManager singleton => (NewNetworkManager)NetworkManager.singleton;
 
     [Tooltip("A scene that holds things such as player HUD, menus, etc")]
@@ -26,6 +28,10 @@ public class NewNetworkManager : NetworkManager
 
     [Tooltip("Reference to FadeInOut script on child FadeCanvas")]
     public FadeInOut fadeInOut;
+
+    [Tooltip("How long the server waits after notifying clients to start fading before despawning players.")]
+    [Min(0f)]
+    public float clientTransitionLeadTime = 0.15f;
 
     public List<SceneCamera> SceneCameras;
 
@@ -104,7 +110,23 @@ public class NewNetworkManager : NetworkManager
 
     public override void OnStopClient()
     {
+        NetworkClient.UnregisterHandler<BeginLevelTransitionMessage>();
         base.OnStopClient();
+    }
+
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
+        NetworkClient.RegisterHandler<BeginLevelTransitionMessage>(OnBeginLevelTransition, false);
+    }
+
+    private void OnBeginLevelTransition(BeginLevelTransitionMessage _)
+    {
+        // Host already performs transition visuals in the server path.
+        if (mode == NetworkManagerMode.Host || isInTransition)
+            return;
+
+        StartCoroutine(fadeInOut.FadeIn());
     }
 
     // Triggered when a player disconnects from the server
@@ -156,6 +178,23 @@ public class NewNetworkManager : NetworkManager
 
         var oldLevel = CurrentLevel;
         CurrentLevel = sceneName;
+
+        // Ask clients to fade in before we despawn players and unload scenes.
+        if (!initial)
+        {
+            foreach (var conn in NetworkServer.connections.Values)
+            {
+                // Do not send to host-local connection.
+                if (conn is LocalConnectionToClient)
+                    continue;
+
+                conn.Send(new BeginLevelTransitionMessage());
+            }
+            if (clientTransitionLeadTime > 0f)
+                yield return new WaitForSeconds(clientTransitionLeadTime);
+            else
+                yield return null;
+        }
 
         // Hide the mess from players
         yield return fadeInOut.FadeIn(initial);
