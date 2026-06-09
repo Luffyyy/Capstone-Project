@@ -2100,6 +2100,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NextLevelPortal (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5285678101166017869, guid: 2488c89b49597c141a6b181f8eb2ce16, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5365271194467385003, guid: 2488c89b49597c141a6b181f8eb2ce16, type: 3}
       propertyPath: Dialog
       value: 

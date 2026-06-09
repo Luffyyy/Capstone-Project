@@ -1045,6 +1045,7 @@ MonoBehaviour:
   timeInterpolationGui: 0
   GameScene: 
   fadeInOut: {fileID: 2003792647}
+  clientTransitionLeadTime: 0.15
   SceneCameras: []
   additiveScenes:
   - Assets/CET/Scenes/Level4.unity
