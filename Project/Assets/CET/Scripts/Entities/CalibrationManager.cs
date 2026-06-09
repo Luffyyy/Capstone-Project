@@ -1,4 +1,5 @@
 using System.Collections;
+using Mirror;
 using UnityEngine;
 
 public class CalibrationManager : MonoBehaviour
@@ -53,7 +54,10 @@ public class CalibrationManager : MonoBehaviour
                 return;
             }
         }
-        DoorLock.IsOn = true;
+        Debug.Log($"Before unlock: {DoorLock.IsOn}");
+        DoorLock.SetIsOn(true);
+        Debug.Log($"After unlock: {DoorLock.IsOn}");
+        Debug.Log($"Server={NetworkServer.active} Client={NetworkClient.active}");
         StartCoroutine(PlayNotes());
     }
     private IEnumerator PlayNotes(){
@@ -62,7 +66,7 @@ public class CalibrationManager : MonoBehaviour
             {
                 for (int i = 0; i < Modules.Length; i++)
                 {
-                    Modules[i].CmdInteract();
+                    Modules[i].PlayFrequency();
                     yield return new WaitForSeconds(0.5f);
                 }
                 j++;
@@ -70,9 +74,9 @@ public class CalibrationManager : MonoBehaviour
     }
     private IEnumerator PlaySwappedNote(int left, int right)
     {
-        Modules[left].CmdInteract();
+        Modules[left].PlayFrequency();
         yield return new WaitForSeconds(0.5f);
-        Modules[right].CmdInteract();
+        Modules[right].PlayFrequency();
         yield return new WaitForSeconds(0.5f);
     }
     public void SwitchAudio(int i, AudioClip newAudio)

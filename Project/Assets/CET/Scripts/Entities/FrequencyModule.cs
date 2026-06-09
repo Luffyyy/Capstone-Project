@@ -6,36 +6,37 @@ using System;
 
 public class FrequencyModule : Interactable
 {
-    [SyncVar (hook = nameof(OnSoundPlayed))] public bool SoundPlayed;
     public TextMeshProUGUI FrequencyText;
     public float Frequency = 0f;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         AudioSource = GetComponent<AudioSource>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
     public void SetFrequency(float newFrequency)
     {
         Frequency = newFrequency;
     }
-
-    [TargetRpc]
-    public override void TargetInteract(NetworkConnectionToClient target)
+    [Command(requiresAuthority = false)]
+    public override void CmdInteract(NetworkConnectionToClient sender = null)
     {
-        base.TargetInteract(target);
-        SoundPlayed = !SoundPlayed;
+        base.CmdInteract(sender);
+        PlayFrequency(sender);
     }
-    private void OnSoundPlayed(bool oldValue, bool newValue)
+    [Server]
+    public void PlayFrequency(NetworkConnectionToClient target = null)
     {
-        if (AudioSource != null && !AudioSource.isPlaying)
+        if (!NetworkClient.active)
         {
-            AudioSource.PlayOneShot(AudioSource.clip,6f);
+            AudioSource.PlayOneShot(AudioSource.clip, 6f);
         }
+        else
+        {
+            TargetPlayFrequency(target);
+        }
+    }
+    [TargetRpc]
+    void TargetPlayFrequency(NetworkConnectionToClient target)
+    {
+        AudioSource.PlayOneShot(AudioSource.clip, 6f);
     }
 }
