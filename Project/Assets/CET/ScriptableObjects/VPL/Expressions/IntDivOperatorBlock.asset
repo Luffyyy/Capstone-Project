@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: IntDivOperatorBlock
   m_EditorClassIdentifier: Assembly-CSharp::OperatorDefinition
   Name: int div
-  Category: 0
+  Category: 3
   Color: {r: 0, g: 0, b: 0, a: 0}
-  DefaultBlock: 1
+  DefaultBlock: 0
   PrefabName: OperatorBlock
   Converter: {fileID: 11400000, guid: 9ab89d691dd1d1a41a0e8efc094b6d7d, type: 2}
   IsUnary: 0
