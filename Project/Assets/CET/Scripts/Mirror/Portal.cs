@@ -25,7 +25,7 @@ public class Portal : NetworkBehaviour
             other.GetComponent<PlayerController>().SetInputEnabled(false);
             if (TeleportPoint != null)
             {
-                //TODO: fix this sometimes not working
+                other.GetComponent<CharacterController>().enabled = false;
                 other.transform.position = TeleportPoint.position;
             }
         }
