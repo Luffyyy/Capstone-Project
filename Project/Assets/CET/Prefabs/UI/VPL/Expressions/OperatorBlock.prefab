@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 94.265, y: -24.82}
-  m_SizeDelta: {x: 24.53, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1005483224675513036
 CanvasRenderer:
@@ -238,10 +238,6 @@ PrefabInstance:
     - target: {fileID: 1169654301148839954, guid: e65a01da194fc33409b27d5e9202edee, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3750414277682264342, guid: e65a01da194fc33409b27d5e9202edee, type: 3}
-      propertyPath: IsFake
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4075291388851618032, guid: e65a01da194fc33409b27d5e9202edee, type: 3}
       propertyPath: m_AnchorMax.y
