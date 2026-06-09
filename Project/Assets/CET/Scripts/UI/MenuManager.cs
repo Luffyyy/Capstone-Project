@@ -29,12 +29,12 @@ public class MenuManager : MonoBehaviour
     {
         Dialogs.Add(dialog);
     }
-
-    public void ShowDialog(string name)
+    public Dialog ShowDialog(string name)
     {
-        var dialog = Dialogs.Find(dialog => dialog.gameObject.name == name);
-        dialog.Show();
+        var dialog = Dialogs.Find(dialog => dialog.gameObject.name == name);;
+        //dialog.Show();
         Show();
+        return dialog;
     }
 
     void Awake()
@@ -124,6 +124,7 @@ public class MenuManager : MonoBehaviour
 
     public void CloseCurrentMenu()
     {
+        Debug.Log(DialogStack.Count);
         if (DialogStack.Count > 0)
         {
             DialogStack.Peek().Hide();

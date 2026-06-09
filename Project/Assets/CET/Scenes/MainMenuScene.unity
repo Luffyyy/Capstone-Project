@@ -1048,10 +1048,10 @@ MonoBehaviour:
   clientTransitionLeadTime: 0.15
   SceneCameras: []
   additiveScenes:
-  - Assets/CET/Scenes/Level4.unity
   - Assets/CET/Scenes/Level1.unity
   - Assets/CET/Scenes/Level2.unity
   - Assets/CET/Scenes/Level3.unity
+  - Assets/CET/Scenes/Level4.unity
   - Assets/CET/Scenes/LobbyScene.unity
   - Assets/CET/Scenes/CreditsScreen.unity
 --- !u!114 &1924761632

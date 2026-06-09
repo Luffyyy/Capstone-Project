@@ -54,10 +54,7 @@ public class CalibrationManager : MonoBehaviour
                 return;
             }
         }
-        Debug.Log($"Before unlock: {DoorLock.IsOn}");
         DoorLock.SetIsOn(true);
-        Debug.Log($"After unlock: {DoorLock.IsOn}");
-        Debug.Log($"Server={NetworkServer.active} Client={NetworkClient.active}");
         StartCoroutine(PlayNotes());
     }
     private IEnumerator PlayNotes(){

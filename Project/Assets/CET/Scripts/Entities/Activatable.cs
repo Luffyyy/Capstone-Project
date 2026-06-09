@@ -33,7 +33,6 @@ public class Activatable : Entity
 
     protected virtual void OnIsOnChanged(bool oldValue, bool newValue)
     {
-        Debug.Log($"Activateable: OnIsOnChanged {oldValue}->{newValue}");
         SetEmission(newValue);
         if (oldValue == false && newValue && AudioSource != null)
         {

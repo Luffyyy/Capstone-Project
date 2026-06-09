@@ -1,6 +1,6 @@
 using TMPro;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Dialog : MonoBehaviour
 {
     public TextMeshProUGUI Title;
@@ -9,12 +9,12 @@ public class Dialog : MonoBehaviour
 
     public Transform DialogWindow;
 
-    void Awake()
+    public void Awake()
     {
         animator = GetComponent<Animator>();
     }
 
-    void Start()
+    public void Start()
     {
         MenuManager.Instance.AddDialog(this);
     }
@@ -24,9 +24,8 @@ public class Dialog : MonoBehaviour
         Title.text = title;
     }
 
-    public void Show()
+    public void Show(Sprite image = null)
     {
-        Debug.Log("Showing dialog: " + gameObject.name);
         gameObject.SetActive(true);
         animator.SetBool("IsShowing", true);
         MenuManager.Instance.DialogStack.Push(this);
@@ -35,6 +34,10 @@ public class Dialog : MonoBehaviour
     public void Hide()
     {
         MenuManager.Instance.DialogStack.Pop();
+        if (MenuManager.Instance.DialogStack.Count == 0 && MenuManager.Instance.MenuStack.Count == 0)
+        {
+            MenuManager.Instance.Hide();
+        }
         animator.SetBool("IsShowing", false);
     }
 

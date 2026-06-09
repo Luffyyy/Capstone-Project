@@ -18,10 +18,8 @@ public class Door : Activatable
     protected override void OnIsOnChanged(bool oldValue, bool newValue)
     {
         base.OnIsOnChanged(oldValue, newValue);
-        Debug.Log($"Door hook {oldValue}->{newValue}");
         if (!IsOpenTriggered) // This means the door is open the moment we turn on the object
         {
-            Debug.Log("Setting animator isOpen = " + newValue);
             animator.SetBool("isOpen", newValue);
         }
         if (IsLastDoor && newValue)
