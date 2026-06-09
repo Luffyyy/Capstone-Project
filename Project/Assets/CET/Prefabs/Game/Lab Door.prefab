@@ -328,7 +328,11 @@ MonoBehaviour:
   EmissionRenderer: {fileID: 3134049714397048227}
   targetLight: {fileID: 0}
   AudioSource: {fileID: 0}
+  OnTurnOnEvent:
+    m_PersistentCalls:
+      m_Calls: []
   animator: {fileID: 7581319198862047476}
+  IsLastDoor: 0
   IsOpenTriggered: 1
 --- !u!114 &4550701213148746518
 MonoBehaviour:
@@ -356,7 +360,7 @@ AudioSource:
   m_GameObject: {fileID: 5143516710057619528}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -2477414488791717545, guid: 50013b59fba536f499e7fea76e8b7c0d, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: a248c78deb156c34fb5dabca4c7e9dec, type: 3}
   m_PlayOnAwake: 0

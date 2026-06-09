@@ -1,7 +1,5 @@
 using Mirror;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class GameState : NetworkBehaviour
 {
@@ -19,12 +17,21 @@ public class GameState : NetworkBehaviour
     {
         Instance = this;
         HUDManager.Instance.SetCurrentHUD();
+
+        VolumeController.Instance.SetDefaults();
+        if (IsDedicatedServer)
+        {
+            // On phones we will only play UI sounds
+            VolumeController.Instance.SetVolume("Music", 0);
+            VolumeController.Instance.SetVolume("SFX", 0);
+        }
     }
 
     public override void OnStartServer()
     {
         IsDedicatedServer = !isClient;
         HUDManager.Instance.SetCurrentHUD();
+        VolumeController.Instance.SetDefaults();
     }
 
     public bool InLobby()
