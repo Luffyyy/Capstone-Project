@@ -2381,7 +2381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1395968323961745267, guid: 97b54987d625682489578bda2ae77d12, type: 3}
       propertyPath: FontSize
-      value: 75
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 1395968323961745267, guid: 97b54987d625682489578bda2ae77d12, type: 3}
       propertyPath: TextToShow
@@ -2397,7 +2397,7 @@ PrefabInstance:
       objectReference: {fileID: 452092380}
     - target: {fileID: 1395968323961745267, guid: 97b54987d625682489578bda2ae77d12, type: 3}
       propertyPath: TextPosition.x
-      value: 40
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1395968323961745267, guid: 97b54987d625682489578bda2ae77d12, type: 3}
       propertyPath: TextPosition.y

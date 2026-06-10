@@ -3415,7 +3415,7 @@ PrefabInstance:
     - target: {fileID: 2352486261087043980, guid: 9f8d0e650c3a51843915c6905f996883, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 7371819320549022293, guid: 9f8d0e650c3a51843915c6905f996883, type: 3}
+      objectReference: {fileID: 82612742508476471, guid: 9f8d0e650c3a51843915c6905f996883, type: 3}
     - target: {fileID: 2774220344278030320, guid: 9f8d0e650c3a51843915c6905f996883, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.2731794
@@ -3625,11 +3625,11 @@ MonoBehaviour:
 
     -
     The password is also a prime number.'
-  SpriteToShow: {fileID: 21300000, guid: f546d3f1198eae846ba40ab04411ee29, type: 3}
-  TextPosition: {x: 324, y: -380}
+  SpriteToShow: {fileID: 21300000, guid: cf1337811829dfc48bd9e8d0942e9736, type: 3}
+  TextPosition: {x: 0, y: 0}
   FontAsset: {fileID: 0}
   FontSize: 90
-  TextColor: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
+  TextColor: {r: 0, g: 0, b: 0, a: 1}
   DisplayOnPaper: {fileID: 0}
 --- !u!65 &622081564
 BoxCollider:
@@ -3797,9 +3797,9 @@ MonoBehaviour:
 
     are now: 19'
   SpriteToShow: {fileID: 21300000, guid: 7507f22787a24ba4ba9c8544c26ad988, type: 3}
-  TextPosition: {x: 480, y: -160}
+  TextPosition: {x: 0, y: -160}
   FontAsset: {fileID: 0}
-  FontSize: 90
+  FontSize: 70
   TextColor: {r: 0.9056604, g: 0.11534355, b: 0.11534355, a: 1}
   DisplayOnPaper: {fileID: 0}
 --- !u!65 &656120089
@@ -3821,8 +3821,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.16932608, y: 0.26704988, z: 0.41967753}
-  m_Center: {x: 0.000000030858274, y: -0.018538188, z: -0.129429}
+  m_Size: {x: 0.16932608, y: 0.15, z: 0.3}
+  m_Center: {x: 0.000000030858274, y: -0.06, z: 0}
 --- !u!1 &675425197
 GameObject:
   m_ObjectHideFlags: 0
@@ -7124,7 +7124,7 @@ PrefabInstance:
     - target: {fileID: 2352486261087043980, guid: 9f8d0e650c3a51843915c6905f996883, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 7371819320549022293, guid: 9f8d0e650c3a51843915c6905f996883, type: 3}
+      objectReference: {fileID: 82612742508476471, guid: 9f8d0e650c3a51843915c6905f996883, type: 3}
     - target: {fileID: 2774220344278030320, guid: 9f8d0e650c3a51843915c6905f996883, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.2731794
@@ -7346,11 +7346,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   TextToShow: i
-  SpriteToShow: {fileID: 21300000, guid: f546d3f1198eae846ba40ab04411ee29, type: 3}
-  TextPosition: {x: 324, y: -380}
+  SpriteToShow: {fileID: 21300000, guid: cf1337811829dfc48bd9e8d0942e9736, type: 3}
+  TextPosition: {x: 0, y: -100}
   FontAsset: {fileID: 0}
   FontSize: 90
-  TextColor: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
+  TextColor: {r: 0.19339621, g: 0.76398027, b: 1, a: 1}
   DisplayOnPaper: {fileID: 0}
 --- !u!1001 &1672923124
 PrefabInstance:
@@ -8665,7 +8665,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: f16a1ac955cfe7d42b381da711b84426, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -16.4
+      value: -17.026499
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: f16a1ac955cfe7d42b381da711b84426, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8745,8 +8745,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.16932608, y: 0.26704988, z: 0.41967753}
-  m_Center: {x: 0.000000030858274, y: -0.018538188, z: -0.129429}
+  m_Size: {x: 0.16932608, y: 0.15, z: 0.3}
+  m_Center: {x: 0.000000030858274, y: -0.06, z: 0}
 --- !u!114 &2051967482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8798,7 +8798,7 @@ MonoBehaviour:
   TextPosition: {x: 480, y: -160}
   FontAsset: {fileID: 0}
   FontSize: 90
-  TextColor: {r: 0.9056604, g: 0.11534355, b: 0.11534355, a: 1}
+  TextColor: {r: 0.24313727, g: 0.24313727, b: 0.24313727, a: 1}
   DisplayOnPaper: {fileID: 0}
 --- !u!1001 &2064409416
 PrefabInstance:
@@ -9215,6 +9215,10 @@ PrefabInstance:
     - target: {fileID: 4208920670078566550, guid: bf7f3b4e2131b0042b7de367063735d7, type: 3}
       propertyPath: m_LocalPosition.z
       value: 6.395
+      objectReference: {fileID: 0}
+    - target: {fileID: 4924959479342524076, guid: bf7f3b4e2131b0042b7de367063735d7, type: 3}
+      propertyPath: m_TagString
+      value: BlockInteraction
       objectReference: {fileID: 0}
     - target: {fileID: 5197557162113985998, guid: bf7f3b4e2131b0042b7de367063735d7, type: 3}
       propertyPath: m_fontSize
