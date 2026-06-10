@@ -56,6 +56,8 @@ public class InteractionMenu : MenuBase
             TextUI.color = textColor;
         }
 
+        UpdateWidth();
+
         if (displayOnPaper != null)
         {
             DisplayOnPaper = Instantiate(displayOnPaper, Paper.transform);    
