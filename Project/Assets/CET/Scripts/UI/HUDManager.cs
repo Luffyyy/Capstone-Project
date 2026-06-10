@@ -28,6 +28,8 @@ public class HUDManager : MonoBehaviour
 
     public void SetCurrentHUD()
     {
+        if (GameState.Instance == null) return;
+
         if (GameState.Instance.InLobby())
         {
             CloseHUD("PlayerHUD");

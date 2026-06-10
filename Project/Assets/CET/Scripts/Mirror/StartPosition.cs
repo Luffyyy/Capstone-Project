@@ -1,18 +1,7 @@
 using Mirror;
 using UnityEngine;
 
-public class StartPosition : MonoBehaviour
+public class StartPosition : NetworkStartPosition
 {
     public int PlayerIndex;
-    public void Awake()
-    {
-        RegisterStartPosition();
-    }
-
-    void RegisterStartPosition()
-    {
-        if (GameState.Instance.isServer) {
-            NetworkManager.RegisterStartPosition(transform);
-        }
-    }
 }
