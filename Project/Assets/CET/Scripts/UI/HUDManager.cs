@@ -90,7 +90,7 @@ public class HUDManager : MonoBehaviour
 
         StartCoroutine(nameof(HandleSetActiveNextFrame));
     }
-
+ 
     // This is done in the next frame because unity's input system does not like to be disabled in the middle of a keypress
     // Why is it like this? Genuine question
     IEnumerator HandleSetActiveNextFrame() {
@@ -99,6 +99,9 @@ public class HUDManager : MonoBehaviour
         if (localPlayer != null)
         {
             localPlayer.GetComponent<PlayerController>().SetInputEnabled(IsActive);
+        } else if (ServerHUD.Instance != null)
+        {
+            ServerHUD.Instance.GetComponent<PlayerInput>().enabled = IsActive;
         }
 
         foreach (var hud in HUDs)

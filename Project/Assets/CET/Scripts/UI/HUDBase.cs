@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(CanvasGroup))]
 public class HUDBase : MonoBehaviour
 {
-    public void Show()
+    public virtual void Show()
     {
         var cg = GetComponent<CanvasGroup>();
         cg.alpha = 1;
@@ -11,7 +11,7 @@ public class HUDBase : MonoBehaviour
         cg.blocksRaycasts = true;
     }
 
-    public void Hide()
+    public virtual void Hide()
     {
         var cg = GetComponent<CanvasGroup>();
         cg.alpha = 0;
