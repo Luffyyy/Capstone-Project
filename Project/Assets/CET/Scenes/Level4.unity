@@ -2248,7 +2248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 763533239430443895, guid: bf7f3b4e2131b0042b7de367063735d7, type: 3}
       propertyPath: m_LocalScale.z
-      value: 7.940256
+      value: 10.697907
       objectReference: {fileID: 0}
     - target: {fileID: 763533239430443895, guid: bf7f3b4e2131b0042b7de367063735d7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2260,7 +2260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 763533239430443895, guid: bf7f3b4e2131b0042b7de367063735d7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.9079
+      value: -7.2869
       objectReference: {fileID: 0}
     - target: {fileID: 958584865690479209, guid: bf7f3b4e2131b0042b7de367063735d7, type: 3}
       propertyPath: m_LocalScale.z
@@ -3213,7 +3213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: DefinedBlocks.Array.size
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: ConnectedObjects.Array.size
