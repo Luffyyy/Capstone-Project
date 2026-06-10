@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: LiteralExpressionBlock
   m_EditorClassIdentifier: Assembly-CSharp::PrefabBlockDefinition
   Name: Literal
+  Documentation: A literal block, allows creating strings, numbers, and booleans.
   Category: 2
   Color: {r: 0, g: 0, b: 0, a: 0}
   DefaultBlock: 1

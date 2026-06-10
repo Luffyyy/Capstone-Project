@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: VariableBlock
   m_EditorClassIdentifier: Assembly-CSharp::PrefabBlockDefinition
   Name: VariableBlock
+  Documentation: Returns the value of a variable either set by a player or the system.
   Category: 2
   Color: {r: 0, g: 0, b: 0, a: 0}
+  DefaultBlock: 1
   PrefabName: VariableBlock
   Prefab: VariableBlock

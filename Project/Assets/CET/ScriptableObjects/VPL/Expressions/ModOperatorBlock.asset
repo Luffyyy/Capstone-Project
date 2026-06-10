@@ -12,7 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a53daff063e52954f87abb28cbe4a260, type: 3}
   m_Name: ModOperatorBlock
   m_EditorClassIdentifier: Assembly-CSharp::OperatorDefinition
-  Name: Modulos
+  Name: Modulo
+  Documentation: 'Modulo operation, returns the remainder of a division.
+
+
+    For
+    example,
+
+    11 % 2 = 1 because 2 goes in eleven 5 times (10) with 1 left over.
+
+
+    Use
+    cases:
+
+    Getting the last digit of a number: 5012 % 10 = 2
+
+    Checking if
+    a number is divisible by a number: 10 % 2 = 0, 10 is divisible by 2. 11 % 2 =
+    1, 11 is <b>not</b> divisible by 2.'
   Category: 3
   Color: {r: 0, g: 0, b: 0, a: 0}
   DefaultBlock: 0

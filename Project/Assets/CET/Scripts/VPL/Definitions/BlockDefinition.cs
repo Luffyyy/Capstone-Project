@@ -14,6 +14,9 @@ public class BlockDefinition : ScriptableObject
 {
     public string Name;
 
+    [Multiline]
+    public string Documentation;
+
     public BlockCateogory Category;
 
     public Color Color;

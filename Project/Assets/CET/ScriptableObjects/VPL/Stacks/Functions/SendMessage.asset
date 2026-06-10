@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: SendMessage
   m_EditorClassIdentifier: Assembly-CSharp::SendMessageFunction
   Name: send
+  Documentation: 'Sends a message to a terminal using a port.
+
+    msg is what you
+    wish to send.'
   Category: 0
   Color: {r: 0, g: 0, b: 0, a: 0}
   DefaultBlock: 0

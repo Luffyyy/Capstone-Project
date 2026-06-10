@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: DecryptFunction
   m_EditorClassIdentifier: Assembly-CSharp::DecryptFunction
   Name: Decrypt
+  Documentation: "An expression function returning a decryption result on a <b>single</b>
+    character using a key. \nThe key is a <b>single digit</b>."
   Category: 0
   Color: {r: 0, g: 0, b: 0, a: 0}
   DefaultBlock: 0

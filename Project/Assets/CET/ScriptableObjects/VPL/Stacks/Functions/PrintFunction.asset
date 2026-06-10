@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: PrintFunction
   m_EditorClassIdentifier: Assembly-CSharp::PrintFunction
   Name: print
+  Documentation: Prints a message to the console below.
   Category: 0
   Color: {r: 0, g: 0, b: 0, a: 0}
   DefaultBlock: 1

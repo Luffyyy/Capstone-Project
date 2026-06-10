@@ -18,8 +18,16 @@ public class VPLMenu : MenuBase
 
     public VPLZone VPLEditMenuPrefab;
 
+    public Dialog DocumentationDialog;
+
+    public TextMeshProUGUI DocumentationText;
+
+    public static VPLMenu Instance;
+
     void Start()
     {
+        Instance = this;
+
 #if UNITY_EDITOR
         var go = Instantiate(VPLEditMenuPrefab, transform);
         go.EditorMode = true;
@@ -44,6 +52,12 @@ public class VPLMenu : MenuBase
 
         LastOpenZone = Zones[id];
         LastOpenZone.Show();
+    }
+
+    public void ShowDocumentation(BlockDefinition block)
+    {
+        DocumentationText.text = $"<u>{block.Name}</u>\n{block.Documentation}";
+        DocumentationDialog.Show();
     }
 
     public void DoRenameVariable()

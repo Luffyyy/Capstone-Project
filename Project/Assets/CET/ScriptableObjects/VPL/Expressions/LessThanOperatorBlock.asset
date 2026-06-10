@@ -13,6 +13,15 @@ MonoBehaviour:
   m_Name: LessThanOperatorBlock
   m_EditorClassIdentifier: Assembly-CSharp::OperatorDefinition
   Name: Less Than
+  Documentation: 'Returns whether the first input is less than the second input.
+
+
+    For
+    example,
+
+    3 < 4 is true
+
+    5 < 1 is false.'
   Category: 3
   Color: {r: 0, g: 0, b: 0, a: 0}
   DefaultBlock: 0

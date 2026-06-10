@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ClearMessagesFunction
   m_EditorClassIdentifier: Assembly-CSharp::ClearMessagesFunction
   Name: clear messages
+  Documentation: Clears the messages that were sent over the network.
   Category: 0
   Color: {r: 0, g: 0, b: 0, a: 0}
   DefaultBlock: 0

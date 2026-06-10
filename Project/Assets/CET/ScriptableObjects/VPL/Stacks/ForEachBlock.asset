@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: ForEachBlock
   m_EditorClassIdentifier: Assembly-CSharp::PrefabBlockDefinition
   Name: foreach
+  Documentation: 'A special block that loops through a set of items in a variable.
+
+    The
+    variable is usually a list.'
   Category: 1
   Color: {r: 0, g: 0, b: 0, a: 0}
   DefaultBlock: 0

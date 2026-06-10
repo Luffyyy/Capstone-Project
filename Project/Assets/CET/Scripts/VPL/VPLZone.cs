@@ -28,7 +28,8 @@ public class VPLZone : MonoBehaviour
 
     public Transform VPLZoneContent;
 
-    public GameObject DeleteZone;
+    public DeleteZone DeleteZone;
+    public DocsZone DocsZone;
 
     // public List<BlockTray> Trays => Helpers.GetComponentsInChildren<BlockTray>(VPLZoneContent);
 

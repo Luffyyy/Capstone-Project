@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: TurnOn
   m_EditorClassIdentifier: Assembly-CSharp::EnableTerminal
   Name: turn on
+  Documentation: Turns on machines such as terminals if they are off using port that
+    is found in the room or clues.
   Category: 0
   Color: {r: 0, g: 0, b: 0, a: 0}
   DefaultBlock: 0

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Swap
   m_EditorClassIdentifier: Assembly-CSharp::Swap
   Name: Swap
+  Documentation: Swaps two notes in a set of machines.
   Category: 0
   Color: {r: 0, g: 0, b: 0, a: 0}
   DefaultBlock: 0
   PrefabName: FuncBlock
   IsAsync: 0
   Zone: {fileID: 0}
-  Manager: {fileID: 0}

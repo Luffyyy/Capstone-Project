@@ -13,6 +13,14 @@ MonoBehaviour:
   m_Name: IfElseBlockWithElseExp
   m_EditorClassIdentifier: Assembly-CSharp::PrefabBlockDefinition
   Name: if
+  Documentation: 'A special logic block that allows conditionally running blocks.
+
+    If
+    the expression given is true, it runs the blocks inside the "if" tray.
+
+    Else,
+    it checks the same for the else and runs the blocks under inside the "else if"
+    tray if true.'
   Category: 1
   Color: {r: 0, g: 0, b: 0, a: 0}
   DefaultBlock: 0

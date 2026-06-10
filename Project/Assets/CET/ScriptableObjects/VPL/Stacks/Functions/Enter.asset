@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Enter
   m_EditorClassIdentifier: Assembly-CSharp::EnterFunction
   Name: enter
+  Documentation: A function that enters a single character in a directly connected
+    monitor. No port is needed.
   Category: 0
   Color: {r: 0, g: 0, b: 0, a: 0}
   DefaultBlock: 0

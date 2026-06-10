@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: IsPrime
   m_EditorClassIdentifier: Assembly-CSharp::IsPrime
   Name: IsPrime
+  Documentation: 'A function that returns true if input is a prime number.
+
+    A
+    prime number is a number that can be only divided by itself and 1.'
   Category: 0
   Color: {r: 0, g: 0, b: 0, a: 0}
   DefaultBlock: 0

@@ -13,6 +13,15 @@ MonoBehaviour:
   m_Name: GreaterThanOperatorBlock
   m_EditorClassIdentifier: Assembly-CSharp::OperatorDefinition
   Name: Greater Than
+  Documentation: 'Returns whether the first input is greater than the second input.
+
+
+    For
+    example,
+
+    3 > 4 is false
+
+    5 > 1 is true.'
   Category: 3
   Color: {r: 0, g: 0, b: 0, a: 0}
   DefaultBlock: 0

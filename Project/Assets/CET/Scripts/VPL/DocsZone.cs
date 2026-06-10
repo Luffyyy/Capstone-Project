@@ -1,15 +1,13 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DeleteZone : DragZone
+public class DocsZone : DragZone
 {
     public override void OnDrop(PointerEventData eventData)
     {
         if (eventData.pointerDrag.TryGetComponent<BaseBlock>(out var block)) {
-            block.OnDelete();
-            block.transform.SetParent(transform); // Just to prevent it from returning it to the tray
+            VPLMenu.Instance.ShowDocumentation(block.Defintion);
             ExecuteEvents.Execute(block.gameObject, eventData, ExecuteEvents.endDragHandler);
-            Destroy(block.gameObject);
         }
         Hide();
     }

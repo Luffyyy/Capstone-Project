@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: SetChannel
   m_EditorClassIdentifier: Assembly-CSharp::SetChannel
   Name: set channel
+  Documentation: Sets the channel on a certain TV. Maybe look for clues to find the
+    right channel?
   Category: 0
   Color: {r: 0, g: 0, b: 0, a: 0}
   DefaultBlock: 0

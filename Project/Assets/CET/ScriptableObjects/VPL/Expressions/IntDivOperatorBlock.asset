@@ -13,6 +13,16 @@ MonoBehaviour:
   m_Name: IntDivOperatorBlock
   m_EditorClassIdentifier: Assembly-CSharp::OperatorDefinition
   Name: int div
+  Documentation: 'Integer Division, returns a / b but drops the fraction.
+
+
+    For
+    example,
+
+
+    10 // 3 = 3
+
+    11 // 2 = 5'
   Category: 3
   Color: {r: 0, g: 0, b: 0, a: 0}
   DefaultBlock: 0

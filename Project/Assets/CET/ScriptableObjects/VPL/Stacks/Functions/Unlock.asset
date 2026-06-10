@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Unlock
   m_EditorClassIdentifier: Assembly-CSharp::Unlock
   Name: unlock
+  Documentation: Unlocks a keypad or door using a given port and password.
   Category: 0
   Color: {r: 0, g: 0, b: 0, a: 0}
   DefaultBlock: 0

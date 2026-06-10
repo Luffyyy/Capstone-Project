@@ -9,13 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e4621f6e2d84de4998f6d5f244477d6, type: 3}
-  m_Name: GridMoveY
-  m_EditorClassIdentifier: Assembly-CSharp::GridMoveY
-  Name: grid move y
+  m_Script: {fileID: 11500000, guid: f36ed42b5d69da34d9023024cb5c4590, type: 3}
+  m_Name: GridMoveRight
+  m_EditorClassIdentifier: Assembly-CSharp::GridMoveX
+  Name: grid move right
+  Documentation: Moves a square in a maze right x steps
   Category: 0
   Color: {r: 0, g: 0, b: 0, a: 0}
   DefaultBlock: 0
   PrefabName: FuncBlock
   IsAsync: 1
   Zone: {fileID: 0}
+  Direction: 0

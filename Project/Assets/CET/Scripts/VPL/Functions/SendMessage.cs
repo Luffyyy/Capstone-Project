@@ -14,7 +14,6 @@ public class SendMessageFunction : FuncBlockDefinition
     public override IEnumerator ExecuteAsync(params object[] input)
     {
         var co = Zone.ConnectedTo.ConnectedObjects;
-        Debug.Log("ah");
 
         var port = int.Parse(input[0].ToString());
         var msg = input[1].ToString();

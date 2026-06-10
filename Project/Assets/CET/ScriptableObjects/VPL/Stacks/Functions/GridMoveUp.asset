@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f36ed42b5d69da34d9023024cb5c4590, type: 3}
-  m_Name: GridMoveX
+  m_Name: GridMoveUp
   m_EditorClassIdentifier: Assembly-CSharp::GridMoveX
-  Name: grid move x
+  Name: grid move up
+  Documentation: Moves a square in a maze up x steps
   Category: 0
   Color: {r: 0, g: 0, b: 0, a: 0}
   DefaultBlock: 0
   PrefabName: FuncBlock
   IsAsync: 1
   Zone: {fileID: 0}
+  Direction: 2

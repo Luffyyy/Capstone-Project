@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: WhileBlock
   m_EditorClassIdentifier: Assembly-CSharp::PrefabBlockDefinition
   Name: while
+  Documentation: 'A special logic block that allows checking for a condition.
+
+    If
+    true, runs the blocks inside.'
   Category: 1
   Color: {r: 0, g: 0, b: 0, a: 0}
   DefaultBlock: 0

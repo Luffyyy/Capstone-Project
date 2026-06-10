@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: MultOperatorBlock
   m_EditorClassIdentifier: Assembly-CSharp::OperatorDefinition
   Name: Multiply
+  Documentation: Multiplication, returns a * b.
   Category: 3
   Color: {r: 0, g: 0, b: 0, a: 0}
   DefaultBlock: 0

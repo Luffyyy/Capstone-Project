@@ -9,14 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a47c385942d1b24f8052f766d0ddb5d, type: 3}
-  m_Name: Open
-  m_EditorClassIdentifier: Assembly-CSharp::EnableTerminal
-  Name: open
-  Documentation: Opens locked doors using a port that is found in the room or clues.
+  m_Script: {fileID: 11500000, guid: f36ed42b5d69da34d9023024cb5c4590, type: 3}
+  m_Name: GridMoveDown
+  m_EditorClassIdentifier: Assembly-CSharp::GridMoveX
+  Name: grid move down
+  Documentation: Moves a square in a maze down x steps
   Category: 0
   Color: {r: 0, g: 0, b: 0, a: 0}
   DefaultBlock: 0
   PrefabName: FuncBlock
-  IsAsync: 0
+  IsAsync: 1
   Zone: {fileID: 0}
+  Direction: 3

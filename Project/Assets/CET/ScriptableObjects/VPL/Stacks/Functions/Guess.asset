@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Guess
   m_EditorClassIdentifier: Assembly-CSharp::Reveal
   Name: guess
+  Documentation: A special function that is used to guess a letter in a certain hangman
+    game.
   Category: 0
   Color: {r: 0, g: 0, b: 0, a: 0}
   DefaultBlock: 0

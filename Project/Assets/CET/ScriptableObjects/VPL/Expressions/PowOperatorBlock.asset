@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: PowOperatorBlock
   m_EditorClassIdentifier: Assembly-CSharp::OperatorDefinition
   Name: Power
+  Documentation: 'Exponent, Returns <b>a</b> raised to the power of <b>b</b>.
+
+'
   Category: 3
   Color: {r: 0, g: 0, b: 0, a: 0}
   DefaultBlock: 0

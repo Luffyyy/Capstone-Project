@@ -66,7 +66,14 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
             if (!IsNew)
             {
-                Zone.DeleteZone.SetActive(true); //TODO: animate it
+                Zone.DeleteZone.Show();
+            } else
+            {
+                var block = GetComponent<BaseBlock>();
+                if (!string.IsNullOrEmpty(block.Defintion.Documentation))
+                {
+                    Zone.DocsZone.Show();
+                }
             }
         }
     }
@@ -153,7 +160,8 @@ public class DraggableBlock : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
         if (Zone != null)
         {
-            Zone.DeleteZone.SetActive(false);
+            Zone.DeleteZone.Hide();
+            Zone.DocsZone.Hide();
         }
     }
 }
