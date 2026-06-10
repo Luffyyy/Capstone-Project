@@ -124,7 +124,6 @@ public class MenuManager : MonoBehaviour
 
     public void CloseCurrentMenu()
     {
-        Debug.Log(DialogStack.Count);
         if (DialogStack.Count > 0)
         {
             DialogStack.Peek().Hide();
