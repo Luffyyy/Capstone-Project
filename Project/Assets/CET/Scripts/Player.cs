@@ -24,6 +24,19 @@ public class Player : NetworkBehaviour
     public string Username;
     public TextMeshProUGUI UsernameText;
 
+    public override void OnStartServer()
+    {
+        OnSetName(Username, Username);
+    }
+
+    public override void OnStartClient()
+    {
+        if (LobbyManager.Instance != null)
+        {
+            LobbyManager.Instance.Screen.LobbySetup(); // Update name
+        }
+    }
+
     public PlayerSaveData GetData() => new()
     {
         PlayerIndex = PlayerIndex,
@@ -62,6 +75,7 @@ public class Player : NetworkBehaviour
     [Command]
     public void CmdSetUsername(string newName)
     {
+        OnSetName(Username, newName);
         Username = newName;
     }
 

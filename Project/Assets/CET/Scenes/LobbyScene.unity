@@ -1101,6 +1101,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5002352680102381089, guid: 93d94d7a08e40c24096bf850caa6a78d, type: 3}
+      propertyPath: m_text
+      value: Username
+      objectReference: {fileID: 0}
     - target: {fileID: 6339833607377052056, guid: 93d94d7a08e40c24096bf850caa6a78d, type: 3}
       propertyPath: m_Text
       value: Enter Username...
