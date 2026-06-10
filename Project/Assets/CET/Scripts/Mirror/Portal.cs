@@ -38,6 +38,7 @@ public class Portal : NetworkBehaviour
 
         if (numPlayers == 2)
         {
+            ServerHUD.Instance.levelFinished.Hide();
             NewNetworkManager.singleton.ChangeLevel(destinationScene);
         }
     }

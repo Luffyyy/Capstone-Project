@@ -19,12 +19,19 @@ public class LevelFinished : MonoBehaviour
     }
     public void Show()
     {
+        if (gameObject.activeSelf) return; // Don't show again, force hiding first
+
         gameObject.SetActive(true);
         
         audioSource.Play();
         anim.Play("FinishedLevel");
 
         MenuManager.Instance.CloseCurrentMenu(); // So players see it
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
     }
 
     public void UpdateEscapedPlayers(int num)
