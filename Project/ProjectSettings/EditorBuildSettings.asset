@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/CET/Scenes/LobbyScene.unity
     guid: 6e045fda8e2f7614dbb438b3b66fb0d7
+  - enabled: 1
+    path: Assets/CET/Scenes/CreditsScreen.unity
+    guid: 8b6bae35d0a9e0d45a20664b230caf1d
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 10607ada46e12154bbc87bdff28d9292, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 5a9501f4394641140ab59dad68d40674, type: 2}
