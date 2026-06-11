@@ -96,7 +96,7 @@ public class Player : NetworkBehaviour
     {
         if (Camera.main != null)
         {
-            UsernameText.transform.forward = Camera.main.transform.forward;
+            UsernameText.transform.parent.forward = Camera.main.transform.forward;
         }
     }
 }

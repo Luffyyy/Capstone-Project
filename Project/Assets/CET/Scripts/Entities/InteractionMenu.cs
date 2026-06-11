@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Mirror;
 
 [ExecuteInEditMode]
 public class InteractionMenu : MenuBase
@@ -64,6 +65,9 @@ public class InteractionMenu : MenuBase
         }
 
         MenuManager.Instance.OpenMenu("InteractionMenu");
+
+        if (NetworkClient.localPlayer != null)
+            NetworkClient.localPlayer.GetComponent<PlayerController>().CmdSetFocusingOnPhone(true);
     }
 
     public override void Hide()
@@ -78,5 +82,8 @@ public class InteractionMenu : MenuBase
         {
             TextUI.text = "";
         }
+
+        if (NetworkClient.localPlayer != null)
+            NetworkClient.localPlayer.GetComponent<PlayerController>().CmdSetFocusingOnPhone(false);
     }
 }

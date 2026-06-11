@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using Mirror;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,6 +22,23 @@ public class MazeMenu : MenuBase
     {
         blackboard = (RectTransform)transform.Find("BlackBoard");
         content = blackboard.GetChild(0);
+    }
+
+
+    public override void Show()
+    {
+        base.Show();
+
+        if (NetworkClient.localPlayer != null)
+            NetworkClient.localPlayer.GetComponent<PlayerController>().CmdSetFocusingOnPhone(true);
+    }
+
+    public override void Hide()
+    {
+        base.Hide();
+
+        if (NetworkClient.localPlayer != null)
+            NetworkClient.localPlayer.GetComponent<PlayerController>().CmdSetFocusingOnPhone(false);
     }
 
     public void UpdateGrid()

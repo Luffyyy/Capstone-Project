@@ -139,7 +139,7 @@ public class PlayerController : NetworkBehaviour
         {
             var pos = CurrentInteractable.UIAnchor ? CurrentInteractable.UIAnchor.position : CurrentInteractable.transform.position;
             Vector3 screenPos = Camera.main.WorldToScreenPoint(pos);
-            InteractionText.transform.localScale = Vector3.one / Math.Min(1.75f, Vector3.Distance(Camera.main.transform.position, pos)/10);
+            InteractionText.transform.localScale = Vector3.one / Math.Min(2f, Vector3.Distance(Camera.main.transform.position, pos)/8);
             InteractionText.transform.position = screenPos;
             InteractionText.SetActive(true);
             if (string.IsNullOrEmpty(CurrentInteractable.InteractionText))
@@ -210,5 +210,10 @@ public class PlayerController : NetworkBehaviour
         }
 
         audioSource.PlayOneShot(audioSource.clip);
+    }
+
+    void OnDestroy()
+    {
+        Destroy(InteractionText);
     }
 }

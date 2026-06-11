@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Mirror;
 using TMPro;
 using UnityEngine;
 
@@ -40,6 +41,20 @@ public class VPLMenu : MenuBase
     {
         Zones[id] = zone;
         zone.Hide();
+    }
+
+    public override void Show()
+    {
+        base.Show();
+        if (NetworkClient.localPlayer != null)
+            NetworkClient.localPlayer.GetComponent<PlayerController>().CmdSetFocusingOnPhone(true);
+    }
+
+    public override void Hide()
+    {
+        base.Hide();
+        if (NetworkClient.localPlayer != null)
+            NetworkClient.localPlayer.GetComponent<PlayerController>().CmdSetFocusingOnPhone(false);
     }
 
     public void OpenVPLZone(int id)
