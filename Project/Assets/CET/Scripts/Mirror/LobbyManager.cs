@@ -12,7 +12,7 @@ public enum ReadyState
 public class LobbyManager : NetworkBehaviour
 {
     [Scene, Tooltip("Which scene to send player from here")]
-    public string destinationScene;
+    public string DestinationScene;
 
     public SyncList<ReadyState> ReadyStates = new(){ ReadyState.Offline, ReadyState.Offline };
 
@@ -53,7 +53,7 @@ public class LobbyManager : NetworkBehaviour
 
         if (ReadyStates[0] == ReadyState.Ready && ReadyStates[1] == ReadyState.Ready)
         {
-            NewNetworkManager.singleton.ChangeLevel(destinationScene);
+            NewNetworkManager.singleton.ChangeLevel(DestinationScene);
         }
     }
 }

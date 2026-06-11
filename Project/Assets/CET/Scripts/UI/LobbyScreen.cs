@@ -16,6 +16,9 @@ public class LobbyScreen : HUDBase
     public TMP_Dropdown PlayerEmotion;
     public TMP_InputField UsernameField;
     public GameObject PlayerMenu;
+
+    public GameObject LevelSelect;
+
     void Start()
     {
         var networkDiscovery = NetworkManager.singleton.GetComponent<NewNetworkDiscovery>();
@@ -33,6 +36,8 @@ public class LobbyScreen : HUDBase
             PlayerEmotion.value = player.EmotionIndex;
             UsernameField.text = player.Username;
         }
+
+        LevelSelect.SetActive(NetworkServer.active);
 
         SetReadyStates();
     }
@@ -59,6 +64,11 @@ public class LobbyScreen : HUDBase
         }
     }
 
+
+    public void SetServerLevel(int level)
+    {
+        LobbyManager.Instance.DestinationScene = "CET/Scenes/Level"+(level+1);
+    }
 
     public string GetReadyText(int i)
     {
@@ -89,6 +99,7 @@ public class LobbyScreen : HUDBase
         UsernameField.interactable = !IsReady;
         PlayerColor.interactable = !IsReady;
         PlayerEmotion.interactable = !IsReady;
+        LevelSelect.GetComponentInChildren<TMP_Dropdown>().interactable = !IsReady;
         LobbyManager.Instance.CmdSetReady(IsReady);
     }
     public void OnUsernameChanged()
