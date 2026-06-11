@@ -17,6 +17,8 @@ public class MainMenu : MenuBase
 
     public Dialog serversDialog;
     public Dialog hostGameDialog;
+    public Dialog ErrorDialog;
+    public TextMeshProUGUI Error;
 
     public TMP_InputField ServerName;
     public Toggle ServerOnly;
@@ -68,17 +70,25 @@ public class MainMenu : MenuBase
         ServerNameStr = ServerName.text;
         discoveredServers.Clear();
 
-        if (ServerOnly.isOn)
+        try
         {
-            NetworkManager.singleton.StartServer();
-        } else
-        {
-            NetworkManager.singleton.StartHost();
-        }
-        networkDiscovery.ServerName = ServerNameStr;
-        networkDiscovery.AdvertiseServer();
+            if (ServerOnly.isOn)
+            {
+                NetworkManager.singleton.StartServer();
+            } else
+            {
+                NetworkManager.singleton.StartHost();
+            }
+            networkDiscovery.ServerName = ServerNameStr;
+            networkDiscovery.AdvertiseServer();
 
-        gameObject.SetActive(false);
+            gameObject.SetActive(false);   
+        }
+        catch (Exception e)
+        {
+            Error.text = "Something went wrong while trying to host the game:\n" + e.Message;
+            ErrorDialog.Show();
+        }
     }
 
     // Starts looking for games and renders it in a list
@@ -104,7 +114,17 @@ public class MainMenu : MenuBase
     public void Connect(DiscoveryResponse info)
     {
         networkDiscovery.StopDiscovery();
-        NetworkManager.singleton.StartClient(info.uri);
+        try
+        {
+            NetworkManager.singleton.StartClient(info.uri);
+            
+        }
+        catch (Exception e)
+        {
+            Error.text = "Something went wrong while trying to connect to the server:\n" + e.Message;
+            ErrorDialog.Show();
+            throw;
+        }
         
         gameObject.SetActive(false);
     }
@@ -118,6 +138,8 @@ public class MainMenu : MenuBase
 
         foreach (var pair in discoveredServers)
         {
+            if (pair.Value.NumPlayers == 2) continue;
+
             var btn = Instantiate(serverButton, serverList.transform);
             btn.GetComponentInChildren<TextMeshProUGUI>().SetText( $"{pair.Value.Name} ({pair.Value.NumPlayers} Players)");
             btn.GetComponent<Button>().onClick.AddListener(() => Connect(pair.Value)); // Connect on clicking the button
