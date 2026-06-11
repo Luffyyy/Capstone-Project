@@ -43,6 +43,14 @@ public class TerminalInteractable : Interactable
     protected override void Awake()
     {
         base.Awake();
+        
+        EmissionColor = PlayerIndex switch
+        {
+            0 => new Color(0, 0.36f, 0.87f),
+            1 => new Color(1, 0.3f, 0),
+            _ => null
+        };
+        
         SetEmission(IsOn);
         VPLMenu = MenuManager.Instance.GetMenu<VPLMenu>("VPLMenu");
         var go = Instantiate(VPLEditMenuPrefab, VPLMenu.transform);

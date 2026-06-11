@@ -40,7 +40,7 @@ public class Player : NetworkBehaviour
     public PlayerSaveData GetData() => new()
     {
         PlayerIndex = PlayerIndex,
-        ColorIndex = ColorIndex,
+        // ColorIndex = ColorIndex,
         EmotionIndex = EmotionIndex,
         Username = Username
     };
@@ -79,8 +79,12 @@ public class Player : NetworkBehaviour
         Username = newName;
     }
 
-    public void SetColorIndex(int colorIndex)
+    public void SetColorIndex(int colorIndex=-1)
     {
+        if (colorIndex == -1)
+        {
+            colorIndex = PlayerIndex;
+        }
         ColorIndex = colorIndex;
         GetComponent<Rob10ColorManager>().ChangeBodyColor(colorIndex);
     }

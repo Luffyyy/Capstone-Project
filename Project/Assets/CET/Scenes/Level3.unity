@@ -493,6 +493,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: PlayerIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: DefinedBlocks.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -1164,6 +1168,10 @@ PrefabInstance:
       value: '{"Ident":"b88404ac-c420-42d5-95a8-6f31b768e480","DefinitionName":"","Data":[],"Type":0,"Trays":[{"Ident":"d963760c-7be6-43d1-b7e8-f9e6a49eff40","Blocks":[{"Ident":"c7a7d2c8-8045-45e5-b0f8-0ec30d0150d1","DefinitionName":"ForBlock","Data":[{"Key":"VarName","Value":"i"}],"Type":0,"Trays":[{"Ident":"3e07ff37-0393-4fe0-a809-0daa7a1173d6","Blocks":[{"Ident":"6533a31e-0e2d-486e-a1a3-915c0505a156","DefinitionName":"IfBlock","Data":[],"Type":0,"Trays":[{"Ident":"1f0d914e-264f-475e-a763-a015e4a8d495","Blocks":[{"Ident":"558fd77b-cfa4-4eea-891b-2160ee6df6f7","DefinitionName":"SendMessage","Data":[],"Type":0,"Trays":[],"ExpressionTrays":[{"Ident":"c1e46e43-6b03-4f0e-a841-e4ab10e2d24e","CurrentExpression":{"Ident":"939d8016-a6c2-4acc-b190-58ed8002fd8d","DefinitionName":"LiteralExpressionBlock","Data":[{"Key":"Type","Value":"0"},{"Key":"InputValue","Value":""},{"Key":"DropdownValue","Value":"1"}],"Type":0,"Trays":[],"ExpressionTrays":[],"VariableDefs":[]}},{"Ident":"3a6761e7-f8d7-4456-a2dc-461d54ad7093","CurrentExpression":{"Ident":"8060ec9f-7d67-4348-bc9d-82f5310a5eee","DefinitionName":"VariableBlock","Data":[{"Key":"VarName","Value":"i"}],"Type":0,"Trays":[],"ExpressionTrays":[],"VariableDefs":[]}}],"VariableDefs":[]}]}],"ExpressionTrays":[{"Ident":"b5fd88ec-3cb7-4819-9141-6bf98880971a","CurrentExpression":{"Ident":"6bb0be36-60b3-43a7-acc3-95dc48b926c0","DefinitionName":"","Data":[],"Type":0,"Trays":[],"ExpressionTrays":[],"VariableDefs":[]}}],"VariableDefs":[]}]}],"ExpressionTrays":[{"Ident":"9f97fbcc-f298-47b8-a7b2-ba05a2f3d897","CurrentExpression":{"Ident":"ad5e13a8-1d5d-4b43-8ae7-0721257d63b9","DefinitionName":"LiteralExpressionBlock","Data":[{"Key":"Type","Value":"0"},{"Key":"InputValue","Value":""},{"Key":"DropdownValue","Value":"1"}],"Type":0,"Trays":[],"ExpressionTrays":[],"VariableDefs":[]}},{"Ident":"de609843-566c-4b66-b9f5-2c00ae7e13ca","CurrentExpression":{"Ident":"825fdaf0-4512-449d-97f9-e902f2c6667f","DefinitionName":"LiteralExpressionBlock","Data":[{"Key":"Type","Value":"0"},{"Key":"InputValue","Value":""},{"Key":"DropdownValue","Value":"1"}],"Type":0,"Trays":[],"ExpressionTrays":[],"VariableDefs":[]}},{"Ident":"ea5e8284-68c4-4192-ae7e-fd5bc829f8e8","CurrentExpression":{"Ident":"fba57475-9247-4adb-8fdc-d839b5a8aa5c","DefinitionName":"LiteralExpressionBlock","Data":[{"Key":"Type","Value":"0"},{"Key":"InputValue","Value":"1"},{"Key":"DropdownValue","Value":"1"}],"Type":0,"Trays":[],"ExpressionTrays":[],"VariableDefs":[]}}],"VariableDefs":[]}]}],"ExpressionTrays":[],"VariableDefs":[{"Key":"i","Value":"2"}]}
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: PlayerIndex
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: PreplacedBlocks
@@ -1951,6 +1959,10 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: PlayerIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: DefinedBlocks.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -2518,6 +2530,10 @@ PrefabInstance:
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: BlocksJson
       value: '{"Ident":"1c8a2e7c-5276-4844-9eae-56f762a72e1f","DefinitionName":"","Data":[],"Type":0,"Trays":[{"Ident":"7a7da671-b89e-46ad-a0f1-fb35c08d5f23","Blocks":[{"Ident":"4e6c2a4a-616f-4c89-a3c5-63003ad6e1d7","DefinitionName":"ForEachBlock","Data":[{"Key":"VarName","Value":"i"}],"Type":0,"Trays":[{"Ident":"899c93d9-a2fe-4e2c-b06a-4d50b743f143","Blocks":[{"Ident":"e2943bea-dabd-4df8-8c90-5af09cc5badc","DefinitionName":"IfBlock","Data":[],"Type":0,"Trays":[{"Ident":"c7e20bc6-a646-4bea-ac5a-c951f14bdff0","Blocks":[]}],"ExpressionTrays":[{"Ident":"f40af622-99b3-40f5-8c3e-a3343094d77c","CurrentExpression":{"Ident":"77603659-365a-44db-9045-501b105f5c55","DefinitionName":"","Data":[],"Type":0,"Trays":[],"ExpressionTrays":[],"VariableDefs":[]}}],"VariableDefs":[]}]}],"ExpressionTrays":[{"Ident":"93e711d5-0ece-47a5-932e-baf4f00c9f47","CurrentExpression":{"Ident":"97fb44d9-8ff0-4680-bde5-534682ad86a4","DefinitionName":"VariableBlock","Data":[{"Key":"VarName","Value":"MessagesReceived"}],"Type":0,"Trays":[],"ExpressionTrays":[],"VariableDefs":[]}}],"VariableDefs":[]},{"Ident":"f72e4e8f-f979-46c2-9265-aa1dab311c13","DefinitionName":"ClearMessagesFunction","Data":[],"Type":0,"Trays":[],"ExpressionTrays":[],"VariableDefs":[]}]}],"ExpressionTrays":[],"VariableDefs":[{"Key":"i","Value":"1"},{"Key":"MessagesReceived","Value":"1"}]}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: PlayerIndex
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: PreplacedBlocks
@@ -3609,6 +3625,7 @@ MonoBehaviour:
   OnTurnOnEvent:
     m_PersistentCalls:
       m_Calls: []
+  PlayerIndex: -1
   CurrentPlayer: {fileID: 0}
   UIAnchor: {fileID: 0}
   InteractionText: Read Logs
@@ -3787,6 +3804,7 @@ MonoBehaviour:
   OnTurnOnEvent:
     m_PersistentCalls:
       m_Calls: []
+  PlayerIndex: -1
   CurrentPlayer: {fileID: 0}
   UIAnchor: {fileID: 1568404163}
   InteractionText: Read
@@ -5544,6 +5562,10 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: PlayerIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: DefinedBlocks.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -6523,6 +6545,7 @@ MonoBehaviour:
   OnTurnOnEvent:
     m_PersistentCalls:
       m_Calls: []
+  PlayerIndex: -1
 --- !u!108 &1345545357 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 4926919694362597336, guid: aca54b9359d750744bff145af732f2ad, type: 3}
@@ -7339,6 +7362,7 @@ MonoBehaviour:
   OnTurnOnEvent:
     m_PersistentCalls:
       m_Calls: []
+  PlayerIndex: -1
   CurrentPlayer: {fileID: 0}
   UIAnchor: {fileID: 0}
   InteractionText: Look Closer
@@ -8613,6 +8637,7 @@ MonoBehaviour:
   OnTurnOnEvent:
     m_PersistentCalls:
       m_Calls: []
+  PlayerIndex: -1
   CurrentPlayer: {fileID: 0}
   UIAnchor: {fileID: 446352518}
   InteractionText: Read
@@ -8787,6 +8812,7 @@ MonoBehaviour:
   OnTurnOnEvent:
     m_PersistentCalls:
       m_Calls: []
+  PlayerIndex: -1
   CurrentPlayer: {fileID: 0}
   UIAnchor: {fileID: 2068000334}
   InteractionText: Read
@@ -9558,6 +9584,7 @@ MonoBehaviour:
   OnTurnOnEvent:
     m_PersistentCalls:
       m_Calls: []
+  PlayerIndex: -1
 --- !u!108 &6914085076693736577 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 4926919694362597336, guid: aca54b9359d750744bff145af732f2ad, type: 3}

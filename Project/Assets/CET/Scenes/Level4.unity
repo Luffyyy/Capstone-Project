@@ -3126,6 +3126,7 @@ MonoBehaviour:
   OnTurnOnEvent:
     m_PersistentCalls:
       m_Calls: []
+  PlayerIndex: -1
   CurrentPlayer: {fileID: 0}
   UIAnchor: {fileID: 141613947}
   InteractionText: Look Closer
@@ -3202,6 +3203,10 @@ PrefabInstance:
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: BlocksJson
       value: '{"Ident":"ce85cce4-0eb0-49d4-8d7d-9f0b2ea371f6","DefinitionName":"","Data":[],"Type":0,"Trays":[{"Ident":"6de172c9-387a-49aa-8c3a-b6b2c6b4a2e3","Blocks":[{"Ident":"83f6f1da-070a-4019-bffd-963d4f4ad74b","DefinitionName":"SetVarBlock","Data":[{"Key":"VarName","Value":"i"}],"Type":0,"Trays":[],"ExpressionTrays":[{"Ident":"f79f3cd1-e6c4-4527-9da0-37876aebf2a1","CurrentExpression":{"Ident":"8cf30de3-3ae7-4157-a54d-6e38fec9a5bb","DefinitionName":"VariableBlock","Data":[{"Key":"VarName","Value":"Password"}],"Type":0,"Trays":[],"ExpressionTrays":[],"VariableDefs":[]}}],"VariableDefs":[]},{"Ident":"6ba19bed-505d-42b9-9128-83ea7b362b10","DefinitionName":"WhileBlock","Data":[],"Type":0,"Trays":[{"Ident":"ae01f282-dc54-4e85-94e1-0a51dfada82a","Blocks":[{"Ident":"931adde7-d1d6-45b1-aa63-30c98beebac3","DefinitionName":"SetVarBlock","Data":[{"Key":"VarName","Value":"i"}],"Type":0,"Trays":[],"ExpressionTrays":[{"Ident":"49607dbe-5811-4e5c-94c3-69a372db076f","CurrentExpression":{"Ident":"b4206d29-4719-439b-8a3b-831fc5f25490","DefinitionName":"IntDivOperatorBlock","Data":[],"Type":0,"Trays":[],"ExpressionTrays":[{"Ident":"f47409aa-8738-4e96-aac0-7a369a090c8d","CurrentExpression":{"Ident":"f16786bd-12da-41e4-8716-e2dc8ebdc3bc","DefinitionName":"VariableBlock","Data":[{"Key":"VarName","Value":"i"}],"Type":0,"Trays":[],"ExpressionTrays":[],"VariableDefs":[]}},{"Ident":"a771c9be-ff04-46ab-9418-a3c7740336d4","CurrentExpression":{"Ident":"2843633c-7e9f-482c-afaa-ac09c2731943","DefinitionName":"LiteralExpressionBlock","Data":[{"Key":"Type","Value":"0"},{"Key":"InputValue","Value":""},{"Key":"DropdownValue","Value":"1"}],"Type":0,"Trays":[],"ExpressionTrays":[],"VariableDefs":[]}}],"VariableDefs":[]}}],"VariableDefs":[]}]}],"ExpressionTrays":[{"Ident":"4feca4d7-3028-4328-87d9-55e75f84a0bb","CurrentExpression":{"Ident":"68490686-af13-4f4b-8069-429db785e0a5","DefinitionName":"GreaterThanOperatorBlock","Data":[],"Type":0,"Trays":[],"ExpressionTrays":[{"Ident":"0edce4a6-b1ee-4f96-9ad6-50c4765478df","CurrentExpression":{"Ident":"e381736a-8427-428a-8864-1f817f7c7499","DefinitionName":"VariableBlock","Data":[{"Key":"VarName","Value":"i"}],"Type":0,"Trays":[],"ExpressionTrays":[],"VariableDefs":[]}},{"Ident":"f35fe8e7-0dfa-444a-913e-5c760b7b3d61","CurrentExpression":{"Ident":"cd7ee4b7-0eb7-4037-8e1d-5c661404a27a","DefinitionName":"LiteralExpressionBlock","Data":[{"Key":"Type","Value":"0"},{"Key":"InputValue","Value":""},{"Key":"DropdownValue","Value":"1"}],"Type":0,"Trays":[],"ExpressionTrays":[],"VariableDefs":[]}}],"VariableDefs":[]}}],"VariableDefs":[]}]}],"ExpressionTrays":[],"VariableDefs":[{"Key":"i","Value":"20"}]}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: PlayerIndex
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: PredefinedVariableName
@@ -3475,6 +3480,10 @@ PrefabInstance:
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: IsOn
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: PlayerIndex
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: DefinedBlocks.Array.size
@@ -5087,6 +5096,7 @@ MonoBehaviour:
   OnTurnOnEvent:
     m_PersistentCalls:
       m_Calls: []
+  PlayerIndex: -1
   CurrentPlayer: {fileID: 0}
   UIAnchor: {fileID: 1894961535}
   InteractionText: Read
@@ -5547,6 +5557,7 @@ MonoBehaviour:
   OnTurnOnEvent:
     m_PersistentCalls:
       m_Calls: []
+  PlayerIndex: -1
   CurrentPlayer: {fileID: 0}
   UIAnchor: {fileID: 910015877}
   InteractionText: Read

@@ -11,6 +11,10 @@ public class Activatable : Entity
     public AudioSource AudioSource;
     public UnityEvent<bool> OnTurnOnEvent;
 
+    public int PlayerIndex = -1;
+
+    public Color? EmissionColor;
+
     public override void OnStartClient()
     {
         base.OnStartClient();
@@ -61,6 +65,10 @@ public class Activatable : Entity
                 if (value)
                 {
                     mat.EnableKeyword("_EMISSION");
+                    if (EmissionColor != null)
+                    {
+                        mat.SetColor("_EmissionColor", EmissionColor.Value);
+                    }
                 }
                 else
                 {

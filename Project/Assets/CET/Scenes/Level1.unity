@@ -851,6 +851,7 @@ MonoBehaviour:
   OnTurnOnEvent:
     m_PersistentCalls:
       m_Calls: []
+  PlayerIndex: -1
   CurrentPlayer: {fileID: 0}
   UIAnchor: {fileID: 1171981796}
   InteractionText: Collect
@@ -1810,6 +1811,10 @@ PrefabInstance:
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: TerminalID
       value: 7915
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: PlayerIndex
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: EmissionRenderer
@@ -3486,7 +3491,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3336689550218300552, guid: 93fedf00d1f3b9c4481f25a496030bb4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.981
+      value: -5.96
       objectReference: {fileID: 0}
     - target: {fileID: 3336689550218300552, guid: 93fedf00d1f3b9c4481f25a496030bb4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3751,6 +3756,10 @@ PrefabInstance:
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: TerminalID
       value: 7915
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: PlayerIndex
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: EmissionRenderer
@@ -4410,6 +4419,10 @@ PrefabInstance:
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: TerminalID
       value: 7915
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
+      propertyPath: PlayerIndex
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: EmissionRenderer
@@ -5876,10 +5889,6 @@ PrefabInstance:
       propertyPath: renderer
       value: 
       objectReference: {fileID: 1570646624159032859}
-    - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
-      propertyPath: EmissionRenderer
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: DefinedBlocks.Array.size
       value: 1

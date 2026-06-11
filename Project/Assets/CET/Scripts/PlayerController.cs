@@ -33,6 +33,19 @@ public class PlayerController : NetworkBehaviour
 
     private AudioSource audioSource;
 
+    public GameObject FocusPhone;
+
+    [SyncVar]
+    public bool IsFocusingOnPhone;
+
+    private Player player;
+
+    [Command]
+    public void CmdSetFocusingOnPhone(bool isFocusing)
+    {
+        IsFocusingOnPhone = isFocusing;
+    }
+
     public void SetInputEnabled(bool enabled)
     {
         IsInputEnabled = enabled;
@@ -89,6 +102,7 @@ public class PlayerController : NetworkBehaviour
         charControl = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        player = GetComponent<Player>();
 
         InteractionText = Instantiate(InteractionTextPrefab, GameObject.Find("Canvas").transform);
         InteractionText.transform.SetSiblingIndex(0);
@@ -117,7 +131,7 @@ public class PlayerController : NetworkBehaviour
             foreach (var col in colliders)
             {
                 if (col.CompareTag("BlockInteraction")) break;
-                if (col.TryGetComponent<Interactable>(out var inter) && inter.IsOn)
+                if (col.TryGetComponent<Interactable>(out var inter) && inter.IsOn && (inter.PlayerIndex == -1 || inter.PlayerIndex == player.PlayerIndex))
                 {
                     found = true;
                     CurrentInteractable = inter;
@@ -152,6 +166,11 @@ public class PlayerController : NetworkBehaviour
         } else
         {
             InteractionText.SetActive(false);
+        }
+
+        if (isServerOnly)
+        {
+            FocusPhone.SetActive(IsFocusingOnPhone);
         }
     }
 
