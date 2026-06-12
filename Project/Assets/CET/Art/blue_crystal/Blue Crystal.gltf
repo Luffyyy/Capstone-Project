@@ -1,0 +1,218 @@
+{
+  "accessors": [
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 4839,
+      "max": [
+        0.5913169980049133,
+        0.24061499536037445,
+        0.41830700635910034
+      ],
+      "min": [
+        0.23210300505161285,
+        -0.12691299617290497,
+        -0.23010599613189697
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 58068,
+      "componentType": 5126,
+      "count": 4839,
+      "max": [
+        0.9297956228256226,
+        0.9913498759269714,
+        1.0
+      ],
+      "min": [
+        -0.9999994039535522,
+        -0.9661357998847961,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 6006,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 116136,
+      "componentType": 5126,
+      "count": 1442,
+      "max": [
+        0.5973389744758606,
+        0.24261200428009033,
+        -0.1354289948940277
+      ],
+      "min": [
+        0.21953199803829193,
+        -0.13519500195980072,
+        -0.2299170047044754
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 133440,
+      "componentType": 5126,
+      "count": 1442,
+      "max": [
+        0.8953962326049805,
+        0.8953368067741394,
+        1.0
+      ],
+      "min": [
+        -0.895297110080719,
+        -0.895297110080719,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 24024,
+      "componentType": 5125,
+      "count": 8640,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "danteinferno666 (https://sketchfab.com/danteinferno666)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/blue-crystal-3b27a998afdf4f0d949b1aa5f5c53264",
+      "title": "Blue Crystal"
+    },
+    "generator": "Sketchfab-12.67.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 58584,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 150744,
+      "byteOffset": 58584,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 209328,
+      "uri": "scene.bin"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "111111",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.14995978981060848,
+          0.2862596096414231,
+          1.0,
+          1.0
+        ],
+        "roughnessFactor": 0.05
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "222222",
+      "pbrMetallicRoughness": {
+        "roughnessFactor": 0.25
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Object_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0
+          },
+          "indices": 2,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Object_1",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 4,
+            "POSITION": 3
+          },
+          "indices": 5,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2,
+        3
+      ],
+      "name": "fc2abbe9fd084a789ea72419fb18e4a6.obj.cleaner.materialmerger.gles"
+    },
+    {
+      "mesh": 0,
+      "name": "Object_2"
+    },
+    {
+      "mesh": 1,
+      "name": "Object_3"
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ]
+}

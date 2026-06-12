@@ -96,7 +96,11 @@ public class PlayerController : NetworkBehaviour
             i.CmdInteract();
         }
     }
- 
+    public void OnJournalBtn(InputAction.CallbackContext context)
+    {
+        if (!isLocalPlayer || !context.performed || MenuManager.Instance.IsActive || !IsInputEnabled) return;
+        MenuManager.Instance.OpenMenu("Journal Menu");
+    }
     void Awake()
     {
         charControl = GetComponent<CharacterController>();

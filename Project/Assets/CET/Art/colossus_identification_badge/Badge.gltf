@@ -1,0 +1,297 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 795,
+      "max": [
+        7.610236167907715,
+        11.141732215881348,
+        0.35433071851730347
+      ],
+      "min": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 9540,
+      "componentType": 5126,
+      "count": 795,
+      "max": [
+        0.9950219392776489,
+        0.9946665167808533,
+        0.996016800403595
+      ],
+      "min": [
+        -0.9950219392776489,
+        -0.9946665167808533,
+        -0.996016800403595
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 4293,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 19080,
+      "componentType": 5126,
+      "count": 159,
+      "max": [
+        7.588364124298096,
+        11.11985969543457,
+        0.35433071851730347
+      ],
+      "min": [
+        0.0218722652643919,
+        0.0218722652643919,
+        0.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 20988,
+      "componentType": 5126,
+      "count": 159,
+      "max": [
+        0.10097528249025345,
+        0.10097528249025345,
+        0.996016800403595
+      ],
+      "min": [
+        -0.10097528249025345,
+        -0.10097528249025345,
+        -0.996016800403595
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 159,
+      "max": [
+        0.4415092170238495,
+        -7.023927688598633
+      ],
+      "min": [
+        -4.449400424957275,
+        -7.963423252105713
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 17172,
+      "componentType": 5125,
+      "count": 477,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "COSEDIMARCO (https://sketchfab.com/COSEDIMARCO)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/colossus-identification-badge-be638ded539c4964b1bfeaf82e669397",
+      "title": "Colossus identification badge"
+    },
+    "generator": "Sketchfab-12.68.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 19080,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 1272,
+      "byteOffset": 19080,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 22896,
+      "byteOffset": 20352,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 43248,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/Color_A05_baseColor.jpeg"
+    }
+  ],
+  "materials": [
+    {
+      "name": "Color_A05_1",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.46719082046604754,
+          0.37375265637283805,
+          0.37375265637283805,
+          1.0
+        ],
+        "metallicFactor": 0.0
+      }
+    },
+    {
+      "name": "Color_A05",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0.9640461663779972
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Material2",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0
+          },
+          "indices": 2,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Material2",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 4,
+            "POSITION": 3,
+            "TEXCOORD_0": 5
+          },
+          "indices": 6,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "name": "Collada visual scene group"
+    },
+    {
+      "children": [
+        3
+      ],
+      "name": "SketchUp"
+    },
+    {
+      "children": [
+        4
+      ],
+      "matrix": [
+        0.3599999999999998,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.110223024625156e-16,
+        0.3599999999999998,
+        0.0,
+        0.0,
+        -0.3599999999999998,
+        -1.110223024625156e-16,
+        0.0,
+        -1.320524846504049,
+        0.07355077626720452,
+        0.1001960174668242,
+        1.0
+      ],
+      "name": "instance_0"
+    },
+    {
+      "children": [
+        5,
+        6
+      ],
+      "name": "Componente_1"
+    },
+    {
+      "mesh": 0,
+      "name": "Material2"
+    },
+    {
+      "mesh": 1,
+      "name": "Material2"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    }
+  ]
+}

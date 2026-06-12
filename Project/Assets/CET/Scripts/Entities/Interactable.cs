@@ -26,4 +26,9 @@ public class Interactable : Activatable
     {
         
     }
+    [ClientRpc]
+    public virtual void ClientInteract()
+    {
+        
+    }
 }

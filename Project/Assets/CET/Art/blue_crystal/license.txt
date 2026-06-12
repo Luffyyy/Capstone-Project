@@ -1,0 +1,11 @@
+Model Information:
+* title:	Blue Crystal
+* source:	https://sketchfab.com/3d-models/blue-crystal-3b27a998afdf4f0d949b1aa5f5c53264
+* author:	danteinferno666 (https://sketchfab.com/danteinferno666)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Blue Crystal" (https://sketchfab.com/3d-models/blue-crystal-3b27a998afdf4f0d949b1aa5f5c53264) by danteinferno666 (https://sketchfab.com/danteinferno666) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

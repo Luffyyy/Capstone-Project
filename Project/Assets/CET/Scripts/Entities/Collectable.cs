@@ -2,19 +2,20 @@ using UnityEngine;
 using Mirror;
 using System.Collections;
 
-
+public enum CollectableType {Book,Badge,Photograph,Crystal}
 public class Collectable : Interactable
 {
     public Sprite Thumbnail;
     public Sprite SpriteToShow;
+    public CollectableType Type;
     void Start()
     {
     }
-    [TargetRpc]
-    public override void TargetInteract(NetworkConnectionToClient target)
+    [ClientRpc]
+    public override void ClientInteract()
     {
-        Debug.Log("TargetInteract");
-        base.TargetInteract(target);
+        base.ClientInteract();
+        ControlJournal.Instance.ApplyImage(Type);
         var dialog = MenuManager.Instance.ShowDialog("CollectableDialog") as CollectableDialog;
         dialog.Show(Thumbnail);
         InteractionMenu.Instance.Paper.sprite = SpriteToShow;
@@ -23,7 +24,7 @@ public class Collectable : Interactable
     public override void CmdInteract(NetworkConnectionToClient sender=null)
     {
         base.CmdInteract(sender);
-        Debug.Log(sender == null ? "SENDER NULL" : "SENDER OK");
+        ClientInteract();
         StartCoroutine(DestroyNextFrame());
     }
     [Server]

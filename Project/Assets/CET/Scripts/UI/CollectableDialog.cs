@@ -27,7 +27,7 @@ public class CollectableDialog : Dialog
     }
     public void HideAndShow()
     {
-        Hide();
+        base.Hide();
         InteractionMenu.Instance.Show(InteractionMenu.Instance.Paper.sprite, InteractionMenu.Instance.TextUI.text, InteractionMenu.Instance.TextUI.rectTransform.offsetMin, InteractionMenu.Instance.TextUI.fontSize, InteractionMenu.Instance.TextUI.color, InteractionMenu.Instance.TextUI.font, InteractionMenu.Instance.DisplayOnPaper);
     }
 }
