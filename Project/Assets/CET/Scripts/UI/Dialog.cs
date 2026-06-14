@@ -24,14 +24,14 @@ public class Dialog : MonoBehaviour
         Title.text = title;
     }
 
-    public void Show(Sprite image = null)
+    public virtual void Show()
     {
         gameObject.SetActive(true);
         animator.SetBool("IsShowing", true);
         MenuManager.Instance.DialogStack.Push(this);
     }
 
-    public void Hide()
+    public virtual void Hide()
     {
         MenuManager.Instance.DialogStack.Pop();
         if (MenuManager.Instance.DialogStack.Count == 0 && MenuManager.Instance.MenuStack.Count == 0)

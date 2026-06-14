@@ -31,7 +31,7 @@ public class MenuManager : MonoBehaviour
     }
     public Dialog ShowDialog(string name)
     {
-        var dialog = Dialogs.Find(dialog => dialog.gameObject.name == name);;
+        var dialog = Dialogs.Find(dialog => dialog.gameObject.name == name);
         //dialog.Show();
         Show();
         return dialog;

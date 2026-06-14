@@ -3,16 +3,8 @@ using UnityEngine.UI;
 public class CollectableDialog : Dialog
 {
     public Image ImageToShow;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public new void Start()
-    {
-        base.Start();
-    }
-    public new void Awake()
-    {
-        base.Awake();
-    }
-    public new void Show(Sprite image)
+
+    public void Show(Sprite image)
     {
         base.Show();
         if (image != null)
@@ -20,7 +12,7 @@ public class CollectableDialog : Dialog
             ImageToShow.sprite = image;
         }
     }
-    public new void Hide()
+    public override void Hide()
     {
         base.Hide();
         ImageToShow.sprite = null;
