@@ -1417,6 +1417,10 @@ PrefabInstance:
       propertyPath: TextToShow
       value: "\u2665 = 15         \u263B= 92"
       objectReference: {fileID: 0}
+    - target: {fileID: 1395968323961745267, guid: 97b54987d625682489578bda2ae77d12, type: 3}
+      propertyPath: SpriteToShow
+      value: 
+      objectReference: {fileID: 21300000, guid: aa35565975c3a2d40b9bfe0f82fb0917, type: 3}
     - target: {fileID: 4007073875796134274, guid: 97b54987d625682489578bda2ae77d12, type: 3}
       propertyPath: m_Size.y
       value: 0.08

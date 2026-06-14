@@ -9,6 +9,7 @@ public class InteractionMenu : MenuBase
     public static InteractionMenu Instance { get; private set; }
     public TextMeshProUGUI TextUI;
     public Image Paper;
+    public Sprite DefaultPaperSprite;
     
     public GameObject DisplayOnPaper;
 
@@ -16,6 +17,7 @@ public class InteractionMenu : MenuBase
     void Start()
     {
         Instance = this;
+        DefaultPaperSprite = Paper.sprite;
     }
 
    void OnEnable()
@@ -39,9 +41,14 @@ public class InteractionMenu : MenuBase
 
     public void Show(Sprite spriteToShow, string textUI, Vector2 textPosition, float fontSize, Color textColor, TMP_FontAsset textFontAsset=null, GameObject displayOnPaper=null)
     {
-        if (Paper != null && spriteToShow != null)
+        
+        if(spriteToShow != null)
         {
             Paper.sprite = spriteToShow;
+        }
+        else
+        {
+            Paper.sprite = DefaultPaperSprite;
         }
 
         if (textUI != null)

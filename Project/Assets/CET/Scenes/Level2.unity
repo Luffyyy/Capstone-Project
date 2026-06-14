@@ -2837,7 +2837,7 @@ MonoBehaviour:
     his password to be:
 
     <b>favoriteFood + pow(128, lastDigitOfBirthYear).</b>'
-  SpriteToShow: {fileID: 0}
+  SpriteToShow: {fileID: 21300000, guid: aa35565975c3a2d40b9bfe0f82fb0917, type: 3}
   TextPosition: {x: -4, y: 0}
   FontAsset: {fileID: 0}
   FontSize: 30
@@ -5902,6 +5902,10 @@ PrefabInstance:
       propertyPath: sceneId
       value: 3433392
       objectReference: {fileID: 0}
+    - target: {fileID: 1395968323961745267, guid: 97b54987d625682489578bda2ae77d12, type: 3}
+      propertyPath: SpriteToShow
+      value: 
+      objectReference: {fileID: 21300000, guid: aa35565975c3a2d40b9bfe0f82fb0917, type: 3}
     - target: {fileID: 4007073875796134274, guid: 97b54987d625682489578bda2ae77d12, type: 3}
       propertyPath: m_Size.x
       value: 0.2
