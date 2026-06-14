@@ -1417,6 +1417,10 @@ PrefabInstance:
       propertyPath: TextToShow
       value: "\u2665 = 15         \u263B= 92"
       objectReference: {fileID: 0}
+    - target: {fileID: 4007073875796134274, guid: 97b54987d625682489578bda2ae77d12, type: 3}
+      propertyPath: m_Size.y
+      value: 0.08
+      objectReference: {fileID: 0}
     - target: {fileID: 6942393596057035294, guid: 97b54987d625682489578bda2ae77d12, type: 3}
       propertyPath: m_Name
       value: ReadPaper (2)
@@ -2231,6 +2235,10 @@ PrefabInstance:
     - target: {fileID: 4924959479342524076, guid: bf7f3b4e2131b0042b7de367063735d7, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4924959479342524076, guid: bf7f3b4e2131b0042b7de367063735d7, type: 3}
+      propertyPath: m_TagString
+      value: BlockInteraction
       objectReference: {fileID: 0}
     - target: {fileID: 5197557162113985998, guid: bf7f3b4e2131b0042b7de367063735d7, type: 3}
       propertyPath: m_fontSize
