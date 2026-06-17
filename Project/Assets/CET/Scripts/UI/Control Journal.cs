@@ -9,6 +9,7 @@ public class ControlJournal : MenuBase
    private int CollectablesCount = 0;
    public Image [] Slots;
    public Sprite[] CollectableSprites;
+   public AudioSource AudioSource;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,6 +18,7 @@ public class ControlJournal : MenuBase
     }
     public void ApplyImage(CollectableType Type)
     {
+
         var index = (int)Type;
         CollectablesFound.text = $"{++CollectablesCount}/4 Items Found";
         Slots[index].sprite = CollectableSprites[index];
@@ -24,6 +26,7 @@ public class ControlJournal : MenuBase
     }
     public void HideAndShow()
     {
+        AudioSource.Play();
         InteractionMenu.Instance.Show(InteractionMenu.Instance.Paper.sprite, InteractionMenu.Instance.TextUI.text, InteractionMenu.Instance.TextUI.rectTransform.offsetMin, InteractionMenu.Instance.TextUI.fontSize, InteractionMenu.Instance.TextUI.color, InteractionMenu.Instance.TextUI.font, InteractionMenu.Instance.DisplayOnPaper);
     }
 }

@@ -15,16 +15,20 @@ public class Collectable : Interactable
     public override void ClientInteract()
     {
         base.ClientInteract();
-        ControlJournal.Instance.ApplyImage(Type);
-        var dialog = MenuManager.Instance.ShowDialog("CollectableDialog") as CollectableDialog;
-        dialog.Show(Thumbnail);
-        InteractionMenu.Instance.Paper.sprite = SpriteToShow;
+        Collect();
     }
     [Command(requiresAuthority=false)]
     public override void CmdInteract(NetworkConnectionToClient sender=null)
     {
         base.CmdInteract(sender);
-        ClientInteract();
+        if(isServer && isClient)
+        {
+            ClientInteract();
+        }
+        else if (isServer && !isClient)
+        {
+            Collect();
+        }
         StartCoroutine(DestroyNextFrame());
     }
     [Server]
@@ -32,5 +36,11 @@ public class Collectable : Interactable
     {
         yield return null;
         NetworkServer.Destroy(gameObject);
+    }
+    private void Collect()
+    {
+        ControlJournal.Instance.ApplyImage(Type);
+        InteractionMenu.Instance.Paper.sprite = SpriteToShow;
+        ServerHUD.Instance.ShowCollectable(Thumbnail);
     }
 }

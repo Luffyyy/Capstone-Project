@@ -6,6 +6,7 @@ public class ServerHUD : HUDBase
 {
     public LevelFinished levelFinished;
     public static ServerHUD Instance;
+    public ShowCollectable CollectibleHUD;
     private void Awake()
     {
 
@@ -35,5 +36,9 @@ public class ServerHUD : HUDBase
         {
             MenuManager.Instance.OpenMenu("PauseMenu");
         }
+    }
+    public void ShowCollectable(Sprite sprite)
+    {
+        CollectibleHUD.Show(sprite);
     }
 }
