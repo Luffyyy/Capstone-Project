@@ -8,9 +8,6 @@ public class Collectable : Interactable
     public Sprite Thumbnail;
     public Sprite SpriteToShow;
     public CollectableType Type;
-    void Start()
-    {
-    }
     [ClientRpc]
     public override void ClientInteract()
     {
@@ -21,12 +18,13 @@ public class Collectable : Interactable
     public override void CmdInteract(NetworkConnectionToClient sender=null)
     {
         base.CmdInteract(sender);
-        if(isServer && isClient)
+        if(isClient)
         {
             ClientInteract();
         }
-        else if (isServer && !isClient)
+        else if (!isClient)
         {
+            ClientInteract();
             Collect();
         }
         StartCoroutine(DestroyNextFrame());
@@ -41,6 +39,9 @@ public class Collectable : Interactable
     {
         ControlJournal.Instance.ApplyImage(Type);
         InteractionMenu.Instance.Paper.sprite = SpriteToShow;
-        ServerHUD.Instance.ShowCollectable(Thumbnail);
+        if (!isClient)
+        {
+            ServerHUD.Instance.ShowCollectable(Thumbnail);   
+        }
     }
 }

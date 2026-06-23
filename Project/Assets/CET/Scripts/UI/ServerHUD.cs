@@ -9,7 +9,6 @@ public class ServerHUD : HUDBase
     public ShowCollectable CollectibleHUD;
     private void Awake()
     {
-
         Instance = this;
     }
 
