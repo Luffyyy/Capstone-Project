@@ -1,6 +1,8 @@
 using UnityEngine;
 using Mirror;
 using System.Collections;
+using NUnit.Framework;
+using Unity.VisualScripting;
 
 public enum CollectableType {Book,Badge,Photograph,Crystal}
 public class Collectable : Interactable
@@ -19,13 +21,13 @@ public class Collectable : Interactable
     {
         base.CmdInteract(sender);
         if(isClient)
-        {
+        {;
             ClientInteract();
         }
-        else if (!isClient)
+        if (!isClient)
         {
             ClientInteract();
-            Collect();
+            ServerHUD.Instance.ShowCollectable(Thumbnail);
         }
         StartCoroutine(DestroyNextFrame());
     }
@@ -37,9 +39,10 @@ public class Collectable : Interactable
     }
     private void Collect()
     {
+        
         ControlJournal.Instance.ApplyImage(Type);
         InteractionMenu.Instance.Paper.sprite = SpriteToShow;
-        if (!isClient)
+        if ( ServerHUD.Instance != null)
         {
             ServerHUD.Instance.ShowCollectable(Thumbnail);   
         }

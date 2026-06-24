@@ -1,0 +1,11 @@
+Model Information:
+* title:	Futuristic Trash Can
+* source:	https://sketchfab.com/3d-models/futuristic-trash-can-dbb282cd0e254f0eb23e2049c6bf7ab8
+* author:	B1GF3RG (https://sketchfab.com/B1GF3RG)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Futuristic Trash Can" (https://sketchfab.com/3d-models/futuristic-trash-can-dbb282cd0e254f0eb23e2049c6bf7ab8) by B1GF3RG (https://sketchfab.com/B1GF3RG) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
