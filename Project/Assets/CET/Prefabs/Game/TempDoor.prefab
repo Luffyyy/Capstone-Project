@@ -178,7 +178,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 88e6a4c4bd3c89c4aa4a436566192e34, type: 2}
+  - {fileID: 2100000, guid: f2a83097fd0a7c74080502571c4060fe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -400,7 +400,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 88e6a4c4bd3c89c4aa4a436566192e34, type: 2}
+  - {fileID: 2100000, guid: f2a83097fd0a7c74080502571c4060fe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -641,7 +641,9 @@ MonoBehaviour:
   OnTurnOnEvent:
     m_PersistentCalls:
       m_Calls: []
+  PlayerIndex: -1
   animator: {fileID: 8548129438383680794}
+  IsLastDoor: 0
   IsOpenTriggered: 0
 --- !u!114 &3041176583382636124
 MonoBehaviour:

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Surface_Wall_A 1
+  m_Name: G
   m_Shader: {fileID: -6465566751694194690, guid: 6f1fd57abd2445e4c9041373dd0431b7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -32,7 +32,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ColorTexture:
-        m_Texture: {fileID: 2800000, guid: e291056116e17ce4fbfb7cc6a7274b9f, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0e61ab3f99c98e44198be42d1105ae02, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionTexture:
