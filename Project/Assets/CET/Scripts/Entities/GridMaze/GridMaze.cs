@@ -93,13 +93,17 @@ public class GridMaze : Interactable
 
     public void UpdatePlayer(Vector2Int oldPlayer, Vector2Int newPlayer)
     {
-        menu.UpdateGrid();
+        print("Update player " + oldPlayer.ToString() + " to" + newPlayer.ToString());
+        if (menu != null)
+        {
+            menu.UpdateGrid();
+        }
     }
 
     public void ResetPlayer()
     {
         Player = Vector2Int.zero;
-        if (isServer)
+        if (menu != null)
         {
             menu.UpdateGrid();
         }
@@ -117,7 +121,7 @@ public class GridMaze : Interactable
             }
 
             Player = nextStep;
-            if (isServer)
+            if (menu != null)
             {
                 menu.UpdateGrid();
             }

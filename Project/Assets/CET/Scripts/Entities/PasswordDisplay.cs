@@ -26,9 +26,16 @@ public class PasswordDisplay : Entity
         animator = EnteredPasswordText.GetComponent<Animator>();
     }
 
-    public void Reset()
+    public void Reset(bool anim=false)
     {
-        StartCoroutine(nameof(ResetAfterAnimation));
+        if (anim)
+        {
+            StartCoroutine(nameof(ResetAfterAnimation));
+        } else
+        {
+            EnteredPassword = "";
+            UpdateText();
+        }
     }
 
     public void OnEnteredPasswordChanged(string oldVal, string newVal)
@@ -47,7 +54,7 @@ public class PasswordDisplay : Entity
 
     public void Enter(char c)
     {
-        if (EnteredPassword.Length >= Password.Length) Reset();
+        if (EnteredPassword.Length >= Password.Length) Reset(true);
 
         if (Reverse)
         {
@@ -64,7 +71,7 @@ public class PasswordDisplay : Entity
                 OnPasswordCorrect.Invoke();
             } else
             {
-                Reset();
+                Reset(true);
             }
         }
 
