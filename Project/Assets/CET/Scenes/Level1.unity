@@ -3283,10 +3283,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3284795326199741056, guid: 69e2c9d3d6f7dd24f8c0da36314b9340, type: 3}
-      propertyPath: IsLastDoor
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3284795326199741056, guid: 69e2c9d3d6f7dd24f8c0da36314b9340, type: 3}
       propertyPath: isLastDoor
       value: 1
       objectReference: {fileID: 0}

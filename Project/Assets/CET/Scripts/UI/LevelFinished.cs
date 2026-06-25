@@ -14,7 +14,6 @@ public class LevelFinished : MonoBehaviour
 
     private void Awake()
     {
-        gameObject.SetActive(false);
         anim = GetComponent<Animator>();
     }
     public void Show()

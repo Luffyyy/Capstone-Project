@@ -331,8 +331,9 @@ MonoBehaviour:
   OnTurnOnEvent:
     m_PersistentCalls:
       m_Calls: []
+  PlayerIndex: -1
   animator: {fileID: 7581319198862047476}
-  IsLastDoor: 0
+  IsLastDoor: 1
   IsOpenTriggered: 1
 --- !u!114 &4550701213148746518
 MonoBehaviour:
