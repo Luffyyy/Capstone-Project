@@ -271,8 +271,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99fe39e179c8bf41957090ee22e429d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSay
-  Lines:
-  - Nice, you got one of the keypads right.
+  LinesToSay:
+  - Line: Nice, you got one of the keypads right.
+    Clip: {fileID: 8300000, guid: acbe57b7e68b5e443aacd6bdb7efbcc8, type: 3}
+  Lines: []
   SayOnAwake: 0
   SayOnce: 1
 --- !u!1001 &68421117
@@ -2008,9 +2010,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99fe39e179c8bf41957090ee22e429d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSay
+  LinesToSay:
+  - Line: You figured it out, good job
+    Clip: {fileID: 8300000, guid: 392352aa78959c74295252b37ecc0413, type: 3}
+  - Line: Now try using the right terminal to open the gate.
+    Clip: {fileID: 8300000, guid: 99f921a6be75cd849a220b9fbd924f6e, type: 3}
   Lines:
-  - You figured it out, good
-  - Now try using the right terminal to open the gate.
+  - 
+  - 
   SayOnAwake: 0
   SayOnce: 1
 --- !u!1001 &670039166
@@ -2446,10 +2453,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99fe39e179c8bf41957090ee22e429d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSay
+  LinesToSay:
+  - Line: See these two terminals next to each other? They are connected to the keypads
+      and the keypads open the door.
+    Clip: {fileID: 8300000, guid: 87b07881c3b87dd4fa67608a46e6aa6c, type: 3}
+  - Line: Try finding some clues for opening the door.
+    Clip: {fileID: 8300000, guid: fae248da3aa37504da8c9f89943ae3b7, type: 3}
   Lines:
-  - See these two terminals next to each other? They are connected to the keypads
-    and the keypads open the door.
-  - Try finding some clues for opening the door.
+  - 
+  - 
   SayOnAwake: 0
   SayOnce: 1
 --- !u!1001 &678735007
@@ -3505,12 +3517,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99fe39e179c8bf41957090ee22e429d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSay
-  Lines:
-  - Splendid job! The door is now open and you may continue to the next level.
-  - This was the first room serving as a basis for the next rooms.
-  - 'I will not assist in the next rooms so make sure you remember to:'
-  - Use the terminals to control elements in the room, look for clues and ports.
-    Have fun!
+  LinesToSay:
+  - Line: Splendid job! The door is now open and you may continue to the next room.
+    Clip: {fileID: 8300000, guid: 7f83656b1495b2347881c2c487ed9078, type: 3}
+  - Line: This was the first room serving as a basis for the next rooms.
+    Clip: {fileID: 8300000, guid: 57591a3a95551d74798225b85d50f84f, type: 3}
+  - Line: "I will not assist in the next rooms so make sure you remember to \r\nuse
+      the terminals to control elements in the room, look for clues and ports. Have
+      fun!"
+    Clip: {fileID: 8300000, guid: e1c584ec6b38ad34c9a14df20c432f0e, type: 3}
+  Lines: []
   SayOnAwake: 0
   SayOnce: 1
 --- !u!1 &1068885737
@@ -4338,8 +4354,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99fe39e179c8bf41957090ee22e429d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSay
-  Lines:
-  - Nice, you got one of the keypads right.
+  LinesToSay:
+  - Line: Nice, you got one of the keypads right.
+    Clip: {fileID: 8300000, guid: acbe57b7e68b5e443aacd6bdb7efbcc8, type: 3}
+  Lines: []
   SayOnAwake: 0
   SayOnce: 1
 --- !u!1 &1390412891
@@ -5519,12 +5537,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99fe39e179c8bf41957090ee22e429d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  Lines:
-  - Test test, is this working?
-  - Alright guys you two are test subjects #226
-  - You are stuck in a room, you need to find a way out.
-  - "The room has a few hints scattered around. \r\nSee that terminal on the left?
-    Try interacting with it."
+  LinesToSay:
+  - Line: Test test, is this working?
+    Clip: {fileID: 8300000, guid: 9d00c978d5d89a04fa773e964d06d455, type: 3}
+  - Line: Alright guys you two are test subjects #226
+    Clip: {fileID: 8300000, guid: 38c7bd46182412e499524ea39c9602ff, type: 3}
+  - Line: You are stuck in a room, you need to find a way out.
+    Clip: {fileID: 8300000, guid: 1d293285d22d3ee4795304957379826a, type: 3}
+  - Line: "The room has a few hints scattered around. \nSee that terminal on the
+      left? Try interacting with it."
+    Clip: {fileID: 8300000, guid: f196cb5a465ca4b449c28144bf40cfd5, type: 3}
+  Lines: []
   SayOnAwake: 1
   SayOnce: 1
 --- !u!4 &1971362106
@@ -6223,14 +6246,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99fe39e179c8bf41957090ee22e429d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSay
-  Lines:
-  - Nice, you found it.
-  - "Sometimes devices in a room are connected to each other, \nsometimes they require
-    a special port for communication and sometimes they do not. "
-  - 'This specific terminal is connected to the right terminal with a specific port.
-    Maybe find a clue for it?
+  LinesToSay:
+  - Line: Nice, you found it.
+    Clip: {fileID: 8300000, guid: 0cf54d5cd93036c4cbc9ac21417abf9c, type: 3}
+  - Line: "Sometimes devices in the room are connected to each other, \nsometimes
+      they require a special port for communication and sometimes they do not. "
+    Clip: {fileID: 8300000, guid: f610610b409d899488ae73b8e5f82c13, type: 3}
+  - Line: 'This specific terminal is connected to the right terminal with a specific
+      port. Maybe find a clue for it?
 
-    Try to turn it on for your buddy.'
+      Try to turn it on for your buddy.'
+    Clip: {fileID: 8300000, guid: 00eeaf23aa8d52b45b68e31c5ad9bca9, type: 3}
+  Lines: []
   SayOnAwake: 0
   SayOnce: 1
 --- !u!1 &3166102346035797948

@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
 
 public class DialogueSay : MonoBehaviour
 {
+    public List<LineDefinition> LinesToSay;
+
     [Multiline]
     public List<string> Lines;
     public bool SayOnAwake = true;
@@ -25,8 +28,10 @@ public class DialogueSay : MonoBehaviour
         // Lines are sent from server to clients
         if (!enabled || !NetworkServer.active || (SayOnce && said)) return;
 
+        DialogueUI.Instance.Interrupt();
+
         said = true;
-        foreach (var line in Lines)
+        foreach (var line in LinesToSay)
         {
             DialogueUI.Instance.Say(line);
         }
