@@ -20,7 +20,7 @@ public class AddConverter : ValueConverter
             }
         } else if (lvalue is string lstr)
         {
-            if (lvalue is float rfloat)
+            if (rvalue is float rfloat)
             {
                 return lstr + rfloat.ToString("G15"); // Note: this returns a string
             } else
