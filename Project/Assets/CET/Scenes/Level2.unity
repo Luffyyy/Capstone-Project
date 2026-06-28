@@ -2936,6 +2936,89 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6556706368800204968, guid: 85803acb49b500b4a983f082ac7f20ff, type: 3}
   m_PrefabInstance: {fileID: 926138695}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &931272689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 931272690}
+  - component: {fileID: 931272691}
+  m_Layer: 0
+  m_Name: LevelScript
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &931272690
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931272689}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.04159, y: 0.108, z: 12.3535}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &931272691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931272689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fb95ba1b6960e3458f1995e5c414a9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Level
+  TutorialText: 'In this level we''ll learn that code can do more than just running
+    a fucntion.
+
+
+    <u><i>Multiple functions to solve a single task</i></u>
+
+    Understand
+    the "domino effect" of code, ensure every part of the code does what you expect
+    it to do to solve the puzzle.
+
+
+    <u><i>Functions that return a value</i></u>
+
+    Understand
+    that a function can return a value, we''ll see that you''ll need to use a function''s
+    value in another function.
+
+
+    <u><i>Variables</i></u>
+
+    Variables like
+    in the math world, can store values. The game calls them "var" like many programming
+    languages do.
+
+    They can also be used to calculate something by combining
+    two variables together.
+
+
+    <u><i>Math Operators</i></u>
+
+    We''ll see the
+    use of simple math operators such as multiplication and power (pow).
+
+
+    Have
+    fun!'
+  OnTutorialFinishEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &960072418
 GameObject:
   m_ObjectHideFlags: 0
@@ -7344,3 +7427,4 @@ SceneRoots:
   - {fileID: 606468339}
   - {fileID: 1925005272}
   - {fileID: 818415990}
+  - {fileID: 931272690}

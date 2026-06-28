@@ -1043,7 +1043,7 @@ Transform:
   m_GameObject: {fileID: 385823185}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 1.76, y: -3.55, z: -1.77}
+  m_LocalPosition: {x: 1.76, y: -3.55, z: -1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1066,14 +1066,14 @@ MonoBehaviour:
   m_FadeScale: 0.9
   m_StartAngleFade: 180
   m_EndAngleFade: 180
-  m_UVScale: {x: 12.540459, y: 0.9734554}
-  m_UVBias: {x: -3.6853983, y: 0}
+  m_UVScale: {x: 12.137092, y: 0.9734554}
+  m_UVBias: {x: -3.2820313, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
     m_Bits: 1
   m_ScaleMode: 0
-  m_Offset: {x: 1.1083753, y: 0, z: 0}
-  m_Size: {x: 12.540459, y: 0.9734554, z: 1}
+  m_Offset: {x: 1.3100591, y: 0, z: 0}
+  m_Size: {x: 12.137092, y: 0.9734554, z: 1}
   m_FadeFactor: 1
   version: 1
   m_DecalLayerMask: 1
@@ -1813,7 +1813,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5476160213958414634, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.328
+      value: 5.079
       objectReference: {fileID: 0}
     - target: {fileID: 5476160213958414634, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5514,10 +5514,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1971362106}
   - component: {fileID: 1971362105}
+  - component: {fileID: 1971362107}
   m_Layer: 0
-  m_Name: DialogueStart
+  m_Name: LevelScript
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -5544,7 +5545,7 @@ MonoBehaviour:
       left? Try interacting with it."
     Clip: {fileID: 8300000, guid: f196cb5a465ca4b449c28144bf40cfd5, type: 3}
   Lines: []
-  SayOnAwake: 1
+  SayOnAwake: 0
   SayOnce: 1
 --- !u!4 &1971362106
 Transform:
@@ -5555,12 +5556,71 @@ Transform:
   m_GameObject: {fileID: 1971362104}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.79, y: 4.15, z: -2.713}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1971362107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971362104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fb95ba1b6960e3458f1995e5c414a9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  TutorialText: 'Welcome to Code Escape Together!
+
+
+    In this game, cooperation
+    is very important. You are <i>not</i> expected to do everything yourself.
+
+    If
+    your buddy is struggling, you should help them, but make sure to also give them
+    some freedom to explore.
+
+
+    <b><u>Basics</u></b>
+
+    1. There are puzzles
+    in each level, <b>both</b> of you need to first find hints.
+
+    2. After collecting
+    enough hints, you can look at the visual code terminals and together try piecing
+    up a solution.
+
+    3. Terminals can either be network connected (dots) which
+    then requires a port or directly connected (straight line) which doesn''t require
+    a port.
+
+
+    <b><u>Level 1</u></b>
+
+    Level 1 is simple, find hints for ports,
+    passwords, run a single block to turn on or unlock things.
+
+
+    Have fun!'
+  OnTutorialFinishEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1971362105}
+        m_TargetAssemblyTypeName: DialogueSay, Assembly-CSharp
+        m_MethodName: Say
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1989873712
 GameObject:
   m_ObjectHideFlags: 0
@@ -5947,15 +6007,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1818491279515349715, guid: ac630eeec02b7bc46971d24c1ead2fda, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -37.75348
+      value: -16.32
       objectReference: {fileID: 0}
     - target: {fileID: 1818491279515349715, guid: ac630eeec02b7bc46971d24c1ead2fda, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -48.27805
+      value: 4.26
       objectReference: {fileID: 0}
     - target: {fileID: 1818491279515349715, guid: ac630eeec02b7bc46971d24c1ead2fda, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 23.45029
+      value: -7.58
       objectReference: {fileID: 0}
     - target: {fileID: 1818491279515349715, guid: ac630eeec02b7bc46971d24c1ead2fda, type: 3}
       propertyPath: m_LocalRotation.w

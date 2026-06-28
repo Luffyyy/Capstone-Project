@@ -3548,6 +3548,87 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b16eb4aed779224da2373b4adf969f8, type: 3}
+--- !u!1 &602588316
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 602588318}
+  - component: {fileID: 602588317}
+  m_Layer: 0
+  m_Name: LevelScript
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &602588317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602588316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fb95ba1b6960e3458f1995e5c414a9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Level
+  TutorialText: 'In this level we''ll learn that code can be repeated!
+
+
+    <u><i>Loops</i></u>
+
+    Loops
+    is any block of code that repeats itself using some logic.
+
+    We''ll see loops
+    that go from one number up to some number and then another loop that goes through
+    a list of items.
+
+    For now imagine the list of items as a person listing you
+    his favorite shows.
+
+
+    <u><i>Conditions/If statements</i></u>
+
+    Conditions
+    are used to run some code <i>if</i> the checked value or variable is equal to
+    true.
+
+    Otherwise, if false, the code will not run. They are perfect to run
+    some logic only in some condition!
+
+
+    <u><i>Sending data from terminal to
+    terminal</i></u>
+
+    We''ll see that you can send data from one terminal to
+    another.
+
+
+    Have fun!'
+  OnTutorialFinishEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &602588318
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602588316}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.685, y: 4.14492, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &605358111
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10521,3 +10602,4 @@ SceneRoots:
   - {fileID: 382112987}
   - {fileID: 499436398}
   - {fileID: 605358111}
+  - {fileID: 602588318}

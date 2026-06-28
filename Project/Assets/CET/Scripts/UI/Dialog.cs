@@ -28,16 +28,12 @@ public class Dialog : MonoBehaviour
     {
         gameObject.SetActive(true);
         animator.SetBool("IsShowing", true);
-        MenuManager.Instance.DialogStack.Push(this);
+        MenuManager.Instance.PushDialog(this);
     }
 
     public virtual void Hide()
     {
-        MenuManager.Instance.DialogStack.Pop();
-        if (MenuManager.Instance.DialogStack.Count == 0 && MenuManager.Instance.MenuStack.Count == 0)
-        {
-            MenuManager.Instance.Hide();
-        }
+        MenuManager.Instance.PopDialog();
         animator.SetBool("IsShowing", false);
     }
 
