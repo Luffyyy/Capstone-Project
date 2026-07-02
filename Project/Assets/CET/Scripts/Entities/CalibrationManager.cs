@@ -15,12 +15,6 @@ public class CalibrationManager : MonoBehaviour
         Instance = this;
         UpdateVisuals();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     void Shuffle()
     {
         for (int i = Frequencies.Length - 1; i > 0; i--)

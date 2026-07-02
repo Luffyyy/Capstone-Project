@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9f8d0e650c3a51843915c6905f996883
+guid: 750483e6a9dd7b045a3b6c7c2b0bf4df
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -26,6 +26,9 @@ ScriptedImporter:
     sceneObjectCreation: 2
   assetDependencies:
   - type: 0
-    originalUri: Assets\CET\Art\office_desk\scene.bin
-    assetPath: Assets\CET\Art\office_desk\scene.bin
+    originalUri: Assets\CET\Art\modern_office_desk\scene.bin
+    assetPath: Assets\CET\Art\modern_office_desk\scene.bin
+  - type: 1
+    originalUri: Assets\CET\Art\modern_office_desk\textures\Material.001_baseColor.jpeg
+    assetPath: Assets\CET\Art\modern_office_desk\textures\Material.001_baseColor.jpeg
   reportItems: []
