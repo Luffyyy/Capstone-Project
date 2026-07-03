@@ -652,10 +652,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: MazeMonitor
       objectReference: {fileID: 0}
+    - target: {fileID: -5993614907868698456, guid: d003622b9bf672d42a98164914c37dcf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5993614907868698456, guid: d003622b9bf672d42a98164914c37dcf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: -5993614907868698456, guid: d003622b9bf672d42a98164914c37dcf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5993614907868698456, guid: d003622b9bf672d42a98164914c37dcf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5993614907868698456, guid: d003622b9bf672d42a98164914c37dcf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: -5517224303525077136, guid: d003622b9bf672d42a98164914c37dcf, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 6388714227662282878, guid: 9f8d0e650c3a51843915c6905f996883, type: 3}
+      objectReference: {fileID: 2100000, guid: 35261150e5398c0439d6fd7481f62b62, type: 2}
     - target: {fileID: 2774220344278030320, guid: d003622b9bf672d42a98164914c37dcf, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
@@ -3380,9 +3400,7 @@ MonoBehaviour:
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls: []
-  TextToShow: 'Two brothers, one born in 1999, and the other in 2004.
-
-
+  TextToShow: 'Two brothers, one born in 2004, and the other in 1999.
 
 
 
@@ -3391,10 +3409,7 @@ MonoBehaviour:
 
 
 
-
-
     Their father bought two safes,
-
 
 
     The
@@ -3402,7 +3417,6 @@ MonoBehaviour:
 
     <b>favoriteFood
     + pow(128, lastDigitOfBirthYear).</b>
-
 
 
     The older brother chose the <b>right</b>
@@ -3413,7 +3427,7 @@ MonoBehaviour:
   SpriteToShow: {fileID: 21300000, guid: aa35565975c3a2d40b9bfe0f82fb0917, type: 3}
   TextPosition: {x: -4, y: 0}
   FontAsset: {fileID: 0}
-  FontSize: 30
+  FontSize: 28
   TextColor: {r: 0, g: 0, b: 0, a: 1}
   DisplayOnPaper: {fileID: 0}
 --- !u!1001 &1051488614
@@ -5138,10 +5152,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: monitor
       objectReference: {fileID: 0}
+    - target: {fileID: -5993614907868698456, guid: d003622b9bf672d42a98164914c37dcf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: -5993614907868698456, guid: d003622b9bf672d42a98164914c37dcf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: -5993614907868698456, guid: d003622b9bf672d42a98164914c37dcf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.34
+      objectReference: {fileID: 0}
+    - target: {fileID: -5993614907868698456, guid: d003622b9bf672d42a98164914c37dcf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5993614907868698456, guid: d003622b9bf672d42a98164914c37dcf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5993614907868698456, guid: d003622b9bf672d42a98164914c37dcf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: -5517224303525077136, guid: d003622b9bf672d42a98164914c37dcf, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: -8561724763521791523, guid: 9f8d0e650c3a51843915c6905f996883, type: 3}
+      objectReference: {fileID: 2100000, guid: 35261150e5398c0439d6fd7481f62b62, type: 2}
     - target: {fileID: 2774220344278030320, guid: d003622b9bf672d42a98164914c37dcf, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.15779471
