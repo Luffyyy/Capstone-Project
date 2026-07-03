@@ -21,8 +21,6 @@ public class LobbyScreen : HUDBase
 
     void Start()
     {
-        var networkDiscovery = NetworkManager.singleton.GetComponent<NewNetworkDiscovery>();
-        ServerName.text = networkDiscovery.ServerName;
         PlayerMenu.SetActive(false); //Gets activated by LobbyManager
     }
 
@@ -36,6 +34,8 @@ public class LobbyScreen : HUDBase
             PlayerEmotion.value = player.EmotionIndex;
             UsernameField.text = player.Username;
         }
+
+        ServerName.text = LobbyManager.Instance.ServerName;
 
         LevelSelect.SetActive(NetworkServer.active);
 

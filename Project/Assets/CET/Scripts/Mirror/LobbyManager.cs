@@ -20,6 +20,9 @@ public class LobbyManager : NetworkBehaviour
 
     public LobbyScreen Screen;
 
+    [SyncVar]
+    public string ServerName;
+
     void Awake()
     {
         Instance = this;
@@ -27,6 +30,8 @@ public class LobbyManager : NetworkBehaviour
 
     public override void OnStartServer()
     {
+        var networkDiscovery = NetworkManager.singleton.GetComponent<NewNetworkDiscovery>();
+        ServerName = networkDiscovery.ServerName;
         Screen.LobbySetup();
     }
 
