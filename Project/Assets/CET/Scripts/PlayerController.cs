@@ -99,7 +99,7 @@ public class PlayerController : NetworkBehaviour
     public void OnJournalBtn(InputAction.CallbackContext context)
     {
         if (!isLocalPlayer || !context.performed || MenuManager.Instance.IsActive || !IsInputEnabled) return;
-        MenuManager.Instance.OpenMenu("Journal Menu");
+        MenuManager.Instance.OpenMenu("JournalMenu");
     }
     void Awake()
     {
