@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 29377117}
   - component: {fileID: 29377118}
   m_Layer: 5
-  m_Name: Journal Menu
+  m_Name: JournalMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -233,7 +233,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 29377114}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf5c8aa47529d164a98818f97cfa84a2, type: 3}
+  m_Script: {fileID: 11500000, guid: d81f1cca47b81e34aa284c762b172918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ControlJournal
   IsActive: 1
@@ -243,11 +243,16 @@ MonoBehaviour:
   - {fileID: 1747172993}
   - {fileID: 106995256}
   - {fileID: 906846488}
-  CollectableSprites:
+  CollectableThumbs:
   - {fileID: 21300000, guid: c7172a325fa7b5b4b9a595a017698c21, type: 3}
   - {fileID: 21300000, guid: 7aafcfe3989c0e742be9ff22a10a3125, type: 3}
   - {fileID: 21300000, guid: 780c95689d14af340a37aa1086e45e91, type: 3}
   - {fileID: 21300000, guid: dc35c08102cb5a04b80e6e5047f56065, type: 3}
+  CollectableSprites:
+  - {fileID: 21300000, guid: 004e6d84a8dd2ff449381676a0110a2f, type: 3}
+  - {fileID: 21300000, guid: 7aafcfe3989c0e742be9ff22a10a3125, type: 3}
+  - {fileID: 21300000, guid: 9dfe3ccbfcd9bb04eb9a0dd35bf1c3ad, type: 3}
+  - {fileID: 21300000, guid: dd9d664cdc4eddd44ba3b9744280489b, type: 3}
   AudioSource: {fileID: 29377118}
 --- !u!225 &29377117
 CanvasGroup:
@@ -257,7 +262,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 29377114}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -577,11 +582,11 @@ MonoBehaviour:
       - m_Target: {fileID: 29377116}
         m_TargetAssemblyTypeName: ControlJournal, Assembly-CSharp
         m_MethodName: HideAndShow
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1212,11 +1217,11 @@ MonoBehaviour:
       - m_Target: {fileID: 29377116}
         m_TargetAssemblyTypeName: ControlJournal, Assembly-CSharp
         m_MethodName: HideAndShow
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1293,6 +1298,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   IsDedicatedServer: 0
+  Collected: 00000000
 --- !u!4 &1040029103
 Transform:
   m_ObjectHideFlags: 0
@@ -1817,9 +1823,17 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: TutorialDialog, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 7308352475941535839, guid: 404ffeb9aa7877f4e943bb25a8d4948c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8248491029884219581, guid: 404ffeb9aa7877f4e943bb25a8d4948c, type: 3}
       propertyPath: m_Name
       value: TutorialDialog
+      objectReference: {fileID: 0}
+    - target: {fileID: 8248491029884219581, guid: 404ffeb9aa7877f4e943bb25a8d4948c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2889287234493948342, guid: 404ffeb9aa7877f4e943bb25a8d4948c, type: 3}
@@ -1972,11 +1986,11 @@ MonoBehaviour:
       - m_Target: {fileID: 29377116}
         m_TargetAssemblyTypeName: ControlJournal, Assembly-CSharp
         m_MethodName: HideAndShow
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2264,7 +2278,7 @@ MonoBehaviour:
       - m_Target: {fileID: 29377116}
         m_TargetAssemblyTypeName: ControlJournal, Assembly-CSharp
         m_MethodName: HideAndShow
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

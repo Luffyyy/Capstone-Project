@@ -10,7 +10,7 @@ public class InteractionMenu : MenuBase
     public TextMeshProUGUI TextUI;
     public Image Paper;
     public Sprite DefaultPaperSprite;
-    
+
     public GameObject DisplayOnPaper;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,61 +20,61 @@ public class InteractionMenu : MenuBase
         DefaultPaperSprite = Paper.sprite;
     }
 
-   void OnEnable()
-   {
-       UpdateWidth();
-   }
+    void OnEnable()
+    {
+        UpdateWidth();
+    }
 
-   void OnRectTransformDimensionsChange()
-   {
-       UpdateWidth();
-   }
+    void OnRectTransformDimensionsChange()
+    {
+        UpdateWidth();
+    }
 
     // Calculates correct width based on aspect ratio of the image allowing text to properly fit
     private void UpdateWidth()
     {
         RectTransform paperTransform = (RectTransform)Paper.transform;
         var size = paperTransform.sizeDelta;
-        size.x = (transform as RectTransform).rect.height * Paper.preferredWidth/Paper.preferredHeight;
+        size.x = (transform as RectTransform).rect.height * Paper.preferredWidth / Paper.preferredHeight;
         paperTransform.sizeDelta = size;
     }
 
-    public void Show(Sprite spriteToShow, string textUI, Vector2 textPosition, float fontSize, Color textColor, TMP_FontAsset textFontAsset=null, GameObject displayOnPaper=null)
+    public void Show(Sprite spriteToShow, GameObject displayOnPaper = null)
     {
-        
-        if(spriteToShow != null)
-        {
-            Paper.sprite = spriteToShow;
-        }
-        else
-        {
-            Paper.sprite = DefaultPaperSprite;
-        }
-
-        if (textUI != null)
-        {
-            TextUI.text = textUI;
-            TextUI.rectTransform.offsetMin = new Vector2(textPosition.x, 0);
-            TextUI.rectTransform.offsetMax = new Vector2(0, textPosition.y);
-            if (textFontAsset != null)
-            {
-                TextUI.font = textFontAsset;
-            }
-            TextUI.fontSize = fontSize;
-            TextUI.color = textColor;
-        }
+        Paper.sprite = spriteToShow != null ? spriteToShow : DefaultPaperSprite;
 
         UpdateWidth();
 
         if (displayOnPaper != null)
         {
-            DisplayOnPaper = Instantiate(displayOnPaper, Paper.transform);    
+            DisplayOnPaper = Instantiate(displayOnPaper, Paper.transform);
         }
 
         MenuManager.Instance.OpenMenu("InteractionMenu");
 
         if (NetworkClient.localPlayer != null)
             NetworkClient.localPlayer.GetComponent<PlayerController>().CmdSetFocusingOnPhone(true);
+    }
+
+    public void Show(Sprite spriteToShow, string text, Vector2? textPosition, float fontSize, Color color, TMP_FontAsset font = null, GameObject displayOnPaper = null)
+    {
+        if (text != null)
+        {
+            TextUI.text = text;
+            if (textPosition is Vector2 tp)
+            {
+                TextUI.rectTransform.offsetMax = new Vector2(0, tp.y);
+                TextUI.rectTransform.offsetMin = new Vector2(tp.x, 0);
+            }
+            if (font != null)
+            {
+                TextUI.font = font;
+            }
+            TextUI.fontSize = fontSize;
+            TextUI.color = color;
+        }
+
+        Show(spriteToShow, displayOnPaper);
     }
 
     public override void Hide()
