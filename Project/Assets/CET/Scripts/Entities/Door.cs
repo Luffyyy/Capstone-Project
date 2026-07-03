@@ -22,7 +22,7 @@ public class Door : Activatable
         {
             animator.SetBool("isOpen", newValue);
         }
-        if (IsLastDoor && newValue)
+        if (IsLastDoor && newValue && ServerHUD.Instance != null)
         {
             ServerHUD.Instance.PlayFinishedLevelHud();
         }
