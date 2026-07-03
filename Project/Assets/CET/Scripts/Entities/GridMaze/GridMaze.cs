@@ -4,6 +4,7 @@ using System.Text;
 using Mirror;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 public class MazeCellData
 {
@@ -25,6 +26,8 @@ public class GridMaze : Interactable
 
     [SyncVar(hook=nameof(UpdatePlayer)), HideInInspector]
     public Vector2Int Player;
+    [SyncVar]
+    public Vector2Int Goal;
 
     public UnityEvent OnReachedGoal;
 
@@ -127,7 +130,7 @@ public class GridMaze : Interactable
             }
             yield return new WaitForSeconds(0.25f);
         }
-        if (Player == new Vector2Int(Size-1, Size-1))
+        if (Player == Goal)
         {
             OnReachedGoal.Invoke();
         }
@@ -137,11 +140,13 @@ public class GridMaze : Interactable
     {
         var curr = Vector2Int.zero;
         Data[curr.x, curr.y].IsWall = false;
-        Data[Size-1, Size-1].IsWall = false;
         Data[curr.x, curr.y].Visited = true;
         pathStack.Push(curr);
 
         Random.InitState(Seed);
+
+        Goal = new Vector2Int(Size - 1 - Random.Range(0, 3), Size - 1 - Random.Range(0, 3));
+        Data[Goal.x, Goal.y].IsWall = false;
 
         while (pathStack.Count > 0)
         {

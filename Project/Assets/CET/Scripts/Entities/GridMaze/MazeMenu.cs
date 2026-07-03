@@ -43,9 +43,6 @@ public class MazeMenu : MenuBase
 
     public void UpdateGrid()
     {
-        var size = Maze.Size;
-        var goal = new Vector2Int(size-1, size-1);
-
         for (int j=0; j<Maze.Size; j++)
         {
             for (int i=0; i<Maze.Size; i++)
@@ -57,7 +54,7 @@ public class MazeMenu : MenuBase
                 if (pos == Maze.Player)
                 {
                     col = Color.blue;
-                } else if (pos == goal)
+                } else if (pos == Maze.Goal)
                 {
                     col = Color.green;
                 } else if (Maze.Data[i,j].IsWall)

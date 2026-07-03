@@ -801,8 +801,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   Seed: 2027
-  Size: 9
+  Size: 7
   Player: {x: 0, y: 0}
+  Goal: {x: 0, y: 0}
   OnReachedGoal:
     m_PersistentCalls:
       m_Calls:
