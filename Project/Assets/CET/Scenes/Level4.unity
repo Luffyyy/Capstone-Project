@@ -3085,7 +3085,7 @@ MonoBehaviour:
   LockStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  Password: 189673
+  Password: 289673
 --- !u!1 &814432934
 GameObject:
   m_ObjectHideFlags: 0
@@ -3835,7 +3835,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: PredefinedVariableValue
-      value: 189673
+      value: 289673
       objectReference: {fileID: 0}
     - target: {fileID: 8949869915932095431, guid: 20dbf92632b99044d828bedc667dfaf4, type: 3}
       propertyPath: DefinedBlocks.Array.size
@@ -4900,7 +4900,7 @@ MonoBehaviour:
   PlayerIndex: -1
   CurrentPlayer: {fileID: 0}
   UIAnchor: {fileID: 927994073}
-  InteractionText: Look Closer
+  InteractionText: Look closer
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -5176,7 +5176,7 @@ ReflectionProbe:
   m_Mode: 0
   m_RefreshMode: 0
   m_TimeSlicingMode: 0
-  m_Resolution: 128
+  m_Resolution: 512
   m_UpdateFrequency: 0
   m_BoxSize: {x: 20.05, y: 9.5, z: 36.4}
   m_BoxOffset: {x: 0, y: 0, z: 0}
@@ -6604,7 +6604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 6c59b4ae891e78d4797fa1a10f318781, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.854502
+      value: -9.66
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 6c59b4ae891e78d4797fa1a10f318781, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6687,7 +6687,7 @@ MonoBehaviour:
   PlayerIndex: -1
   CurrentPlayer: {fileID: 0}
   UIAnchor: {fileID: 910015877}
-  InteractionText: Read
+  InteractionText: Read screen
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls: []

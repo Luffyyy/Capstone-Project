@@ -20,7 +20,6 @@ public class SendMessageFunction : FuncBlockDefinition
 
         foreach (var obj in co)
         {
-            Debug.Log(obj);
             if (obj.TryGetComponent<TerminalInteractable>(out var terminal))
             {
                 Debug.Log(terminal.Port);

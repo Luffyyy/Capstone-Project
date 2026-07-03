@@ -1270,7 +1270,7 @@ ReflectionProbe:
   m_Mode: 0
   m_RefreshMode: 0
   m_TimeSlicingMode: 0
-  m_Resolution: 128
+  m_Resolution: 512
   m_UpdateFrequency: 0
   m_BoxSize: {x: 17.148743, y: 6.98, z: 19.96}
   m_BoxOffset: {x: -2.2585871, y: 0, z: 0}
@@ -2870,6 +2870,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4501077893981261145, guid: 2488c89b49597c141a6b181f8eb2ce16, type: 3}
+      propertyPath: m_Size.x
+      value: 2.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501077893981261145, guid: 2488c89b49597c141a6b181f8eb2ce16, type: 3}
+      propertyPath: m_Size.z
+      value: 23.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501077893981261145, guid: 2488c89b49597c141a6b181f8eb2ce16, type: 3}
+      propertyPath: m_Center.x
+      value: -0.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501077893981261145, guid: 2488c89b49597c141a6b181f8eb2ce16, type: 3}
+      propertyPath: m_Center.z
+      value: -0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 5285678101166017869, guid: 2488c89b49597c141a6b181f8eb2ce16, type: 3}
       propertyPath: m_Name
       value: NextLevelPortal
@@ -3267,7 +3283,7 @@ MonoBehaviour:
   PlayerIndex: -1
   CurrentPlayer: {fileID: 0}
   UIAnchor: {fileID: 190977982}
-  InteractionText: Read Logs
+  InteractionText: Read logs
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -4200,7 +4216,7 @@ MonoBehaviour:
   PlayerIndex: -1
   CurrentPlayer: {fileID: 0}
   UIAnchor: {fileID: 1568404163}
-  InteractionText: Read
+  InteractionText: Read paper
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -4233,7 +4249,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.16932608, y: 0.15, z: 0.3}
+  m_Size: {x: 0.29, y: 0.15, z: 0.3}
   m_Center: {x: 0.000000030858274, y: -0.06, z: 0}
 --- !u!1 &675425197
 GameObject:
@@ -6095,8 +6111,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4283585106
+  m_fontColor: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8465,7 +8481,7 @@ MonoBehaviour:
   PlayerIndex: -1
   CurrentPlayer: {fileID: 0}
   UIAnchor: {fileID: 2108322801}
-  InteractionText: Look Closer
+  InteractionText: Look closer
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -9784,8 +9800,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.16932608, y: 0.26704988, z: 0.41967753}
-  m_Center: {x: 0.000000030858274, y: -0.018538188, z: -0.129429}
+  m_Size: {x: 0.44, y: 0.26704988, z: 0.41967753}
+  m_Center: {x: 0.000000030858274, y: -0.14, z: -0.01}
 --- !u!114 &2024091676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9829,7 +9845,7 @@ MonoBehaviour:
   PlayerIndex: -1
   CurrentPlayer: {fileID: 0}
   UIAnchor: {fileID: 446352518}
-  InteractionText: Read
+  InteractionText: Read paper
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -9959,8 +9975,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.16932608, y: 0.15, z: 0.3}
-  m_Center: {x: 0.000000030858274, y: -0.06, z: 0}
+  m_Size: {x: 0.45, y: 0.21, z: 0.3}
+  m_Center: {x: 0.000000030858274, y: -0.09, z: 0}
 --- !u!114 &2051967482
 MonoBehaviour:
   m_ObjectHideFlags: 0
