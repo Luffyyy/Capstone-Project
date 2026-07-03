@@ -4222,7 +4222,7 @@ MonoBehaviour:
       m_Calls: []
   TextToShow: 'Due to security changes the port number for the doors
 
-    are now:
+    is now:
     19'
   SpriteToShow: {fileID: 21300000, guid: 7507f22787a24ba4ba9c8544c26ad988, type: 3}
   TextPosition: {x: 0, y: -160}
