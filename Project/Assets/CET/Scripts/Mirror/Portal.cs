@@ -53,6 +53,9 @@ public class Portal : NetworkBehaviour
 
     public void OnNumPlayersUpdated(int oldVal, int newVal)
     {
-        ServerHUD.Instance.levelFinished.UpdateEscapedPlayers(newVal);
+        if (ServerHUD.Instance != null)
+        {
+            ServerHUD.Instance.levelFinished.UpdateEscapedPlayers(newVal);
+        }
     }
 }
