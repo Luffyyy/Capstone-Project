@@ -31,6 +31,8 @@ public class TerminalInteractable : Interactable
 
     public bool CanReceiveMessages = false;
 
+    public bool DisablePrintFunc = false;
+
     [ClientRpc]
     public void SendConsoleMessageToPeers(List<string> log)
     {
@@ -80,6 +82,8 @@ public class TerminalInteractable : Interactable
         {
             OwnedVPLZone.ReadOnlyVariables["MessagesReceived"] = VPLMessagesReceived;
         }
+
+        OwnedVPLZone.DisablePrintFunc = DisablePrintFunc;
 
         go.Activated(BlocksJson);
     }

@@ -2817,6 +2817,7 @@ MonoBehaviour:
   ConsoleText: {fileID: 1328237552093976484}
   ConsoleScroll: {fileID: 30832646489427933}
   EditorMode: 0
+  DisablePrintFunc: 0
 --- !u!114 &3603870350614486100
 MonoBehaviour:
   m_ObjectHideFlags: 0

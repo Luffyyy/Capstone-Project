@@ -58,6 +58,8 @@ public class VPLZone : MonoBehaviour
 
     public bool EditorMode;
 
+    public bool DisablePrintFunc = false;
+
     public void Activated(string json=null)
     {
         if (!string.IsNullOrEmpty(json))
@@ -213,6 +215,7 @@ public class VPLZone : MonoBehaviour
             bool hasOneBlock = false;
             foreach (var def in catDefs.Value)
             {
+                if (def.Name == "print" && DisablePrintFunc) continue;
                 if (def.DefaultBlock || DefinedBlocks.Contains(def) || EditorMode)
                 {
                     hasOneBlock = true;
