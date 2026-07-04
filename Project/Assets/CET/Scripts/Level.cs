@@ -10,7 +10,7 @@ public class Level : MonoBehaviour
 
     public void Start()
     {
-        if (GameState.Instance.IsDedicatedServer && !GameState.Instance.isServer)
+        if (GameState.Instance != null && GameState.Instance.IsDedicatedServer && !GameState.Instance.isServer)
         {
             return;
         }
