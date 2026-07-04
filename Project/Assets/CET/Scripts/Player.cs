@@ -24,9 +24,13 @@ public class Player : NetworkBehaviour
     public string Username;
     public TextMeshProUGUI UsernameText;
 
+    private bool updateNames = false;
+
     public override void OnStartServer()
     {
         OnSetName(Username, Username);
+
+        updateNames = true;
     }
 
     public override void OnStartClient()
@@ -34,6 +38,15 @@ public class Player : NetworkBehaviour
         if (LobbyManager.Instance != null)
         {
             LobbyManager.Instance.Screen.LobbySetup(); // Update name
+        }
+
+        if (!GameState.Instance.IsDedicatedServer)
+        {
+            print("Turning on updating names on client. Make sure this is dedicated server!");
+            updateNames = true;
+        } else
+        {
+            UsernameText.transform.parent.gameObject.SetActive(false);
         }
     }
 
@@ -98,7 +111,7 @@ public class Player : NetworkBehaviour
 
     void LateUpdate()
     {
-        if (Camera.main != null)
+        if (updateNames && Camera.main != null)
         {
             UsernameText.transform.parent.forward = Camera.main.transform.forward;
         }
