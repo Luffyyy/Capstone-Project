@@ -7,8 +7,12 @@ public class PasswordLock : BaseLock
 
     public void EnterPassword(string password)
     {
+        bool wasUnlocked = isUnlocked;
         isUnlocked = Password == password;
 
-        LockStateChanged.Invoke(isUnlocked);
+        if (wasUnlocked != isUnlocked)
+        {
+            LockStateChanged.Invoke(isUnlocked);
+        }
     }
 }
