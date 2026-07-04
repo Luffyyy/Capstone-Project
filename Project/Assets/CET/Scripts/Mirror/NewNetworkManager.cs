@@ -168,6 +168,12 @@ public class NewNetworkManager : NetworkManager
     public bool ChangeLevel(string sceneName, bool initial=false)
     {
         if (CurrentLevel == sceneName) return false;
+
+        if (VPLMenu.Instance != null)
+        {
+            VPLMenu.Instance.DestroyZones();
+        }
+
         StartCoroutine(AsyncChangeLevel(sceneName, initial));
         return true;
     }

@@ -43,6 +43,15 @@ public class VPLMenu : MenuBase
         zone.Hide();
     }
 
+    public void DestroyZones()
+    {
+        foreach(var zone in Zones)
+        {
+            Destroy(zone.Value.gameObject);
+        }
+        Zones.Clear();
+    }
+
     public override void Show()
     {
         base.Show();

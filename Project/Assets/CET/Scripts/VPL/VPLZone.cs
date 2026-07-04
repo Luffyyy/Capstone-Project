@@ -41,6 +41,8 @@ public class VPLZone : MonoBehaviour
     public BlockNode Root;
 
     public GameObject TrayPrefab;
+    
+    public GameObject MainContent;
 
     public bool IsActive;
 
@@ -417,6 +419,8 @@ public class VPLZone : MonoBehaviour
         cg.interactable = true;
         cg.blocksRaycasts = true;
 
+        MainContent.SetActive(true);
+
         IsActive = true;
     }
 
@@ -426,6 +430,8 @@ public class VPLZone : MonoBehaviour
         cg.alpha = 0;
         cg.interactable = false;
         cg.blocksRaycasts = false;
+        
+        MainContent.SetActive(false);
 
         IsActive = false;
     }

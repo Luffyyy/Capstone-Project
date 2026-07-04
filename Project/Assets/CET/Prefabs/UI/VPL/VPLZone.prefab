@@ -2804,6 +2804,7 @@ MonoBehaviour:
     ExpressionTrays: []
     VariableDefs: []
   TrayPrefab: {fileID: 4417321299810318501, guid: f0f77776088118d408c8a3a5bb96a45a, type: 3}
+  MainContent: {fileID: 1788452074808612181}
   IsActive: 0
   OnVariableNameChanged:
     m_PersistentCalls:
