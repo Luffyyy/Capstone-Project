@@ -7,10 +7,7 @@ public class SceneCamera : NetworkBehaviour
     {
         RegisterCamera();
 
-        if (gameObject.scene.path == NewNetworkManager.singleton.CurrentLevel)
-        {
-            GameObject.Find("MainCamera").GetComponent<CameraTransition>().target = transform;
-        }
+        GameObject.Find("MainCamera").GetComponent<CameraTransition>().target = transform;
     }
 
     void RegisterCamera()

@@ -75,9 +75,4 @@ public class DialogueUI : MonoBehaviour
         }
         queue.Clear();
     }
-
-    void Update()
-    {
-        
-    }
 }

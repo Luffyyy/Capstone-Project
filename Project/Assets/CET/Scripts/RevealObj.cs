@@ -14,12 +14,7 @@ public class RevealObj : NetworkBehaviour
         SetReveal(IsRevealed);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-      private void CallReveal(bool oldValue, bool newValue)
+    private void CallReveal(bool oldValue, bool newValue)
     {
         SetReveal(newValue);
     }
