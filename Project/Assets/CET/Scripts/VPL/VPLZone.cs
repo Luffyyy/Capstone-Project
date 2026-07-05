@@ -183,8 +183,13 @@ public class VPLZone : MonoBehaviour
         //     var tray = CreateTray();
         //     tray.LoadNode(trayNode);
         // }
+        
+        var wasActive = MainContent.activeSelf;
+        MainContent.SetActive(true);
 
         MainTray.LoadNode(root.Trays[0]);
+
+        MainContent.SetActive(wasActive);
 
         if (execute)
         {
