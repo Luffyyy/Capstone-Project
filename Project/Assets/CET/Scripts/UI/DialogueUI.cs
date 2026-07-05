@@ -48,10 +48,15 @@ public class DialogueUI : MonoBehaviour
             for (int i=0; i<lineStr.Length; i++)
             {
                 TextUI.maxVisibleCharacters++;
-                yield return null;
+                yield return new WaitForSeconds(0.05f);
             }
 
-            yield return new WaitForSeconds(0.07f * lineStr.Length);
+            if (audioSource != null && audioSource.clip != null)
+            {
+                yield return new WaitWhile(() => audioSource.isPlaying);
+            }
+
+            yield return new WaitForSeconds(0.5f);
         }
 
         TextUI.text = "";
