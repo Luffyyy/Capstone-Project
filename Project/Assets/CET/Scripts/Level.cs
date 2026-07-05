@@ -15,6 +15,11 @@ public class Level : MonoBehaviour
             return;
         }
 
+        ShowTutorial();
+    }
+
+    public void ShowTutorial()
+    {
         TutorialDialog dialog = (TutorialDialog)MenuManager.Instance.GetDialog("TutorialDialog");
 
         dialog.TutorialText.text = TutorialText;

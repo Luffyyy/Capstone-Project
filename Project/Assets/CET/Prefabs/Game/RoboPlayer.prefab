@@ -887,7 +887,7 @@ MonoBehaviour:
   mouthSpeechRenderer: {fileID: 7473027368535250541}
   isRainbowCycles: 0
   isBattle: 0
-  "\xF1olorIndex": 0
+  ColorIndex: 0
   eyesColorIndex: 0
   mouthColorIndex: 0
   emissionIntensity: 1.83
@@ -989,6 +989,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: baf6abed-b919-40aa-b894-5a9d5ebad09d
     m_ActionName: 'Player/OpenJournal[/Keyboard/r]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2182207165479975306}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnTutorialBtn
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e5dce45d-cff1-4b53-89df-20c35e127b72
+    m_ActionName: 'Player/OpenTutorial[/Keyboard/h]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

@@ -96,11 +96,19 @@ public class PlayerController : NetworkBehaviour
             i.CmdInteract();
         }
     }
+
     public void OnJournalBtn(InputAction.CallbackContext context)
     {
         if (!isLocalPlayer || !context.performed || MenuManager.Instance.IsActive || !IsInputEnabled) return;
         MenuManager.Instance.OpenMenu("JournalMenu");
     }
+
+    public void OnTutorialBtn(InputAction.CallbackContext context)
+    {
+        if (!isLocalPlayer || !context.performed || MenuManager.Instance.IsActive || !IsInputEnabled) return;
+        GameObject.Find("LevelScript").GetComponent<Level>().ShowTutorial();
+    }
+
     void Awake()
     {
         charControl = GetComponent<CharacterController>();
