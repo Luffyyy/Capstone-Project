@@ -156,10 +156,10 @@ public class PlayerController : NetworkBehaviour
             }
         }
 
-        if (isServer)
-        {
-            UpdateFootsteps();
-        }
+        // if (isServer)
+        // {
+        //     UpdateFootsteps();
+        // }
 
         if (CurrentInteractable != null)
         {
