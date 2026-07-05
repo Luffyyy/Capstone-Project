@@ -6231,10 +6231,8 @@ MonoBehaviour:
   - Line: "Sometimes devices in the room are connected to each other, \nsometimes
       they require a special port for communication and sometimes they do not. "
     Clip: {fileID: 8300000, guid: f610610b409d899488ae73b8e5f82c13, type: 3}
-  - Line: 'This specific terminal is connected to the right terminal with a specific
-      port. Maybe find a clue for it?
-
-      Try to turn it on for your buddy.'
+  - Line: "This specific terminal is connected to the right terminal with a specific
+      port. \nMaybe find a clue for it? Try to turn it on for your buddy."
     Clip: {fileID: 8300000, guid: 00eeaf23aa8d52b45b68e31c5ad9bca9, type: 3}
   Lines: []
   SayOnAwake: 0
