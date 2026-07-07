@@ -2,6 +2,8 @@
 Code Escape Together is a capstone project for Braude College.
 It's an 2-player co-op (cooperative) escape room game that is meant to help beginners and teengers to enter the programming world using visual programming language blocks.
 
+The source code itself resides in the `Project` folder.
+
 System Requirements:
 - Memory: 8 GB
 - GPU: DirectX11 or 12 compatible GPU
