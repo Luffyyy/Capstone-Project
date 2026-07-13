@@ -1,3 +1,4 @@
 Installer.exe filter=lfs diff=lfs merge=lfs -text
 Code[[:space:]]Escape[[:space:]]Together.exe filter=lfs diff=lfs merge=lfs -text
 Code[[:space:]]Escape[[:space:]]Together.apk filter=lfs diff=lfs merge=lfs -text
+Demo.mp4 filter=lfs diff=lfs merge=lfs -text
